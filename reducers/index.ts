@@ -1,11 +1,11 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { AnyAction, combineReducers } from 'redux';
 import user, { IUserReducerState } from './user';
-import post, { IPostReducerState } from './post';
+import post, { IPostState } from './post';
 
 export interface IReducerState {
   user: IUserReducerState;
-  post: IPostReducerState;
+  post: IPostState;
 }
 
 //(이전 상태 , 액션)=> 다음 상태
