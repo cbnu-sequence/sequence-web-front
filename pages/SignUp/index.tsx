@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from './styles';
 import useInput from "../../hooks/useInput"
+import KakaoBtn from '../../components/KakaoBtn';
 
 const Index = () => {
   const [signUpError, setSignUpError] = useState(false);
@@ -71,6 +72,7 @@ const onSubmit=useCallback((e)=>{
         </Label>
         <Button type="submit">회원가입</Button>
       </Form>
+      <KakaoBtn/>
       <LinkContainer>
         이미 회원이신가요?&nbsp;
         <a href="/login">로그인 하러가기</a>
