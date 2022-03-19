@@ -7,7 +7,7 @@ export const initialState = {
   signUpError: null,
   logInLoading: false, // 로그인 시도중
   logInDone: false,
-  logInError: false,
+  logInError: null,
   logOutLoading: false, // 로그아웃 시도중
   logOutDone: false,
   logOutError: null,

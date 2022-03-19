@@ -1,9 +1,13 @@
 import React, { useCallback, useState } from 'react';
 import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from './styles';
-import useInput from "../../hooks/useInput"
+import useInput from '../../hooks/useInput';
 import KakaoBtn from '../../components/KakaoBtn';
+import { useQuery } from 'react-query';
+import { signUpAPI } from '../../apis/user';
+import Router from 'next/router';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [signUpError, setSignUpError] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);
@@ -28,10 +32,22 @@ const Index = () => {
     [password, setPasswordCheck],
   );
 
-const onSubmit=useCallback((e)=>{
-  e.preventDefault();
-  console.log(email,nickname,password,passwordCheck)
-},[email,nickname,password,passwordCheck])
+  const onSubmit = useCallback(() => {
+    if (password !== passwordCheck) {
+      return setMismatchError(true);
+    }
+    setIsLoading(true);
+    signUpAPI({ email, password, nickname })
+      .then(() => {
+        Router.replace('/');
+      })
+      .catch((error) => {
+        alert(error.response.data);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [email, nickname, password, passwordCheck]);
   return (
     <div id="container">
       <Header>Sequence</Header>
@@ -72,7 +88,7 @@ const onSubmit=useCallback((e)=>{
         </Label>
         <Button type="submit">회원가입</Button>
       </Form>
-      <KakaoBtn/>
+      <KakaoBtn />
       <LinkContainer>
         이미 회원이신가요?&nbsp;
         <a href="/login">로그인 하러가기</a>

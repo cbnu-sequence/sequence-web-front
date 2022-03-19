@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Spinner from '../components/Spinner';
+import Spinner from './Spinner';
 import { KAKAO_LOG_IN_REQUEST } from '../reducers/user';
 
 function OAuth2RedirectHandler() {
   const dispatch = useDispatch();
+
   let code = new URL(window.location.href).searchParams.get('code');
+
   console.log(code);
   useEffect(() => {
     dispatch({
@@ -13,6 +15,7 @@ function OAuth2RedirectHandler() {
       data: code,
     });
   });
+
   return <Spinner />;
 }
 
