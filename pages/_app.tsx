@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import 'antd/dist/antd.css';
 import wrapper from '../store/configureStore';
 
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';

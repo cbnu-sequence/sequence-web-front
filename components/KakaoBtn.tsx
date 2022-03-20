@@ -3,7 +3,10 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 
 const KaKaoBtn = styled.button`
-  background-image: url('../public/kakao.png');
+  border: none;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-image: url('/kakao.png');
 `;
 
 const KakaoBtn = () => {
