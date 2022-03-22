@@ -37,6 +37,5 @@ yarn-error.log*
 .idea
 
 #env
-config
 config/config.ts
 config.ts
