@@ -1,0 +1,5 @@
+const KAKAO_KEY = ' ';
+const REDIRECT_URI = ' ';
+
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+export const backUrl = ' ';
