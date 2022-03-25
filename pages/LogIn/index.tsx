@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import { AxiosError } from 'axios';
 import User from '../../interfaces/user';
+import Link from 'next/link';
 function LogIn() {
   const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +52,9 @@ function LogIn() {
         <KakaoBtn />
         <LinkContainer>
           회원이 아니신가요?&nbsp;
-          <a href="/signup">회원가입 하러가기</a>
+          <Link href="/SignUp">
+            <a>회원가입 하러가기</a>
+          </Link>
         </LinkContainer>
       </Form>
     </div>
