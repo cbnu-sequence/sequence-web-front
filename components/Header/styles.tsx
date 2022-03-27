@@ -30,6 +30,9 @@ export const HeaderDiv = styled.div<HeaderProps>`
   .header__right {
     list-style: none;
     display: flex;
+    & > li {
+      cursor: pointer;
+    }
   }
 
   .header__right div {

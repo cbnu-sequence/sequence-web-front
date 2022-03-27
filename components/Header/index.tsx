@@ -1,17 +1,24 @@
 import Link from 'next/link';
-import React, { ReactElement, useState } from 'react';
-import { useQuery } from 'react-query';
-import { loadMyInfoAPI } from '../../apis/user';
-import User from '../../interfaces/user';
+import React, { ReactElement, useCallback, useEffect, useState } from 'react';
+import { loadMyInfoAPI, logOutAPI } from '../../apis/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { queryKeys } from '../../react-query/constants';
 import { HeaderDiv } from './styles';
+import { useUser } from '../../hooks/useUser';
+import { useQuery } from 'react-query';
+import { User } from '../../interfaces/user';
+import { queryKeys } from '../../react-query/constants';
 
-function Header(): ReactElement {
+function Header() {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
+  const { clearUser } = useUser();
   const { data: me } = useQuery<User>(queryKeys.user, loadMyInfoAPI);
+
+  const onLogOut = useCallback(() => {
+    logOutAPI();
+    clearUser();
+  }, []);
 
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
@@ -58,7 +65,7 @@ function Header(): ReactElement {
                 <a>프로필</a>
               </Link>
             </li>
-            <li>
+            <li onClick={onLogOut}>
               <a>로그아웃</a>
             </li>
           </>

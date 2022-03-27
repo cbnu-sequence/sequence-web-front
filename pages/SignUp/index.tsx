@@ -5,6 +5,7 @@ import KakaoBtn from '../../components/KakaoBtn';
 import { signUpAPI } from '../../apis/user';
 import Router from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const Index = () => {
   const [signUpError, setSignUpError] = useState(false);
@@ -13,7 +14,7 @@ const Index = () => {
   const [email, onChangeEmail] = useInput('');
   const [name, onChangeName] = useInput('');
   const [password, , setPassword] = useInput('');
-  const [phoneNumber, setPhoneNumber] = useInput('');
+  const [phoneNumber, onChangePhoneNumber] = useInput('');
   const [passwordCheck, , setPasswordCheck] = useInput('');
 
   const onChangePassword = useCallback(
@@ -32,22 +33,30 @@ const Index = () => {
     [password, setPasswordCheck],
   );
 
-  const onSubmit = useCallback(() => {
-    signUpAPI({ email, password, name, phoneNumber })
-      .then(() => {
-        Router.replace('/emailcheck');
-      })
-      .catch((error) => {
-        alert(error.response.data);
-      });
-  }, [email, name, password, phoneNumber]);
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      signUpAPI({ email, password, name, phoneNumber })
+        .then(() => {
+          Router.replace('/emailcheck');
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
+    [email, name, password, phoneNumber],
+  );
   return (
     <>
       <Head>
         <title>회원가입 | Together</title>
       </Head>
       <div id="container">
-        <Header>Sequence</Header>
+        <Header>
+          <Link href="/">
+            <a>Sequence</a>
+          </Link>
+        </Header>
         <Form onSubmit={onSubmit}>
           <Label id="email-label">
             <span>이메일 주소</span>
@@ -55,16 +64,22 @@ const Index = () => {
               <Input type="email" id="email" name="email" value={email} onChange={onChangeEmail} />
             </div>
           </Label>
-          <Label id="nickname-label">
+          <Label id="name-label">
             <span>이름</span>
             <div>
-              <Input type="text" id="nickname" name="name" value={name} onChange={onChangeName} />
+              <Input type="text" id="name" name="name" value={name} onChange={onChangeName} />
             </div>
           </Label>
           <Label id="phonenumber-label">
             <span>전화번호</span>
             <div>
-              <Input type="text" id="phonenumber" name="phoneNumber" value={phoneNumber} onChange={onChangeName} />
+              <Input
+                type="text"
+                id="phonenumber"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={onChangePhoneNumber}
+              />
             </div>
           </Label>
           <Label id="password-label">

@@ -1,20 +1,25 @@
 import React, { useCallback } from 'react';
 import { tokenConfirmAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
-import { Form, Header, Input, Label } from '../SignUp/styles';
+import { Button, Form, Header, Input, Label } from '../SignUp/styles';
 import Router from 'next/router';
+
 function Emailcheck() {
   const [token, onChangeToken] = useInput('');
-  const onSubmit = useCallback(() => {
-    tokenConfirmAPI(token)
-      .then(() => {
-        alert('이메일 인증에 성공했습니다');
-        Router.replace('/');
-      })
-      .catch((error) => {
-        alert(error.response.data);
-      });
-  }, [token]);
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      tokenConfirmAPI({ token })
+        .then(() => {
+          alert('이메일 인증에 성공했습니다');
+          Router.replace('/');
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
+    [token],
+  );
   return (
     <div id="contatiner">
       <Header>이메일 인증</Header>
@@ -31,6 +36,7 @@ function Emailcheck() {
             />
           </div>
         </Label>
+        <Button type="submit">인증번호 확인</Button>
       </Form>
     </div>
   );

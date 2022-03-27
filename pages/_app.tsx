@@ -17,7 +17,8 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Hydrate state={pageProps.dehydratedState}>
           <Head>
             <meta charSet="utf-8" />
-            <title>Together</title>
+            <link rel="shortcut icon" href="/favicon.jpeg" />
+            <title>시퀀스</title>
           </Head>
           <Component {...pageProps} />
           <ReactQueryDevtools initialIsOpen={false} />

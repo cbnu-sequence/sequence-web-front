@@ -1,10 +1,11 @@
 import Post from './post';
 
-export default interface User {
-  id: number;
+export interface User {
+  _id: String;
   email: string;
-  nickname: string;
-  Followings: User[];
-  Followers: User[];
-  Posts: Post[];
+  name: string;
+  posts: Post[];
+  createdAt: Date;
+  updatedAt: Date;
+  __v: number;
 }
