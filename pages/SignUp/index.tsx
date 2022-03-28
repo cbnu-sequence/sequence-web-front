@@ -7,9 +7,8 @@ import Router from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const Index = () => {
+const SignUp = () => {
   const [signUpError, setSignUpError] = useState(false);
-  const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [name, onChangeName] = useInput('');
@@ -41,7 +40,7 @@ const Index = () => {
           Router.replace('/emailcheck');
         })
         .catch((error) => {
-          alert(error);
+          setSignUpError(true);
         });
     },
     [email, name, password, phoneNumber],
@@ -102,11 +101,10 @@ const Index = () => {
             {mismatchError && <Error>비밀번호가 일치하지 않습니다.</Error>}
             {!name && <Error>이름을 입력해주세요.</Error>}
             {signUpError && <Error>이미 가입된 이메일입니다.</Error>}
-            {signUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
           </Label>
           <Button type="submit">회원가입</Button>
+          <KakaoBtn />
         </Form>
-        <KakaoBtn />
         <LinkContainer>
           이미 회원이신가요?&nbsp;
           <a href="/login">로그인 하러가기</a>
@@ -116,4 +114,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default SignUp;

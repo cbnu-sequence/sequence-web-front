@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import { tokenConfirmAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
-import { Button, Form, Header, Input, Label } from '../SignUp/styles';
+import { Button, Form, Header, Input, Label } from '../signup/styles';
 import Router from 'next/router';
 
 function Emailcheck() {
   const [token, onChangeToken] = useInput('');
+
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -20,6 +21,7 @@ function Emailcheck() {
     },
     [token],
   );
+
   return (
     <div id="contatiner">
       <Header>이메일 인증</Header>

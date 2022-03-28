@@ -40,3 +40,6 @@ yarn-error.log*
 config
 config/config.ts
 config.ts
+
+#mockData
+mocks/mockData.js

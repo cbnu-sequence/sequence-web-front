@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { logInAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
-import { Button, Form, Header, Input, Label, LinkContainer } from '../SignUp/styles';
+import { Button, Form, Header, Input, Label, LinkContainer } from '../signup/styles';
 import KakaoBtn from '../../components/KakaoBtn';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -52,7 +52,7 @@ function LogIn() {
           <KakaoBtn />
           <LinkContainer>
             회원이 아니신가요?&nbsp;
-            <Link href="/SignUp">
+            <Link href="/signup">
               <a>회원가입 하러가기</a>
             </Link>
           </LinkContainer>

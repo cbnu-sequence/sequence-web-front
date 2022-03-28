@@ -1,24 +1,23 @@
 import Link from 'next/link';
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
-import { loadMyInfoAPI, logOutAPI } from '../../apis/user';
+import { logOutAPI } from '../../apis/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
-import { useQuery } from 'react-query';
-import { User } from '../../interfaces/user';
-import { queryKeys } from '../../react-query/constants';
 
 function Header() {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
-  const { clearUser } = useUser();
-  const { data: me } = useQuery<User>(queryKeys.user, loadMyInfoAPI);
+  const { user: me, clearUser } = useUser();
 
   const onLogOut = useCallback(() => {
-    logOutAPI();
-    clearUser();
-  }, []);
+    try {
+      logOutAPI().then(clearUser);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [clearUser]);
 
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
@@ -72,12 +71,12 @@ function Header() {
         ) : (
           <>
             <li>
-              <Link href="/LogIn">
+              <Link href="/login">
                 <a>로그인</a>
               </Link>
             </li>
             <li>
-              <Link href="/SignUp">
+              <Link href="/signup">
                 <a>회원가입</a>
               </Link>
             </li>
