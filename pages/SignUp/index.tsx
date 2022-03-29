@@ -2,19 +2,26 @@ import React, { useCallback, useState } from 'react';
 import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from './styles';
 import useInput from '../../hooks/useInput';
 import KakaoBtn from '../../components/KakaoBtn';
-import { useQuery } from 'react-query';
-import { signUpAPI } from '../../apis/user';
 import Router from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useUser } from '../../hooks/useUser';
+import { useAuth } from '../../hooks/useAuth';
 
-const Index = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const SignUp = () => {
   const [signUpError, setSignUpError] = useState(false);
-  const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);
   const [email, onChangeEmail] = useInput('');
-  const [nickname, onChangeNickname] = useInput('');
+  const [name, onChangeName] = useInput('');
   const [password, , setPassword] = useInput('');
+  const [phoneNumber, onChangePhoneNumber] = useInput('');
   const [passwordCheck, , setPasswordCheck] = useInput('');
+  const { signup } = useAuth();
+  const { user } = useUser();
+
+  if (user) {
+    Router.replace('/');
+  }
 
   const onChangePassword = useCallback(
     (e) => {
@@ -32,69 +39,89 @@ const Index = () => {
     [password, setPasswordCheck],
   );
 
-  const onSubmit = useCallback(() => {
-    if (password !== passwordCheck) {
-      return setMismatchError(true);
-    }
-    setIsLoading(true);
-    signUpAPI({ email, password, nickname })
-      .then(() => {
-        Router.replace('/');
-      })
-      .catch((error) => {
-        alert(error.response.data);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [email, nickname, password, passwordCheck]);
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      signup({ email, password, name, phoneNumber })
+        .then(() => {
+          if (user) {
+            Router.replace('/emailcheck');
+          }
+        })
+        .catch((error) => {
+          setSignUpError(true);
+        });
+    },
+    [email, name, password, phoneNumber],
+  );
+
   return (
-    <div id="container">
-      <Header>Sequence</Header>
-      <Form onSubmit={onSubmit}>
-        <Label id="email-label">
-          <span>이메일 주소</span>
-          <div>
-            <Input type="email" id="email" name="email" value={email} onChange={onChangeEmail} />
-          </div>
-        </Label>
-        <Label id="nickname-label">
-          <span>닉네임</span>
-          <div>
-            <Input type="text" id="nickname" name="nickname" value={nickname} onChange={onChangeNickname} />
-          </div>
-        </Label>
-        <Label id="password-label">
-          <span>비밀번호</span>
-          <div>
-            <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
-          </div>
-        </Label>
-        <Label id="password-check-label">
-          <span>비밀번호 확인</span>
-          <div>
-            <Input
-              type="password"
-              id="password-check"
-              name="password-check"
-              value={passwordCheck}
-              onChange={onChangePasswordCheck}
-            />
-          </div>
-          {mismatchError && <Error>비밀번호가 일치하지 않습니다.</Error>}
-          {!nickname && <Error>닉네임을 입력해주세요.</Error>}
-          {signUpError && <Error>이미 가입된 이메일입니다.</Error>}
-          {signUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
-        </Label>
-        <Button type="submit">회원가입</Button>
-      </Form>
-      <KakaoBtn />
-      <LinkContainer>
-        이미 회원이신가요?&nbsp;
-        <a href="/login">로그인 하러가기</a>
-      </LinkContainer>
-    </div>
+    <>
+      <Head>
+        <title>회원가입 | Together</title>
+      </Head>
+      <div id="container">
+        <Header>
+          <Link href="/">
+            <a>Sequence</a>
+          </Link>
+        </Header>
+        <Form onSubmit={onSubmit}>
+          <Label id="email-label">
+            <span>이메일 주소</span>
+            <div>
+              <Input type="email" id="email" name="email" value={email} onChange={onChangeEmail} />
+            </div>
+          </Label>
+          <Label id="name-label">
+            <span>이름</span>
+            <div>
+              <Input type="text" id="name" name="name" value={name} onChange={onChangeName} />
+            </div>
+          </Label>
+          <Label id="phonenumber-label">
+            <span>전화번호</span>
+            <div>
+              <Input
+                type="text"
+                id="phonenumber"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={onChangePhoneNumber}
+              />
+            </div>
+          </Label>
+          <Label id="password-label">
+            <span>비밀번호</span>
+            <div>
+              <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
+            </div>
+          </Label>
+          <Label id="password-check-label">
+            <span>비밀번호 확인</span>
+            <div>
+              <Input
+                type="password"
+                id="password-check"
+                name="password-check"
+                value={passwordCheck}
+                onChange={onChangePasswordCheck}
+              />
+            </div>
+            {mismatchError && <Error>비밀번호가 일치하지 않습니다.</Error>}
+            {!name && <Error>이름을 입력해주세요.</Error>}
+            {signUpError && <Error>이미 가입된 이메일입니다.</Error>}
+          </Label>
+          <Button type="submit">회원가입</Button>
+          <KakaoBtn />
+        </Form>
+        <LinkContainer>
+          이미 회원이신가요?&nbsp;
+          <Link href="/login">로그인 하러가기</Link>
+        </LinkContainer>
+      </div>
+    </>
   );
 };
 
-export default Index;
+export default SignUp;

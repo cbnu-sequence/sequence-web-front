@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import Spinner from './Spinner';
-import { KAKAO_LOG_IN_REQUEST } from '../reducers/user';
+import { kakaoLogInAPI } from '../apis/user';
+import Router from 'next/router';
+import { useUser } from '../hooks/useUser';
 
 function OAuth2RedirectHandler() {
-  const dispatch = useDispatch();
-
-  let code = new URL(window.location.href).searchParams.get('code');
-
-  console.log(code);
   useEffect(() => {
-    dispatch({
-      type: KAKAO_LOG_IN_REQUEST,
-      data: code,
+    const code = new URL(window.location.href).searchParams.get('code');
+    const kakaoLogIn = async () => {
+      try {
+        await kakaoLogInAPI(code);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    kakaoLogIn().then((res) => {
+      alert(res);
+      Router.replace('/');
     });
   });
 
