@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { logInAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
 import { Button, Form, Header, Input, Label, LinkContainer } from '../signup/styles';
 import KakaoBtn from '../../components/KakaoBtn';
@@ -7,21 +6,25 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useUser } from '../../hooks/useUser';
 import Router from 'next/router';
+import { useAuth } from '../../hooks/useAuth';
+import { KAKAO_AUTH_URL } from '../../config/config';
 
 function LogIn() {
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
+  const { login } = useAuth();
   const { user } = useUser();
+
+  if (user) {
+    Router.replace('/');
+  }
 
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      logInAPI({ email, password });
-      if (user) {
-        Router.replace('/');
-      }
+      login({ email, password });
     },
-    [email, password, user],
+    [email, password],
   );
 
   return (
@@ -49,7 +52,9 @@ function LogIn() {
             </div>
           </Label>
           <Button type="submit">로그인</Button>
-          <KakaoBtn />
+          <Link href={KAKAO_AUTH_URL}>
+            <img src="/kakao.png" />
+          </Link>
           <LinkContainer>
             회원이 아니신가요?&nbsp;
             <Link href="/signup">

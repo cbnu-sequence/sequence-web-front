@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { sqBlack } from '../../styles/constants';
 
 type HeaderProps = {
   isToggled: boolean;
@@ -69,13 +70,16 @@ export const HeaderDiv = styled.div<HeaderProps>`
       display: ${(props) => (props.isToggled ? 'flex' : 'none')};
       flex-direction: column;
       width: 100%;
-      background-color: black;
+      background-color: ${sqBlack};
     }
 
     .header__menulist li,
     .header__right li {
       margin: 1rem 0;
       padding: 0;
+      & > a {
+        background-color: ${sqBlack};
+      }
     }
 
     .toggle {

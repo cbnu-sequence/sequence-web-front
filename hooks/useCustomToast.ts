@@ -8,7 +8,6 @@ interface UseCustomToast {
   isActive: (id: ToastId) => boolean | undefined;
 }
 
-// a wrapper around Chakra UI's useToast that has my default options applied
 export function useCustomToast(): UseCustomToast {
   return useToast({
     isClosable: true,

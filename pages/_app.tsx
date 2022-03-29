@@ -14,6 +14,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   if (!queryClientRef.current) {
     queryClientRef.current = new QueryClient();
   }
+
   return (
     <>
       <ChakraProvider theme={theme}>

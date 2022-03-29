@@ -2,10 +2,11 @@ import React, { useCallback, useState } from 'react';
 import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from './styles';
 import useInput from '../../hooks/useInput';
 import KakaoBtn from '../../components/KakaoBtn';
-import { signUpAPI } from '../../apis/user';
 import Router from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useUser } from '../../hooks/useUser';
+import { useAuth } from '../../hooks/useAuth';
 
 const SignUp = () => {
   const [signUpError, setSignUpError] = useState(false);
@@ -15,6 +16,12 @@ const SignUp = () => {
   const [password, , setPassword] = useInput('');
   const [phoneNumber, onChangePhoneNumber] = useInput('');
   const [passwordCheck, , setPasswordCheck] = useInput('');
+  const { signup } = useAuth();
+  const { user } = useUser();
+
+  if (user) {
+    Router.replace('/');
+  }
 
   const onChangePassword = useCallback(
     (e) => {
@@ -35,9 +42,11 @@ const SignUp = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      signUpAPI({ email, password, name, phoneNumber })
+      signup({ email, password, name, phoneNumber })
         .then(() => {
-          Router.replace('/emailcheck');
+          if (user) {
+            Router.replace('/emailcheck');
+          }
         })
         .catch((error) => {
           setSignUpError(true);
@@ -45,6 +54,7 @@ const SignUp = () => {
     },
     [email, name, password, phoneNumber],
   );
+
   return (
     <>
       <Head>
@@ -107,7 +117,7 @@ const SignUp = () => {
         </Form>
         <LinkContainer>
           이미 회원이신가요?&nbsp;
-          <a href="/login">로그인 하러가기</a>
+          <Link href="/login">로그인 하러가기</Link>
         </LinkContainer>
       </div>
     </>

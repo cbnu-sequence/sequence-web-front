@@ -1,9 +1,16 @@
 import { useQuery, useQueryClient } from 'react-query';
-import { loadMyInfoAPI } from '../apis/user';
 
 import { User } from '../interfaces/user';
 import { queryKeys } from '../react-query/constants';
-// query function
+import { AxiosResponse } from 'axios';
+import { axiosInstance } from '../axiosInstance';
+import { clearStoredUser, getStoredUser, setStoredUser } from '../user-storage/user-storage';
+
+async function getUser(userId: string): Promise<User> {
+  const { data }: AxiosResponse<{ user: User }> = await axiosInstance.get('auth/me');
+
+  return data.user;
+}
 
 interface UseUser {
   user: User | null;
@@ -14,10 +21,18 @@ interface UseUser {
 export function useUser(): UseUser {
   const queryClient = useQueryClient();
 
-  // call useQuery to update user data from server
-  const { data: user } = useQuery(queryKeys.user, loadMyInfoAPI);
+  const { data: user } = useQuery(queryKeys.user, () => getUser(user), {
+    initialData: getStoredUser,
+    onSuccess: (received: null | User) => {
+      if (!received) {
+        clearStoredUser();
+      } else {
+        setStoredUser(received._id);
+      }
+    },
+  });
 
-  function updateUser(newUser: User): void {
+  function updateUser(newUser): void {
     queryClient.setQueryData(queryKeys.user, newUser);
   }
 
