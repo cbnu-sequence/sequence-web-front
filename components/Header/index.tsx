@@ -32,7 +32,9 @@ function Header() {
       </div>
       <div className="logo">
         <Link href="/">
-          <a>로고이미지</a>
+          <a>
+            <img src="/logotype.png" />
+          </a>
         </Link>
       </div>
       <div

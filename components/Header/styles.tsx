@@ -16,7 +16,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
   .logo {
     margin: 0 1rem;
-    font-size: 2rem;
+    & > a {
+      & > img {
+        width: 120px;
+        height: 50px;
+      }
+    }
   }
 
   .header__menulist {
