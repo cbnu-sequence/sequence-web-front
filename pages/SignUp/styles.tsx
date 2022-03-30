@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { sqBlack, sqRed, sqWhite } from '../../styles/constants';
+
 export const Header = styled.header`
   text-align: center;
   font-family: Slack-Larsseit, Helvetica Neue, Helvetica, Segoe UI, Tahoma, Arial, sans-serif;

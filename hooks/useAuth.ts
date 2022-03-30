@@ -3,6 +3,7 @@ import { useCustomToast } from './useCustomToast';
 import axios, { AxiosResponse } from 'axios';
 import { useUser } from './useUser';
 import { axiosInstance } from '../axiosInstance';
+import { loadMyInfoAPI, logOutAPI } from '../apis/user';
 
 interface UseAuth {
   login: (data: LogInData) => Promise<void>;
@@ -40,7 +41,7 @@ export function useAuth(): UseAuth {
           title: `시퀀스에 로그인 하신 것을 환영합니다`,
           status: 'info',
         });
-        updateUser(data);
+        updateUser(await loadMyInfoAPI());
       }
     } catch (errorResponse) {
       const title =
@@ -64,9 +65,9 @@ export function useAuth(): UseAuth {
 
   function signout(): void {
     // clear user from stored user data
-    clearUser();
+    logOutAPI().then(clearUser);
     toast({
-      title: 'Logged out!',
+      title: '로그아웃에 성공했습니다!',
       status: 'info',
     });
   }

@@ -1,3 +1,5 @@
+import { User } from '../interfaces/user';
+
 const USER_LOCALSTORAGE_KEY = 'sequence_user';
 
 export function getStoredUser(): String {
@@ -7,9 +9,9 @@ export function getStoredUser(): String {
   }
 }
 
-export function setStoredUser(userId: string): void {
+export function setStoredUser(user: User): void {
   if (typeof window !== 'undefined') {
-    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(userId));
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(user));
   }
 }
 
