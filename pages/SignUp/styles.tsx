@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
+import { sqBlack, sqRed, sqWhite } from '../../styles/constants';
 
 export const Header = styled.header`
-  text-align: center;
-  font-family: Slack-Larsseit, Helvetica Neue, Helvetica, Segoe UI, Tahoma, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 46px;
-  letter-spacing: -0.75px;
+  justify-content: center;
+  display: flex;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+
+  & > img {
+    width: 324px;
+    height: 102px;
+  }
 `;
 
 export const Form = styled.form`
@@ -50,7 +52,13 @@ export const Input = styled.input`
 
   &:focus {
     --saf-0: rgba(var(--sk_highlight, 18, 100, 163), 1);
-    box-shadow: 0 0 0 1px var(--saf-0), 0 0 0 5px rgba(29, 155, 209, 0.3);
+    box-shadow: 0 0 0 1px var(--saf-0), 3px -3px 5px rgba(223, 223, 223, 0.7);
+    border: none;
+    background-color: #ffffff;
+  }
+  &:hover {
+    background-color: rgba(223, 223, 223, 2%);
+    border: 1px solid var(--saf-0);
   }
 `;
 
@@ -59,7 +67,7 @@ export const Button = styled.button`
   width: 100%;
   max-width: 100%;
   color: #fff;
-  background-color: #4a154b;
+  background-color: ${sqBlack};
   border: none;
   font-size: 18px;
   font-weight: 900;
@@ -74,7 +82,8 @@ export const Button = styled.button`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    background-color: rgba(74, 21, 75, 0.9);
+    background-color: ${sqRed};
+    transition: all ease 0.2s 0.1s;
     border: none;
   }
   &:focus {
@@ -110,4 +119,8 @@ export const LinkContainer = styled.p`
       text-decoration: underline;
     }
   }
+`;
+
+export const exampleDiv = styled.div`
+  color: red;
 `;
