@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import React, { ReactElement, useCallback, useEffect, useState } from 'react';
-import { logOutAPI } from '../../apis/user';
+import React, { useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HeaderDiv } from './styles';

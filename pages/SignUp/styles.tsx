@@ -120,3 +120,7 @@ export const LinkContainer = styled.p`
     }
   }
 `;
+
+export const exampleDiv = styled.div`
+  color: red;
+`;

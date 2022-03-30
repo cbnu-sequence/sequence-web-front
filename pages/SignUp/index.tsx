@@ -109,7 +109,6 @@ const SignUp = () => {
               />
             </div>
             {mismatchError && <Error>비밀번호가 일치하지 않습니다.</Error>}
-            {!name && <Error>이름을 입력해주세요.</Error>}
             {signUpError && <Error>이미 가입된 이메일입니다.</Error>}
           </Label>
           <div id="sign-up-btns">
