@@ -35,7 +35,7 @@ function LogIn() {
       <div id="container">
         <Header>
           <Link href="/">
-            <a>Sequence</a>
+            <img src="/logotype.png" />
           </Link>
         </Header>
         <Form onSubmit={onSubmit}>
@@ -52,9 +52,7 @@ function LogIn() {
             </div>
           </Label>
           <Button type="submit">로그인</Button>
-          <Link href={KAKAO_AUTH_URL}>
-            <img src="/kakao.png" />
-          </Link>
+          <KakaoBtn />
           <LinkContainer>
             회원이 아니신가요?&nbsp;
             <Link href="/signup">
