@@ -22,7 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Hydrate state={pageProps.dehydratedState}>
             <Head>
               <meta charSet="utf-8" />
-              <link rel="shortcut icon" href="/favicon.jpeg" />
+              <link rel="shortcut icon" href="/favicon.png" />
               <title>시퀀스</title>
             </Head>
             <Component {...pageProps} />

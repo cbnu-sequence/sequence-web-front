@@ -7,6 +7,7 @@ function Profile() {
   const { user } = useUser();
   if (!user) {
     Router.replace('/');
+    return null;
   }
 
   return (
