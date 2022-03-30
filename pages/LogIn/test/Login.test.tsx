@@ -11,5 +11,5 @@ test('UItest', () => {
 
   const LinkTest = screen.getAllByRole('link');
   //console.log(LinkTest);
-  expect(LinkTest).toHaveLength(2);
+  expect(LinkTest).toHaveLength(3);
 });
