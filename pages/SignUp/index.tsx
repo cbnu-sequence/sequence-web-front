@@ -63,7 +63,7 @@ const SignUp = () => {
       <div id="container">
         <Header>
           <Link href="/">
-            <a>Sequence</a>
+            <img src="/logotype.png" />
           </Link>
         </Header>
         <Form onSubmit={onSubmit}>
@@ -112,8 +112,10 @@ const SignUp = () => {
             {!name && <Error>이름을 입력해주세요.</Error>}
             {signUpError && <Error>이미 가입된 이메일입니다.</Error>}
           </Label>
-          <Button type="submit">회원가입</Button>
-          <KakaoBtn />
+          <div id="sign-up-btns">
+            <Button type="submit">회원가입</Button>
+            <KakaoBtn />
+          </div>
         </Form>
         <LinkContainer>
           이미 회원이신가요?&nbsp;

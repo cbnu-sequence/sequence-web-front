@@ -6,13 +6,19 @@ const KaKaoBtn = styled.button`
   border: none;
   background-repeat: no-repeat;
   background-size: auto;
-  background-image: url('/kakao.png');
+  width: 200px;
+  height: 50px;
+  & > img {
+    border-radius: 6px;
+  }
 `;
 
 const KakaoBtn = () => {
   return (
     <KaKaoBtn>
-      <Link href={KAKAO_AUTH_URL}>카카오로그인</Link>
+      <Link href={KAKAO_AUTH_URL}>
+        <img src="/kakao.png" />
+      </Link>
     </KaKaoBtn>
   );
 };
