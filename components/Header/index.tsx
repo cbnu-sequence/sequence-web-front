@@ -31,7 +31,7 @@ function Header() {
       </div>
       <div className="logo">
         <Link href="/">
-          <a>로고이미지</a>
+          <img src="/sequence_w.png" />
         </Link>
       </div>
       <div

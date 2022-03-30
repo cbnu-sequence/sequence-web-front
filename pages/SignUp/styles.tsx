@@ -4,11 +4,12 @@ export const Header = styled.header`
   justify-content: center;
   display: flex;
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   & > img {
-    width: 324px;
-    height: 102px;
+    width: 320px;
+    height: 80px;
+    cursor: pointer;
   }
 `;
 
