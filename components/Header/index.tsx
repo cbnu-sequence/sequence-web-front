@@ -1,23 +1,23 @@
 import Link from 'next/link';
-import React, { ReactElement, useCallback, useEffect, useState } from 'react';
-import { logOutAPI } from '../../apis/user';
+import React, { useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
+import { useAuth } from '../../hooks/useAuth';
 
 function Header() {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
-  const { user: me, clearUser } = useUser();
-
+  const { user: me } = useUser();
+  const { signout } = useAuth();
   const onLogOut = useCallback(() => {
     try {
-      logOutAPI().then(clearUser);
+      signout();
     } catch (err) {
       console.log(err);
     }
-  }, [clearUser]);
+  }, []);
 
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>

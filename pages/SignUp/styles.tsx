@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { sqBlack, sqRed, sqWhite } from '../../styles/constants';
+
 export const Header = styled.header`
   justify-content: center;
   display: flex;
@@ -130,4 +131,8 @@ export const LinkContainer = styled.p`
       text-decoration: underline;
     }
   }
+`;
+
+export const exampleDiv = styled.div`
+  color: red;
 `;

@@ -5,12 +5,7 @@ import { queryKeys } from '../react-query/constants';
 import { AxiosResponse } from 'axios';
 import { axiosInstance } from '../axiosInstance';
 import { clearStoredUser, getStoredUser, setStoredUser } from '../user-storage/user-storage';
-
-async function getUser(userId: string): Promise<User> {
-  const { data }: AxiosResponse<{ user: User }> = await axiosInstance.get('auth/me');
-
-  return data.user;
-}
+import { loadMyInfoAPI } from '../apis/user';
 
 interface UseUser {
   user: User | null;
@@ -21,19 +16,18 @@ interface UseUser {
 export function useUser(): UseUser {
   const queryClient = useQueryClient();
 
-  const { data: user } = useQuery(queryKeys.user, () => getUser(user), {
-    initialData: getStoredUser,
-    onSuccess: (received: null | User) => {
+  const { data: user } = useQuery(queryKeys.user, () => loadMyInfoAPI(), {
+    onSuccess: (received) => {
       if (!received) {
         clearStoredUser();
       } else {
-        setStoredUser(received._id);
+        setStoredUser(received.data);
       }
     },
   });
 
   function updateUser(newUser): void {
-    queryClient.setQueryData(queryKeys.user, newUser);
+    queryClient.setQueryData(queryKeys.user, newUser.data);
   }
 
   function clearUser() {

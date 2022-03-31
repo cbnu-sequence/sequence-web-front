@@ -1,9 +1,13 @@
 import { screen } from '@testing-library/react';
 import { renderWithQueryClient } from '../../test-utils';
 import Header from './index';
-import { matchers } from '@emotion/jest';
-import { sqBlack } from '../../styles/constants';
-expect.extend(matchers);
+import { mockUser } from '../../mocks/mockData';
+
+jest.mock('../../hooks/useUser', () => ({
+  __esModule: true,
+  useUser: () => ({ user: mockUser }),
+}));
+
 test('renders Header and check lists', async () => {
   renderWithQueryClient(<Header />);
 
