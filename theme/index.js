@@ -12,7 +12,7 @@ export const theme = extendTheme({
   },
   fonts: {
     body: 'Noto Sans KR, sans-serif',
-    heading: 'Forum, serif',
+    heading: 'Noto Sans KR, serif',
     mono: 'Menlo, monospace',
   },
   colors: {

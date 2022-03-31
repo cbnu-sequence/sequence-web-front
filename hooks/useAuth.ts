@@ -41,7 +41,7 @@ export function useAuth(): UseAuth {
           title: `시퀀스에 로그인 하신 것을 환영합니다`,
           status: 'info',
         });
-        updateUser(await loadMyInfoAPI());
+        updateUser(await loadMyInfoAPI(data));
       }
     } catch (errorResponse) {
       const title =
