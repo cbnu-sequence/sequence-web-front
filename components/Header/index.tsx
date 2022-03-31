@@ -31,9 +31,7 @@ function Header() {
       </div>
       <div className="logo">
         <Link href="/">
-          <a>
-            <img src="/logotype.png" />
-          </a>
+          <img src="/sequence_w.png" />
         </Link>
       </div>
       <div

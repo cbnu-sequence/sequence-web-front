@@ -5,12 +5,21 @@ export const Header = styled.header`
   justify-content: center;
   display: flex;
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   & > img {
-    width: 324px;
-    height: 102px;
+    width: 320px;
+    height: 80px;
+    cursor: pointer;
   }
+`;
+export const EmailHeader = styled.header`
+  justify-content: center;
+  display: flex;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: bolder;
 `;
 
 export const Form = styled.form`
@@ -47,7 +56,7 @@ export const Input = styled.input`
   height: 44px;
   padding-top: 11px;
   padding-bottom: 13px;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.33333333;
 
   &:focus {
@@ -55,6 +64,9 @@ export const Input = styled.input`
     box-shadow: 0 0 0 1px var(--saf-0), 3px -3px 5px rgba(223, 223, 223, 0.7);
     border: none;
     background-color: #ffffff;
+    ::placeholder {
+      color: #ffffff;
+    }
   }
   &:hover {
     background-color: rgba(223, 223, 223, 2%);

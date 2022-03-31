@@ -15,13 +15,9 @@ export const HeaderDiv = styled.div<HeaderProps>`
   background-color: black;
 
   .logo {
-    margin: 0 1rem;
-    & > a {
-      & > img {
-        width: 120px;
-        height: 50px;
-      }
-    }
+    margin: 8px 1rem;
+    width: 140px;
+    height: 35px;
   }
 
   .header__menulist {
