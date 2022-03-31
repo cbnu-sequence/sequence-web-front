@@ -4,7 +4,10 @@ import { backUrl } from '../config/config';
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
-export function loadMyInfoAPI() {
+export function loadMyInfoAPI(data) {
+  if (!data) {
+    return null;
+  }
   return axios.get('auth/me').then((response) => response.data);
 }
 
