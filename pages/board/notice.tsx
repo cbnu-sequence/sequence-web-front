@@ -2,6 +2,9 @@ import React from 'react';
 import Header from '../../components/Header';
 import Head from 'next/head';
 import { Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { SQTableContainer, SQTh } from './styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSort } from '@fortawesome/free-solid-svg-icons';
 
 const Notice = () => {
   return (
@@ -10,15 +13,17 @@ const Notice = () => {
         <title>시퀀스 | 공지사항</title>
       </Head>
       <Header />
-      <TableContainer style={{ margin: '10px auto' }} overflowX={'hidden'}>
+      <SQTableContainer overflowX={'hidden'}>
         <Table variant={'simple'}>
-          <Thead>
+          <SQTh>
             <Tr>
-              <Th>작성자</Th>
+              <Th>
+                작성자 <FontAwesomeIcon icon={faSort} />
+              </Th>
               <Th>카테고리</Th>
               <Th>제목</Th>
             </Tr>
-          </Thead>
+          </SQTh>
           <Tbody>
             <Td>김지원</Td>
             <Td>회의일정</Td>
@@ -28,7 +33,7 @@ const Notice = () => {
             </Td>
           </Tbody>
         </Table>
-      </TableContainer>
+      </SQTableContainer>
     </div>
   );
 };

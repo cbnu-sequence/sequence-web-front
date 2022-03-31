@@ -12,7 +12,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
   justify-content: space-between;
   align-items: center;
   color: white;
-  background-color: black;
+  background-color: ${sqBlack};
 
   .logo {
     margin: 0 1rem;
@@ -76,6 +76,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       flex-direction: column;
       width: 100%;
       background-color: ${sqBlack};
+      padding-left: 10px;
     }
 
     .header__menulist li,

@@ -56,7 +56,11 @@ function Header() {
           </Link>
         </li>
         <li>게시판</li>
-        <li>뽀모도로</li>
+        <li>
+          <Link href="/ppomodoro">
+            <a>뽀모도로</a>
+          </Link>
+        </li>
       </ul>
       <ul className="header__right">
         {me ? (
