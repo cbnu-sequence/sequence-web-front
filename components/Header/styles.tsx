@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack } from '../../styles/constants';
+import { sqBlack, sqWhite } from '../../styles/constants';
 
 type HeaderProps = {
   isToggled: boolean;
@@ -8,21 +8,58 @@ type HeaderProps = {
 
 export const HeaderDiv = styled.div<HeaderProps>`
   margin: 0 auto;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: ${sqWhite};
+  font-weight: 500;
+  font-size: 18px;
   background-color: ${sqBlack};
 
   .logo {
-    margin: 8px 1rem;
+    margin: 10px;
+    padding: 5px 10px;
     width: 140px;
-    height: 35px;
+    height: 40px;
+    cursor: pointer;
   }
 
   .header__menulist {
     list-style: none;
     display: flex;
+
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    & > li {
+      width: 100%;
+      cursor: pointer;
+      margin: 0px auto;
+    }
+  }
+
+  .header__menulist li ul {
+    list-style: none;
+    display: none;
+    position: ;
+  }
+
+  .header__menulist li:hover ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    position: absolute;
+    margin: 0 auto;
+    background-color: ${sqBlack};
+    & > li {
+      width: 100px;
+      text-align: center;
+      background-color: ${sqBlack};
+    }
   }
 
   .header__left {
@@ -34,15 +71,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
     display: flex;
     & > li {
       cursor: pointer;
+      padding: 10px;
     }
   }
 
   .header__right div {
     margin: 0 1rem;
-  }
-
-  li {
-    padding: 0 1rem;
   }
 
   .toggle {
