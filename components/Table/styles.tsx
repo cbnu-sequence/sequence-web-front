@@ -1,16 +1,26 @@
 import styled from '@emotion/styled';
-import { TableContainer, Thead, Tr } from '@chakra-ui/react';
+import { TableContainer, Td, Thead, Tr } from '@chakra-ui/react';
 import { sqBlack, sqWhite, sqRed } from '../../styles/constants';
-
-const TableRow = styled(Tr)``;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const SQTh = styled(Thead)`
   background-color: ${sqBlack};
   height: 50px;
   font-size: 32px;
+  color: ${sqWhite};
+  font-size: 15px;
 `;
 
 export const SQTableContainer = styled(TableContainer)`
   margin: 20px 20px;
   border: solid 1px rgba(${sqBlack}, 0.1);
+`;
+
+export const SQTd = styled(Td)`
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+export const CustomSortIcon = styled(FontAwesomeIcon)`
+  margin-left: 5px;
 `;

@@ -5,7 +5,7 @@ const USER_LOCALSTORAGE_KEY = 'sequence_user';
 export function getStoredUser(): String {
   if (typeof window !== 'undefined') {
     const storedUser = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-    return storedUser ? JSON.stringify(storedUser) : null;
+    return storedUser ? JSON.parse(storedUser) : null;
   }
 }
 

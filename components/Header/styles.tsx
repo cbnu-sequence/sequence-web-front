@@ -28,7 +28,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
   .header__menulist {
     list-style: none;
     display: flex;
-
+    width: 50%;
     margin: 0 auto;
     height: 100%;
     text-align: center;
@@ -44,7 +44,8 @@ export const HeaderDiv = styled.div<HeaderProps>`
   .header__menulist li ul {
     list-style: none;
     display: none;
-    position: ;
+    width: 20%;
+    right: 130px;
   }
 
   .header__menulist li:hover ul {
@@ -56,7 +57,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     margin: 0 auto;
     background-color: ${sqBlack};
     & > li {
-      width: 100px;
+      width: 100%;
       text-align: center;
       background-color: ${sqBlack};
     }
