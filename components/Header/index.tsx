@@ -57,7 +57,7 @@ function Header() {
           게시판
           <ul>
             <li>
-              <Link href="board/notice">공지사항</Link>
+              <Link href="/board/notice">공지사항</Link>
             </li>
             <li>
               <Link href="/board/projects">프로젝트</Link>
