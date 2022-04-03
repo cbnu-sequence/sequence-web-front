@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react';
 import { renderWithQueryClient } from '../../test-utils';
 import Header from './index';
 import { mockUser } from '../../mocks/mockData';
+import { useUser } from '../../hooks/useUser';
 
 jest.mock('../../hooks/useUser', () => ({
   __esModule: true,
