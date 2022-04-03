@@ -28,38 +28,33 @@ export const HeaderDiv = styled.div<HeaderProps>`
   .header__menulist {
     list-style: none;
     display: flex;
-    width: 50%;
-    margin: 0 auto;
+    white-space: nowrap;
     height: 100%;
     text-align: center;
     align-items: center;
     position: relative;
     & > li {
       width: 100%;
+      margin: 0px 20px;
       cursor: pointer;
-      margin: 0px auto;
+      position: relative;
     }
   }
 
   .header__menulist li ul {
     list-style: none;
     display: none;
-    width: 20%;
-    right: 130px;
   }
 
   .header__menulist li:hover ul {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: auto;
+    width: 200%;
     position: absolute;
-    margin: 0 auto;
     background-color: ${sqBlack};
     & > li {
-      width: 100%;
       text-align: center;
-      background-color: ${sqBlack};
     }
   }
 
