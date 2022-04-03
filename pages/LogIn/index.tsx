@@ -8,6 +8,7 @@ import { useUser } from '../../hooks/useUser';
 import Router from 'next/router';
 import { useAuth } from '../../hooks/useAuth';
 import { KAKAO_AUTH_URL } from '../../config/config';
+import { loadMyInfoAPI } from '../../apis/user';
 
 function LogIn() {
   const [email, onChangeEmail] = useInput('');
@@ -35,7 +36,7 @@ function LogIn() {
       <div id="container">
         <Header>
           <Link href="/">
-            <img src="/logotype.png" />
+            <img src="/sequence_b.png" />
           </Link>
         </Header>
         <Form onSubmit={onSubmit}>
