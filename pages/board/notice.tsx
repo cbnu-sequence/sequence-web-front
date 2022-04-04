@@ -13,12 +13,13 @@ import { noticeList } from '../../interfaces/post';
 const fallback = [];
 const Notice = () => {
   const [page, setPage] = useState(1);
-  const queryClient = useQueryClient();
-  useEffect(() => {
-    // assume increment of one month
-    const nextPage = page + 1;
-    queryClient.prefetchQuery([queryKeys.notice, page], () => getTable(queryKeys.notice, nextPage));
-  }, [queryClient, page]);
+  let no = 1;
+  // const queryClient = useQueryClient();
+  // useEffect(() => {
+  //   // assume increment of one month
+  //   const nextPage = page + 1;
+  //   queryClient.prefetchQuery([queryKeys.notice, page], () => getTable(queryKeys.notice, nextPage));
+  // }, [queryClient, page]);
 
   const { data: noticeList = fallback } = useQuery([queryKeys.notice, page], () => getTable(queryKeys.notice, page), {
     refetchOnMount: true,
@@ -26,8 +27,8 @@ const Notice = () => {
     refetchOnWindowFocus: true,
     refetchInterval: 60000,
   });
-
-  if (!noticeList) {
+  console.log(noticeList.data);
+  if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
   }
   return (
@@ -36,13 +37,13 @@ const Notice = () => {
         <title>시퀀스 | 공지사항</title>
       </Head>
       <Header />
-      <CommonTable headers={['번호', '작성자', '카테고리', '제목']}>
+      <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&
-          noticeList.map((item, index) => {
+          noticeList.data.map((item, index) => {
             return (
               <CommonTr key={index}>
-                <CommonTd>{item.no}.</CommonTd>
-                <CommonTd>{item.writer}</CommonTd>
+                <CommonTd>{no++}.</CommonTd>
+                <CommonTd>{item.writer.name}</CommonTd>
                 <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                 <CommonTd>{item.title}</CommonTd>
               </CommonTr>

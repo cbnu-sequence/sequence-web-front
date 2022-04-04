@@ -7,6 +7,7 @@ type HeaderProps = {
 };
 
 export const HeaderDiv = styled.div<HeaderProps>`
+  width: 100%;
   margin: 0 auto;
   height: 60px;
   display: flex;
@@ -32,29 +33,34 @@ export const HeaderDiv = styled.div<HeaderProps>`
     height: 100%;
     text-align: center;
     align-items: center;
-    position: relative;
     & > li {
-      width: 100%;
-      margin: 0px 20px;
+      margin: 0 20px;
+      display: flex;
+      align-items: center;
       cursor: pointer;
       position: relative;
+      height: 100%;
     }
   }
 
   .header__menulist li ul {
     list-style: none;
     display: none;
+    width: 100vw;
+    top: 30px;
+    margin-top: 20px;
+    right: 5vw;
   }
 
   .header__menulist li:hover ul {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    width: 200%;
     position: absolute;
-    background-color: ${sqBlack};
+
+    background-color: gray;
     & > li {
       text-align: center;
+      margin: 0 20px;
     }
   }
 
