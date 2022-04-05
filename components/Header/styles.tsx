@@ -7,7 +7,7 @@ type HeaderProps = {
 };
 
 export const HeaderDiv = styled.div<HeaderProps>`
-  width: 100%;
+  width: 100vw;
   margin: 0 auto;
   height: 60px;
   display: flex;
@@ -46,21 +46,23 @@ export const HeaderDiv = styled.div<HeaderProps>`
   .header__menulist li ul {
     list-style: none;
     display: none;
-    width: 100vw;
+    width: 110vw;
+    height: 30px;
     top: 30px;
+    margin-left: calc(-50vw + 50% - 70px);
     margin-top: 20px;
-    right: 5vw;
   }
 
   .header__menulist li:hover ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
-
     background-color: gray;
     & > li {
       text-align: center;
       margin: 0 20px;
+      font-size: 14px;
     }
   }
 
