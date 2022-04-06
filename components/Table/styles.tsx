@@ -20,7 +20,7 @@ export const SQTableContainer = styled(TableContainer)`
     }
     tbody tr {
       display: block;
-      td:first-child {
+      td:first-of-type {
         display: none;
       }
       & > td {
