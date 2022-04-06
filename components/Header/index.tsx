@@ -53,7 +53,20 @@ function Header() {
             <a>부원 소개</a>
           </Link>
         </li>
-        <li>게시판</li>
+        <li>
+          게시판
+          <ul>
+            <li>
+              <Link href="/board/notice">공지사항</Link>
+            </li>
+            <li>
+              <Link href="/board/projects">프로젝트</Link>
+            </li>
+            <li>
+              <Link href="/board/sharinginfo">정보 공유</Link>
+            </li>
+          </ul>
+        </li>
         <li>
           <Link href="/ppomodoro">
             <a>뽀모도로</a>
