@@ -77,6 +77,7 @@ export const WirteActionButton = styled.button`
   font-size: 1.3rem;
   font-weight: bold;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 0.25rem 1rem;
   color: white;
   outline: none;
@@ -84,5 +85,17 @@ export const WirteActionButton = styled.button`
   background-color: #485354;
   @media screen and (max-width: 768px) {
     width: 100%;
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  font-weight: bold;
+  width: 50%;
+  margin: 0 auto;
+  color: black;
+  text-align: center;
+  font-size: 1.7rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
