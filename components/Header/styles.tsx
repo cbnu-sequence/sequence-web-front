@@ -58,15 +58,20 @@ export const HeaderDiv = styled.div<HeaderProps>`
     justify-content: center;
     align-items: center;
     position: absolute;
+    text-align: center;
     background-color: gray;
     & > li {
       text-align: center;
-      margin: 0 20px;
+      padding: 0 20px;
       font-size: 14px;
+    }
+    & > li:hover {
+      color: ${sqBlack};
+      transition: width 2s, height 2s, background-color 2s, transform 2s;
     }
   }
 
-  .header__left {
+  . .header__left {
     display: flex;
   }
 

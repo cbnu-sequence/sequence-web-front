@@ -9,6 +9,7 @@ import { getTable } from '../../apis/post';
 import { useQuery, useQueryClient } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import { noticeList } from '../../interfaces/post';
+import CommonHeader from '../../components/Table/CommonHeader';
 
 const fallback = [];
 const Notice = () => {
@@ -37,6 +38,7 @@ const Notice = () => {
         <title>시퀀스 | 공지사항</title>
       </Head>
       <Header />
+      <CommonHeader title={'공지사항'} />
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&
           noticeList.data.map((item, index) => {
