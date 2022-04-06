@@ -1,5 +1,6 @@
 import axios from "axios";
 import { backUrl } from '../config/config';
+import { noticeList } from '../interfaces/post';
 
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
@@ -20,4 +21,7 @@ export async function file(formData : FormData) {
   } catch (error) {
     return console.log(error);
   }
+
+export function getTable(category: string, page: number) {
+  return axios.get(`/post/${category}?page=${page}&limit=10`).then((response) => response.data);
 }

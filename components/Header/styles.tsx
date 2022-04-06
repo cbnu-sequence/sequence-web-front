@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack } from '../../styles/constants';
+import { sqBlack, sqWhite } from '../../styles/constants';
 
 type HeaderProps = {
   isToggled: boolean;
@@ -7,25 +7,71 @@ type HeaderProps = {
 };
 
 export const HeaderDiv = styled.div<HeaderProps>`
+  width: 100vw;
   margin: 0 auto;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: ${sqWhite};
+  font-weight: 500;
+  font-size: 18px;
   background-color: ${sqBlack};
 
   .logo {
-    margin: 8px 1rem;
+    margin: 10px;
+    padding: 5px 10px;
     width: 140px;
-    height: 35px;
+    height: 40px;
+    cursor: pointer;
   }
 
   .header__menulist {
     list-style: none;
     display: flex;
+    white-space: nowrap;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    & > li {
+      margin: 0 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      height: 100%;
+    }
   }
 
-  .header__left {
+  .header__menulist li ul {
+    list-style: none;
+    display: none;
+    width: 110vw;
+    height: 30px;
+    top: 30px;
+    margin-left: calc(-50vw + 50% - 70px);
+    margin-top: 20px;
+  }
+
+  .header__menulist li:hover ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    background-color: gray;
+    & > li {
+      text-align: center;
+      padding: 0 20px;
+      font-size: 14px;
+    }
+    & > li:hover {
+      color: ${sqBlack};
+      transition: width 2s, height 2s, background-color 2s, transform 2s;
+    }
+  }
+
+  . .header__left {
     display: flex;
   }
 
@@ -34,15 +80,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
     display: flex;
     & > li {
       cursor: pointer;
+      padding: 10px;
     }
   }
 
   .header__right div {
     margin: 0 1rem;
-  }
-
-  li {
-    padding: 0 1rem;
   }
 
   .toggle {

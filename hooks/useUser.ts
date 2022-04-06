@@ -16,12 +16,13 @@ interface UseUser {
 export function useUser(): UseUser {
   const queryClient = useQueryClient();
 
-  const { data: user } = useQuery(queryKeys.user, () => loadMyInfoAPI(), {
+  const { data: user } = useQuery(queryKeys.user, () => loadMyInfoAPI(user), {
+    initialData: getStoredUser,
     onSuccess: (received) => {
       if (!received) {
         clearStoredUser();
       } else {
-        setStoredUser(received.data);
+        setStoredUser(received);
       }
     },
   });
