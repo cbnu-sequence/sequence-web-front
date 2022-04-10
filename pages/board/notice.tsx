@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Head from 'next/head';
 import CommonTable from '../../components/Table/CommonTable';
@@ -10,6 +10,8 @@ import { useQuery, useQueryClient } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import CommonHeader from '../../components/Table/CommonHeader';
 import Pagination from '../../components/Pagination';
+import Router from 'next/router';
+import { Link } from '@chakra-ui/react';
 
 const fallback = [];
 const Notice = () => {
@@ -22,9 +24,14 @@ const Notice = () => {
     refetchInterval: 60000,
   });
 
+  const onClick = useCallback((id) => {
+    Router.push(`/board/notice/posts/${id}`);
+  }, []);
+
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
   }
+
   return (
     <div>
       <Head>
@@ -37,10 +44,12 @@ const Notice = () => {
           noticeList.data.map((item, index) => {
             return (
               <CommonTr key={index}>
-                <CommonTd>{index + 1}.</CommonTd>
-                <CommonTd>{item.writer.name}</CommonTd>
-                <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
-                <CommonTd>{item.title}</CommonTd>
+                <Link href={`./posts/${item._id}`}>
+                  <CommonTd>{index + 1}.</CommonTd>
+                  <CommonTd>{item.writer.name}</CommonTd>
+                  <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
+                  <CommonTd>{item.title}</CommonTd>
+                </Link>
               </CommonTr>
             );
           })}
