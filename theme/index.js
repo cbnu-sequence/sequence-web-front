@@ -16,7 +16,7 @@ export const theme = extendTheme({
     mono: 'Menlo, monospace',
   },
   fontSizes: {
-    xs: '0.875rem',
+    xs: '0.8rem',
     sm: '0.875rem',
     md: '1rem',
     lg: '1.125rem',

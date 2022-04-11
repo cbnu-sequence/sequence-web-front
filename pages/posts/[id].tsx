@@ -8,20 +8,22 @@ import { getPost } from '../../apis/post';
 function Post() {
   const router = useRouter();
   console.log(router.query);
-  const { id } = router.query;
-  return <PostDetail />;
+  // @ts-ignore
+  const { id }: { id: string } = router.query;
+  const { isLoading, error, data } = useQuery(['notice', id], () => getPost('notice', id));
+  if (isLoading) return <div>Loading</div>;
+  return <PostDetail title={data.data.title} writer={data.data.writer.name} content={data.data.content} />;
 }
 
 export default Post;
 
 export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(context.params[0], () => getPost(context.params[0], context.params.id));
+  await queryClient.prefetchQuery(['notice', context.params.id], () => getPost('notice', context.params.id));
 
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
   };
 }

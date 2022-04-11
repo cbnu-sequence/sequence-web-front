@@ -84,6 +84,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
   .header__right {
     list-style: none;
     display: flex;
+    padding-right: 10px;
     & > li {
       cursor: pointer;
       padding: 10px;
@@ -108,7 +109,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
-
+    height: 100%;
     .header__right {
       display: ${(props) => (props.userToggled ? 'flex' : 'none')};
       flex-direction: column;
@@ -121,16 +122,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
       flex-direction: column;
       width: 100%;
       background-color: ${sqBlack};
-      padding-left: 10px;
     }
 
     .header__menulist li,
     .header__right li {
       margin: 1rem 0;
       padding: 0;
-      & > a {
-        background-color: ${sqBlack};
-      }
     }
 
     .toggle {

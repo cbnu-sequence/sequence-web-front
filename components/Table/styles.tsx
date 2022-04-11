@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const SQTh = styled(Thead)`
   background-color: ${sqBlack};
-  height: 50px;
-  font-size: 32px;
+  height: 55px;
+  word-spacing: 5px;
   color: ${sqWhite};
-  font-size: 15px;
+  font-size: 8px;
 `;
 
 export const SQTableContainer = styled(TableContainer)`
