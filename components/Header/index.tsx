@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { HeaderDiv } from './styles';
+import { WhiteHeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -20,7 +20,7 @@ function Header() {
   }, []);
 
   return (
-    <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
+    <WhiteHeaderDiv isToggled={isToggled} userToggled={userToggled}>
       <div
         className="toggle"
         onClick={() => {
@@ -31,7 +31,7 @@ function Header() {
       </div>
       <div className="logo">
         <Link href="/">
-          <img src="/sequence_w.png" />
+          <img src="/sequence_b.png" />
         </Link>
       </div>
       <div
@@ -100,7 +100,7 @@ function Header() {
           </>
         )}
       </ul>
-    </HeaderDiv>
+    </WhiteHeaderDiv>
   );
 }
 
