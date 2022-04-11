@@ -40,6 +40,10 @@ export const HeaderDiv = styled.div<HeaderProps>`
       cursor: pointer;
       position: relative;
       height: 100%;
+      :hover {
+        border-bottom: 5px solid;
+        transition: border-bottom.2s ease-in-out;
+      }
     }
   }
 

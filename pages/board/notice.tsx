@@ -11,7 +11,8 @@ import { queryKeys } from '../../react-query/constants';
 import CommonHeader from '../../components/Table/CommonHeader';
 import Pagination from '../../components/Pagination';
 import Router from 'next/router';
-import { Link } from '@chakra-ui/react';
+import { Tr } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const fallback = [];
 const Notice = () => {
@@ -43,14 +44,16 @@ const Notice = () => {
         {noticeList &&
           noticeList.data.map((item, index) => {
             return (
-              <CommonTr key={index}>
-                <Link href={`./posts/${item._id}`}>
-                  <CommonTd>{index + 1}.</CommonTd>
-                  <CommonTd>{item.writer.name}</CommonTd>
-                  <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
-                  <CommonTd>{item.title}</CommonTd>
+              <>
+                <Link href={`../../posts/${item._id}`}>
+                  <Tr key={index}>
+                    <CommonTd>{index + 1}.</CommonTd>
+                    <CommonTd>{item.writer.name}</CommonTd>
+                    <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
+                    <CommonTd>{item.title}</CommonTd>
+                  </Tr>
                 </Link>
-              </CommonTr>
+              </>
             );
           })}
       </CommonTable>
