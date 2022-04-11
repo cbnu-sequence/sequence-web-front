@@ -1,5 +1,5 @@
 import Header from '../../components/Header';
-import { TitleInput, Editor, BodyInput, FileInput, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
+import { TitleInput, Editor, BodyInput, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
@@ -8,15 +8,19 @@ import { file, write } from '../../apis/post';
 export const BoardWrite = () => {
   const [title, onChangeTitle] = useInput('');
   const [content, onChangeBody] = useInput('');
+  const [fileName, onChangeFileName] = useState('');
   const [TitleError, setTitleError] = useState(false);
   const [BodyError, setBodyError] = useState(false);
   const [FileId, setFileId] = useState(null);
 
   const onFileSubmit = useCallback((e) => {
     if (e.target.files[0] !== undefined) {
+      onChangeFileName(e.target.files[0].name);
       const formData = new FormData();
       formData.append('upload', e.target.files[0]);
       file(formData).then((response_Id) => setFileId(response_Id));
+    } else if (e.target.files[0] == undefined) {
+      onChangeFileName('');
     }
   }, []);
 
@@ -48,14 +52,18 @@ export const BoardWrite = () => {
     <>
       <Header />
       <Editor onSubmit={onWriteSubmit}>
-        <p className="title">게시판 글 작성</p>
+        <p className="title">글 작성하기</p>
         <hr />
         <p className="subtitle">제목</p>
         <TitleInput placeholder="제목을 입력하세요" onChange={onChangeTitle} value={title} />
         <p className="subtitle">내용</p>
         <BodyInput onChange={onChangeBody} value={content} />
         <p className="filetitle">파일 업로드</p>
-        <FileInput type="file" onChange={onFileSubmit} />
+        <FileBlock>
+          {fileName ? <div>{fileName}</div> : <div>비어있습니다.</div>}
+          <label htmlFor="file">파일 찾기</label>
+          <input type="file" id="file" onChange={onFileSubmit} />
+        </FileBlock>
         <ButtonBlock>
           <WirteActionButton type="submit">작성하기</WirteActionButton>
           <WirteActionButton onClick={onCancel}>취소</WirteActionButton>
