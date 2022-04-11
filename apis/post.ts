@@ -28,5 +28,5 @@ export function getTable(category: string, page: number) {
 }
 
 export function getPost(category: string, _id: string) {
-  return axios.get(`/post/${category}/${_id}`);
+  return axios.get(`/post/${category}/${_id}`).then((response) => response.data);
 }
