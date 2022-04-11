@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqWhite } from '../../styles/constants';
+import { sqBlack, sqWhite, sqRed } from '../../styles/constants';
 
 type HeaderProps = {
   isToggled: boolean;
@@ -51,10 +51,10 @@ export const HeaderDiv = styled.div<HeaderProps>`
     list-style: none;
     display: none;
     width: 110vw;
-    height: 30px;
+    height: 35px;
     top: 30px;
     margin-left: calc(-50vw + 50% - 70px);
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
   .header__menulist li:hover ul {
@@ -63,15 +63,17 @@ export const HeaderDiv = styled.div<HeaderProps>`
     align-items: center;
     position: absolute;
     text-align: center;
-    background-color: gray;
+    background-color: ${sqWhite};
+    color: ${sqBlack};
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
     & > li {
       text-align: center;
-      padding: 0 20px;
+      padding: 0 10px;
       font-size: 14px;
     }
     & > li:hover {
-      color: ${sqBlack};
-      transition: width 2s, height 2s, background-color 2s, transform 2s;
+      color: ${sqRed};
+      transition: width 2s, height 2s, color 200ms, transform 4s;
     }
   }
 
