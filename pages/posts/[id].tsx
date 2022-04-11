@@ -4,6 +4,7 @@ import PostDetail from '../../components/PostDetail';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import { getPost } from '../../apis/post';
+import Header from '../../components/Header';
 
 function Post() {
   const router = useRouter();
@@ -12,7 +13,12 @@ function Post() {
   const { id }: { id: string } = router.query;
   const { isLoading, error, data } = useQuery(['notice', id], () => getPost('notice', id));
   if (isLoading) return <div>Loading</div>;
-  return <PostDetail title={data.data.title} writer={data.data.writer.name} content={data.data.content} />;
+  return (
+    <>
+      <Header />
+      <PostDetail title={data.data.title} writer={data.data.writer.name} content={data.data.content} />
+    </>
+  );
 }
 
 export default Post;
