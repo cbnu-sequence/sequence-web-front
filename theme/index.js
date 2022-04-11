@@ -12,7 +12,7 @@ export const theme = extendTheme({
   },
   fonts: {
     body: 'Noto Sans KR, sans-serif',
-    heading: 'Noto Sans KR, serif',
+    heading: 'Noto Serif KR serif',
     mono: 'Menlo, monospace',
   },
   fontSizes: {
