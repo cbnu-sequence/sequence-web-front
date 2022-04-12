@@ -1,16 +1,26 @@
 import { sqBlack, sqRed, sqWhite } from '../../styles/constants';
-import styled, { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
 const textAppear = keyframes`
   0% {
-    opacity: 0;
+    width: 0px;
+    opacity:0;
   }
-  30% {
-    opacity: 1;
+  10% {
+    width: 450px;
+    opacity:0;
+
   }
-  100% {
-    opacity: 0;
+  20% {
+    width: 450px;
+    opacity:1;
   }
+  100%{
+    width: 450px;
+    opacity:1;
+  }
+  
 `;
 
 export const MainDiv = styled.div`
@@ -30,19 +40,18 @@ export const MainDiv = styled.div`
     }
   }
   .main__top--text {
-    animation: ${textAppear} 10s ease-in-out infinate;
-    color: ${sqWhite};
+    animation: ${textAppear} 10s ease-in-out infinite;
+
     margin-top: 40px;
 
     & > img {
-      width: 450px;
       margin: 200px 0 20px 0;
     }
 
     & > p {
       color: ${sqWhite};
       margin: 20px 0 300px 0;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 35px;
     }
   }
