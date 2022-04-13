@@ -147,7 +147,7 @@ export const WhiteHeaderDiv = styled.div<HeaderProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: ${sqRed};
+  color: ${sqBlack};
   font-weight: 500;
   font-size: 18px;
   background-color: ${sqWhite};
@@ -176,8 +176,7 @@ export const WhiteHeaderDiv = styled.div<HeaderProps>`
       position: relative;
       height: 100%;
       :hover {
-        border-bottom: 5px solid;
-        color: ${sqBlack};
+        border-bottom: 5px solid ${sqRed};
         transition: border-bottom 0.2s ease-in-out;
       }
     }
