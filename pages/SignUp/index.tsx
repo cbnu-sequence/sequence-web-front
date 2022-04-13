@@ -63,7 +63,7 @@ const SignUp = () => {
       <div id="container">
         <Header>
           <Link href="/">
-            <img src="/logotype.png" />
+            <img src="/sequence_b.png" />
           </Link>
         </Header>
         <Form onSubmit={onSubmit}>

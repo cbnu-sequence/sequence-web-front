@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { HeaderDiv } from './styles';
+import { WhiteHeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -20,7 +20,7 @@ function Header() {
   }, []);
 
   return (
-    <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
+    <WhiteHeaderDiv isToggled={isToggled} userToggled={userToggled}>
       <div
         className="toggle"
         onClick={() => {
@@ -31,9 +31,7 @@ function Header() {
       </div>
       <div className="logo">
         <Link href="/">
-          <a>
-            <img src="/logotype.png" />
-          </a>
+          <img src="/sequence_b.png" />
         </Link>
       </div>
       <div
@@ -45,47 +43,64 @@ function Header() {
         <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
       </div>
       <ul className="header__menulist">
-        <li>
-          <Link href="/">
+        <Link href="/">
+          <li>
             <a>시퀀스 소개</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
+          </li>
+        </Link>
+        <Link href="/">
+          <li>
             <a>부원 소개</a>
-          </Link>
+          </li>
+        </Link>
+        <li>
+          게시판
+          <ul>
+            <li>
+              <Link href="/board/notice">공지사항</Link>
+            </li>
+            <li>
+              <Link href="/board/projects">프로젝트</Link>
+            </li>
+            <li>
+              <Link href="/boardsharinginfo/">정보 공유</Link>
+            </li>
+          </ul>
         </li>
-        <li>게시판</li>
-        <li>뽀모도로</li>
+        <Link href="/ppomodoro">
+          <li>
+            <a>뽀모도로</a>
+          </li>
+        </Link>
       </ul>
       <ul className="header__right">
         {me ? (
           <>
-            <li>
-              <Link href="/profile">
+            <Link href="/profile">
+              <li>
                 <a>프로필</a>
-              </Link>
-            </li>
+              </li>
+            </Link>
             <li onClick={onLogOut}>
               <a>로그아웃</a>
             </li>
           </>
         ) : (
           <>
-            <li>
-              <Link href="/login">
+            <Link href="/login">
+              <li>
                 <a>로그인</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/signup">
+              </li>
+            </Link>
+            <Link href="/signup">
+              <li>
                 <a>회원가입</a>
-              </Link>
-            </li>
+              </li>
+            </Link>
           </>
         )}
       </ul>
-    </HeaderDiv>
+    </WhiteHeaderDiv>
   );
 }
 

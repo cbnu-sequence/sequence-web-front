@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
+import Main from '../components/Main';
 import Head from 'next/head';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -13,6 +14,7 @@ function Home() {
         <title>시퀀스 | cbnu 프로젝트 동아리</title>
       </Head>
       <Header />
+      <Main />
     </div>
   );
 }

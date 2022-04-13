@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { tokenConfirmAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
-import { Button, Form, Header, Input, Label } from '../signup/styles';
+import { Button, Form, EmailHeader, Input, Label } from '../signup/styles';
 import Router from 'next/router';
 
 function Emailcheck() {
@@ -24,7 +24,7 @@ function Emailcheck() {
 
   return (
     <div id="contatiner">
-      <Header>이메일 인증</Header>
+      <EmailHeader>이메일 인증</EmailHeader>
       <Form onSubmit={onSubmit}>
         <Label id="token-label">
           <span>이메일 인증번호</span>
