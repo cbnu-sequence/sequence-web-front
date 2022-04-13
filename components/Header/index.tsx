@@ -43,16 +43,16 @@ function Header() {
         <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
       </div>
       <ul className="header__menulist">
-        <li>
-          <Link href="/">
+        <Link href="/">
+          <li>
             <a>시퀀스 소개</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
+          </li>
+        </Link>
+        <Link href="/">
+          <li>
             <a>부원 소개</a>
-          </Link>
-        </li>
+          </li>
+        </Link>
         <li>
           게시판
           <ul>
@@ -67,36 +67,36 @@ function Header() {
             </li>
           </ul>
         </li>
-        <li>
-          <Link href="/ppomodoro">
+        <Link href="/ppomodoro">
+          <li>
             <a>뽀모도로</a>
-          </Link>
-        </li>
+          </li>
+        </Link>
       </ul>
       <ul className="header__right">
         {me ? (
           <>
-            <li>
-              <Link href="/profile">
+            <Link href="/profile">
+              <li>
                 <a>프로필</a>
-              </Link>
-            </li>
+              </li>
+            </Link>
             <li onClick={onLogOut}>
               <a>로그아웃</a>
             </li>
           </>
         ) : (
           <>
-            <li>
-              <Link href="/login">
+            <Link href="/login">
+              <li>
                 <a>로그인</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/signup">
+              </li>
+            </Link>
+            <Link href="/signup">
+              <li>
                 <a>회원가입</a>
-              </Link>
-            </li>
+              </li>
+            </Link>
           </>
         )}
       </ul>
