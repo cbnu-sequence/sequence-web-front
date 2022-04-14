@@ -141,7 +141,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
 `;
 
 export const WhiteHeaderDiv = styled.div<HeaderProps>`
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   height: 60px;
   display: flex;
@@ -170,6 +170,7 @@ export const WhiteHeaderDiv = styled.div<HeaderProps>`
     align-items: center;
     & > li {
       margin: 0 20px;
+      height: 100%;
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -201,6 +202,7 @@ export const WhiteHeaderDiv = styled.div<HeaderProps>`
     background-color: ${sqWhite};
     color: ${sqBlack};
     box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
+    z-index: 1;
     & > li {
       text-align: center;
       padding: 0 10px;
@@ -219,14 +221,11 @@ export const WhiteHeaderDiv = styled.div<HeaderProps>`
   .header__right {
     list-style: none;
     display: flex;
+    padding-right: 10px;
     & > li {
       cursor: pointer;
-      padding: 10px;
+      padding-left: 15px;
     }
-  }
-
-  .header__right div {
-    margin: 0 1rem;
   }
 
   .toggle {
