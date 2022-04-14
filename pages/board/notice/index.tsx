@@ -1,33 +1,31 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Header from '../../components/Header';
+import Header from '../../../components/Header';
 import Head from 'next/head';
-import CommonTable from '../../components/Table/CommonTable';
-import CommonTr from '../../components/Table/CommonTr';
-import CommonTd from '../../components/Table/CommonTd';
+import CommonTable from '../../../components/Table/CommonTable';
+import CommonTd from '../../../components/Table/CommonTd';
 import dayjs from 'dayjs';
-import { getTable } from '../../apis/post';
+import { getTable } from '../../../apis/post';
 import { useQuery, useQueryClient } from 'react-query';
-import { queryKeys } from '../../react-query/constants';
-import CommonHeader from '../../components/Table/CommonHeader';
-import Pagination from '../../components/Pagination';
-import Router from 'next/router';
+import { queryKeys } from '../../../react-query/constants';
+import CommonHeader from '../../../components/Table/CommonHeader';
+import Pagination from '../../../components/Pagination';
 import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
 
 const fallback = [];
-const Notice = () => {
+const Index = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
-  const { data: noticeList = fallback } = useQuery([queryKeys.notice, page], () => getTable(queryKeys.notice, page), {
-    refetchOnMount: true,
-    refetchOnReconnect: true,
-    refetchOnWindowFocus: true,
-    refetchInterval: 60000,
-  });
-
-  const onClick = useCallback((id) => {
-    Router.push(`/board/notice/posts/${id}`);
-  }, []);
+  const { data: noticeList = fallback } = useQuery(
+    [queryKeys.notice, page, limit],
+    () => getTable(queryKeys.notice, page, limit),
+    {
+      refetchOnMount: true,
+      refetchOnReconnect: true,
+      refetchOnWindowFocus: true,
+      refetchInterval: 60000,
+    },
+  );
 
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
@@ -62,4 +60,4 @@ const Notice = () => {
   );
 };
 
-export default Notice;
+export default Index;
