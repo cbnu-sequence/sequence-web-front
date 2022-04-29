@@ -1,13 +1,18 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqWhite } from '../../styles/constants';
+import { sqBlack, sqWhite, sqGray } from '../../styles/constants';
+
+export const Block = styled.div`
+  background-color: rgba(249, 237, 237, 0.042);
+`;
 
 export const Editor = styled.form`
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   padding: 2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   box-shadow: 0px 8px 16px 0px rgba(240, 152, 152, 0.2);
   border-radius: 20px;
+  background-color: ${sqWhite};
   .title {
     text-align: center;
     font-size: 1.5rem;
@@ -25,14 +30,14 @@ export const Editor = styled.form`
     font-size: 1.3rem;
     margin: 1rem 0;
     font-weight: bold;
-    color: pink;
+    color: ${sqBlack};
   }
   .filetitle {
     font-size: 1.3rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
-    color: pink;
+    color: ${sqBlack};
   }
 
   @media screen and (max-width: 768px) {
@@ -43,21 +48,28 @@ export const Editor = styled.form`
 export const TitleInput = styled.input`
   font-size: 1.3rem;
   outline: none;
-  border: 1px solid pink;
+  border: 1px solid ${sqGray};
   border-radius: 20px;
   margin-bottom: 1rem;
-  padding: 0.8rem;
+  padding: 0.5rem;
   width: 100%;
+  &:focus {
+    border: 1px solid ${sqBlack};
+  }
 `;
 
 export const BodyInput = styled.textarea`
-  border: 1px solid pink;
+  border: 1px solid ${sqGray};
   border-radius: 20px;
   min-height: 300px;
   overflow: auto;
   width: 100%;
   outline: none;
   padding: 0.8rem;
+
+  &:focus {
+    border: 1px solid ${sqBlack};
+  }
 
   @media screen and (max-width: 768px) {
     min-height: 250px;
@@ -71,12 +83,12 @@ export const FileBlock = styled.div`
   justify-content: center;
 
   div {
-    border: 1px solid pink;
+    border: 1px solid ${sqGray};
     border-radius: 5px;
     flex: 1;
     margin-right: 1rem;
     padding: 0.3rem;
-    color: gray;
+    color: ${sqGray};
   }
 
   label {
@@ -85,7 +97,7 @@ export const FileBlock = styled.div`
     align-items: center;
     padding: 0.4rem 1rem;
     color: ${sqWhite};
-    background-color: pink;
+    background-color: ${sqBlack};
     border-radius: 10px;
     cursor: pointer;
   }
@@ -119,7 +131,7 @@ export const ButtonBlock = styled.div`
 export const WirteActionButton = styled.button`
   border: none;
   border-radius: 20px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -127,7 +139,7 @@ export const WirteActionButton = styled.button`
   color: ${sqWhite};
   outline: none;
   cursor: pointer;
-  background-color: pink;
+  background-color: ${sqBlack};
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -137,9 +149,9 @@ export const ErrorMessage = styled.div`
   font-weight: bold;
   width: 50%;
   margin: 0 auto;
-  color: ${sqBlack};
+  color: red;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   @media screen and (max-width: 768px) {
     font-size: 1rem;
   }
