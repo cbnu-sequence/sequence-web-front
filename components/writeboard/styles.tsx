@@ -27,17 +27,20 @@ export const Editor = styled.form`
   }
 
   .subtitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin: 1rem 0;
     font-weight: bold;
     color: ${sqBlack};
   }
   .filetitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
     color: ${sqBlack};
+    @media screen and (max-width: 768px) {
+      margin-top: 3.5rem;
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -46,48 +49,30 @@ export const Editor = styled.form`
 `;
 
 export const TitleInput = styled.input`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   outline: none;
-  border: 1px solid ${sqGray};
-  border-radius: 20px;
+  border: 1px solid #beb6b6;
+  border-radius: 1px;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.7rem;
   width: 100%;
-  &:focus {
-    border: 1px solid ${sqBlack};
-  }
-`;
-
-export const BodyInput = styled.textarea`
-  border: 1px solid ${sqGray};
-  border-radius: 20px;
-  min-height: 300px;
-  overflow: auto;
-  width: 100%;
-  outline: none;
-  padding: 0.8rem;
-
-  &:focus {
-    border: 1px solid ${sqBlack};
-  }
-
   @media screen and (max-width: 768px) {
-    min-height: 250px;
+    font-size: 0.9rem;
   }
 `;
 
 export const FileBlock = styled.div`
   width: 30%;
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: flex;
   justify-content: center;
 
   div {
-    border: 1px solid ${sqGray};
-    border-radius: 5px;
+    border: 1px solid #beb6b6;
+    border-radius: 1px;
     flex: 1;
     margin-right: 1rem;
-    padding: 0.3rem;
+    padding: 0.4rem;
     color: ${sqGray};
   }
 
@@ -98,7 +83,7 @@ export const FileBlock = styled.div`
     padding: 0.4rem 1rem;
     color: ${sqWhite};
     background-color: ${sqBlack};
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
   }
 
@@ -130,12 +115,12 @@ export const ButtonBlock = styled.div`
 
 export const WirteActionButton = styled.button`
   border: none;
-  border-radius: 20px;
-  font-size: 1.2rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 1.2rem;
   color: ${sqWhite};
   outline: none;
   cursor: pointer;
@@ -151,7 +136,7 @@ export const ErrorMessage = styled.div`
   margin: 0 auto;
   color: red;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   @media screen and (max-width: 768px) {
     font-size: 1rem;
   }

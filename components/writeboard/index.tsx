@@ -1,22 +1,14 @@
 import Header from '../../components/Header';
-import {
-  Block,
-  TitleInput,
-  Editor,
-  BodyInput,
-  FileBlock,
-  ButtonBlock,
-  WirteActionButton,
-  ErrorMessage,
-} from './styles';
+import { Block, TitleInput, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
+import TextEditor from './texteditor';
 
 export const WriteBoard = () => {
   const [title, onChangeTitle] = useInput('');
-  const [content, onChangeBody] = useInput('');
+  const [content, setContent] = useState(null);
   const [fileName, onChangeFileName] = useState('');
   const [TitleError, setTitleError] = useState(false);
   const [BodyError, setBodyError] = useState(false);
@@ -46,7 +38,7 @@ export const WriteBoard = () => {
       if (title === '') {
         setTitleError(true);
         setTimeout(() => setTitleError(false), 2000);
-      } else if (content === '') {
+      } else if (content === null) {
         setBodyError(true);
         setTimeout(() => setBodyError(false), 2000);
       } else {
@@ -74,10 +66,10 @@ export const WriteBoard = () => {
           <p className="title">글 작성하기</p>
           <hr />
           <p className="subtitle">제목</p>
-          <TitleInput placeholder="제목을 입력하세요" onChange={onChangeTitle} value={title} />
+          <TitleInput placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
           {TitleError && <ErrorMessage>제목을 입력해주세요</ErrorMessage>}
           <p className="subtitle">내용</p>
-          <BodyInput onChange={onChangeBody} value={content} />
+          <TextEditor content={content} setContent={setContent} />
           {BodyError && <ErrorMessage>내용을 입력해주세요</ErrorMessage>}
           <p className="filetitle">파일 업로드</p>
           <FileBlock>
