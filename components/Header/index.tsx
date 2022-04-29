@@ -63,7 +63,7 @@ function Header() {
               <Link href="/board/projects">프로젝트</Link>
             </li>
             <li>
-              <Link href="/boardsharinginfo/">정보 공유</Link>
+              <Link href="/board/sharinginfo/">정보 공유</Link>
             </li>
           </ul>
         </li>

@@ -45,7 +45,7 @@ const Index = () => {
               <>
                 <Link href={`../../posts/${item._id}`}>
                   <Tr key={item._id}>
-                    <CommonTd>{index + 1}.</CommonTd>
+                    <CommonTd>{limit * (page - 1) + (index + 1)}.</CommonTd>
                     <CommonTd>{item.writer.name}</CommonTd>
                     <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                     <CommonTd>{item.title}</CommonTd>
