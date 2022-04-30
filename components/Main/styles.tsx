@@ -57,6 +57,18 @@ export const MainDiv = styled.div`
     }
   }
 `;
+export const SQProject = styled.div`
+  background-color: white;
+`;
+export const BtnDiv = styled.div`
+  background-color: white;
+`;
+export const CircleBtn = styled.div`
+  background-color: white;
+`;
+export const Content = styled.div`
+  background-color: white;
+`;
 
 export const Pomodoro = styled.div`
   margin: 400px 50px 0 50px;

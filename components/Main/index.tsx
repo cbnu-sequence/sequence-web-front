@@ -1,5 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MainDiv, Pomodoro, PomoLink, HomePhoto, BigBox, SmallBox, Github } from './styles';
+import {
+  MainDiv,
+  SQProject,
+  BtnDiv,
+  CircleBtn,
+  Content,
+  Pomodoro,
+  PomoLink,
+  HomePhoto,
+  BigBox,
+  SmallBox,
+  Github,
+} from './styles';
 import Link from 'next/link';
 
 function Main() {
@@ -19,7 +31,18 @@ function Main() {
           </p>
         </div>
       </div>
-      <div className="main__page2"></div>
+      <SQProject>
+        <h1>Sequence</h1>
+        <BtnDiv>
+          <span>Projects</span>
+          <div>
+            <CircleBtn>
+              <img src="nextIcon.png" />
+            </CircleBtn>
+          </div>
+        </BtnDiv>
+        <Content></Content>
+      </SQProject>
       <Pomodoro>
         <div className="pomodoro--text">
           <h1>Pomodoro</h1>
@@ -38,7 +61,7 @@ function Main() {
         <div>
           <BigBox></BigBox>
           <BigBox></BigBox>
-          <div className="small-photo">
+          <div>
             <SmallBox></SmallBox>
             <SmallBox></SmallBox>
           </div>
