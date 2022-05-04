@@ -24,8 +24,8 @@ export async function postFile(formData: FormData) {
 }
 
 
-export function getTable(category: string, page: number) {
-  return axios.get(`/post/${category}?page=${page}&limit=10`).then((response) => response.data);
+export function getTable(category: string, page: number, limit: number) {
+  return axios.get(`/post/${category}?page=${page}&limit=${limit}`).then((response) => response.data);
 }
 
 export function getPost(category: string, _id: string) {
