@@ -12,7 +12,6 @@ export const SQTh = styled(Thead)`
 `;
 
 export const SQTableContainer = styled(TableContainer)`
-  margin: 50px 20px;
   border: solid 1px rgba(${sqBlack}, 0.1);
   @media screen and (max-width: 768px) {
     th {
@@ -20,7 +19,7 @@ export const SQTableContainer = styled(TableContainer)`
     }
     tbody tr {
       display: block;
-      td:first-of-type {
+      ß td:first-of-type {
         display: none;
       }
       & > td {
@@ -36,6 +35,9 @@ export const SQTd = styled(Td)`
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  :last-of-type {
+    width: 50%;
+  }
 `;
 
 export const CustomSortIcon = styled(FontAwesomeIcon)`
@@ -49,8 +51,7 @@ export const TitleDiv = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  padding-top: 30px;
-  height: 30px;
+  margin: 10px 0;
 `;
 
 export const Title = styled.h3`

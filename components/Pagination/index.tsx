@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ButtonGroup, Select } from '@chakra-ui/react';
-import { PaginationNav } from './styles';
+import { PaginationNav, Limit } from './styles';
 
 function Pagination({ total, limit, page, setPage, setLimit }) {
   const numPages = Math.ceil(total / limit);
@@ -8,14 +8,16 @@ function Pagination({ total, limit, page, setPage, setLimit }) {
   return (
     <>
       <PaginationNav>
-        <label>
-          <span>게시글 개수</span>
+        <Limit>
+          <label>
+            <u>게시글 개수</u>
+          </label>
           <Select variant="unstyled" placeholder={limit} onChange={({ target: { value } }) => setLimit(Number(value))}>
             <option value="10">10</option>
-            <option value="10">20</option>
-            <option value="10">50</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
           </Select>
-        </label>
+        </Limit>
 
         <ButtonGroup>
           <Button onClick={() => setPage(page - 1)} disabled={page === 1}>
