@@ -5,26 +5,27 @@ import { noticeList } from '../interfaces/post';
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
-export async function write(data: { title: string; content: string }) {
+export async function postWrite(data: { title: string; content: string }) {
   try {
     const response = await axios.post('post/notice', data);
-    return response.status;
+    return response;
   } catch (error) {
-    return console.log(error);
+    return error.response;
   }
 }
 
-export async function file(formData: FormData) {
+export async function postFile(formData: FormData) {
   try {
     const response = await axios.post('file', formData);
-    return response.data.data._id;
+    return response;
   } catch (error) {
-    return console.log(error);
+    return error.response;
   }
 }
 
-export function getTable(category: string, page: number) {
-  return axios.get(`/post/${category}?page=${page}&limit=10`).then((response) => response.data);
+
+export function getTable(category: string, page: number, limit: number) {
+  return axios.get(`/post/${category}?page=${page}&limit=${limit}`).then((response) => response.data);
 }
 
 export function getPost(category: string, _id: string) {

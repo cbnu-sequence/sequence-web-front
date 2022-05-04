@@ -18,6 +18,7 @@ export const PostDetailDiv = styled.div`
     .header__title {
       width: 100%;
       overflow: hidden;
+      line-height: 1em;
       text-overflow: clip;
       color: ${sqRed};
       font-size: 30px;

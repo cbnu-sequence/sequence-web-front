@@ -1,8 +1,11 @@
 export interface Post {
-  id: number;
+  _id: number;
+  title: string;
+  category: string;
   content: string;
   Images: Array<{ src: string }>;
-  createdAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface noticeList {
