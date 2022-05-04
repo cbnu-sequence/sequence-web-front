@@ -28,7 +28,7 @@ export const MainDiv = styled.div`
   background-color: ${sqWhite};
 
   .main__top {
-    height: 900px;
+    height: 110vh;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -37,21 +37,24 @@ export const MainDiv = styled.div`
 
     & > img {
       width: 450px;
-      margin-bottom: 60px;
+      margin-bottom: 100px;
     }
   }
+
   .main__top--text {
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: center;
     animation: ${textAppear} 7s ease-in-out infinite;
 
-    margin-top: 40px;
-
     & > img {
-      margin: 200px 0 20px 0;
+      padding: 0 0 20px 0;
     }
 
     & > p {
       color: ${sqWhite};
-      margin: 20px 0 300px 0;
+      margin: 10px 0 30px 0;
       font-size: 18px;
       line-height: 35px;
     }
