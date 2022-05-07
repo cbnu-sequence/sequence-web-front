@@ -19,6 +19,16 @@ export const HeaderDiv = styled.div<HeaderProps>`
     font-weight: 500;
     font-size: 18px;
     background-color: ${sqBlack};
+  
+
+    @keyframes shakeFlowerHead {
+      0% {
+        transform: rotate(10deg);
+      }
+      100% {
+        transform: rotate(-10deg);
+      }
+    }
 
     .logo {
       margin: 10px;
@@ -26,9 +36,16 @@ export const HeaderDiv = styled.div<HeaderProps>`
       width: 140px;
       height: 40px;
       cursor: pointer;
+      display: flex;
     }
     .logo_b {
       display: none;
+    }
+    .logo_bf {
+      display: none;
+    }
+    .logo_wf:hover {
+      animation: shakeFlowerHead 1s ease-in-out infinite alternate;
     }
 
     .header__menulist {
@@ -170,9 +187,16 @@ export const HeaderDiv = styled.div<HeaderProps>`
       width: 140px;
       height: 40px;
       cursor: pointer;
+      display:flex;
     }
     .logo_w {
       display: none;
+    }
+    .logo_wf {
+      display: none;
+    }
+    .logo_bf:hover {
+      animation: shakeFlowerHead 1s ease-in-out infinite alternate;
     }
 
     .header__menulist {
