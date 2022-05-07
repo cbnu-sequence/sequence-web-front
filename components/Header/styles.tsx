@@ -138,7 +138,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       .header__menulist li:hover ul {
         width: 100%;
         margin: 0 auto;
-        background-color: inherit;
+        background-color: ${sqBlack};
       }
 
       .toggle {
@@ -283,7 +283,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
         box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
         width: 100%;
         margin: 0 auto;
-        background-color: inherit;
+        background-color: ${sqWhite};
       }
 
       .toggle {
