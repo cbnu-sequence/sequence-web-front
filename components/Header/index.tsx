@@ -44,6 +44,8 @@ function Header() {
           <Link href="/">
             <img className="logo_w" src="/sequence_w.png" />
           </Link>
+          <img className="logo_bf" src="/sequence_bf.png" />
+          <img className="logo_wf" src="/sequence_wf.png" />
         </div>
         <div
           className="user"
