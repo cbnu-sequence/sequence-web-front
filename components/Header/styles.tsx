@@ -46,8 +46,8 @@ export const HeaderDiv = styled.div<HeaderProps>`
         position: relative;
         height: 100%;
         :hover {
-          border-bottom: 5px solid;
-          transition: border-bottom.2s ease-in-out;
+          border-bottom: 5px solid ${sqWhite};
+          transition: border-bottom 0.2s ease-in-out;
         }
       }
     }
@@ -82,7 +82,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       }
     }
 
-    . .header__left {
+    .header__left {
       display: flex;
     }
 
@@ -114,13 +114,11 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
-
       height: 100%;
       .header__right {
         display: ${(props) => (props.userToggled ? 'flex' : 'none')};
         flex-direction: column;
         width: 100%;
-        background-color: black;
       }
 
       .header__menulist {
@@ -134,6 +132,13 @@ export const HeaderDiv = styled.div<HeaderProps>`
       .header__right li {
         margin: 1rem 0;
         padding: 0;
+        color: ${sqWhite};
+      }
+
+      .header__menulist li:hover ul {
+        width: 100%;
+        margin: 0 auto;
+        background-color: ${sqBlack};
       }
 
       .toggle {
@@ -228,6 +233,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .header__right {
       list-style: none;
       display: flex;
+      padding-right: 10px;
       & > li {
         cursor: pointer;
         padding: 10px;
@@ -252,7 +258,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
-
+      height: 100%;
       .header__right {
         display: ${(props) => (props.userToggled ? 'flex' : 'none')};
         flex-direction: column;
@@ -264,32 +270,28 @@ export const HeaderDiv = styled.div<HeaderProps>`
         flex-direction: column;
         width: 100%;
         background-color: ${sqWhite};
-        padding-left: 10px;
       }
 
       .header__menulist li,
       .header__right li {
         margin: 1rem 0;
         padding: 0;
-        & > a {
-          background-color: ${sqWhite};
-        }
+        color: ${sqBlack};
       }
 
       .header__menulist li:hover ul {
         box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
         width: 100%;
         margin: 0 auto;
+        background-color: ${sqWhite};
       }
 
       .toggle {
         display: block;
-        color: ${sqBlack};
       }
 
       .user {
         display: block;
-        color: ${sqBlack};
       }
     }
   }
