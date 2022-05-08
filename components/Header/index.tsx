@@ -56,7 +56,7 @@ function Header() {
           <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
         </div>
         <ul className="header__menulist">
-          <Link href="/">
+          <Link href="/introduce">
             <li>
               <a>시퀀스 소개</a>
             </li>
