@@ -11,11 +11,14 @@ import CommonHeader from '../../../components/Table/CommonHeader';
 import Pagination from '../../../components/Pagination';
 import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useUser } from '../../../hooks/useUser';
+import WriteBtn from '../../../components/Buttons/WriteBtn';
 
 const fallback = [];
 const Index = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
+  const { user: me } = useUser();
   const { data: noticeList = fallback } = useQuery(
     [queryKeys.notice, page, limit],
     () => getTable(queryKeys.notice, page, limit),
@@ -30,7 +33,7 @@ const Index = () => {
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
   }
-
+  console.log(me);
   return (
     <div>
       <Head>
@@ -38,6 +41,7 @@ const Index = () => {
       </Head>
       <Header />
       <CommonHeader title={'공지사항'} />
+      {me?.role === 'User' && <WriteBtn />}
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&
           noticeList.data.map((item, index) => {
