@@ -48,10 +48,10 @@ export const CustomSortIcon = styled(FontAwesomeIcon)`
 export const TitleDiv = styled.div`
   display: flex;
   width: 100vw;
+  padding-top: 60px;
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  margin: 10px 0;
 `;
 
 export const Title = styled.h3`

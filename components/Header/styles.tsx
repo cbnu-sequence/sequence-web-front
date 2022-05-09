@@ -8,6 +8,7 @@ type HeaderProps = {
 
 export const HeaderDiv = styled.div<HeaderProps>`
   position: fixed;
+  top: 0;
   .black-header {
     width: 100vw;
     margin: 0 auto;
@@ -19,7 +20,6 @@ export const HeaderDiv = styled.div<HeaderProps>`
     font-weight: 500;
     font-size: 18px;
     background-color: ${sqBlack};
-  
 
     @keyframes shakeFlowerHead {
       0% {
@@ -187,7 +187,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       width: 140px;
       height: 40px;
       cursor: pointer;
-      display:flex;
+      display: flex;
     }
     .logo_w {
       display: none;
