@@ -1,4 +1,4 @@
-import { sqBlack, sqRed, sqWhite, sqPink, sqLightGray } from '../../styles/constants';
+import { sqBlack, sqRed, sqWhite, sqPink, sqLightGray, sqGray } from '../../styles/constants';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ export const MainDiv = styled.div`
   background-color: ${sqWhite};
 
   .main__top {
-    height: 110vh;
+    height: 150vh;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -71,10 +71,7 @@ export const MainDiv = styled.div`
       animation: none;
       width: 50%;
       & > p {
-        color: ${sqWhite};
-        margin: 10px 0 10px 0;
-        font-size: 0.5em;
-        line-height: 35px;
+        font-size: 1.9vw;
       }
     }
   }
@@ -93,7 +90,8 @@ export const Content = styled.div`
 `;
 
 export const Pomodoro = styled.div`
-  height: 800px;
+  height: 150vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,11 +140,11 @@ export const Pomodoro = styled.div`
       margin-bottom: 20px;
 
       & > h1 {
-        font-size: 4em;
+        font-size: 9vw;
       }
 
       & > p {
-        font-size: 0.8em;
+        font-size: 1.9vw;
       }
     }
     .tomato_btn {
@@ -160,7 +158,7 @@ export const Pomodoro = styled.div`
   }
 `;
 export const HomePhoto = styled.div`
-  margin-top: 400px;
+  height: 150vh;
 
   & > div {
     display: flex;
@@ -172,10 +170,11 @@ export const HomePhoto = styled.div`
       width: 200px;
       height: 60px;
       border-radius: 50px;
-      border: 3px solid ${sqLightGray};
-      transition: box-shadow 0.05s ease-in-out;
+      border: 2px solid ${sqLightGray};
+      transition: all 0.07s ease-in-out;
       &:hover {
-        box-shadow: 1px 1px 6px 1px ${sqLightGray};
+        border: 2px solid ${sqPink};
+        color: ${sqRed};
       }
 
       & > span {
@@ -186,18 +185,35 @@ export const HomePhoto = styled.div`
   }
 `;
 export const BigBox = styled.div`
-  background-color: black;
   width: 300px;
   height: 300px;
-  border-radius: 10%;
   margin-left: 20px;
+  & > img {
+    box-shadow: 2px 2px 5px 2px ${sqGray};
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  @media screen and (max-width: 898px) {
+    width: 200px;
+  height: 200px;
+  & > img {
+    height: 200px;
+  }
 `;
 export const SmallBox = styled.div`
-  background-color: gray;
   width: 140px;
   height: 140px;
-  border-radius: 10%;
   margin: 15px 0 15px 20px;
+  & > img {
+    box-shadow: 2px 2px 5px 2px ${sqGray};
+    height: 140px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  @media screen and (max-width: 898px) {
+    display: none;
+  }
 `;
 
 export const PomoLink = styled(Link)`
@@ -207,8 +223,7 @@ export const PomoLink = styled(Link)`
 `;
 
 export const Github = styled.div`
-  margin-top: 400px;
-  margin-bottom: 300px;
+  height: 150vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -235,6 +250,16 @@ export const Github = styled.div`
     font-size: 45px;
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
+  }
+  @media screen and (max-width: 898px) {
+    & > h2 {
+      font-size: 9vw;
+    }
+
+    & > h3 {
+      margin-top: 0;
+      font-size: 7vw;
+    }
   }
 `;
 

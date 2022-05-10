@@ -60,11 +60,19 @@ function Main() {
 
       <HomePhoto>
         <div>
-          <BigBox></BigBox>
-          <BigBox></BigBox>
+          <BigBox>
+            <img src="/photo_1.jpg" />
+          </BigBox>
+          <BigBox>
+            <img src="/photo_2.jpg" />
+          </BigBox>
           <div>
-            <SmallBox></SmallBox>
-            <SmallBox></SmallBox>
+            <SmallBox>
+              <img src="/photo_3.jpg" />
+            </SmallBox>
+            <SmallBox>
+              <img src="/photo_4.jpg" />
+            </SmallBox>
           </div>
         </div>
         <div>
