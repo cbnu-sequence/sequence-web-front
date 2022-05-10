@@ -57,6 +57,7 @@ function Main() {
           <img src="/tomato.png" className="tomato_btn" />
         </PomoLink>
       </Pomodoro>
+
       <HomePhoto>
         <div>
           <BigBox></BigBox>

@@ -36,12 +36,12 @@ export const MainDiv = styled.div`
     align-items: center;
 
     & > img {
-      width: 450px;
-      margin-bottom: 100px;
+      width: 400px;
     }
   }
 
   .main__top--text {
+    margin-right: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,9 +53,29 @@ export const MainDiv = styled.div`
 
     & > p {
       color: ${sqWhite};
-      margin: 10px 0 30px 0;
+      margin: 10px 0 10px 0;
       font-size: 18px;
       line-height: 35px;
+    }
+  }
+  @media screen and (max-width: 898px) {
+    .main__top {
+      flex-direction: column;
+      & > img {
+        width: 60%;
+        margin-bottom: 20px;
+      }
+    }
+    .main__top--text {
+      margin: 0;
+      animation: none;
+      width: 50%;
+      & > p {
+        color: ${sqWhite};
+        margin: 10px 0 10px 0;
+        font-size: 0.5em;
+        line-height: 35px;
+      }
     }
   }
 `;
@@ -73,23 +93,13 @@ export const Content = styled.div`
 `;
 
 export const Pomodoro = styled.div`
-  margin: 400px 50px 0 50px;
+  height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .tomato_btn {
-    cursor: pointer;
-    width: 300px;
-    transition: width 0.2s ease-in-out;
-
-    &: hover {
-      width: 310px;
-    }
-  }
-
   & > .pomodoro--text {
-    width: 470px;
+    width: 500px;
 
     & > h1 {
       font-size: 70px;
@@ -110,6 +120,42 @@ export const Pomodoro = styled.div`
       color: #107c10;
       font-size: 16px;
       margin-top: 5px;
+    }
+  }
+  .tomato_btn {
+    cursor: pointer;
+    width: 300px;
+
+    transition: width 0.25s ease-in-out;
+
+    &: hover {
+      width: 305px;
+    }
+  }
+
+  @media screen and (max-width: 898px) {
+    flex-direction: column;
+    & > .pomodoro--text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+
+      & > h1 {
+        font-size: 4em;
+      }
+
+      & > p {
+        font-size: 0.8em;
+      }
+    }
+    .tomato_btn {
+      padding: 20px;
+      width: 250px;
+
+      &: hover {
+        width: 255px;
+      }
     }
   }
 `;
@@ -155,10 +201,9 @@ export const SmallBox = styled.div`
 `;
 
 export const PomoLink = styled(Link)`
-  margin-left: 50px;
-  background-color: pink;
-  height: 300px;
-  width: 300px;
+  width: 30%;
+  height: 30%:
+  
 `;
 
 export const Github = styled.div`
