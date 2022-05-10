@@ -37,16 +37,18 @@ function Header() {
         >
           <FontAwesomeIcon aria-hidden={false} icon={!isToggled ? faBars : faTimes} />
         </div>
-        <div className="logo">
-          <Link href="/">
-            <img className="logo_b" src="/sequence_b.png" />
-          </Link>
-          <Link href="/">
-            <img className="logo_w" src="/sequence_w.png" />
-          </Link>
-          <img className="logo_bf" src="/sequence_bf.png" />
-          <img className="logo_wf" src="/sequence_wf.png" />
-        </div>
+        <Link href="/">
+          <div className="logo">
+            <div className="logo_b">
+              <img className="logotype" src="/sequence_b.png" />
+              <img className="flowerLogo" src="/flowerLogo_b.png" />
+            </div>
+            <div className="logo_w">
+              <img className="logotype" src="/sequence_w.png" />
+              <img className="flowerLogo" src="/flowerLogo_w.png" />
+            </div>
+          </div>
+        </Link>
         <div
           className="user"
           onClick={() => {

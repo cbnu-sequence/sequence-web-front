@@ -33,19 +33,25 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .logo {
       margin: 10px;
       padding: 5px 10px;
-      width: 140px;
+      width: 150px;
       height: 40px;
       cursor: pointer;
-      display: flex;
+    }
+
+    .flowerLogo {
+      width: 40px;
     }
     .logo_b {
       display: none;
     }
-    .logo_bf {
-      display: none;
-    }
-    .logo_wf:hover {
-      animation: shakeFlowerHead 1s ease-in-out infinite alternate;
+
+    .logo_w {
+      display: flex;
+      &:hover {
+        .flowerLogo {
+          animation: shakeFlowerHead 1s ease-in-out infinite alternate;
+        }
+      }
     }
 
     .header__menulist {
@@ -184,19 +190,25 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .logo {
       margin: 10px;
       padding: 5px 10px;
-      width: 140px;
+      width: 150px;
       height: 40px;
       cursor: pointer;
-      display: flex;
+    }
+
+    .flowerLogo {
+      width: 40px;
     }
     .logo_w {
       display: none;
     }
-    .logo_wf {
-      display: none;
-    }
-    .logo_bf:hover {
-      animation: shakeFlowerHead 1s ease-in-out infinite alternate;
+
+    .logo_b {
+      display: flex;
+      &:hover {
+        .flowerLogo {
+          animation: shakeFlowerHead 1s ease-in-out infinite alternate;
+        }
+      }
     }
 
     .header__menulist {
