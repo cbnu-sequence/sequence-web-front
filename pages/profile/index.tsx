@@ -14,7 +14,6 @@ function Profile() {
     Router.replace('/');
     return null;
   }
-
   return (
     <div>
       <Header />

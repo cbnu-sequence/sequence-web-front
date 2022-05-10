@@ -43,7 +43,6 @@ export const MainDiv = styled.div`
 
   .main__top--text {
     display: flex;
-    height: 90%;
     flex-direction: column;
     justify-content: center;
     animation: ${textAppear} 7s ease-in-out infinite;

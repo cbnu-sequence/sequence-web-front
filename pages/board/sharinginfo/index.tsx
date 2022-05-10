@@ -14,4 +14,5 @@ function SharingInfo() {
     </div>
   );
 }
+
 export default SharingInfo;
