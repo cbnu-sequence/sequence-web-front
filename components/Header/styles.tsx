@@ -112,7 +112,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .header__right {
       list-style: none;
       display: flex;
-      padding-right: 10px;
+      padding-right: 30px;
       & > li {
         cursor: pointer;
         padding: 10px;
@@ -132,7 +132,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem 1rem 1rem;
     }
 
     @media screen and (max-width: 768px) {
@@ -193,6 +193,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       width: 150px;
       height: 40px;
       cursor: pointer;
+      // display: flex;
     }
 
     .flowerLogo {
@@ -269,7 +270,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .header__right {
       list-style: none;
       display: flex;
-      padding-right: 10px;
+      padding-right: 30px;
       & > li {
         cursor: pointer;
         padding: 10px;
@@ -289,7 +290,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem 1rem 1rem;
     }
 
     @media screen and (max-width: 768px) {
