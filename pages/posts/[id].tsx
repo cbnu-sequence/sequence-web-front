@@ -8,15 +8,20 @@ import Header from '../../components/Header';
 
 function Post() {
   const router = useRouter();
-  console.log(router.query);
   // @ts-ignore
-  const { id }: { id: string } = router.query;
-  const { isLoading, error, data } = useQuery(['notice', id], () => getPost('notice', id));
+  const { id, category }: { id: string; category: string } = router.query;
+  const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id));
   if (isLoading) return <div>Loading</div>;
   return (
     <>
       <Header />
-      <PostDetail title={data.data.title} writer={data.data.writer.name} content={data.data.content} />
+      <PostDetail
+        title={data.data.title}
+        writer={data.data.writer.name}
+        content={data.data.content}
+        file={data.data.file}
+        images={data.data.images}
+      />
     </>
   );
 }
