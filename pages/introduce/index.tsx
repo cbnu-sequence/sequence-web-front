@@ -1,6 +1,7 @@
 import Header from '../../components/Header';
-import { IntroduceBlock, MainBlock, TopBlock, SquareBlock } from './styles';
-import { GrStackOverflow, GrSemantics, GrCloudlinux } from 'react-icons/gr';
+import { IntroduceBlock, MainBlock, TopBlock, SquareBlock, MapBlock } from './styles';
+import { GrStackOverflow, GrArchlinux, GrCloudlinux } from 'react-icons/gr';
+import Map from './map';
 
 const Introduce = () => {
   return (
@@ -32,7 +33,7 @@ const Introduce = () => {
                 <GrStackOverflow />
               </div>
               <div>
-                <GrSemantics />
+                <GrArchlinux />
               </div>
             </div>
             <div className="icons_name">
@@ -41,13 +42,12 @@ const Introduce = () => {
               <p>성장지향</p>
             </div>
           </SquareBlock>
-          <SquareBlock>
-            <p className="title">김지원님의 한말씀 및 간략한 소개</p>
-            <p className="content">
-              ㅁㄴㅇㅁㄴㅇㅁㄴㅇ문ㅇㅁ아ㅗㅁ오만옴ㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ
-              <br /> asdhahskjdhaksdkaskdjhaksdhkahskdhsadhashd
-            </p>
-          </SquareBlock>
+          <MapBlock>
+            <p className="map_title">위치</p>
+            <p className="map_content">주소: 충청북도 청주시 서원구 개신동 29</p>
+            <p className="map_content">우편번호: 362804</p>
+            <Map />
+          </MapBlock>
         </MainBlock>
       </IntroduceBlock>
     </>
