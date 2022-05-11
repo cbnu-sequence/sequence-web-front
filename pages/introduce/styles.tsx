@@ -78,7 +78,7 @@ export const SquareBlock = styled.div`
     text-align: center;
     font-weight: bold;
     list-style: none;
-    color: #f12121;
+    color: #f8f8f8;
     & > li {
       padding-top: 1.5rem;
     }
