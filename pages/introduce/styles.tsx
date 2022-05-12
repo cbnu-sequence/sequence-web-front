@@ -1,20 +1,34 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqLightGray, sqWhite } from '../../styles/constants';
+import { sqBlack, sqLightGray, sqRed, sqWhite } from '../../styles/constants';
+import { keyframes } from '@emotion/react';
+
+const squareAppear = keyframes`
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+`;
 
 export const IntroduceBlock = styled.div`
   padding-top: 60px;
-  background-color: black;
-  padding-bottom: 2rem;
+  background-color: ${sqWhite};
+  padding-bottom: 4rem;
 `;
 
 export const TopBlock = styled.div`
   width: 100%;
-  height: 18rem;
+  height: 14rem;
   padding: 6rem;
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
-  color: ${sqWhite};
+  color: ${sqBlack};
+  margin-bottom: 5rem;
 
   @keyframes textAppear {
     0% {
@@ -38,32 +52,50 @@ export const TopBlock = styled.div`
   }
 `;
 
-export const MainBlock = styled.div`
-  padding: 0;
-`;
-
-export const SquareBlock = styled.div`
-  width: 60%;
-  margin: 2rem auto 6rem;
-  padding: 2rem 2rem 2rem 2rem;
+export const CultureBlock = styled.div`
   box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
-  background-color: black;
-  color: ${sqWhite};
+  width: 70%;
+  margin: 0 auto;
+  padding: 3rem 0 3rem 0;
   border-radius: 30px;
-  border: 1px solid white;
+  animation: ${squareAppear} 2s ease-in 1;
 
-  @keyframes sqAppear {
-    0% {
-      opacity: 0;
+  .txt_color {
+    color: ${sqRed};
+  }
+
+  .culture_title {
+    font-size: 1.8rem;
+    text-align: center;
+    color: ${sqBlack};
+    font-weight: bold;
+    font-family: Georgia, sans-serif;
+    margin-bottom: 1rem;
+  }
+
+  .culture_content {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    list-style: none;
+    color: ${sqBlack};
+    & > li {
+      padding-top: 1.5rem;
     }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
     }
   }
-  animation: sqAppear 2s ease-in 1;
+`;
+
+export const MiddleBlock = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 
   .title {
     font-size: 1.8rem;
@@ -72,34 +104,22 @@ export const SquareBlock = styled.div`
     font-family: Georgia, sans-serif;
   }
 
-  .culture_content {
-    font-size: 1.1rem;
-    padding-top: 0.5rem;
-    text-align: center;
-    font-weight: bold;
-    list-style: none;
-    color: #f8f8f8;
-    & > li {
-      padding-top: 1.5rem;
-    }
-    @media screen and (max-width: 768px) {
-      font-size: 1.3rem;
-    }
-  }
-
   .icons {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    color: white;
-    padding: 4rem 0 2rem 0;
-    font-size: 4.5rem;
+    color: ${sqBlack};
+    padding: 1.5rem 0 0 0;
+    font-size: 5.4rem;
+    @media screen and (max-width: 768px) {
+      font-size: 3rem;
+    }
   }
 
   .icons_name {
     display: flex;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     width: 100%;
     margin: 0 auto;
 
@@ -109,31 +129,68 @@ export const SquareBlock = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
+  }
+
+  .lab_content {
+    font-size: 1rem;
+    text-align: center;
+    color: ${sqBlack};
+  }
+`;
+
+export const ColorLine = styled.div`
+  width: 80%;
+  border-top: 4px solid ${sqLightGray};
+  margin: 4rem auto 4rem;
+`;
+
+export const SquareBlock = styled.div`
+  width: 45%;
+  padding: 1rem 1rem 1rem 1rem;
+  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
+  color: ${sqBlack};
+  border-radius: 30px;
+  min-height: 20rem;
+  line-height: 6rem;
+  animation: ${squareAppear} 2s ease-in 1;
+
+  @media screen and (max-width: 768px) {
+    margin: 1rem 0;
+    width: 100%;
   }
 `;
 
 export const MapBlock = styled.div`
   margin-bottom: 3rem;
+  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
+  width: 65%;
+  margin: 0 auto;
+  padding: 3rem 0 3rem 0;
+  border-radius: 30px;
+  animation: ${squareAppear} 2s ease-in 1;
 
   .map_title {
     font-size: 1.8rem;
     text-align: center;
-    color: ${sqWhite};
+    color: ${sqBlack};
     font-weight: bold;
     font-family: Georgia, sans-serif;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   .map_content {
     font-size: 1rem;
     text-align: center;
-    color: ${sqWhite};
+    color: ${sqBlack};
     margin-bottom: 1rem;
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
   #map {
-    width: 60%;
-    height: 580px;
+    width: 90%;
+    height: 380px;
     margin: 0 auto;
   }
 `;
