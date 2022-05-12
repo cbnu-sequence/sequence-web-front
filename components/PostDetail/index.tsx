@@ -1,7 +1,7 @@
 import React from 'react';
 import { PostDetailDiv, Wrapper } from './styles';
 
-function PostDetail({ title, writer, content, file }) {
+function PostDetail({ title, writer, content, file, images }) {
   return (
     <Wrapper>
       <PostDetailDiv>
@@ -11,7 +11,7 @@ function PostDetail({ title, writer, content, file }) {
         </div>
         <div>
           <img />
-          <p>{content}</p>
+          <p dangerouslySetInnerHTML={{ __html: content }}></p>
         </div>
       </PostDetailDiv>
     </Wrapper>
