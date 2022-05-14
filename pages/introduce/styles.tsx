@@ -16,7 +16,7 @@ const squareAppear = keyframes`
 
 export const IntroduceBlock = styled.div`
   padding-top: 60px;
-  background-color: ${sqWhite};
+  background-color: black;
   padding-bottom: 4rem;
 `;
 
@@ -27,8 +27,13 @@ export const TopBlock = styled.div`
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
-  color: ${sqBlack};
+  color: ${sqWhite};
   margin-bottom: 5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.1rem;
+    margin-bottom: 2rem;
+  }
 
   @keyframes textAppear {
     0% {
@@ -58,6 +63,7 @@ export const CultureBlock = styled.div`
   margin: 0 auto;
   padding: 3rem 0 3rem 0;
   border-radius: 30px;
+  border: 1px solid ${sqWhite};
   animation: ${squareAppear} 2s ease-in 1;
 
   .txt_color {
@@ -67,7 +73,7 @@ export const CultureBlock = styled.div`
   .culture_title {
     font-size: 1.8rem;
     text-align: center;
-    color: ${sqBlack};
+    color: ${sqWhite};
     font-weight: bold;
     font-family: Georgia, sans-serif;
     margin-bottom: 1rem;
@@ -79,7 +85,7 @@ export const CultureBlock = styled.div`
     text-align: center;
     font-weight: bold;
     list-style: none;
-    color: ${sqBlack};
+    color: ${sqWhite};
     & > li {
       padding-top: 1.5rem;
     }
@@ -89,30 +95,45 @@ export const CultureBlock = styled.div`
   }
 `;
 
-export const MiddleBlock = styled.div`
-  width: 80%;
+export const ColorLine = styled.div`
+  width: 75%;
+  border-top: 1px solid ${sqLightGray};
+  margin: 4rem auto 4rem;
+`;
+
+export const SquareBlock = styled.div`
+  width: 70%;
   margin: 0 auto;
-  padding: 0 1rem 0 1rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  padding: 3rem 1rem 3rem 1rem;
+  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
+  color: ${sqWhite};
+  border-radius: 30px;
+  min-height: 20rem;
+  animation: ${squareAppear} 2s ease-in 1;
+  border: 1px solid ${sqWhite};
+
+  @media screen and (max-width: 768px) {
+    min-height: 15rem;
+  }
 
   .title {
     font-size: 1.8rem;
     text-align: center;
     font-weight: bold;
     font-family: Georgia, sans-serif;
+    margin-bottom: 1rem;
   }
 
   .icons {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    color: ${sqBlack};
+    color: ${sqWhite};
     padding: 1.5rem 0 0 0;
     font-size: 5.4rem;
+    margin-bottom: 1.5rem;
     @media screen and (max-width: 768px) {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
   }
 
@@ -129,36 +150,18 @@ export const MiddleBlock = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
   }
 
   .lab_content {
     font-size: 1rem;
     text-align: center;
-    color: ${sqBlack};
-  }
-`;
+    color: ${sqWhite};
 
-export const ColorLine = styled.div`
-  width: 80%;
-  border-top: 4px solid ${sqLightGray};
-  margin: 4rem auto 4rem;
-`;
-
-export const SquareBlock = styled.div`
-  width: 45%;
-  padding: 1rem 1rem 1rem 1rem;
-  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
-  color: ${sqBlack};
-  border-radius: 30px;
-  min-height: 20rem;
-  line-height: 6rem;
-  animation: ${squareAppear} 2s ease-in 1;
-
-  @media screen and (max-width: 768px) {
-    margin: 1rem 0;
-    width: 100%;
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 `;
 
@@ -170,11 +173,12 @@ export const MapBlock = styled.div`
   padding: 3rem 0 3rem 0;
   border-radius: 30px;
   animation: ${squareAppear} 2s ease-in 1;
+  border: 1px solid ${sqWhite};
 
   .map_title {
     font-size: 1.8rem;
     text-align: center;
-    color: ${sqBlack};
+    color: ${sqWhite};
     font-weight: bold;
     font-family: Georgia, sans-serif;
     margin-bottom: 1.5rem;
@@ -182,7 +186,7 @@ export const MapBlock = styled.div`
   .map_content {
     font-size: 1rem;
     text-align: center;
-    color: ${sqBlack};
+    color: ${sqWhite};
     margin-bottom: 1rem;
     @media screen and (max-width: 768px) {
       font-size: 0.9rem;

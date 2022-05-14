@@ -1,5 +1,5 @@
 import Header from '../../components/Header';
-import { IntroduceBlock, MiddleBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from './styles';
+import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from './styles';
 import { GrStackOverflow, GrArchlinux, GrCloudlinux } from 'react-icons/gr';
 import Map from './map';
 
@@ -35,31 +35,34 @@ const Introduce = () => {
           </ul>
         </CultureBlock>
         <ColorLine />
-        <MiddleBlock>
-          <SquareBlock>
-            <p className="title">키워드</p>
-            <div className="icons">
-              <div>
-                <GrCloudlinux />
-              </div>
-              <div>
-                <GrStackOverflow />
-              </div>
-              <div>
-                <GrArchlinux />
-              </div>
+        <SquareBlock>
+          <p className="title">키워드</p>
+          <div className="icons">
+            <div>
+              <GrCloudlinux />
             </div>
-            <div className="icons_name">
-              <p>근거있는 프로젝트</p>
-              <p>커뮤니케이션</p>
-              <p>성장지향</p>
+            <div>
+              <GrStackOverflow />
             </div>
-          </SquareBlock>
-          <SquareBlock>
-            <p className="title">연구실</p>
-            <p className="lab_content">유재수 교수님 연구실은 asdhashkdhad asdhjaksdhashdaksd</p>
-          </SquareBlock>
-        </MiddleBlock>
+            <div>
+              <GrArchlinux />
+            </div>
+          </div>
+          <div className="icons_name">
+            <p>근거있는 프로젝트</p>
+            <p>커뮤니케이션</p>
+            <p>성장지향</p>
+          </div>
+        </SquareBlock>
+        <ColorLine />
+        <SquareBlock>
+          <p className="title">연구실</p>
+          <p className="lab_content">
+            유재수 교수님 연구실은 asdhashkdhad asdhjasdasdasdasdasdasdasdasdasdasdasdsdasdads
+            <br />
+            aksdhashdaksd
+          </p>
+        </SquareBlock>
         <ColorLine />
         <MapBlock>
           <p className="map_title">위치</p>
