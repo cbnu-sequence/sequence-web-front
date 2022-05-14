@@ -32,7 +32,6 @@ export default Post;
 
 export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
-  console.log(context.query.category, context.query.id);
   await queryClient.prefetchQuery([context.query.category, context.query.id], () =>
     getPost(context.query.category, context.query.id),
   );
