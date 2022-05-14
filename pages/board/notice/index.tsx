@@ -12,7 +12,7 @@ import Pagination from '../../../components/Pagination';
 import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useUser } from '../../../hooks/useUser';
-import WriteBtn from '../../../components/Buttons/WriteBtn';
+import WriteButton from '../../../components/Buttons/WriteBtn';
 
 const fallback = [];
 const Notice = () => {
@@ -29,10 +29,10 @@ const Notice = () => {
       refetchInterval: 60000,
     },
   );
-
   if (!noticeList.data) {
-    return <div>공지사항이 없습니다.</div>;
-  }
+    return <WriteButton>글쓰기</WriteButton>;
+    // return <div>공지사항이 없습니다.</div>;
+    }
 
   return (
     <div>
