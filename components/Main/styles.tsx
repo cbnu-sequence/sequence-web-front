@@ -264,5 +264,3 @@ export const Github = styled.div`
     }
   }
 `;
-
-export const Footer = styled.div``;
