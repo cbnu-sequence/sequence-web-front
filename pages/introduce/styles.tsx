@@ -61,17 +61,13 @@ export const CultureBlock = styled.div`
   box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
   width: 70%;
   margin: 0 auto;
-  padding: 3rem 0 3rem 0;
+  padding: 3rem 3rem 1rem 3rem;
   border-radius: 30px;
   border: 1px solid ${sqWhite};
   animation: ${squareAppear} 2s ease-in 1;
 
-  .txt_color {
-    color: ${sqRed};
-  }
-
   .culture_title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     text-align: center;
     color: ${sqWhite};
     font-weight: bold;
@@ -79,18 +75,11 @@ export const CultureBlock = styled.div`
     margin-bottom: 1rem;
   }
 
-  .culture_content {
-    font-size: 1.2rem;
-    padding-top: 0.5rem;
-    text-align: center;
-    font-weight: bold;
-    list-style: none;
-    color: ${sqWhite};
-    & > li {
-      padding-top: 1.5rem;
-    }
+  img {
+    margin: 0 auto;
+    width: 90%;
     @media screen and (max-width: 768px) {
-      font-size: 0.8rem;
+      width: 100%;
     }
   }
 `;
@@ -158,6 +147,7 @@ export const SquareBlock = styled.div`
     font-size: 1rem;
     text-align: center;
     color: ${sqWhite};
+    margin-top: 2rem;
 
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;

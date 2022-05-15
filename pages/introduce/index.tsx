@@ -14,25 +14,7 @@ const Introduce = () => {
         </TopBlock>
         <CultureBlock>
           <p className="culture_title">문화</p>
-          <ul className="culture_content">
-            <li>
-              1. 내일의 내가 <span className="txt_color">오늘</span>보다 나음을 지향한다
-            </li>
-            <li>
-              2. <span className="txt_color">서로</span>에게 <span className="txt_color">상처</span>가 될 말들을
-              지양한다
-            </li>
-            <li>
-              3. 잘못은 <span className="txt_color">인정</span>하고 같은 실수를 <span className="txt_color">반복</span>
-              하지 않는다
-            </li>
-            <li>
-              4. 다름을 <span className="txt_color">존중</span>한다
-            </li>
-            <li>
-              5. 완벽한 것보단 <span className="txt_color">빠른</span> 것을 추구한다
-            </li>
-          </ul>
+          <img src="culture.png" />
         </CultureBlock>
         <ColorLine />
         <SquareBlock>
@@ -57,11 +39,7 @@ const Introduce = () => {
         <ColorLine />
         <SquareBlock>
           <p className="title">연구실</p>
-          <p className="lab_content">
-            유재수 교수님 연구실은 asdhashkdhad asdhjasdasdasdasdasdasdasdasdasdasdasdsdasdads
-            <br />
-            aksdhashdaksd
-          </p>
+          <p className="lab_content">저희 동아리는 KAIST 전산학 공학박사 유재수 교수님 연구실을 사용하고 있습니다.</p>
         </SquareBlock>
         <ColorLine />
         <MapBlock>
