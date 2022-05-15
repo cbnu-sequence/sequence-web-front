@@ -9,12 +9,13 @@ export const WriteButton = styled.button`
   width: 4.3rem;
   height: 1.8rem;
   font-size: 1.05rem;
-  text-aligin: center;
+  text-align: center;
   color: ${sqBlack};
   background-color: ${sqGray};
   :hover {
     color: ${sqWhite};
     background-color: ${sqBlack};  
+    cursor: pointer
   }
 `;
 
@@ -26,12 +27,13 @@ export const DeleteButton = styled.button`
   width: 4.3rem;
   height: 1.8rem;
   font-size: 1.1rem;
-  text-aligin: center;
+  text-align: center;
   color: ${sqBlack};
   background-color: ${sqLightGray};
   :hover {
     color: ${sqBlack};
     background-color: ${sqGray};
+    cursor: pointer
   }
 `;
 
@@ -43,11 +45,12 @@ export const ModifyButton = styled.button`
   width: 4.3rem;
   height: 1.8rem;
   font-size: 1.1rem;
-  text-aligin: center;
+  text-align: center;
   color: ${sqBlack};
   background-color: ${sqLightGray};
   :hover {
     color: ${sqBlack};
     background-color: ${sqGray};
+    cursor: pointer
   }
 `;
