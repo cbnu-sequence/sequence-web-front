@@ -1,9 +1,8 @@
 import React from 'react';
-// import { Button } from '@chakra-ui/react';
-import { WriteButton } from "./styles";
+import { NoticeButton } from "./styles";
 
-function WriteBtn(props: any) {
-  return <WriteButton>글쓰기</WriteButton>;
+function WriteBtn() {
+  return <NoticeButton>글쓰기</NoticeButton>;
 }
 
 export default WriteBtn;

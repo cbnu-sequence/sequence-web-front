@@ -12,7 +12,9 @@ import Pagination from '../../../components/Pagination';
 import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useUser } from '../../../hooks/useUser';
-import WriteButton from '../../../components/Buttons/WriteBtn';
+import WriteBtn from '../../../components/Buttons/WriteBtn';
+import ModifyBtn from '../../../components/Buttons/ModifyBtn';
+import DeleteBtn from '../../../components/Buttons/DeleteBtn';
 
 const fallback = [];
 const Notice = () => {
@@ -30,8 +32,7 @@ const Notice = () => {
     },
   );
   if (!noticeList.data) {
-    return <WriteButton>글쓰기</WriteButton>;
-    // return <div>공지사항이 없습니다.</div>;
+    return <div>공지사항이 없습니다.</div>;
     }
 
   return (
