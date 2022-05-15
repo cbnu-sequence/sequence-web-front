@@ -1,7 +1,7 @@
 import Header from '../../components/Header';
 import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from './styles';
 import { GrStackOverflow, GrArchlinux, GrCloudlinux } from 'react-icons/gr';
-import Map from './map';
+import Map from '../../components/Map/map';
 import Link from 'next/link';
 
 const Introduce = () => {
