@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqLightGray, sqRed, sqWhite } from '../../styles/constants';
+import { sqBlack, sqLightGray, sqRed, sqWhite, sqWhiteBoxShadow } from '../../styles/constants';
 import { keyframes } from '@emotion/react';
 
 const squareAppear = keyframes`
@@ -58,7 +58,7 @@ export const TopBlock = styled.div`
 `;
 
 export const CultureBlock = styled.div`
-  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
+  box-shadow: ${sqWhiteBoxShadow};
   width: 70%;
   margin: 0 auto;
   padding: 3rem 3rem 1rem 3rem;
@@ -71,7 +71,6 @@ export const CultureBlock = styled.div`
     text-align: center;
     color: ${sqWhite};
     font-weight: bold;
-    font-family: Georgia, sans-serif;
     margin-bottom: 1rem;
   }
 
@@ -94,7 +93,7 @@ export const SquareBlock = styled.div`
   width: 70%;
   margin: 0 auto;
   padding: 3rem 1rem 3rem 1rem;
-  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
+  box-shadow: ${sqWhiteBoxShadow};
   color: ${sqWhite};
   border-radius: 30px;
   min-height: 20rem;
@@ -109,7 +108,6 @@ export const SquareBlock = styled.div`
     font-size: 1.8rem;
     text-align: center;
     font-weight: bold;
-    font-family: Georgia, sans-serif;
     margin-bottom: 1rem;
   }
 
@@ -148,16 +146,23 @@ export const SquareBlock = styled.div`
     text-align: center;
     color: ${sqWhite};
     margin-top: 2rem;
+    line-height: 2rem;
 
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
     }
   }
+  .lab_href {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: ${sqRed};
+  }
 `;
 
 export const MapBlock = styled.div`
   margin-bottom: 3rem;
-  box-shadow: 0px 12px 20px 0px rgba(77, 73, 73, 0.2);
+  box-shadow: ${sqWhiteBoxShadow};
   width: 65%;
   margin: 0 auto;
   padding: 3rem 0 3rem 0;
@@ -170,7 +175,6 @@ export const MapBlock = styled.div`
     text-align: center;
     color: ${sqWhite};
     font-weight: bold;
-    font-family: Georgia, sans-serif;
     margin-bottom: 1.5rem;
   }
   .map_content {
