@@ -1,8 +1,8 @@
 import React from 'react';
-import { NoticeButton } from "./styles";
+import { WriteButton } from "./styles";
 
 function WriteBtn() {
-  return <NoticeButton>글쓰기</NoticeButton>;
+  return <WriteButton>글쓰기</WriteButton>;
 }
 
 export default WriteBtn;

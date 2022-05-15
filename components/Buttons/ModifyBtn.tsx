@@ -1,8 +1,8 @@
 import React from 'react';
-import { NoticeButton } from "./styles";
+import { ModifyButton } from "./styles";
 
 export function ModifyBtn() {
-    return <NoticeButton>수정</NoticeButton>;
+    return <ModifyButton>수정</ModifyButton>;
 }
 
 export default ModifyBtn;

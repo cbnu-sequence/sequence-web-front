@@ -1,8 +1,8 @@
 import React from 'react';
-import { NoticeButton } from "./styles";
+import { DeleteButton } from "./styles";
 
 export function DeleteBtn() {
-    return <NoticeButton>삭제</NoticeButton>;
+    return <DeleteButton>삭제</DeleteButton>;
 }
 
 export default DeleteBtn;
