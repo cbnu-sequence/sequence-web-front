@@ -21,14 +21,13 @@ const textAppear = keyframes`
     width: 450px;
     opacity:1;
   }
-  
 `;
 
 export const MainDiv = styled.div`
   background-color: ${sqWhite};
 
   .main__top {
-    height: 150vh;
+    height: 110vh;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -60,18 +59,22 @@ export const MainDiv = styled.div`
   }
   @media screen and (max-width: 898px) {
     .main__top {
+      height: 100vh;
       flex-direction: column;
       & > img {
         width: 60%;
-        margin-bottom: 20px;
       }
-    }
-    .main__top--text {
-      margin: 0;
-      animation: none;
-      width: 50%;
-      & > p {
-        font-size: 1.9vw;
+      & > .main__top--text {
+        margin: 0 0 50px 0;
+        animation: none;
+        width: 70%;
+        & > img {
+          display: none;
+        }
+
+        & > p {
+          font-size: 2.8vw;
+        }
       }
     }
   }
@@ -91,7 +94,6 @@ export const Content = styled.div`
 
 export const Pomodoro = styled.div`
   height: 150vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +146,7 @@ export const Pomodoro = styled.div`
       }
 
       & > p {
-        font-size: 1.9vw;
+        font-size: 2.1vw;
       }
     }
     .tomato_btn {
@@ -158,7 +160,7 @@ export const Pomodoro = styled.div`
   }
 `;
 export const HomePhoto = styled.div`
-  height: 150vh;
+  height: 100vh;
 
   & > div {
     display: flex;
@@ -223,7 +225,7 @@ export const PomoLink = styled(Link)`
 `;
 
 export const Github = styled.div`
-  height: 150vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
