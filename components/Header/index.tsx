@@ -5,6 +5,11 @@ import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
+import { dehydrate, QueryClient } from 'react-query';
+import { getPost } from '../../apis/post';
+import { queryKeys } from '../../react-query/constants';
+import { loadMyInfoAPI } from '../../apis/user';
+import axios from 'axios';
 
 function Header() {
   const [isToggled, setIsToggled] = useState(false);
@@ -19,12 +24,14 @@ function Header() {
     }
   }, []);
   const [scrollPosition, setScrollPosition] = useState(0);
+
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
+
   useEffect(() => {
     window.addEventListener('scroll', updateScroll);
-  });
+  }, [updateScroll]);
 
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
@@ -37,14 +44,18 @@ function Header() {
         >
           <FontAwesomeIcon aria-hidden={false} icon={!isToggled ? faBars : faTimes} />
         </div>
-        <div className="logo">
-          <Link href="/">
-            <img className="logo_b" src="/sequence_b.png" />
-          </Link>
-          <Link href="/">
-            <img className="logo_w" src="/sequence_w.png" />
-          </Link>
-        </div>
+        <Link href="/">
+          <div className="logo">
+            <div className="logo_b">
+              <img className="logotype" src="/sequence_b.png" />
+              <img className="flowerLogo" src="/flowerLogo_b.png" />
+            </div>
+            <div className="logo_w">
+              <img className="logotype" src="/sequence_w.png" />
+              <img className="flowerLogo" src="/flowerLogo_w.png" />
+            </div>
+          </div>
+        </Link>
         <div
           className="user"
           onClick={() => {
@@ -54,7 +65,7 @@ function Header() {
           <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
         </div>
         <ul className="header__menulist">
-          <Link href="/">
+          <Link href="/introduce">
             <li>
               <a>시퀀스 소개</a>
             </li>
@@ -74,7 +85,7 @@ function Header() {
                 <Link href="/board/projects">프로젝트</Link>
               </li>
               <li>
-                <Link href="/boardsharinginfo/">정보 공유</Link>
+                <Link href="/board/sharinginfo/">정보 공유</Link>
               </li>
             </ul>
           </li>

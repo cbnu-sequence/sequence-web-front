@@ -8,6 +8,8 @@ type HeaderProps = {
 
 export const HeaderDiv = styled.div<HeaderProps>`
   position: fixed;
+  z-index: 1;
+  top: 0;
   .black-header {
     width: 100vw;
     margin: 0 auto;
@@ -20,15 +22,37 @@ export const HeaderDiv = styled.div<HeaderProps>`
     font-size: 18px;
     background-color: ${sqBlack};
 
+    @keyframes shakeFlowerHead {
+      0% {
+        transform: rotate(10deg);
+      }
+      100% {
+        transform: rotate(-10deg);
+      }
+    }
+
     .logo {
       margin: 10px;
       padding: 5px 10px;
-      width: 140px;
+      width: 150px;
       height: 40px;
       cursor: pointer;
     }
+
+    .flowerLogo {
+      width: 40px;
+    }
     .logo_b {
       display: none;
+    }
+
+    .logo_w {
+      display: flex;
+      &:hover {
+        .flowerLogo {
+          animation: shakeFlowerHead 1s ease-in-out infinite alternate;
+        }
+      }
     }
 
     .header__menulist {
@@ -46,8 +70,8 @@ export const HeaderDiv = styled.div<HeaderProps>`
         position: relative;
         height: 100%;
         :hover {
-          border-bottom: 5px solid;
-          transition: border-bottom.2s ease-in-out;
+          border-bottom: 5px solid ${sqWhite};
+          transition: border-bottom 0.2s ease-in-out;
         }
       }
     }
@@ -82,14 +106,14 @@ export const HeaderDiv = styled.div<HeaderProps>`
       }
     }
 
-    . .header__left {
+    .header__left {
       display: flex;
     }
 
     .header__right {
       list-style: none;
       display: flex;
-      padding-right: 10px;
+      padding-right: 30px;
       & > li {
         cursor: pointer;
         padding: 10px;
@@ -109,18 +133,16 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem 1rem 1rem;
     }
 
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
-
       height: 100%;
       .header__right {
         display: ${(props) => (props.userToggled ? 'flex' : 'none')};
         flex-direction: column;
         width: 100%;
-        background-color: black;
       }
 
       .header__menulist {
@@ -134,6 +156,13 @@ export const HeaderDiv = styled.div<HeaderProps>`
       .header__right li {
         margin: 1rem 0;
         padding: 0;
+        color: ${sqWhite};
+      }
+
+      .header__menulist li:hover ul {
+        width: 100%;
+        margin: 0 auto;
+        background-color: ${sqBlack};
       }
 
       .toggle {
@@ -162,12 +191,26 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .logo {
       margin: 10px;
       padding: 5px 10px;
-      width: 140px;
+      width: 150px;
       height: 40px;
       cursor: pointer;
+      // display: flex;
+    }
+
+    .flowerLogo {
+      width: 40px;
     }
     .logo_w {
       display: none;
+    }
+
+    .logo_b {
+      display: flex;
+      &:hover {
+        .flowerLogo {
+          animation: shakeFlowerHead 1s ease-in-out infinite alternate;
+        }
+      }
     }
 
     .header__menulist {
@@ -228,6 +271,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .header__right {
       list-style: none;
       display: flex;
+      padding-right: 30px;
       & > li {
         cursor: pointer;
         padding: 10px;
@@ -247,12 +291,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem 1rem 1rem;
     }
 
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
-
+      height: 100%;
       .header__right {
         display: ${(props) => (props.userToggled ? 'flex' : 'none')};
         flex-direction: column;
@@ -264,32 +308,28 @@ export const HeaderDiv = styled.div<HeaderProps>`
         flex-direction: column;
         width: 100%;
         background-color: ${sqWhite};
-        padding-left: 10px;
       }
 
       .header__menulist li,
       .header__right li {
         margin: 1rem 0;
         padding: 0;
-        & > a {
-          background-color: ${sqWhite};
-        }
+        color: ${sqBlack};
       }
 
       .header__menulist li:hover ul {
         box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
         width: 100%;
         margin: 0 auto;
+        background-color: ${sqWhite};
       }
 
       .toggle {
         display: block;
-        color: ${sqBlack};
       }
 
       .user {
         display: block;
-        color: ${sqBlack};
       }
     }
   }
