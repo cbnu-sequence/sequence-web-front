@@ -8,7 +8,7 @@ axios.defaults.withCredentials = true;
 export async function postWrite(data: { title: string; content: string }) {
   try {
     const response = await axios.post('post/notice', data);
-    return response;
+    return response.data;
   } catch (error) {
     return error.response;
   }
@@ -17,17 +17,19 @@ export async function postWrite(data: { title: string; content: string }) {
 export async function postFile(formData: FormData) {
   try {
     const response = await axios.post('file', formData);
-    return response;
+    return response.data;
   } catch (error) {
     return error.response;
   }
 }
-
 
 export function getTable(category: string, page: number, limit: number) {
   return axios.get(`/post/${category}?page=${page}&limit=${limit}`).then((response) => response.data);
 }
 
 export function getPost(category: string, _id: string) {
-  return axios.get(`/post/${category}/${_id}`).then((response) => response.data);
+  return axios
+    .get(`/post/${category}/${_id}`)
+    .then((res) => res.data)
+    .catch((err) => console.error(err));
 }

@@ -3,4 +3,5 @@ export const queryKeys = {
   notices: 'notices',
   notice: 'notice',
   projects: 'projects',
+  sharingInfo: 'sharingInfo',
 };

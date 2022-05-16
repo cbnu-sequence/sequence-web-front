@@ -15,7 +15,7 @@ import { useUser } from '../../../hooks/useUser';
 import WriteBtn from '../../../components/Buttons/WriteBtn';
 
 const fallback = [];
-const Index = () => {
+const Notice = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
   const { user: me } = useUser();
@@ -29,11 +29,10 @@ const Index = () => {
       refetchInterval: 60000,
     },
   );
-
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
-  }
-  console.log(me);
+    }
+
   return (
     <div>
       <Head>
@@ -46,7 +45,7 @@ const Index = () => {
         {noticeList &&
           noticeList.data.map((item, index) => {
             return (
-              <Link key={item._id} href={`../../posts/${item._id}`}>
+              <Link key={item._id} href={`../../posts/${item._id}?category=notice`}>
                 <Tr key={item._id}>
                   <CommonTd>{limit * (page - 1) + (index + 1)}.</CommonTd>
                   <CommonTd>{item.writer.name}</CommonTd>
@@ -62,4 +61,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Notice;
