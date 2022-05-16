@@ -5,6 +5,7 @@ import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import { getPost } from '../../apis/post';
 import Header from '../../components/Header';
+import { useUser } from '../../hooks/useUser';
 
 function Post() {
   const router = useRouter();
@@ -17,7 +18,8 @@ function Post() {
       <Header />
       <PostDetail
         title={data.data.title}
-        writer={data.data.writer.name}
+        writerName={data.data.writer.name}
+        writerRole={data.data.writer.role}
         content={data.data.content}
         file={data.data.file}
         images={data.data.images}
@@ -30,7 +32,9 @@ export default Post;
 
 export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(['notice', context.params.id], () => getPost('notice', context.params.id));
+  await queryClient.prefetchQuery([context.query.category, context.query.id], () =>
+    getPost(context.query.category, context.query.id),
+  );
 
   return {
     props: {
