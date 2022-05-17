@@ -18,10 +18,12 @@ function Post() {
       <Header />
       <PostDetail
         title={data.data.title}
+        createdAt={data.data.createdAt}
+        updatedAt={data.data.updatedAt}
         writerName={data.data.writer.name}
         writerRole={data.data.writer.role}
         content={data.data.content}
-        file={data.data.file}
+        files={data.data.file}
         images={data.data.images}
       />
     </>
