@@ -6,6 +6,10 @@ import Footer from '../components/Footer';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import axios from 'axios';
+import { dehydrate, QueryClient } from 'react-query';
+import { queryKeys } from '../react-query/constants';
+import { loadMyInfoAPI } from '../apis/user';
 config.autoAddCss = false;
 
 function Home() {
@@ -23,3 +27,20 @@ function Home() {
 }
 
 export default Home;
+
+export async function getServerSideProps(context) {
+  const cookie = context.req ? context.req.headers.cookie : '';
+  axios.defaults.headers.Cookie = '';
+  console.log(cookie);
+  if (context.req && cookie) {
+    axios.defaults.headers.Cookie = cookie;
+  }
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery([queryKeys.user], () => loadMyInfoAPI(cookie));
+
+  return {
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+  };
+}

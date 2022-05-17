@@ -11,15 +11,20 @@ export const SQTh = styled(Thead)`
   font-size: 8px;
 `;
 
-export const SQTableContainer = styled(TableContainer)`
-  border: solid 1px rgba(${sqBlack}, 0.1);
+export const SQTableContainer = styled.div`
+  display: flex;
+  width: 80vw;
+  margin: 0 auto;
+  padding-top: 30px;
   @media screen and (max-width: 768px) {
     th {
       display: none;
     }
     tbody tr {
+      border: 3px solid black;
       display: block;
-      ß td:first-of-type {
+      cursor: pointer;
+      td:first-of-type {
         display: none;
       }
       & > td {
@@ -48,7 +53,7 @@ export const CustomSortIcon = styled(FontAwesomeIcon)`
 export const TitleDiv = styled.div`
   display: flex;
   width: 100vw;
-  padding-top: 60px;
+  padding-top: 10px;
   justify-content: center;
   align-items: center;
   font-weight: 700;

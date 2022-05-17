@@ -1,17 +1,14 @@
 import React from 'react';
 import { PostDetailDiv, Wrapper } from './styles';
-
-function PostDetail({ title, writer, content, file }) {
+import PostHeader from '../PostHeader';
+function PostDetail({ title, content, file, images, writerName, writerRole }) {
   return (
     <Wrapper>
       <PostDetailDiv>
-        <div className="header">
-          <h2 className="header__title">{title}</h2>
-          <h4 className="header__writer">{writer}</h4>
-        </div>
+        <PostHeader title={title} writerName={writerName} writerRole={writerRole} />
         <div>
           <img />
-          <p>{content}</p>
+          <div dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>
       </PostDetailDiv>
     </Wrapper>
