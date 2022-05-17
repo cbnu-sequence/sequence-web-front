@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUser } from '../../hooks/useUser';
 import Header from '../../components/Header';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
 import Link from 'next/link';
 import { Tr } from '@chakra-ui/react';
@@ -10,6 +10,7 @@ import dayjs from 'dayjs';
 
 function Profile() {
   const { user } = useUser();
+  const Router = useRouter();
   if (!user) {
     Router.replace('/');
     return null;
