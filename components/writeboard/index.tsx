@@ -22,9 +22,9 @@ export const WriteBoard = () => {
           formData.append('upload', e.target.files[i]);
           postFile(formData).then((response) => {
             if (response.status === 200) {
-              setFiles((files) => files.concat(response.data.data._id));
+              setFiles((files) => files.concat(response.data.data.url));
               onChangeFileName((fileName) =>
-                fileName.concat({ name: e.target.files[i].name, id: response.data.data._id }),
+                fileName.concat({ name: e.target.files[i].name, url: response.data.data.url }),
               );
             } else {
               console.log('파일 전송 실패');
@@ -41,7 +41,7 @@ export const WriteBoard = () => {
 
   const onRemoveFile = useCallback(
     (item) => {
-      setFiles(files.filter((id) => id !== item.id));
+      setFiles(files.filter((url) => url !== item.url));
       onChangeFileName(fileName.filter((file) => file.name !== item.name));
     },
     [files, fileName],
@@ -95,7 +95,7 @@ export const WriteBoard = () => {
                     className="
                   removefile"
                     onClick={() => onRemoveFile(item)}
-                    key={item.id}
+                    key={item.url}
                   >
                     {item.name}
                   </div>
