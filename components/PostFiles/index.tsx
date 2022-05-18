@@ -1,5 +1,4 @@
 import React from 'react';
-import { backUrl } from '../../config/config';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

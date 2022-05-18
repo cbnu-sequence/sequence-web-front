@@ -8,7 +8,7 @@ export function loadMyInfoAPI(data) {
   if (!data) {
     return null;
   }
-  return axios.get('auth/me').then((response) => response.data);
+  return axios.get('auth/me').then((response) => response.data.data);
 }
 
 export function logInAPI(data: { email: string; password: string }) {
