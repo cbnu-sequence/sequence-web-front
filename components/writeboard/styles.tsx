@@ -62,7 +62,7 @@ export const TitleInput = styled.input`
 `;
 
 export const FileBlock = styled.div`
-  width: 30%;
+  width: 25%;
   font-size: 0.8rem;
   display: flex;
   justify-content: center;
@@ -94,6 +94,17 @@ export const FileBlock = styled.div`
     padding: 0;
     overflow: hidden;
     border: 0;
+  }
+
+  .removefile {
+    color: black;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    &:hover {
+      color: red;
+    }
   }
 
   @media screen and (max-width: 768px) {
