@@ -2,10 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import PostDetail from '../../components/PostDetail';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
-import { queryKeys } from '../../react-query/constants';
 import { getPost } from '../../apis/post';
 import Header from '../../components/Header';
-import { useUser } from '../../hooks/useUser';
 
 function Post() {
   const router = useRouter();
@@ -18,10 +16,12 @@ function Post() {
       <Header />
       <PostDetail
         title={data.data.title}
+        createdAt={data.data.createdAt}
+        updatedAt={data.data.updatedAt}
         writerName={data.data.writer.name}
         writerRole={data.data.writer.role}
         content={data.data.content}
-        file={data.data.file}
+        files={data.data.file}
         images={data.data.images}
       />
     </>

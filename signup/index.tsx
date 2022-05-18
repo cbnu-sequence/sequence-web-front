@@ -44,9 +44,7 @@ const SignUp = () => {
       e.preventDefault();
       signup({ email, password, name, phoneNumber })
         .then(() => {
-          if (user) {
-            Router.replace('/emailcheck');
-          }
+          Router.replace('/emailcheck');
         })
         .catch((error) => {
           setSignUpError(true);
