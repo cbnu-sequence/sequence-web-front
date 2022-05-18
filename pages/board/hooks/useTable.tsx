@@ -14,20 +14,20 @@ async function getTable(category: string, page: number): Promise<void> {
   return data;
 }
 
-function useTable(): useTable {
-  const fallback = {};
-  const { data: noticeList = fallback } = useQuery(
-    queryKeys.notice,
-    (queryKeys.notice, page) => getTable(queryKeys.notice, page),
-    {
-      refetchOnMount: true,
-      refetchOnReconnect: true,
-      refetchOnWindowFocus: true,
-      refetchInterval: 60000,
-    },
-  );
-
-  return noticeList;
+// function useTable(): useTable {
+//   const fallback = {};
+//   const { data: noticeList = fallback } = useQuery(
+//     queryKeys.notice,
+//     (queryKeys.notice, page) => getTable(queryKeys.notice, page),
+//     {
+//       refetchOnMount: true,
+//       refetchOnReconnect: true,
+//       refetchOnWindowFocus: true,
+//       refetchInterval: 60000,
+//     },
+//   );
+//
+//   return noticeList;
 }
-
-export default useTable;
+//
+// export default useTable;
