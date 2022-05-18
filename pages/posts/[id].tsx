@@ -2,10 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import PostDetail from '../../components/PostDetail';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
-import { queryKeys } from '../../react-query/constants';
 import { getPost } from '../../apis/post';
 import Header from '../../components/Header';
-import { useUser } from '../../hooks/useUser';
 
 function Post() {
   const router = useRouter();

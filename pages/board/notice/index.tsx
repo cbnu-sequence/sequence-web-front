@@ -29,9 +29,10 @@ const Notice = () => {
       refetchInterval: 60000,
     },
   );
+
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
-    }
+  }
 
   return (
     <div>
@@ -40,7 +41,13 @@ const Notice = () => {
       </Head>
       <Header />
       <CommonHeader title={'공지사항'} />
-      {me?.role === 'User' && <WriteBtn />}
+      {me?.role === 'User' && (
+        <Link href="./notice/write">
+          <a>
+            <WriteBtn />
+          </a>
+        </Link>
+      )}
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&
           noticeList.data.map((item, index) => {
