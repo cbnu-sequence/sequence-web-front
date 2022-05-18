@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function PostFiles({ files }) {
   return files.map((item) => {
     return (
-      <a key={item} href={item} download>
-        <FontAwesomeIcon aria-hidden={false} icon={faDownload} />
+      <a key={item._id} href={item.url} download={item.filename}>
+        <div>
+          {item.filename}
+          <FontAwesomeIcon aria-hidden={false} icon={faDownload} />
+        </div>
       </a>
     );
   });

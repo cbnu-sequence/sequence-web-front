@@ -10,7 +10,6 @@ function Post() {
   // @ts-ignore
   const { id, category }: { id: string; category: string } = router.query;
   const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id));
-  console.log(data.data.files);
   if (isLoading) return <div>Loading</div>;
   return (
     <>
@@ -22,7 +21,7 @@ function Post() {
         writerName={data.data.writer.name}
         writerRole={data.data.writer.role}
         content={data.data.content}
-        files={data.data.file}
+        files={data.data.files}
         images={data.data.images}
       />
     </>
