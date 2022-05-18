@@ -3,6 +3,7 @@ import { sqBlack, sqWhite, sqGray } from '../../styles/constants';
 
 export const Block = styled.div`
   background-color: rgba(249, 237, 237, 0.042);
+  padding: 2rem 0 2rem 0;
 `;
 
 export const Editor = styled.form`
@@ -67,13 +68,12 @@ export const FileBlock = styled.div`
   display: flex;
   justify-content: center;
 
-  div {
+  .file {
     border: 1px solid #beb6b6;
     border-radius: 1px;
     flex: 1;
     margin-right: 1rem;
-    padding: 0.4rem;
-    color: ${sqGray};
+    padding: 0.5rem;
   }
 
   label {
@@ -97,13 +97,21 @@ export const FileBlock = styled.div`
   }
 
   .removefile {
-    color: black;
-    cursor: pointer;
-    border: none;
+    color: ${sqBlack};
     font-weight: bold;
-    text-align: center;
-    &:hover {
+    display: flex;
+    margin: 0.4rem 0.3rem 0.4rem 0.3rem;
+
+    .item_name {
+      flex: 1;
+      text-align: center;
+    }
+
+    .icon {
       color: red;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 0.1rem;
     }
   }
 
