@@ -67,13 +67,14 @@ export const MainDiv = styled.div`
       & > .main__top--text {
         margin: 0 0 50px 0;
         animation: none;
-        width: 70%;
+        width: 68%;
+        max-width: 500px;
         & > img {
           display: none;
         }
 
         & > p {
-          font-size: 2.8vw;
+          font-size: min(19px, 2.7vw);
         }
       }
     }
