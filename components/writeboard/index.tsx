@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react';
 import Router from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
+import { MdRemoveCircleOutline } from 'react-icons/md';
 
 export const WriteBoard = () => {
   const [title, onChangeTitle] = useInput('');
@@ -89,20 +90,18 @@ export const WriteBoard = () => {
           <p className="filetitle">파일 업로드</p>
           <FileBlock>
             {fileName.length > 0 ? (
-              <div>
+              <div className="file">
                 {fileName.map((item) => (
-                  <div
-                    className="
-                  removefile"
-                    onClick={() => onRemoveFile(item)}
-                    key={item.url}
-                  >
-                    {item.name}
+                  <div className="removefile" key={item.url}>
+                    <div className="item_name">{item.name}</div>
+                    <div className="icon" onClick={() => onRemoveFile(item)}>
+                      <MdRemoveCircleOutline />
+                    </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div>비어있습니다.</div>
+              <div className="file">비어있습니다.</div>
             )}
             <label htmlFor="file">파일 찾기</label>
             <input type="file" id="file" onChange={onFileSubmit} multiple />
