@@ -63,7 +63,7 @@ export const TitleInput = styled.input`
 `;
 
 export const FileBlock = styled.div`
-  width: 25%;
+  width: 20%;
   font-size: 0.8rem;
   display: flex;
   justify-content: center;
@@ -100,11 +100,12 @@ export const FileBlock = styled.div`
     color: ${sqBlack};
     font-weight: bold;
     display: flex;
+    justify-content: center;
     margin: 0.4rem 0.3rem 0.4rem 0.3rem;
 
     .item_name {
-      flex: 1;
       text-align: center;
+      margin-right: 0.5rem;
     }
 
     .icon {
