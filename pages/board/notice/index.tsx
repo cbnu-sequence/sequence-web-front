@@ -13,6 +13,8 @@ import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useUser } from '../../../hooks/useUser';
 import WriteBtn from '../../../components/Buttons/WriteBtn';
+import DeleteBtn from '../../../components/Buttons/DeleteBtn';
+import ModifyBtn from '../../../components/Buttons/ModifyBtn';
 
 const fallback = [];
 const Notice = () => {
@@ -31,6 +33,9 @@ const Notice = () => {
   );
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
+    //<WriteBtn></WriteBtn>
+    // <ModifyBtn></ModifyBtn>
+    // <DeleteBtn></DeleteBtn>
     }
 
   return (
@@ -41,6 +46,9 @@ const Notice = () => {
       <Header />
       <CommonHeader title={'공지사항'} />
       {me?.role === 'User' && <WriteBtn />}
+      
+      <WriteBtn></WriteBtn>
+      
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&
           noticeList.data.map((item, index) => {

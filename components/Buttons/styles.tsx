@@ -1,38 +1,37 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqRed, sqWhite, sqPink, sqLightGray, sqGray } from '../../styles/constants';
+import { sqBlack, sqWhite, sqLightGray, sqGray } from '../../styles/constants';
 
 export const WriteButton = styled.button`
   margin: 0 auto;
-  padding: 0 auto;
   border: none;
-  border-radius: 0.7rem;
-  width: 4.3rem;
-  height: 1.8rem;
-  font-size: 1.05rem;
+  border-radius: 0.3rem;
+  width: 4.25rem;
+  height: 2.05rem;
+  font-size: 0.8rem;
   text-align: center;
-  color: ${sqBlack};
-  background-color: ${sqGray};
-  :hover {
-    color: ${sqWhite};
-    background-color: ${sqBlack};  
+  color: ${sqWhite};
+  background-color: ${sqBlack};
+  &:hover {
+    color: ${sqBlack};
+    background-color: ${sqGray};  
     cursor: pointer
   }
-`;
-
+  `;
+  
 export const DeleteButton = styled.button`
   margin: 0 auto;
   padding: 0 auto;
   border: none;
-  border-radius: 0.7rem;
-  width: 4.3rem;
-  height: 1.8rem;
-  font-size: 1.1rem;
+  border-radius: 0.3rem;
+  width: 4.25rem;
+  height: 2.05rem;
+  font-size: 0.9rem;
   text-align: center;
   color: ${sqBlack};
-  background-color: ${sqLightGray};
-  :hover {
+  background-color: ${sqGray};
+  &:hover {
     color: ${sqBlack};
-    background-color: ${sqGray};
+    background-color: ${sqLightGray};
     cursor: pointer
   }
 `;
@@ -41,16 +40,16 @@ export const ModifyButton = styled.button`
   margin: 0 auto;
   padding: 0 auto;
   border: none;
-  border-radius: 0.7rem;
-  width: 4.3rem;
-  height: 1.8rem;
-  font-size: 1.1rem;
+  border-radius: 0.3rem;
+  width: 4.25rem;
+  height: 2.05rem;
+  font-size: 0.9rem;
   text-align: center;
   color: ${sqBlack};
-  background-color: ${sqLightGray};
-  :hover {
+  background-color: ${sqGray};
+  &:hover {
     color: ${sqBlack};
-    background-color: ${sqGray};
+    background-color: ${sqLightGray};
     cursor: pointer
   }
 `;
