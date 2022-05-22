@@ -1,5 +1,5 @@
 import Header from '../../components/Header';
-import { Block, TitleInput, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
+import { Block, Input, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
@@ -82,7 +82,7 @@ export const WriteBoard = () => {
           <p className="title">글 작성하기</p>
           <hr />
           <p className="subtitle">제목</p>
-          <TitleInput placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
+          <Input placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
           {TitleError && <ErrorMessage>제목을 입력해주세요</ErrorMessage>}
           <p className="subtitle">내용</p>
           <TextEditor content={content} setContent={setContent} />
