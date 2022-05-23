@@ -1,5 +1,6 @@
 import React from 'react';
 import { useUser } from '../../hooks/useUser';
+import { ProfileDiv, CTDiv } from './styles';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
@@ -20,16 +21,23 @@ function Profile() {
   return (
     <div>
       <Header />
-      <div>{user.data.name}님의 프로필</div>
-      <h2>sequence makes difference</h2>
-      <div>이메일 주소: {user.data.email}</div>
-      <div>회원 등급: {user.data.role == 'User' ? '일반등급' : '관리자'}</div>
-      {user.data.role === 'Admin' && (
-        <Link href="/">
-          <ProjectAddButton>프로젝트 추가하기</ProjectAddButton>
-        </Link>
-      )}
-      <div>
+      <ProfileDiv>
+        <div className="profile-title">
+          {user.data.name}님의 프로필
+          <h2>sequence makes difference</h2>
+        </div>
+
+        <div className="profile-contents">
+          <img className="flowerlogo" src="/flowerLogo_b.png" />
+          이메일 주소: {user.data.email}
+        </div>
+        <div className="profile-contents">
+          <img className="flowerlogo" src="/flowerLogo_b.png" />
+          회원 등급: {user.data.role == 'User' ? '일반등급' : '관리자'}
+        </div>
+      </ProfileDiv>
+      <CTDiv>
+        <span>내 게시글</span>
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
           {user.data.posts &&
             user.data.posts.map((item, index) => {
@@ -47,7 +55,7 @@ function Profile() {
               );
             })}
         </CommonTable>
-      </div>
+      </CTDiv>
     </div>
   );
 }
