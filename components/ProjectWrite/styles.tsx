@@ -45,3 +45,46 @@ export const ItemBlock = styled.div`
     }
   }
 `;
+
+export const ImageBlock = styled.div`
+  width: 100%;
+  font-size: 0.8rem;
+  display: flex;
+  margin-top: 1rem;
+
+  label {
+    margin: 0.6rem 0 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.4rem;
+    height: 2.5rem;
+    color: ${sqWhite};
+    background-color: ${sqBlack};
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type='file'] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+  }
+`;
+
+export const PreviewImageBlock = styled.div`
+  display: flex;
+  justify-content: start;
+  overflow-x: auto;
+  img {
+    width: 20%;
+    height: 20%;
+    margin-left: 2rem;
+    &:nth-of-type(1) {
+      margin-left: 0rem;
+    }
+  }
+`;

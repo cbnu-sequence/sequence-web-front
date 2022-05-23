@@ -1,10 +1,10 @@
 import Router from 'next/router';
 import { useCallback, useState } from 'react';
-import { postProjectWrite } from '../../apis/post';
+import { postFile, postProjectWrite } from '../../apis/post';
 import useInput from '../../hooks/useInput';
 import Header from '../Header';
-import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton } from '../Writeboard/styles';
-import { AddButton, ItemBlock, SecondInput } from './styles';
+import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton, FileBlock } from '../Writeboard/styles';
+import { AddButton, ImageBlock, ItemBlock, PreviewImageBlock, SecondInput } from './styles';
 
 const ProjectWrite = () => {
   const [title, onChangeTitle] = useInput('');
@@ -12,11 +12,14 @@ const ProjectWrite = () => {
   const [githubUrl, onChangeGithubUrl] = useInput('');
   const [projectUrl, onChangeProjectUrl] = useInput('');
   const [year, onChangeYear] = useInput('');
+  const [images, setImages] = useState([]);
 
   const [participants, setParticipants] = useState([]);
   const [participant, setParticipant] = useState('');
   const [tags, setTags] = useState([]);
   const [tag, setTag] = useState('');
+
+  const [imageSrc, setImageSrc] = useState([]);
 
   const [titleError, setTitleError] = useState(false);
   const [contentError, setContentError] = useState(false);
@@ -77,6 +80,32 @@ const ProjectWrite = () => {
     [participants],
   );
 
+  const onImageSubmit = useCallback(
+    (e) => {
+      if (e.target.files[0] !== undefined) {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+          if (imageSrc.includes(reader.result) === false) {
+            setImageSrc((imageSrc) => imageSrc.concat(reader.result));
+            const formData = new FormData();
+            formData.append('upload', e.target.files[0]);
+            postFile(formData).then((response) => {
+              if (response.status === 200) {
+                setImages((images) => images.concat(response.data.data._id));
+              } else {
+                console.log('파일 전송 실패');
+              }
+            });
+          }
+        };
+      } else if (e.target.files[0] == undefined) {
+        setImages([...images]);
+      }
+    },
+    [images, imageSrc],
+  );
+
   const onProjectSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -87,15 +116,17 @@ const ProjectWrite = () => {
         setContentError(true);
         setTimeout(() => setContentError(false), 2000);
       } else {
-        postProjectWrite({ title, content, githubUrl, projectUrl, participants, tags, year }).then((response) => {
-          if (response.status === 200) {
-            Router.replace('/');
-            alert('작성이 완료되었습니다.');
-          } else alert('작성이 실패했습니다');
-        });
+        postProjectWrite({ title, content, githubUrl, projectUrl, participants, tags, year, images }).then(
+          (response) => {
+            if (response.status === 200) {
+              Router.replace('/');
+              alert('작성이 완료되었습니다.');
+            } else alert('작성이 실패했습니다');
+          },
+        );
       }
     },
-    [title, content, githubUrl, projectUrl, participants, tags, year],
+    [title, content, githubUrl, projectUrl, participants, tags, year, images],
   );
 
   const onCancel = useCallback(() => {
@@ -151,7 +182,21 @@ const ProjectWrite = () => {
               </div>
             ))}
           </ItemBlock>
-          <p className="subtitle">파일 및 이미지 첨부</p>
+          <ImageBlock>
+            <p className="subtitle">이미지 첨부</p>
+            <label htmlFor="file">이미지 찾기</label>
+            <input
+              type="file"
+              id="file"
+              onChange={onImageSubmit}
+              accept="image/gif, image/jpeg, image/png, image/jpg"
+            />
+          </ImageBlock>
+          <PreviewImageBlock>
+            {imageSrc.map((item) => (
+              <img src={item} key={item} />
+            ))}
+          </PreviewImageBlock>
           <ButtonBlock>
             <WirteActionButton type="submit">작성하기</WirteActionButton>
             <WirteActionButton onClick={onCancel}>취소</WirteActionButton>
