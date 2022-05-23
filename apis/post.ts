@@ -34,7 +34,7 @@ export function getPost(category: string, _id: string) {
     .catch((err) => console.error(err));
 }
 
-export async function postProjectWrite(data: { title: string; content: string; githubUrl: string; projectUrl: string; participants: Array<string>; tags: Array<string>; year: string; }) {
+export async function postProjectWrite(data: { title: string; content: string; githubUrl: string; projectUrl: string; participants: Array<string>; tags: Array<string>; year: string; images: Array<string>; }) {
   try {
     const response = await axios.post('post/project', data);
     return response;
