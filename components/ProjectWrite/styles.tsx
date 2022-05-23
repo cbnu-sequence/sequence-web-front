@@ -8,7 +8,7 @@ export const SecondInput = styled.input`
   border-radius: 1px;
   margin-bottom: 1rem;
   padding: 0.5rem 0 0.5rem 0.7rem;
-  width: 25%;
+  width: 30%;
   @media screen and (max-width: 768px) {
     font-size: 0.9rem;
     width: 80%;
@@ -77,14 +77,30 @@ export const ImageBlock = styled.div`
 
 export const PreviewImageBlock = styled.div`
   display: flex;
-  justify-content: start;
-  overflow-x: auto;
-  img {
-    width: 20%;
-    height: 20%;
+  border: 1px solid black;
+  padding: 2rem;
+
+  .image {
     margin-left: 2rem;
     &:nth-of-type(1) {
-      margin-left: 0rem;
+      margin-left: 0;
+    }
+  }
+
+  .img {
+    img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  .icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    &:hover {
+      color: red;
     }
   }
 `;

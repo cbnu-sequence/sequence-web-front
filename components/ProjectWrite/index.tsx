@@ -3,8 +3,9 @@ import { useCallback, useState } from 'react';
 import { postFile, postProjectWrite } from '../../apis/post';
 import useInput from '../../hooks/useInput';
 import Header from '../Header';
-import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton, FileBlock } from '../Writeboard/styles';
+import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton } from '../Writeboard/styles';
 import { AddButton, ImageBlock, ItemBlock, PreviewImageBlock, SecondInput } from './styles';
+import { MdRemoveCircleOutline } from 'react-icons/md';
 
 const ProjectWrite = () => {
   const [title, onChangeTitle] = useInput('');
@@ -80,31 +81,32 @@ const ProjectWrite = () => {
     [participants],
   );
 
-  const onImageSubmit = useCallback(
-    (e) => {
-      if (e.target.files[0] !== undefined) {
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-        reader.onload = () => {
-          if (imageSrc.includes(reader.result) === false) {
-            setImageSrc((imageSrc) => imageSrc.concat(reader.result));
-            const formData = new FormData();
-            formData.append('upload', e.target.files[0]);
-            postFile(formData).then((response) => {
-              if (response.status === 200) {
-                setImages((images) => images.concat(response.data.data._id));
-              } else {
-                console.log('파일 전송 실패');
-              }
-            });
-          }
-        };
-      } else if (e.target.files[0] == undefined) {
-        setImages([...images]);
-      }
+  const onRemoveImage = useCallback(
+    (item) => {
+      setImageSrc(imageSrc.filter((image) => image.id !== item.id));
+      setImages(images.filter((id) => id !== item.id));
     },
     [images, imageSrc],
   );
+
+  const onImageSubmit = useCallback((e) => {
+    if (e.target.files[0] !== undefined) {
+      const reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = () => {
+        const formData = new FormData();
+        formData.append('upload', e.target.files[0]);
+        postFile(formData).then((response) => {
+          if (response.status === 200) {
+            setImageSrc((imageSrc) => imageSrc.concat({ id: response.data.data._id, src: reader.result }));
+            setImages((images) => images.concat(response.data.data._id));
+          } else {
+            console.log('파일 전송 실패');
+          }
+        });
+      };
+    }
+  }, []);
 
   const onProjectSubmit = useCallback(
     (e) => {
@@ -194,7 +196,14 @@ const ProjectWrite = () => {
           </ImageBlock>
           <PreviewImageBlock>
             {imageSrc.map((item) => (
-              <img src={item} key={item} />
+              <div className="image" key={item.id}>
+                <div className="img">
+                  <img src={item.src} />
+                </div>
+                <div className="icon" onClick={() => onRemoveImage(item)}>
+                  <MdRemoveCircleOutline />
+                </div>
+              </div>
             ))}
           </PreviewImageBlock>
           <ButtonBlock>
