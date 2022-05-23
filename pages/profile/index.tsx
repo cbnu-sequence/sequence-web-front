@@ -1,5 +1,6 @@
 import React from 'react';
 import { useUser } from '../../hooks/useUser';
+import { ProfileDiv, CTDiv } from './styles';
 import Header from '../../components/Header';
 import { useRouter } from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
@@ -18,11 +19,23 @@ function Profile() {
   return (
     <div>
       <Header />
-      <div>{user.name}님의 프로필</div>
-      <h2>sequence makes difference</h2>
-      <div>이메일 주소: {user.email}</div>
-      <div>회원 등급: {user.role == 'User' ? '일반등급' : '관리자'}</div>
-      <div>
+      <ProfileDiv>
+        <div className="profile-title">
+          {user.name}님의 프로필
+          <h2>sequence makes difference</h2>
+        </div>
+
+        <div className="profile-contents">
+          <img className="flowerlogo" src="/flowerLogo_b.png" />
+          이메일 주소: {user.email}
+        </div>
+        <div className="profile-contents">
+          <img className="flowerlogo" src="/flowerLogo_b.png" />
+          회원 등급: {user.role == 'User' ? '일반등급' : '관리자'}
+        </div>
+      </ProfileDiv>
+      <CTDiv>
+        <span>내 게시글</span>
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
           {user.posts &&
             user.posts.map((item, index) => {
@@ -40,7 +53,7 @@ function Profile() {
               );
             })}
         </CommonTable>
-      </div>
+      </CTDiv>
     </div>
   );
 }

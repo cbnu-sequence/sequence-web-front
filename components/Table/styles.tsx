@@ -15,8 +15,10 @@ export const SQTableContainer = styled.div`
   display: flex;
   width: 80vw;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 20px;
   @media screen and (max-width: 768px) {
+    padding-top: 0px;
+
     th {
       display: none;
     }
@@ -53,7 +55,7 @@ export const CustomSortIcon = styled(FontAwesomeIcon)`
 export const TitleDiv = styled.div`
   display: flex;
   width: 100vw;
-  padding-top: 10px;
+  padding-top: -10px;
   justify-content: center;
   align-items: center;
   font-weight: 700;
