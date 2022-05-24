@@ -70,7 +70,7 @@ function Header() {
               <a>시퀀스 소개</a>
             </li>
           </Link>
-          <Link href="/">
+          <Link href="/members">
             <li>
               <a>부원 소개</a>
             </li>

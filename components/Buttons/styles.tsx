@@ -14,8 +14,8 @@ export const WriteButton = styled.button`
   background-color: ${sqGray};
   :hover {
     color: ${sqWhite};
-    background-color: ${sqBlack};  
-    cursor: pointer
+    background-color: ${sqBlack};
+    cursor: pointer;
   }
 `;
 
@@ -33,7 +33,7 @@ export const DeleteButton = styled.button`
   :hover {
     color: ${sqBlack};
     background-color: ${sqGray};
-    cursor: pointer
+    cursor: pointer;
   }
 `;
 
@@ -51,6 +51,17 @@ export const ModifyButton = styled.button`
   :hover {
     color: ${sqBlack};
     background-color: ${sqGray};
-    cursor: pointer
+    cursor: pointer;
   }
+`;
+
+export const ProjectAddButton = styled.button`
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: black;
+  color: ${sqWhite};
+  cursor: pointer;
 `;

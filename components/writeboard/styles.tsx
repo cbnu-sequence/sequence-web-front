@@ -49,7 +49,7 @@ export const Editor = styled.form`
   }
 `;
 
-export const TitleInput = styled.input`
+export const Input = styled.input`
   font-size: 1.1rem;
   outline: none;
   border: 1px solid #beb6b6;
@@ -136,11 +136,11 @@ export const ButtonBlock = styled.div`
 export const WirteActionButton = styled.button`
   border: none;
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.4rem 1.2rem;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem 1.2rem;
   color: ${sqWhite};
   outline: none;
   cursor: pointer;

@@ -8,9 +8,11 @@ import Link from 'next/link';
 import { Tr } from '@chakra-ui/react';
 import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
+import { ProjectAddButton } from '../../components/Buttons/styles';
 
 function Profile() {
   const { user } = useUser();
+  console.log(user);
   const Router = useRouter();
   if (!user) {
     Router.replace('/');
@@ -21,30 +23,30 @@ function Profile() {
       <Header />
       <ProfileDiv>
         <div className="profile-title">
-          {user.name}님의 프로필
+          {user.data.name}님의 프로필
           <h2>sequence makes difference</h2>
         </div>
 
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
-          이메일 주소: {user.email}
+          이메일 주소: {user.data.email}
         </div>
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
-          회원 등급: {user.role == 'User' ? '일반등급' : '관리자'}
+          회원 등급: {user.data.role == 'User' ? '일반등급' : '관리자'}
         </div>
       </ProfileDiv>
       <CTDiv>
         <span>내 게시글</span>
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
-          {user.posts &&
-            user.posts.map((item, index) => {
+          {user.data.posts &&
+            user.data.posts.map((item, index) => {
               return (
                 <>
                   <Link href={`../../posts/${item._id}`}>
                     <Tr key={item._id}>
                       <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{user.name}</CommonTd>
+                      <CommonTd>{user.data.name}</CommonTd>
                       <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                       <CommonTd>{item.title}</CommonTd>
                     </Tr>
