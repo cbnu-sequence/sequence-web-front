@@ -1,7 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import Header from '../../components/Header';
-const Index = () => {
+
+const Pomodoro = () => {
   return (
     <>
       <Head>
@@ -13,4 +14,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Pomodoro;

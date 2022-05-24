@@ -21,7 +21,7 @@ function Post() {
         writerName={data.data.writer.name}
         writerRole={data.data.writer.role}
         content={data.data.content}
-        files={data.data.file}
+        files={data.data.files}
         images={data.data.images}
       />
     </>

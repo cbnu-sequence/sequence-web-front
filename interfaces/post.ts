@@ -1,5 +1,5 @@
 export interface Post {
-  _id: number;
+  _id: string;
   title: string;
   category: string;
   content: string;
@@ -12,6 +12,29 @@ export interface noticeList {
   _id: string;
   createdAt: Date;
   title: string;
-  writer: string;
+  writer: Writer;
   category: string;
+}
+
+export interface Writer {
+  _id: string;
+  name: string;
+  role: 'User' | 'Admin' | 'Member';
+}
+
+export interface Project {
+  _id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  content: string;
+  participants: Array<string>;
+  title: string;
+  writer: Writer;
+  tags: Array<string>;
+  category: string;
+  images: Array<string>;
+  year: string;
+  githubUrl: string;
+  projectUrl: string;
+  __v: string;
 }

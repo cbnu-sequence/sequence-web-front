@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { backUrl } from '../config/config';
+import { queryKeys } from '../react-query/constants';
+import { clearStoredUser } from '../user-storage/user-storage';
 
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
@@ -8,7 +10,12 @@ export function loadMyInfoAPI(data) {
   if (!data) {
     return null;
   }
-  return axios.get('auth/me').then((response) => response.data);
+  return axios
+    .get('auth/me')
+    .then((response) => response.data.data)
+    .catch(() => {
+      clearStoredUser();
+    });
 }
 
 export function logInAPI(data: { email: string; password: string }) {
