@@ -13,7 +13,6 @@ import {
   Github,
 } from './styles';
 import Link from 'next/link';
-import { WarningButton } from '../Buttons/styles';
 
 function Main() {
   return (
