@@ -1,10 +1,11 @@
 import Header from '../../components/Header';
-import { Block, TitleInput, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
+import { Block, Input, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
+import { MdRemoveCircleOutline } from 'react-icons/md';
 
 export const WriteBoard = () => {
   const [title, onChangeTitle] = useInput('');
@@ -22,9 +23,9 @@ export const WriteBoard = () => {
           formData.append('upload', e.target.files[i]);
           postFile(formData).then((response) => {
             if (response.status === 200) {
-              setFiles((files) => files.concat(response.data.data.url));
+              setFiles((files) => files.concat(response.data.data._id));
               onChangeFileName((fileName) =>
-                fileName.concat({ name: e.target.files[i].name, url: response.data.data.url }),
+                fileName.concat({ name: e.target.files[i].name, id: response.data.data._id }),
               );
             } else {
               console.log('파일 전송 실패');
@@ -41,7 +42,7 @@ export const WriteBoard = () => {
 
   const onRemoveFile = useCallback(
     (item) => {
-      setFiles(files.filter((url) => url !== item.url));
+      setFiles(files.filter((id) => id !== item.id));
       onChangeFileName(fileName.filter((file) => file.name !== item.name));
     },
     [files, fileName],
@@ -81,7 +82,7 @@ export const WriteBoard = () => {
           <p className="title">글 작성하기</p>
           <hr />
           <p className="subtitle">제목</p>
-          <TitleInput placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
+          <Input placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
           {TitleError && <ErrorMessage>제목을 입력해주세요</ErrorMessage>}
           <p className="subtitle">내용</p>
           <TextEditor content={content} setContent={setContent} />
@@ -89,20 +90,18 @@ export const WriteBoard = () => {
           <p className="filetitle">파일 업로드</p>
           <FileBlock>
             {fileName.length > 0 ? (
-              <div>
+              <div className="file">
                 {fileName.map((item) => (
-                  <div
-                    className="
-                  removefile"
-                    onClick={() => onRemoveFile(item)}
-                    key={item.url}
-                  >
-                    {item.name}
+                  <div className="removefile" key={item.id}>
+                    <div className="item_name">{item.name}</div>
+                    <div className="icon" onClick={() => onRemoveFile(item)}>
+                      <MdRemoveCircleOutline />
+                    </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div>비어있습니다.</div>
+              <div className="file">비어있습니다.</div>
             )}
             <label htmlFor="file">파일 찾기</label>
             <input type="file" id="file" onChange={onFileSubmit} multiple />

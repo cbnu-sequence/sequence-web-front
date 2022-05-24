@@ -3,6 +3,7 @@ import { sqBlack, sqWhite, sqGray } from '../../styles/constants';
 
 export const Block = styled.div`
   background-color: rgba(249, 237, 237, 0.042);
+  padding: 2rem 0 2rem 0;
 `;
 
 export const Editor = styled.form`
@@ -48,7 +49,7 @@ export const Editor = styled.form`
   }
 `;
 
-export const TitleInput = styled.input`
+export const Input = styled.input`
   font-size: 1.1rem;
   outline: none;
   border: 1px solid #beb6b6;
@@ -62,18 +63,17 @@ export const TitleInput = styled.input`
 `;
 
 export const FileBlock = styled.div`
-  width: 25%;
+  width: 20%;
   font-size: 0.8rem;
   display: flex;
   justify-content: center;
 
-  div {
+  .file {
     border: 1px solid #beb6b6;
     border-radius: 1px;
     flex: 1;
     margin-right: 1rem;
-    padding: 0.4rem;
-    color: ${sqGray};
+    padding: 0.5rem;
   }
 
   label {
@@ -97,13 +97,22 @@ export const FileBlock = styled.div`
   }
 
   .removefile {
-    color: black;
-    cursor: pointer;
-    border: none;
+    color: ${sqBlack};
     font-weight: bold;
-    text-align: center;
-    &:hover {
+    display: flex;
+    justify-content: center;
+    margin: 0.4rem 0.3rem 0.4rem 0.3rem;
+
+    .item_name {
+      text-align: center;
+      margin-right: 0.5rem;
+    }
+
+    .icon {
       color: red;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 0.1rem;
     }
   }
 
@@ -127,11 +136,11 @@ export const ButtonBlock = styled.div`
 export const WirteActionButton = styled.button`
   border: none;
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.4rem 1.2rem;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem 1.2rem;
   color: ${sqWhite};
   outline: none;
   cursor: pointer;

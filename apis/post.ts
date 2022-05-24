@@ -33,3 +33,12 @@ export function getPost(category: string, _id: string) {
     .then((res) => res.data)
     .catch((err) => console.error(err));
 }
+
+export async function postProjectWrite(data: { title: string; content: string; githubUrl: string; projectUrl: string; participants: Array<string>; tags: Array<string>; year: string; images: Array<string>; }) {
+  try {
+    const response = await axios.post('post/project', data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+}
