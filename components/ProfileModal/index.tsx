@@ -1,4 +1,4 @@
-import { Block, ColorLine, ModalContainer, TopBlock } from './profilemodalstyles';
+import { Block, ColorLine, ModalContainer, TopBlock } from './styles';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
 const ProfileModal = ({ setOpenModal }) => {
