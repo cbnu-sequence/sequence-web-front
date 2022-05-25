@@ -32,7 +32,7 @@ const Notice = () => {
     },
   );
   if (!noticeList.data) {
-    return <NoList></NoList>
+    return <NoList />
     }
 
     console.log(me);
