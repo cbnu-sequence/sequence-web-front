@@ -39,14 +39,9 @@ function Profile() {
           회원 등급: {me.role == 'User' ? '일반등급' : '관리자'}
         </div>
         {me.role === 'Admin' && (
-          <div>
-            <Link href="/board/notice/write">
-              <AddButton>공지사항 추가하기</AddButton>
-            </Link>
-            <Link href="/board/projects/write">
-              <AddButton>프로젝트 추가하기</AddButton>
-            </Link>
-          </div>
+          <Link href="/board/projects/write">
+            <AddButton>프로젝트 추가하기</AddButton>
+          </Link>
         )}
       </ProfileDiv>
       <CTDiv>
