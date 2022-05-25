@@ -15,7 +15,7 @@ const Introduce = () => {
         </TopBlock>
         <CultureBlock>
           <p className="culture_title">문화</p>
-          <img src="culture.png" />
+          <img src="culture.png" alt="문화" />
         </CultureBlock>
         <ColorLine />
         <SquareBlock>
