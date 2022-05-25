@@ -56,7 +56,7 @@ function LogIn() {
           <KakaoBtn />
           <LinkContainer>
             회원이 아니신가요?&nbsp;
-            <Link href="/signup">
+            <Link href="/pages/signup">
               <a>회원가입 하러가기</a>
             </Link>
           </LinkContainer>

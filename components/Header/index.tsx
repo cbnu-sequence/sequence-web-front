@@ -5,11 +5,6 @@ import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
-import { dehydrate, QueryClient } from 'react-query';
-import { getPost } from '../../apis/post';
-import { queryKeys } from '../../react-query/constants';
-import { loadMyInfoAPI } from '../../apis/user';
-import axios from 'axios';
 
 function Header() {
   const [isToggled, setIsToggled] = useState(false);
@@ -70,7 +65,7 @@ function Header() {
               <a>시퀀스 소개</a>
             </li>
           </Link>
-          <Link href="/">
+          <Link href="/members">
             <li>
               <a>부원 소개</a>
             </li>
@@ -89,7 +84,7 @@ function Header() {
               </li>
             </ul>
           </li>
-          <Link href="/ppomodoro">
+          <Link href="/pomodoro">
             <li>
               <a>뽀모도로</a>
             </li>

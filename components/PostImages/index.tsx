@@ -1,24 +1,25 @@
 import React from 'react';
-import { backUrl } from '../../config/config';
-function PostImages({ images }) {
+import { Img } from '../../interfaces/post';
+
+function PostImages({ images }: { images: Img[] }) {
   if (images.length === 1) {
     return (
       <>
-        <img role="presentation" src={`${backUrl}/${images[0].src}`} alt={images[0].src} />
+        <img role="presentation" src={images[0].url} alt={images[0].filename} />
       </>
     );
   }
   if (images.length === 2) {
     return (
       <div>
-        <img role="presentation" width="50%" src={`${backUrl}/${images[0].src}`} alt={images[0].src} />
-        <img role="presentation" width="50%" src={`${backUrl}/${images[0].src}`} alt={images[1].src} />
+        <img role="presentation" width="50%" src={images[0].url} alt={images[0].filename} />
+        <img role="presentation" width="50%" src={images[1].url} alt={images[1].filename} />
       </div>
     );
   }
   return (
     <div>
-      <img role="presentation" width="50%" src={`http://localhost:8080/${images[0].src}`} alt={images[0].src} />
+      <img role="presentation" width="50%" src={images[0].url} alt={images[0].filename} />
       <div
         role="presentation"
         style={{

@@ -21,6 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
+    "@types/navermaps": "^3.0.13",
     "axios": "^0.24.0",
     "dayjs": "^1.11.0",
     "framer-motion": "^6.2.8",

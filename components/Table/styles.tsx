@@ -15,17 +15,43 @@ export const SQTableContainer = styled.div`
   display: flex;
   width: 80vw;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 20px;
   @media screen and (max-width: 768px) {
+    padding-top: 0px;
     th {
       display: none;
     }
     tbody tr {
-      border: 3px solid black;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      margin-bottom: 8px;
       display: block;
       cursor: pointer;
       td:first-of-type {
         display: none;
+      }
+      td:nth-of-type(2) {
+        :before {
+          content: '작성자:';
+          padding-left: 4px;
+          font-size: 10px;
+          font-weight: 400;
+          padding-right: 5px;
+        }
+      }
+      td:nth-of-type(3) {
+        display: none;
+      }
+      td:nth-of-type(4) {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        :before {
+          content: '제목:';
+          padding-left: 4px;
+          font-size: 10px;
+          font-weight: 400;
+          padding-right: 5px;
+        }
       }
       & > td {
         display: flex;
@@ -53,7 +79,7 @@ export const CustomSortIcon = styled(FontAwesomeIcon)`
 export const TitleDiv = styled.div`
   display: flex;
   width: 100vw;
-  padding-top: 10px;
+  padding-top: -10px;
   justify-content: center;
   align-items: center;
   font-weight: 700;

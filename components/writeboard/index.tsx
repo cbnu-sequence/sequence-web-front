@@ -1,36 +1,52 @@
 import Header from '../../components/Header';
-import { Block, TitleInput, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
+import { Block, Input, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
+import { MdRemoveCircleOutline } from 'react-icons/md';
 
 export const WriteBoard = () => {
   const [title, onChangeTitle] = useInput('');
   const [content, setContent] = useState(null);
-  const [fileName, onChangeFileName] = useState('');
+  const [files, setFiles] = useState([]);
+  const [fileName, onChangeFileName] = useState([]);
   const [TitleError, setTitleError] = useState(false);
   const [BodyError, setBodyError] = useState(false);
-  const [FileId, setFileId] = useState(null);
 
-  const onFileSubmit = useCallback((e) => {
-    if (e.target.files[0] !== undefined) {
-      onChangeFileName(e.target.files[0].name);
-      const formData = new FormData();
-      formData.append('upload', e.target.files[0]);
-      postFile(formData).then((response) => {
-        if (response.status === 200) {
-          setFileId(response.data.data._id);
-        } else {
-          console.log('파일 전송 실패');
+  const onFileSubmit = useCallback(
+    (e) => {
+      if (e.target.files[0] !== undefined) {
+        for (let i = 0; i < e.target.files.length; i++) {
+          const formData = new FormData();
+          formData.append('upload', e.target.files[i]);
+          postFile(formData).then((response) => {
+            if (response.status === 200) {
+              setFiles((files) => files.concat(response.data.data._id));
+              onChangeFileName((fileName) =>
+                fileName.concat({ name: e.target.files[i].name, id: response.data.data._id }),
+              );
+            } else {
+              console.log('파일 전송 실패');
+            }
+          });
         }
-      });
-    } else if (e.target.files[0] == undefined) {
-      setFileId(null);
-      onChangeFileName('');
-    }
-  }, []);
+      } else if (e.target.files[0] == undefined) {
+        setFiles([...files]);
+        onChangeFileName([...fileName]);
+      }
+    },
+    [files, fileName],
+  );
+
+  const onRemoveFile = useCallback(
+    (item) => {
+      setFiles(files.filter((id) => id !== item.id));
+      onChangeFileName(fileName.filter((file) => file.name !== item.name));
+    },
+    [files, fileName],
+  );
 
   const onWriteSubmit = useCallback(
     (e) => {
@@ -42,7 +58,7 @@ export const WriteBoard = () => {
         setBodyError(true);
         setTimeout(() => setBodyError(false), 2000);
       } else {
-        postWrite({ title, content }).then((response) => {
+        postWrite({ title, content, files }).then((response) => {
           if (response.status === 403) alert('로그인을 해주세요');
           else if (response.status === 200) {
             Router.replace('/');
@@ -51,7 +67,7 @@ export const WriteBoard = () => {
         });
       }
     },
-    [title, content],
+    [title, content, files],
   );
 
   const onCancel = useCallback(() => {
@@ -66,16 +82,29 @@ export const WriteBoard = () => {
           <p className="title">글 작성하기</p>
           <hr />
           <p className="subtitle">제목</p>
-          <TitleInput placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
+          <Input placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
           {TitleError && <ErrorMessage>제목을 입력해주세요</ErrorMessage>}
           <p className="subtitle">내용</p>
           <TextEditor content={content} setContent={setContent} />
           {BodyError && <ErrorMessage>내용을 입력해주세요</ErrorMessage>}
           <p className="filetitle">파일 업로드</p>
           <FileBlock>
-            {fileName ? <div>{fileName}</div> : <div>비어있습니다.</div>}
+            {fileName.length > 0 ? (
+              <div className="file">
+                {fileName.map((item) => (
+                  <div className="removefile" key={item.id}>
+                    <div className="item_name">{item.name}</div>
+                    <div className="icon" onClick={() => onRemoveFile(item)}>
+                      <MdRemoveCircleOutline />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="file">비어있습니다.</div>
+            )}
             <label htmlFor="file">파일 찾기</label>
-            <input type="file" id="file" onChange={onFileSubmit} />
+            <input type="file" id="file" onChange={onFileSubmit} multiple />
           </FileBlock>
           <ButtonBlock>
             <WirteActionButton type="submit">작성하기</WirteActionButton>

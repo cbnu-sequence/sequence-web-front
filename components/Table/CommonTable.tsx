@@ -11,12 +11,7 @@ function CommonTable({ headers, children }) {
           <SQTh>
             <Tr>
               {headers.map((item, index) => {
-                return (
-                  <Th key={index}>
-                    {item}
-                    <CustomSortIcon icon={faSort} />
-                  </Th>
-                );
+                return <Th key={index}>{item}</Th>;
               })}
             </Tr>
           </SQTh>

@@ -16,9 +16,9 @@ function PostDetail({ title, content, createdAt, updatedAt, files, images, write
           updatedAt={updatedAt}
         />
         <PostBodyDiv>
-          <PostImages images={images} />
+          {images && <PostImages images={images} />}
           <div dangerouslySetInnerHTML={{ __html: content }}></div>
-          <PostFiles files={files} />
+          {files && <PostFiles files={files} />}
         </PostBodyDiv>
       </PostDetailDiv>
     </Wrapper>
