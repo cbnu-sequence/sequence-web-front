@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useUser } from '../../hooks/useUser';
+import { ProfileDiv, CTDiv, AddButton } from './styles';
 import Header from '../../components/Header';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
 import Link from 'next/link';
 import { Tr } from '@chakra-ui/react';
@@ -9,29 +10,53 @@ import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
 
 function Profile() {
-  const { user } = useUser();
-  const Router = useRouter();
-  if (!user) {
-    Router.replace('/');
-    return null;
+  const { user: me } = useUser();
+  console.log(me);
+  useEffect(() => {
+    if (!(me && me.data._id)) {
+      Router.push('/');
+    }
+  }, [me]);
+  if (!me) {
+    return '내 정보 로딩중..';
   }
+
   return (
     <div>
       <Header />
-      <div>{user.name}님의 프로필</div>
-      <h2>sequence makes difference</h2>
-      <div>이메일 주소: {user.email}</div>
-      <div>회원 등급: {user.role == 'User' ? '일반등급' : '관리자'}</div>
-      <div>
+      <ProfileDiv>
+        <div className="profile-title">
+          {me.name}님의 프로필
+          <h2>sequence makes difference</h2>
+        </div>
+
+        <div className="profile-contents">
+          <img className="flowerlogo" src="/flowerLogo_b.png" />
+          이메일 주소: {me.email}
+        </div>
+        <div className="profile-contents">
+          <img className="flowerlogo" src="/flowerLogo_b.png" />
+          회원 등급: {me.role == 'User' ? '일반등급' : '관리자'}
+        </div>
+        {me.role === 'Admin' && (
+          <Link href="/board/projects/write">
+            <AddButton>프로젝트 추가하기</AddButton>
+          </Link>
+        )}
+      </ProfileDiv>
+      <CTDiv>
+        <span>내 게시글</span>
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
-          {user.posts &&
-            user.posts.map((item, index) => {
+          {me.data.posts &&
+            me.data.posts.map((item, index) => {
+              console.log(item);
+
               return (
                 <>
-                  <Link href={`../../posts/${item._id}`}>
-                    <Tr key={item._id}>
+                  <Link href={`../../posts/${item._id}`} key={item._id}>
+                    <Tr>
                       <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{user.name}</CommonTd>
+                      <CommonTd>{me.data.name}</CommonTd>
                       <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                       <CommonTd>{item.title}</CommonTd>
                     </Tr>
@@ -40,7 +65,7 @@ function Profile() {
               );
             })}
         </CommonTable>
-      </div>
+      </CTDiv>
     </div>
   );
 }

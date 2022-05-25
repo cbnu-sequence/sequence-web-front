@@ -31,9 +31,11 @@ const Notice = () => {
       refetchInterval: 60000,
     },
   );
+
   if (!noticeList.data) {
     return <NoList />
-    }
+  }
+
 
     console.log(me);
 
@@ -44,8 +46,8 @@ const Notice = () => {
       </Head>
       <Header />
       <CommonHeader title={'공지사항'} />
+
       {me.data.role === 'User' && <WriteBtnBlock><WriteBtn /></WriteBtnBlock>}
-      
       
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&

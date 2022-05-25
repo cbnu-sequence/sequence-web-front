@@ -5,10 +5,10 @@ import { noticeList } from '../interfaces/post';
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
-export async function postWrite(data: { title: string; content: string }) {
+export async function postWrite(data: { title: string; content: string; files: Array<string> }) {
   try {
     const response = await axios.post('post/notice', data);
-    return response.data;
+    return response;
   } catch (error) {
     return error.response;
   }
@@ -17,7 +17,7 @@ export async function postWrite(data: { title: string; content: string }) {
 export async function postFile(formData: FormData) {
   try {
     const response = await axios.post('file', formData);
-    return response.data;
+    return response;
   } catch (error) {
     return error.response;
   }
@@ -32,4 +32,22 @@ export function getPost(category: string, _id: string) {
     .get(`/post/${category}/${_id}`)
     .then((res) => res.data)
     .catch((err) => console.error(err));
+}
+
+export async function postProjectWrite(data: {
+  title: string;
+  content: string;
+  githubUrl: string;
+  projectUrl: string;
+  participants: Array<string>;
+  tags: Array<string>;
+  year: string;
+  images: Array<string>;
+}) {
+  try {
+    const response = await axios.post('/project', data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
 }
