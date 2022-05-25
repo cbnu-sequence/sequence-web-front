@@ -11,12 +11,12 @@ import dayjs from 'dayjs';
 
 function Profile() {
   const { user: me } = useUser();
-
+  console.log(me);
   useEffect(() => {
-    if (!(me && me._id)) {
+    if (!(me && me.data._id)) {
       Router.push('/');
     }
-  }, [me && me._id]);
+  }, [me]);
   if (!me) {
     return '내 정보 로딩중..';
   }
@@ -47,14 +47,16 @@ function Profile() {
       <CTDiv>
         <span>내 게시글</span>
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
-          {me.posts &&
-            me.posts.map((item, index) => {
+          {me.data.posts &&
+            me.data.posts.map((item, index) => {
+              console.log(item);
+
               return (
                 <>
                   <Link href={`../../posts/${item._id}`} key={item._id}>
                     <Tr>
                       <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{me.name}</CommonTd>
+                      <CommonTd>{me.data.name}</CommonTd>
                       <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                       <CommonTd>{item.title}</CommonTd>
                     </Tr>

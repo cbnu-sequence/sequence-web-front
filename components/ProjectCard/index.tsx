@@ -1,19 +1,22 @@
 import React from 'react';
 import ProjectImage from '../ProjectImage';
 import { Project } from '../../interfaces/post';
+import { ProjectCardBox, ProjectTags } from './styles';
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div>
+    <ProjectCardBox>
       <ProjectImage image={project.images[0]} />
-      <p>{project.year}</p>
-      <p>{project.title}</p>
-      <p>{project.content}</p>
-      {project.tags &&
-        project.tags.map((item, index) => {
-          return <div key={index}>{item}</div>;
-        })}
-    </div>
+      <p className="project__year">{project.year}</p>
+      <p className="project__title">{project.title}</p>
+      <p className="project__content">{project.content}</p>
+      <ProjectTags>
+        {project.tags &&
+          project.tags.map((item, index) => {
+            return <span key={index}>{item}</span>;
+          })}
+      </ProjectTags>
+    </ProjectCardBox>
   );
 }
 
