@@ -54,14 +54,3 @@ export const ModifyButton = styled.button`
     cursor: pointer;
   }
 `;
-
-export const ProjectAddButton = styled.button`
-  border: none;
-  border-radius: 5px;
-  padding: 0.3rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  background-color: black;
-  color: ${sqWhite};
-  cursor: pointer;
-`;
