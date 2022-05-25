@@ -14,13 +14,12 @@ function Profile() {
   const { user: me } = useUser();
 
   useEffect(() => {
-    if (!(me && me._id)) {
+    if (!(me && me.data._id)) {
       Router.push('/');
     }
-  }, [me && me._id]);
+  }, [me && me.data._id]);
   if (!me) {
     return '내 정보 로딩중..';
-
   }
   return (
     <div>
@@ -50,7 +49,7 @@ function Profile() {
                   <Link href={`../../posts/${item._id}`}>
                     <Tr key={item._id}>
                       <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{me.name}</CommonTd>
+                      <CommonTd>{item.writer.name}</CommonTd>
                       <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                       <CommonTd>{item.title}</CommonTd>
                     </Tr>

@@ -1,8 +1,7 @@
 import React from 'react';
-import { backUrl } from '../../config/config';
+import { Img } from '../../interfaces/post';
 
-function PostImages({ images }) {
-  console.log(images);
+function PostImages({ images }: { images: Img[] }) {
   if (images.length === 1) {
     return (
       <>

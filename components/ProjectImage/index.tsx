@@ -1,10 +1,12 @@
 import React from 'react';
+import { ProjectImg, ProjectImgDiv } from './styles';
+import { Img } from '../../interfaces/post';
 
-function ProjectImage({ image }) {
+function ProjectImage({ image }: { image: Img }) {
   return (
-    <div>
-      <img src={image} alt={image} />
-    </div>
+    <ProjectImgDiv>
+      <ProjectImg src={image.url} alt={image.filename} />
+    </ProjectImgDiv>
   );
 }
 export default ProjectImage;

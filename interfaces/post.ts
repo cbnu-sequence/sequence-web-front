@@ -32,9 +32,15 @@ export interface Project {
   writer: Writer;
   tags: Array<string>;
   category: string;
-  images: Array<string>;
+  images: Array<Img>;
   year: string;
   githubUrl: string;
   projectUrl: string;
   __v: string;
+}
+
+export interface Img {
+  _id: string;
+  url: string;
+  filename: string;
 }

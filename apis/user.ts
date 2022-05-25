@@ -12,8 +12,10 @@ export function loadMyInfoAPI(data) {
   }
   return axios
     .get('auth/me')
-    .then((response) => response.data.data)
-    .catch(() => {
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
       clearStoredUser();
     });
 }
