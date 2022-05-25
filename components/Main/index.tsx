@@ -1,18 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  MainDiv,
-  SQProject,
-  BtnDiv,
-  CircleBtn,
-  Content,
-  Pomodoro,
-  PomoLink,
-  HomePhoto,
-  BigBox,
-  SmallBox,
-  Github,
-} from './styles';
+import { MainDiv, SQProject, Pomodoro, PomoLink, HomePhoto, BigBox, SmallBox, Github } from './styles';
 import Link from 'next/link';
+import CenterMode from '../Slider';
 
 function Main() {
   return (
@@ -33,15 +22,8 @@ function Main() {
       </div>
       <SQProject>
         <h1>Sequence</h1>
-        <BtnDiv>
-          <span>Projects</span>
-          <div>
-            <CircleBtn>
-              <img src="nextIcon.png" />
-            </CircleBtn>
-          </div>
-        </BtnDiv>
-        <Content></Content>
+        <span>Projects</span>
+        <CenterMode />
       </SQProject>
       <Pomodoro>
         <div className="pomodoro--text">
