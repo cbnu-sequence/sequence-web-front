@@ -152,8 +152,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
         background-color: ${sqBlack};
       }
 
-      .header__menulist li,
-      .header__right li {
+      .header__menulist li {
         margin: 1rem 0;
         padding: 0;
         color: ${sqWhite};
@@ -163,6 +162,13 @@ export const HeaderDiv = styled.div<HeaderProps>`
         width: 100%;
         margin: 0 auto;
         background-color: ${sqBlack};
+      }
+
+      .header__right li {
+        width: 100%;
+        margin: 1rem 0 1rem 1rem;
+        padding: 0;
+        text-align: center;
       }
 
       .toggle {
@@ -310,8 +316,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
         background-color: ${sqWhite};
       }
 
-      .header__menulist li,
-      .header__right li {
+      .header__menulist li {
         margin: 1rem 0;
         padding: 0;
         color: ${sqBlack};
@@ -322,6 +327,13 @@ export const HeaderDiv = styled.div<HeaderProps>`
         width: 100%;
         margin: 0 auto;
         background-color: ${sqWhite};
+      }
+
+      .header__right li {
+        width: 100%;
+        margin: 1rem 0 1rem 1rem;
+        padding: 0;
+        text-align: center;
       }
 
       .toggle {
