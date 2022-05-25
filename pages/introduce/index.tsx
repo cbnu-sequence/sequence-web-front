@@ -15,7 +15,10 @@ const Introduce = () => {
         </TopBlock>
         <CultureBlock>
           <p className="culture_title">문화</p>
-          <img src="culture.png" alt="문화" />
+          <img
+            src="culture.png"
+            alt="1.내일의 내가 오늘보다 나음을 지향한다 2.서로에게 상처가 될 말들을 지향한다 3.잘못은 인정하고 같은 실수를 반복하지 않는다 4.다름을 존중한다 5.완벽한 것보단 빠른 것을 추구한다"
+          />
         </CultureBlock>
         <ColorLine />
         <SquareBlock>
