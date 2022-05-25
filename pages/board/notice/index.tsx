@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { useUser } from '../../../hooks/useUser';
 import WriteBtn from '../../../components/Buttons/WriteBtn';
 import { WriteBtnBlock } from '../../../components/Buttons/styles';
+import NoList from '../../../components/NoList';
 
 const fallback = [];
 const Notice = () => {
@@ -31,7 +32,7 @@ const Notice = () => {
     },
   );
   if (!noticeList.data) {
-    return <div>공지사항이 없습니다.</div>;
+    return <NoList></NoList>
     }
 
     console.log(me);
