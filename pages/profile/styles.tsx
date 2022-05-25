@@ -41,6 +41,19 @@ export const ProfileDiv = styled.div`
     }
   }
 `;
+
+export const AddButton = styled.button`
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: black;
+  color: ${sqWhite};
+  cursor: pointer;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+`;
+
 export const CTDiv = styled.div`
   & > span {
     margin-left: 10%;
