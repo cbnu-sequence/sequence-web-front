@@ -14,51 +14,6 @@ const Members = () => {
           <img src="sqMakesD.png" />
         </TopBlock>
         <MainBlock>
-          <ExecutiveBlock>
-            <p className="sub_title">운영진</p>
-            <div className="cardblock">
-              <div className="card" onClick={() => setOpenModal(true)}>
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-              <div className="card">
-                asdsa
-                <br />
-                asdasd
-              </div>
-            </div>
-          </ExecutiveBlock>
           <ProjectTeamBlock>
             <p className="sub_title">프로젝트팀 부원</p>
             <Table>
@@ -113,11 +68,55 @@ const Members = () => {
               </tbody>
             </Table>
           </TechTeamBlock>
+          <ExecutiveBlock>
+            <p className="sub_title">운영진</p>
+            <div className="cardblock">
+              <div className="card" onClick={() => setOpenModal(true)}>
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+              <div className="card">
+                asdsa
+                <br />
+                asdasd
+              </div>
+            </div>
+          </ExecutiveBlock>
         </MainBlock>
       </Block>
       {openmodal && <ProfileModal setOpenModal={setOpenModal} />}
     </>
   );
 };
-
 export default Members;

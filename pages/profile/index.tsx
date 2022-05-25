@@ -12,12 +12,12 @@ import { ProjectAddButton } from '../../components/Buttons/styles';
 
 function Profile() {
   const { user: me } = useUser();
-
+  console.log(me);
   useEffect(() => {
     if (!(me && me.data._id)) {
       Router.push('/');
     }
-  }, [me && me.data._id]);
+  }, [me]);
   if (!me) {
     return '내 정보 로딩중..';
   }
@@ -44,12 +44,13 @@ function Profile() {
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
           {me.data.posts &&
             me.data.posts.map((item, index) => {
+              console.log(item);
               return (
                 <>
                   <Link href={`../../posts/${item._id}`}>
                     <Tr key={item._id}>
                       <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{item.writer.name}</CommonTd>
+                      <CommonTd>{me.data.name}</CommonTd>
                       <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                       <CommonTd>{item.title}</CommonTd>
                     </Tr>

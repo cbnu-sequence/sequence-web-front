@@ -18,16 +18,40 @@ export const SQTableContainer = styled.div`
   padding-top: 20px;
   @media screen and (max-width: 768px) {
     padding-top: 0px;
-
     th {
       display: none;
     }
     tbody tr {
-      border: 3px solid black;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      margin-bottom: 8px;
       display: block;
       cursor: pointer;
       td:first-of-type {
         display: none;
+      }
+      td:nth-of-type(2) {
+        :before {
+          content: '작성자:';
+          padding-left: 4px;
+          font-size: 10px;
+          font-weight: 400;
+          padding-right: 5px;
+        }
+      }
+      td:nth-of-type(3) {
+        display: none;
+      }
+      td:nth-of-type(4) {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        :before {
+          content: '제목:';
+          padding-left: 4px;
+          font-size: 10px;
+          font-weight: 400;
+          padding-right: 5px;
+        }
       }
       & > td {
         display: flex;

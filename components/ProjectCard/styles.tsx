@@ -36,7 +36,7 @@ export const ProjectTags = styled.span`
     border-radius: 5px;
     :hover {
       background-color: rgba(0,0,0,0.1)
-    }
+      }
     }
   }
 `;
