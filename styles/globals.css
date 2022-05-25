@@ -17,3 +17,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.slick-slide{
+  display:inline-block;
+}
