@@ -13,8 +13,7 @@ import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useUser } from '../../../hooks/useUser';
 import WriteBtn from '../../../components/Buttons/WriteBtn';
-import DeleteBtn from '../../../components/Buttons/DeleteBtn';
-import ModifyBtn from '../../../components/Buttons/ModifyBtn';
+import { WriteBtnBlock } from '../../../components/Buttons/styles';
 
 const fallback = [];
 const Notice = () => {
@@ -33,10 +32,9 @@ const Notice = () => {
   );
   if (!noticeList.data) {
     return <div>공지사항이 없습니다.</div>;
-    //<WriteBtn></WriteBtn>
-    // <ModifyBtn></ModifyBtn>
-    // <DeleteBtn></DeleteBtn>
     }
+
+    console.log(me);
 
   return (
     <div>
@@ -45,9 +43,8 @@ const Notice = () => {
       </Head>
       <Header />
       <CommonHeader title={'공지사항'} />
-      {me?.role === 'User' && <WriteBtn />}
+      {me.data.role === 'User' && <WriteBtnBlock><WriteBtn /></WriteBtnBlock>}
       
-      <WriteBtn></WriteBtn>
       
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&

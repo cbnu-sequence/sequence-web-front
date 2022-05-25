@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqWhite, sqLightGray, sqGray } from '../../styles/constants';
-
+import { sqBlack, sqWhite, sqDarkGray, sqDeepLightGray } from '../../styles/constants';
 
 export const PaginationNav = styled.nav`
   display: flex;
@@ -14,13 +13,20 @@ export const Limit = styled.label`
   display: flex;
   align-items: center;
   & > label {
-    padding-top: 0.1px;
+    padding-top: 0.8px;
     font-weight: 700;
     font-size: 15.2px;
     white-space: nowrap;
     padding-right: 10px;
   }
 `;
+
+export const Select = styled.select`
+  font-weight: 425;
+  font-size: 15.2px;
+  cursor: pointer;
+  border: none;
+`
 
 export const ButtonLeft = styled.button`
 margin: 0 auto;
@@ -34,8 +40,8 @@ color: ${sqBlack};
 background-color: ${sqWhite};
 &:hover {
   color: ${sqBlack};
-  background-color: ${sqGray};  
-  cursor: pointer
+  background-color: ${sqDeepLightGray};  
+  cursor: pointer;
 }
 `;
 
@@ -50,9 +56,9 @@ text-align: center;
 color: ${sqWhite};
 background-color: ${sqBlack};
 &:hover {
-  color: ${sqBlack};
-  background-color: ${sqGray};  
-  cursor: pointer
+  color: ${sqWhite};
+  background-color: ${sqDarkGray};  
+  cursor: pointer;
 }
 `;
 
@@ -68,7 +74,7 @@ color: ${sqBlack};
 background-color: ${sqWhite};
 &:hover {
   color: ${sqBlack};
-  background-color: ${sqGray};  
-  cursor: pointer
+  background-color: ${sqDeepLightGray};  
+  cursor: pointer;
 }
 `;
