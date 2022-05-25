@@ -17,16 +17,19 @@ function Header() {
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [signout]);
   const [scrollPosition, setScrollPosition] = useState(0);
-
-  const updateScroll = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  };
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', updateScroll);
-  }, [updateScroll]);
+    setLoading(true);
+    if (loading) {
+      window.addEventListener('scroll', () => {
+        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+      });
+    }
+    return () => setLoading(false);
+  }, [loading]);
 
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
