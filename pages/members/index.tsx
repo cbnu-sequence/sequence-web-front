@@ -11,7 +11,7 @@ const Members = () => {
       <Header />
       <Block>
         <TopBlock>
-          <img src="sqMakesD.png" />
+          <img src="sqMakesD.png" alt="sequence makes difference" />
         </TopBlock>
         <MainBlock>
           <ProjectTeamBlock>
