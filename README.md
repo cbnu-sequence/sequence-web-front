@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 충북대학교 정보통신공학부 과동아리 **'SEQUENCE'**<img src="./public/flowerLogo_b.png" width="5%" alt="SEQUENCE-LOGO" />
 
-## Getting Started
+<br>
 
-First, run the development server:
+## ✨ 사용 기술
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+|                                                                                    |
+| ---------------------------------------------------------------------------------- |
+| <img src="./public/react.png" width="2.4%" alt="REACT" />  REACT                   |
+| <img src="./public/react-query.png" width="2.4%" alt="REACT-QUERY" />  REACT-QUERY |
+| <img src="./public/typescript.png" width="2.4%" alt="TYPESCRIPT" />  TYPESCRIPT    |
+| <img src="./public/emotion.png" width="2.4%" alt="EMOTION" />  EMOTION             |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## ✨ 제작자
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+|        | GitHub                                            |
+| ------ | ------------------------------------------------- |
+| 박근우 | [geunu97](https://github.com/geunu97)             |
+| 하송희 | [Songhee99](https://github.com/Songhee99)         |
+| 김지원 | [NaamuKim](https://github.com/NaamuKim)           |
+| 송하은 | [songhaeunsong](https://github.com/songhaeunsong) |
