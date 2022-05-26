@@ -33,11 +33,8 @@ const Notice = () => {
   );
 
   if (!noticeList.data) {
-    return <NoList />
+    return <NoList />;
   }
-
-
-    console.log(me);
 
   return (
     <div>
@@ -47,8 +44,12 @@ const Notice = () => {
       <Header />
       <CommonHeader title={'공지사항'} />
 
-      {me.data.role === 'User' && <WriteBtnBlock><WriteBtn /></WriteBtnBlock>}
-      
+      {me && me.data.role === 'User' && (
+        <WriteBtnBlock>
+          <WriteBtn />
+        </WriteBtnBlock>
+      )}
+
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {noticeList &&
           noticeList.data.map((item, index) => {

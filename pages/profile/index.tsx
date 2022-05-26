@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useUser } from '../../hooks/useUser';
-import { ProfileDiv, CTDiv, AddButton } from './styles';
+import { ProfileDiv, CTDiv, AddButton } from '../../styles/profile';
 import Header from '../../components/Header';
 import Router from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
@@ -26,19 +26,19 @@ function Profile() {
       <Header />
       <ProfileDiv>
         <div className="profile-title">
-          {me.name}님의 프로필
+          {me.data.name}님의 프로필
           <h2>sequence makes difference</h2>
         </div>
 
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
-          이메일 주소: {me.email}
+          이메일 주소: {me.data.email}
         </div>
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
-          회원 등급: {me.role == 'User' ? '일반등급' : '관리자'}
+          회원 등급: {me.data.role == 'User' ? '일반등급' : '관리자'}
         </div>
-        {me.role === 'Admin' && (
+        {me.data.role === 'Admin' && (
           <Link href="/board/projects/write">
             <AddButton>프로젝트 추가하기</AddButton>
           </Link>
@@ -49,8 +49,6 @@ function Profile() {
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
           {me.data.posts &&
             me.data.posts.map((item, index) => {
-              console.log(item);
-
               return (
                 <>
                   <Link href={`../../posts/${item._id}`} key={item._id}>

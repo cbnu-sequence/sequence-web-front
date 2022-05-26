@@ -1,18 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  MainDiv,
-  SQProject,
-  BtnDiv,
-  CircleBtn,
-  Content,
-  Pomodoro,
-  PomoLink,
-  HomePhoto,
-  BigBox,
-  SmallBox,
-  Github,
-} from './styles';
+import { MainDiv, SQProject, Pomodoro, PomoLink, HomePhoto, BigBox, SmallBox, Github } from './styles';
 import Link from 'next/link';
+import CenterMode from '../Slider';
 
 function Main() {
   return (
@@ -33,15 +22,8 @@ function Main() {
       </div>
       <SQProject>
         <h1>Sequence</h1>
-        <BtnDiv>
-          <span>Projects</span>
-          <div>
-            <CircleBtn>
-              <img src="nextIcon.png" />
-            </CircleBtn>
-          </div>
-        </BtnDiv>
-        <Content></Content>
+        <span>Projects</span>
+        <CenterMode />
       </SQProject>
       <Pomodoro>
         <div className="pomodoro--text">
@@ -50,7 +32,7 @@ function Main() {
           <p>
             뽀모도로 기법은 시간 관리 방법론으로, 타이머를 이용해서 25분간 <br />
             집중해서 일을 한 다음 5분간 휴식하는 방식입니다. 시퀀스에서는 <br />
-            개발자로서 '집중과 효율의 극대화'를 위해 뽀모도로를 선택했습니다.
+            개발자로서 &apos;집중과 효율의 극대화&apos;를 위해 뽀모도로를 선택했습니다.
           </p>
         </div>
         <PomoLink href="/ppomodoro">

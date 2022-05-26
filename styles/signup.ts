@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqRed, sqWhite } from '../../styles/constants';
+import { sqBlack, sqRed, sqWhite } from './constants';
 
 export const Header = styled.header`
   justify-content: center;

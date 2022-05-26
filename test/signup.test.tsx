@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
-import { renderWithQueryClient } from '../../../test-utils';
-import Index from '../index';
+import { renderWithQueryClient } from '../test-utils';
+import Index from '../pages/signup';
 
 test('UItest', () => {
   renderWithQueryClient(<Index />);

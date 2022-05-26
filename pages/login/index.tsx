@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import useInput from '../../hooks/useInput';
-import { Button, Form, Header, Input, Label, LinkContainer } from '../signup/styles';
+import { Button, Form, Header, Input, Label, LinkContainer } from '../../styles/signup';
 import KakaoBtn from '../../components/KakaoBtn';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useUser } from '../../hooks/useUser';
 import Router from 'next/router';
 import { useAuth } from '../../hooks/useAuth';
-import { KAKAO_AUTH_URL } from '../../config/config';
-import { loadMyInfoAPI } from '../../apis/user';
+import img from 'next/image';
 
 function LogIn() {
   const [email, onChangeEmail] = useInput('');
@@ -25,7 +24,7 @@ function LogIn() {
       e.preventDefault();
       login({ email, password });
     },
-    [email, password],
+    [email, password, login],
   );
 
   return (
@@ -35,7 +34,7 @@ function LogIn() {
       </Head>
       <div id="container">
         <Header>
-          <Link href="/">
+          <Link href="/" passHref>
             <img src="/sequence_b.png" />
           </Link>
         </Header>
