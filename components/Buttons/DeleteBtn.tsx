@@ -1,14 +1,8 @@
 import React from 'react';
-import { DeleteButton } from "./styles";
-
-const position = (props) => (
-    {props.position}
-  )
+import { DeleteButton } from './styles';
 
 function DeleteBtn() {
-        return (
-        <DeleteButton>삭제</DeleteButton>
-        );
+  return <DeleteButton>삭제</DeleteButton>;
 }
 
 export default DeleteBtn;

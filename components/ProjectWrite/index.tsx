@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { postFile, postProjectWrite } from '../../apis/post';
 import useInput from '../../hooks/useInput';
 import Header from '../Header';
-import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton } from '../Writeboard/styles';
+import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton } from '../WriteBoard/styles';
 import { AddButton, ImageBlock, ItemBlock, PreviewImageBlock, SecondInput } from './styles';
 import { MdRemoveCircleOutline } from 'react-icons/md';
 
