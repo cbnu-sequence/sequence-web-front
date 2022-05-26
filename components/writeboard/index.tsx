@@ -1,11 +1,10 @@
 import Header from '../../components/Header';
-import { Block, Input, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
+import { Block, TitleInput, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
-import { MdRemoveCircleOutline } from 'react-icons/md';
 
 export const WriteBoard = () => {
   const [title, onChangeTitle] = useInput('');
@@ -82,7 +81,7 @@ export const WriteBoard = () => {
           <p className="title">글 작성하기</p>
           <hr />
           <p className="subtitle">제목</p>
-          <Input placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
+          <TitleInput placeholder="제목을 입력해주세요" onChange={onChangeTitle} value={title} />
           {TitleError && <ErrorMessage>제목을 입력해주세요</ErrorMessage>}
           <p className="subtitle">내용</p>
           <TextEditor content={content} setContent={setContent} />
@@ -90,19 +89,20 @@ export const WriteBoard = () => {
           <p className="filetitle">파일 업로드</p>
           <FileBlock>
             {fileName.length > 0 ? (
-              <div className="file">
+              <div>
                 {fileName.map((item) => (
-                  <div className="removefile" key={item.id}>
-                    <div className="item_name">{item.name}</div>
-                    <div className="icon" onClick={() => onRemoveFile(item)}>
-                      <MdRemoveCircleOutline />
-                    </div>
+                  <div
+                    className="
+                  removefile"
+                    onClick={() => onRemoveFile(item)}
+                    key={item.id}
+                  >
+                    {item.name}
                   </div>
                 ))}
               </div>
-
             ) : (
-              <div className="file">비어있습니다.</div>
+              <div>비어있습니다.</div>
             )}
             <label htmlFor="file">파일 찾기</label>
             <input type="file" id="file" onChange={onFileSubmit} multiple />
