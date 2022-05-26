@@ -6,7 +6,7 @@ import { useProjects } from '../../../hooks/useProjects';
 import ProjectCard from '../../../components/ProjectCard';
 import { ProjectsDiv } from './styles';
 
-function projects(): ReactElement {
+function Projects(): ReactElement {
   const { projects } = useProjects();
   return (
     <div>
@@ -22,4 +22,4 @@ function projects(): ReactElement {
   );
 }
 
-export default projects;
+export default Projects;
