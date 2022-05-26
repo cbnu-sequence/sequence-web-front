@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { tokenConfirmAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
-import { Button, Form, EmailHeader, Input, Label } from '../signup/styles';
+import { Button, Form, EmailHeader, Input, Label } from '../../styles/signup';
 import Router from 'next/router';
 
 function Emailcheck() {

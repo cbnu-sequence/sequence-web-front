@@ -1,5 +1,5 @@
 import Header from '../../components/Header';
-import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from './styles';
+import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from '../../styles/introduce';
 import { GrStackOverflow, GrArchlinux, GrCloudlinux } from 'react-icons/gr';
 import Map from '../../components/Map/map';
 import Link from 'next/link';

@@ -4,7 +4,7 @@ import CommonHeader from '../../../components/Table/CommonHeader';
 import Head from 'next/head';
 import { useProjects } from '../../../hooks/useProjects';
 import ProjectCard from '../../../components/ProjectCard';
-import { ProjectsDiv } from './styles';
+import { ProjectsDiv } from '../../../styles/projects';
 
 function Projects(): ReactElement {
   const { projects } = useProjects();

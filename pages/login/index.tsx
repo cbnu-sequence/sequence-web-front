@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import useInput from '../../hooks/useInput';
-import { Button, Form, Header, Input, Label, LinkContainer } from '../signup/styles';
+import { Button, Form, Header, Input, Label, LinkContainer } from '../../styles/signup';
 import KakaoBtn from '../../components/KakaoBtn';
 import Link from 'next/link';
 import Head from 'next/head';
