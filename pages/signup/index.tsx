@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from './styles';
+import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from '../../styles/signup';
 import useInput from '../../hooks/useInput';
 import KakaoBtn from '../../components/KakaoBtn';
 import Router from 'next/router';

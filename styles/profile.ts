@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqPink, sqLightGray, sqRed, sqWhite, sqGray } from '../../styles/constants';
+import { sqBlack, sqPink, sqLightGray, sqRed, sqWhite, sqGray } from './constants';
 
 export const ProfileDiv = styled.div`
   height: 400px;

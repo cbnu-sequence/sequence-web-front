@@ -4,9 +4,9 @@ import CommonHeader from '../../../components/Table/CommonHeader';
 import Head from 'next/head';
 import { useProjects } from '../../../hooks/useProjects';
 import ProjectCard from '../../../components/ProjectCard';
-import { ProjectsDiv } from './styles';
+import { ProjectsDiv } from '../../../styles/projects';
 
-function projects(): ReactElement {
+function Projects(): ReactElement {
   const { projects } = useProjects();
   return (
     <div>
@@ -22,4 +22,4 @@ function projects(): ReactElement {
   );
 }
 
-export default projects;
+export default Projects;

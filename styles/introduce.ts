@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqLightGray, sqRed, sqWhite, sqWhiteBoxShadow } from '../../styles/constants';
+import { sqBlack, sqLightGray, sqRed, sqWhite, sqWhiteBoxShadow } from './constants';
 import { keyframes } from '@emotion/react';
 
 const squareAppear = keyframes`
