@@ -1,5 +1,13 @@
 import Header from '../../components/Header';
-import { Block, MainBlock, TopBlock, ExecutiveBlock, ProjectTeamBlock, TechTeamBlock, Table } from './styles';
+import {
+  Block,
+  MainBlock,
+  TopBlock,
+  ExecutiveBlock,
+  ProjectTeamBlock,
+  TechTeamBlock,
+  Table,
+} from '../../styles/members';
 import ProfileModal from '../../components/ProfileModal';
 import { useState } from 'react';
 

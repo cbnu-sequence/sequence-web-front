@@ -9,9 +9,9 @@ module.exports = withBundleAnalyzer({
     return {
       ...config,
       mode: prod ? 'production' : 'development',
-      devtool: prod ? 'hidden-source-map' : 'eval',
-      plugins: [...config.plugins, new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /^\.\/ko$/)],
+      devtool: prod ? 'hidden-source-map' : 'eval-source-map',
+      plugins: [...config.plugins],
     };
   },
-  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
+  // pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 });

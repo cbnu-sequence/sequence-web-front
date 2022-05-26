@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useUser } from '../../hooks/useUser';
-import { ProfileDiv, CTDiv, AddButton } from './styles';
+import { ProfileDiv, CTDiv, AddButton } from '../../styles/profile';
 import Header from '../../components/Header';
 import Router from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';

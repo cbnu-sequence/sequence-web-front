@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqLightGray, sqWhite, sqWhiteBoxShadow } from '../../styles/constants';
+import { sqBlack, sqLightGray, sqWhite, sqWhiteBoxShadow } from './constants';
 
 export const Block = styled.div`
   padding-bottom: 2rem;
