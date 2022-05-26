@@ -29,10 +29,9 @@ function SharingInfo() {
       refetchInterval: 60000,
     },
   );
-  if (!infoList.data) {
+  if (!infoList.Data || infoList.data.length == 0) {
     return <div>공유할 정보가 없습니다.</div>;
   }
-
   return (
     <div>
       <Head>

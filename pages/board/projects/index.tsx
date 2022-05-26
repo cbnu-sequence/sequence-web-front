@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Header from '../../../components/Header';
 import CommonHeader from '../../../components/Table/CommonHeader';
 import Head from 'next/head';
+import { useProjects } from '../../../hooks/useProjects';
+import ProjectCard from '../../../components/ProjectCard';
+import { ProjectsDiv } from '../../../styles/projects';
 
-function projects() {
+function Projects(): ReactElement {
+  const { projects } = useProjects();
   return (
     <div>
       <Head>
-        <title>시퀀스 | 공지사항</title>
+        <title>시퀀스 | 프로젝트</title>
       </Head>
       <Header />
       <CommonHeader title="프로젝트" />
+      <ProjectsDiv>
+        {projects && projects.map((item, index) => <ProjectCard key={item._id} project={item} />)}
+      </ProjectsDiv>
     </div>
   );
 }
 
-export default projects;
+export default Projects;

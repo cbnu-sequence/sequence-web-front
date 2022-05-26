@@ -1,10 +1,10 @@
 import React from 'react';
-import BoardWrite from '../../../../components/writeboard';
+import WriteBoard from '../../../../components/WriteBoard';
 
 function Write() {
   return (
     <div>
-      <BoardWrite />
+      <WriteBoard />
     </div>
   );
 }

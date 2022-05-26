@@ -1,5 +1,5 @@
 import Header from '../../components/Header';
-import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from './styles';
+import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBlock } from '../../styles/introduce';
 import { GrStackOverflow, GrArchlinux, GrCloudlinux } from 'react-icons/gr';
 import Map from '../../components/Map/map';
 import Link from 'next/link';
@@ -15,7 +15,10 @@ const Introduce = () => {
         </TopBlock>
         <CultureBlock>
           <p className="culture_title">문화</p>
-          <img src="culture.png" />
+          <img
+            src="culture.png"
+            alt="1.내일의 내가 오늘보다 나음을 지향한다 2.서로에게 상처가 될 말들을 지향한다 3.잘못은 인정하고 같은 실수를 반복하지 않는다 4.다름을 존중한다 5.완벽한 것보단 빠른 것을 추구한다"
+          />
         </CultureBlock>
         <ColorLine />
         <SquareBlock>

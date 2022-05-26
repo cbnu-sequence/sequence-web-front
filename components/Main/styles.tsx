@@ -1,4 +1,4 @@
-import { sqBlack, sqRed, sqWhite, sqPink, sqLightGray, sqGray } from '../../styles/constants';
+import { sqBlack, sqRed, sqWhite, sqPink, sqLightGray, sqGray, sqLavender } from '../../styles/constants';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import Link from 'next/link';
@@ -81,16 +81,34 @@ export const MainDiv = styled.div`
   }
 `;
 export const SQProject = styled.div`
-  background-color: white;
-`;
-export const BtnDiv = styled.div`
-  background-color: white;
-`;
-export const CircleBtn = styled.div`
-  background-color: white;
-`;
-export const Content = styled.div`
-  background-color: white;
+  height: 150vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: ${sqLavender};
+    font-size: 70px;
+    font-weight: 900;
+    font-family: 'Noto Serif KR', serif;
+  }
+  span {
+    color: ${sqLavender};
+    margin: -15px 0 70px 0;
+    font-size: 45px;
+    font-weight: 900;
+    font-family: 'Noto Serif KR', serif;
+  }
+  @media screen and (max-width: 898px) {
+    & > h1 {
+      font-size: 9vw;
+    }
+
+    & > span {
+      margin-top: 0;
+      font-size: 7vw;
+    }
+  }
 `;
 
 export const Pomodoro = styled.div`

@@ -5,7 +5,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-body{
+body {
   padding-top: 60px;
 }
 
@@ -16,4 +16,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.slick-slide{
+  display:inline-block;
 }
