@@ -6,7 +6,6 @@ import Router from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
 import { MdRemoveCircleOutline } from 'react-icons/md';
-import { Item } from 'framer-motion/types/components/Reorder/Item';
 
 export const WriteBoard = () => {
   const [title, onChangeTitle] = useInput('');
@@ -101,18 +100,6 @@ export const WriteBoard = () => {
                   </div>
                 ))}
               </div>
-
-              [{name: 'a', id: 1}, {name:'b', id:2} ]
-
-              arr.map((item) => (
-                <div key={item.id}>
-                <div>{Item.id}</div>
-                <div>{Item.name}</div>
-                </div>
-              ))
-
-
-
 
             ) : (
               <div className="file">비어있습니다.</div>
