@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { TitleBlock, SecondBlock, IconLinkBlock } from './styles';
+import { TitleBlock, SecondBlock, IconLinkBlock } from '../../components/404/styles';
 import { AiOutlineHome, AiOutlineAppstore, AiOutlineHeatMap } from 'react-icons/ai';
 
 const Index = () => {
