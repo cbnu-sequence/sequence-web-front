@@ -61,6 +61,19 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "msw": "^0.39.2",
     "prettier": "^2.5.1",
-    "typescript": "4.5.4"
-  }
+    "typescript": "^4.7.2"
+  },
+  "description": "<br>",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": "git+https://github.com/cbnu-sequence/sequence-web-front.git",
+  "keywords": [],
+  "author": "ckyeon <qsky8520@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbnu-sequence/sequence-web-front/issues"
+  },
+  "homepage": "https://github.com/cbnu-sequence/sequence-web-front#readme"
 }
