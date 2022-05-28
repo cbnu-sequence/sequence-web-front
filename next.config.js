@@ -15,3 +15,9 @@ module.exports = withBundleAnalyzer({
   },
   // pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 });
+
+module.exports = {
+  experimental: {
+    outputStandalone: true,
+  },
+}
