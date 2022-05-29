@@ -35,6 +35,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                   <title>시퀀스</title>
                 </Head>
                 <Component {...pageProps} />
+                <ReactQueryDevtools initialIsOpen={false} />
               </Hydrate>
             </QueryClientProvider>
           </ChakraProvider>

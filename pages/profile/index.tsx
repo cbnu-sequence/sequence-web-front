@@ -11,9 +11,8 @@ import dayjs from 'dayjs';
 
 function Profile() {
   const { user: me } = useUser();
-  console.log(me);
   useEffect(() => {
-    if (!(me && me.data._id)) {
+    if (!(me && me._id)) {
       Router.push('/');
     }
   }, [me]);
@@ -26,19 +25,19 @@ function Profile() {
       <Header />
       <ProfileDiv>
         <div className="profile-title">
-          {me.data.name}님의 프로필
+          {me.name}님의 프로필
           <h2>sequence makes difference</h2>
         </div>
 
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
-          이메일 주소: {me.data.email}
+          이메일 주소: {me.email}
         </div>
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
-          회원 등급: {me.data.role == 'User' ? '일반등급' : '관리자'}
+          회원 등급: {me.role == 'User' ? '일반등급' : '관리자'}
         </div>
-        {me.data.role === 'Admin' && (
+        {me.role === 'Admin' && (
           <Link href="/board/projects/write">
             <AddButton>프로젝트 추가하기</AddButton>
           </Link>
@@ -47,14 +46,14 @@ function Profile() {
       <CTDiv>
         <span>내 게시글</span>
         <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
-          {me.data.posts &&
-            me.data.posts.map((item, index) => {
+          {me.posts &&
+            me.posts.map((item, index) => {
               return (
                 <>
                   <Link href={`../../posts/${item._id}`} key={item._id}>
                     <Tr>
                       <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{me.data.name}</CommonTd>
+                      <CommonTd>{me.name}</CommonTd>
                       <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
                       <CommonTd>{item.title}</CommonTd>
                     </Tr>

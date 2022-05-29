@@ -13,11 +13,6 @@ function LogIn() {
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
   const { login } = useAuth();
-  const { user } = useUser();
-
-  if (user) {
-    Router.replace('/');
-  }
 
   const onSubmit = useCallback(
     (e) => {

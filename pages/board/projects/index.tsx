@@ -12,6 +12,7 @@ function Projects(): ReactElement {
   if (!projects || projects.length == 0) {
     return <NoList enTitle={'projects'} krTitle={'프로젝트'} />;
   }
+
   return (
     <div>
       <Head>

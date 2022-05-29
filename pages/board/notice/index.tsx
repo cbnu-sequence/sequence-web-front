@@ -43,7 +43,7 @@ const Notice = () => {
       </Head>
       <CommonHeader title={'공지사항'} />
 
-      {me && me.data.role === 'User' && (
+      {me && me.role === 'Admin' && (
         <WriteBtnBlock>
           <WriteBtn />
         </WriteBtnBlock>
