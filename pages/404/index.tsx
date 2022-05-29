@@ -2,10 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { TitleBlock, SecondBlock, IconLinkBlock } from '../../components/404/styles';
 import { AiOutlineHome, AiOutlineAppstore, AiOutlineHeatMap } from 'react-icons/ai';
+import Head from 'next/head';
 
 const Index = () => {
   return (
     <>
+      <Head>
+        <title>시퀀스</title>
+      </Head>
       <TitleBlock>잘못된 경로입니다.</TitleBlock>
       <SecondBlock>
         <Link href="/">
@@ -38,3 +42,11 @@ const Index = () => {
 };
 
 export default Index;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'onlyBody',
+    },
+  };
+};

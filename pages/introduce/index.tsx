@@ -3,11 +3,15 @@ import { IntroduceBlock, TopBlock, SquareBlock, ColorLine, MapBlock, CultureBloc
 import { GrStackOverflow, GrArchlinux, GrCloudlinux } from 'react-icons/gr';
 import Map from '../../components/Map/map';
 import Link from 'next/link';
+import Head from 'next/head';
+import React from 'react';
 
 const Introduce = () => {
   return (
     <>
-      <Header />
+      <Head>
+        <title>시퀀스 | 시퀀스 소개</title>
+      </Head>
       <IntroduceBlock>
         <TopBlock>
           <p className="top1">시퀀스를 소개합니다</p>

@@ -66,3 +66,11 @@ function LogIn() {
 }
 
 export default LogIn;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'onlyBody',
+    },
+  };
+};

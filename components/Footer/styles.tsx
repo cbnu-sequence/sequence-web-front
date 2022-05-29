@@ -2,9 +2,12 @@ import styled from '@emotion/styled';
 import { sqBlack, sqWhite, sqRed, sqLightGray } from '../../styles/constants';
 
 export const FooterDiv = styled.footer`
+  position: absolute;
+  bottom: 0;
+  left: 0;
   background-color: ${sqLightGray};
   width: 100%;
-  height: 280px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
