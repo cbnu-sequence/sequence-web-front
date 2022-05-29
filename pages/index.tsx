@@ -37,7 +37,7 @@ export async function getServerSideProps(context) {
   await queryClient.prefetchQuery(queryKeys.user, () => loadMyInfoAPI(cookie));
 
   let cleanInfo = JSON.parse(JSON.stringify(dehydrate(queryClient)));
-  if (cleanInfo.queries && typeof cleanInfo.queries[0].state.data != 'undefined') {
+  if (cleanInfo.queries[0].state.data && typeof cleanInfo.queries[0].state.data != 'undefined') {
     cleanInfo.queries[0].state.data = cleanInfo.queries[0].state.data.data;
   }
 
