@@ -24,7 +24,7 @@ export function logInAPI(data: { email: string; password: string }) {
   return axios.post('auth/login', data).then((response) => response.data);
 }
 
-export function kakaoLogInAPI(code: string) {
+export function kakaoLogInAPI(code: string | string[]) {
   return axios.get(`auth/kakao/login?code=${code}`).then((response) => response.data);
 }
 

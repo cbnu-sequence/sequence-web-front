@@ -44,9 +44,13 @@ const Notice = () => {
       <CommonHeader title={'공지사항'} />
 
       {me && me.role === 'Admin' && (
-        <WriteBtnBlock>
-          <WriteBtn />
-        </WriteBtnBlock>
+        <>
+          <Link href={'.write?category=notice'}>
+            <WriteBtnBlock>
+              <WriteBtn />
+            </WriteBtnBlock>
+          </Link>
+        </>
       )}
 
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
