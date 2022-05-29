@@ -2,12 +2,14 @@ import Header from '../../components/Header';
 import { Block, Input, Editor, FileBlock, ButtonBlock, WirteActionButton, ErrorMessage } from './styles';
 import useInput from '../../hooks/useInput';
 import { useCallback, useState } from 'react';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
 import { MdRemoveCircleOutline } from 'react-icons/md';
 
 export const WriteBoard = () => {
+  const router = useRouter();
+  const category = router.query.category;
   const [title, onChangeTitle] = useInput('');
   const [content, setContent] = useState(null);
   const [files, setFiles] = useState([]);
@@ -27,8 +29,11 @@ export const WriteBoard = () => {
               onChangeFileName((fileName) =>
                 fileName.concat({ name: e.target.files[i].name, id: response.data.data._id }),
               );
+            } else if (response.status === 403) {
+              alert('로그인 해주세요!');
+              router.replace('/login');
             } else {
-              console.log('파일 전송 실패');
+              alert('파일이 전송되지 않았습니다.');
             }
           });
         }
@@ -58,7 +63,7 @@ export const WriteBoard = () => {
         setBodyError(true);
         setTimeout(() => setBodyError(false), 2000);
       } else {
-        postWrite({ title, content, files }).then((response) => {
+        postWrite(category, { title, content, files }).then((response) => {
           if (response.status === 403) alert('로그인을 해주세요');
           else if (response.status === 200) {
             Router.replace('/');

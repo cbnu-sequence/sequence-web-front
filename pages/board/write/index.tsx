@@ -1,5 +1,5 @@
 import React from 'react';
-import WriteBoard from '../../../../components/WriteBoard';
+import WriteBoard from '../../../components/WriteBoard';
 
 function Write() {
   return (

@@ -33,9 +33,13 @@ export async function getServerSideProps(context) {
     axios.defaults.headers.Cookie = cookie;
   }
   const queryClient = new QueryClient();
+
   await queryClient.prefetchQuery(queryKeys.user, () => loadMyInfoAPI(cookie));
+
   let cleanInfo = JSON.parse(JSON.stringify(dehydrate(queryClient)));
-  cleanInfo.queries[0].state.data = cleanInfo.queries[0].state.data.data;
+  if (cleanInfo.queries && typeof cleanInfo.queries[0].state.data != 'undefined') {
+    cleanInfo.queries[0].state.data = cleanInfo.queries[0].state.data.data;
+  }
 
   return {
     props: {
