@@ -8,7 +8,6 @@ const Pomodoro = () => {
       <Head>
         <title>시퀀스 | 뽀모도로</title>
       </Head>
-      <Header />
       <div>뽀모도로타이머</div>
     </>
   );

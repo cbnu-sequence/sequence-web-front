@@ -32,8 +32,8 @@ const Notice = () => {
     },
   );
 
-  if (!noticeList.data) {
-    return <NoList />;
+  if (!noticeList.data || noticeList.data.length == 0) {
+    return <NoList enTitle={'notice'} krTitle={'공지사항'} />;
   }
 
   return (
@@ -41,7 +41,6 @@ const Notice = () => {
       <Head>
         <title>시퀀스 | 공지사항</title>
       </Head>
-      <Header />
       <CommonHeader title={'공지사항'} />
 
       {me && me.data.role === 'User' && (

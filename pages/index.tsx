@@ -19,9 +19,7 @@ function Home() {
         <link rel="shortcut icon" href="/favicon.jpeg" />
         <title>시퀀스 | cbnu 프로젝트 동아리</title>
       </Head>
-      <Header />
       <Main />
-      <Footer />
     </div>
   );
 }
@@ -31,7 +29,6 @@ export default Home;
 export async function getServerSideProps(context) {
   const cookie = context.req ? context.req.headers.cookie : '';
   axios.defaults.headers.Cookie = '';
-  console.log(cookie);
   if (context.req && cookie) {
     axios.defaults.headers.Cookie = cookie;
   }

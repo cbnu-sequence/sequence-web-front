@@ -1,5 +1,4 @@
 import { FooterDiv } from './styles';
-import Link from 'next/link';
 
 function Footer() {
   return (

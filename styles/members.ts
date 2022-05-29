@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { sqBlack, sqLightGray, sqWhite, sqWhiteBoxShadow } from './constants';
 
 export const Block = styled.div`
-  padding-bottom: 2rem;
+  padding: 0;
 `;
 
 export const TopBlock = styled.div`
@@ -39,7 +39,7 @@ export const MainBlock = styled.div`
   .sub_title {
     font-size: 2rem;
     font-weight: bold;
-    margin: 3rem 2rem;
+    margin: 3rem 2rem 0 2rem;
   }
 `;
 
