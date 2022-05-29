@@ -9,7 +9,7 @@ import { loadMyInfoAPI } from '../apis/user';
 
 interface UseUser {
   user: User | null;
-  updateUser: (user: User) => void;
+  updateUser: (user) => void;
   clearUser: () => void;
 }
 
@@ -27,8 +27,8 @@ export function useUser(): UseUser {
     },
   });
 
-  function updateUser(newUser): void {
-    queryClient.setQueryData(queryKeys.user, newUser.data);
+  function updateUser(newUser: User): void {
+    queryClient.setQueryData(queryKeys.user, newUser);
   }
 
   function clearUser() {

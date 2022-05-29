@@ -21,6 +21,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
     font-weight: 500;
     font-size: 18px;
     background-color: ${sqBlack};
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     @keyframes shakeFlowerHead {
       0% {

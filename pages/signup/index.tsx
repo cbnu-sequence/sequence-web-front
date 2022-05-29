@@ -124,3 +124,11 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'onlyBody',
+    },
+  };
+};

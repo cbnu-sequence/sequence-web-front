@@ -13,6 +13,8 @@ import { useUser } from '../../../hooks/useUser';
 import { useQuery } from 'react-query';
 import { queryKeys } from '../../../react-query/constants';
 import { getTable } from '../../../apis/post';
+import NoList from '../../../components/NoList';
+import { WriteBtnBlock } from '../../../components/Buttons/styles';
 
 function SharingInfo() {
   const fallback = {};
@@ -29,17 +31,18 @@ function SharingInfo() {
       refetchInterval: 60000,
     },
   );
+
   if (!infoList.Data || infoList.data.length == 0) {
-    return <div>공유할 정보가 없습니다.</div>;
+    return <NoList enTitle={'sharing information'} krTitle={'정보공유'} />;
   }
+
   return (
     <div>
       <Head>
         <title>시퀀스 | 정보공유</title>
       </Head>
-      <Header />
       <CommonHeader title={'정보 공유'} />
-      {me?.role === 'User' && <WriteBtn />}
+      {me && me?.role === 'Admin' && <WriteBtn />}
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {infoList &&
           infoList.data.map((item, index) => {

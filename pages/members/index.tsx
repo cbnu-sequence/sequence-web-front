@@ -9,14 +9,17 @@ import {
   Table,
 } from '../../styles/members';
 import ProfileModal from '../../components/ProfileModal';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Head from 'next/head';
 
 const Members = () => {
   const [openmodal, setOpenModal] = useState(false);
 
   return (
     <>
-      <Header />
+      <Head>
+        <title>시퀀스 | 부원 소개</title>
+      </Head>
       <Block>
         <TopBlock>
           <img src="sqMakesD.png" alt="sequence makes difference" />
