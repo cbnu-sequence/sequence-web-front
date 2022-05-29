@@ -28,6 +28,7 @@ export function useUser(): UseUser {
   });
 
   function updateUser(newUser): void {
+    console.log(newUser);
     queryClient.setQueryData(queryKeys.user, newUser.data);
   }
 

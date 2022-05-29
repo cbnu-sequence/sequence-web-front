@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     queryClientRef.current = new QueryClient();
   }
   switch (pageProps.layout) {
-    case '404': {
+    case 'onlyBody': {
       return (
         <>
           <ChakraProvider theme={theme}>

@@ -51,3 +51,11 @@ function Emailcheck() {
 }
 
 export default Emailcheck;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'onlyBody',
+    },
+  };
+};
