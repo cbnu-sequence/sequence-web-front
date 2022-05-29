@@ -32,8 +32,19 @@ function SharingInfo() {
     },
   );
 
-  if (!infoList.Data || infoList.data.length == 0) {
-    return <NoList enTitle={'sharing information'} krTitle={'정보공유'} />;
+  if (!infoList.data || infoList.data.length == 0) {
+    return (
+      <>
+        {me && me?.role === 'Admin' && (
+          <Link href={'./write?category=sharingInfo'}>
+            <WriteBtnBlock>
+              <WriteBtn />
+            </WriteBtnBlock>
+          </Link>
+        )}
+        <NoList enTitle={'sharing information'} krTitle={'정보공유'} />;
+      </>
+    );
   }
 
   return (
@@ -42,7 +53,13 @@ function SharingInfo() {
         <title>시퀀스 | 정보공유</title>
       </Head>
       <CommonHeader title={'정보 공유'} />
-      {me && me?.role === 'Admin' && <WriteBtn />}
+      {me && me?.role === 'Admin' && (
+        <Link href={'./sharingInfo'}>
+          <WriteBtnBlock>
+            <WriteBtn />
+          </WriteBtnBlock>
+        </Link>
+      )}
       <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
         {infoList &&
           infoList.data.map((item, index) => {

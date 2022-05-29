@@ -5,9 +5,12 @@ import { noticeList } from '../interfaces/post';
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
-export async function postWrite(data: { title: string; content: string; files: Array<string> }) {
+export async function postWrite(
+  category: string | string[],
+  data: { title: string; content: string; files: Array<string> },
+) {
   try {
-    const response = await axios.post('post/notice', data);
+    const response = await axios.post(`post/${category}`, data);
     return response;
   } catch (error) {
     return error.response;
