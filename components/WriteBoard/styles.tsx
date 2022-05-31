@@ -35,12 +35,12 @@ export const Editor = styled.form`
   }
   .filetitle {
     font-size: 1.1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     font-weight: bold;
     color: ${sqBlack};
     @media screen and (max-width: 768px) {
-      margin-top: 3.5rem;
+      margin-top: 6rem;
     }
   }
 
@@ -63,10 +63,10 @@ export const Input = styled.input`
 `;
 
 export const FileBlock = styled.div`
-  width: 20%;
+  width: 300px;
   font-size: 0.8rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 
   .file {
     border: 1px solid #beb6b6;
