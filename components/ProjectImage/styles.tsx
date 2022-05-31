@@ -8,6 +8,6 @@ export const ProjectImg = styled.img`
 `;
 
 export const ProjectImgDiv = styled.div`
-  width: 24em;
+  width: 18em;
   height: 16em;
 `;
