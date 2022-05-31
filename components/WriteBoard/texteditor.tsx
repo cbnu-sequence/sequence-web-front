@@ -9,7 +9,10 @@ const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {
 const QuillWrapper = styled(QuillNoSSRWrapper)`
   height: 300px;
   padding-bottom: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 4.8rem;
+  }
 `;
 
 const modules = {
