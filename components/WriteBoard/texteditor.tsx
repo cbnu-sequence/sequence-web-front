@@ -14,35 +14,28 @@ const QuillWrapper = styled(QuillNoSSRWrapper)`
 
 const modules = {
   toolbar: [
-    [
-      { header: '1' },
-      { header: '2' },
-      { size: [] },
-      'bold',
-      'italic',
-      'underline',
-      'strike',
-      'blockquote',
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' },
-    ],
+    [{ font: [] }, { size: [] }],
+    [{ header: '1' }, { header: '2' }, 'bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{ color: [] }, { background: [] }],
+    [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
+    ['link'],
   ],
 };
 
 const formats = [
-  'header',
-  'size',
+  'color',
+  'background',
   'font',
+  'size',
+  'header',
   'bold',
   'italic',
   'underline',
   'strike',
   'blockquote',
   'list',
-  'bullet',
   'indent',
+  'link',
 ];
 
 const TextEditor = ({ content, setContent }) => {
