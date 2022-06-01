@@ -45,7 +45,7 @@ const Notice = () => {
 
       {me && me.role === 'Admin' && (
         <>
-          <Link href={'.write?category=notice'}>
+          <Link href={'./write?category=notice'}>
             <WriteBtnBlock>
               <WriteBtn />
             </WriteBtnBlock>
