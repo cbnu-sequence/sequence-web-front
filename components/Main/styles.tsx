@@ -81,7 +81,8 @@ export const MainDiv = styled.div`
   }
 `;
 export const SQProject = styled.div`
-  height: 150vh;
+  height: 100vh;
+  margin-top: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,7 +95,7 @@ export const SQProject = styled.div`
   }
   span {
     color: ${sqLavender};
-    margin: -15px 0 70px 0;
+    margin-top: -15px;
     font-size: 45px;
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
@@ -261,12 +262,14 @@ export const Github = styled.div`
   }
 
   & > h2 {
+    color: ${sqBlack};
     font-size: 70px;
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
   }
 
   & > h3 {
+    color: ${sqBlack};
     margin-top: -15px;
     font-size: 45px;
     font-weight: 900;

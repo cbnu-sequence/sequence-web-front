@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqRed } from '../../styles/constants';
+import { sqRed, sqLavender } from '../../styles/constants';
 
 export const ProjectCardBox = styled.div`
   border-radius: 3px;
@@ -30,8 +30,12 @@ export const ProjectCardBox = styled.div`
 export const ProjectTags = styled.span`
   display: flex;
   span {
-    font-size: 12px;
-    margin: 2px;
+    font-size: 11px;
+    padding: 1px 5px;
+    color: ${sqLavender};
+    font-weight: 300;
+    font-family: 'Noto Serif KR', serif;
+    margin: 12px 2px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     :hover {
