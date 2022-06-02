@@ -7,7 +7,8 @@
     "test": "jest --watch",
     "build": "cross-env ANALYZE=true NODE_ENV=production next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.16.7",
@@ -53,6 +54,7 @@
     "@types/react": "17.0.38",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
+    "cypress": "^9.7.0",
     "eslint": "^8.6.0",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
