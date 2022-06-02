@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { backUrl } from '../config/config';
-import { queryKeys } from '../react-query/constants';
 import { clearStoredUser } from '../user-storage/user-storage';
 
 axios.defaults.baseURL = backUrl;

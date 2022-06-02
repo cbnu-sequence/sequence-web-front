@@ -10,5 +10,5 @@ export const sqDeepLightGray = '#DEDEDE';
 export const sqDeepDarkGray = '#3D3E3F';
 export const sqDarkGray = '#57585A';
 
+export const sqDarkGreen = '#003B34';
 export const sqWhiteBoxShadow = '0px 12px 20px 0px rgba(77, 73, 73, 0.2)';
-
