@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqLightGray, sqRed, sqWhite, sqWhiteBoxShadow } from './constants';
+import { sqBlack, sqDeepLightGray, sqLightGray, sqRed, sqWhite, sqWhiteBoxShadow } from './constants';
 import { keyframes } from '@emotion/react';
 
 const squareAppear = keyframes`
@@ -22,16 +22,13 @@ export const IntroduceBlock = styled.div`
 
 export const TopBlock = styled.div`
   width: 100%;
-  height: 14rem;
   padding: 6rem;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  color: ${sqWhite};
-  margin-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10rem;
+  animation: textAppear 1.5s ease-in 1;
 
   @media screen and (max-width: 768px) {
-    font-size: 2.1rem;
     margin-bottom: 2rem;
   }
 
@@ -47,36 +44,37 @@ export const TopBlock = styled.div`
     }
   }
 
-  .top1 {
-    animation: textAppear 1.5s ease-in 1;
-  }
-
-  .top2 {
-    animation: textAppear 1.5s ease-in 1;
-    font-size: 1rem;
+  & > img {
+    width: 45vw;
+    min-width: 350px;
   }
 `;
 
 export const CultureBlock = styled.div`
   box-shadow: ${sqWhiteBoxShadow};
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
-  padding: 3rem 3rem 1rem 3rem;
-  border-radius: 30px;
-  border: 1px solid ${sqWhite};
   animation: ${squareAppear} 2s ease-in 1;
 
   .culture_title {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     text-align: center;
     color: ${sqWhite};
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 1rem;
+    &:before {
+      text-align: center;
+      content: '';
+      display: block;
+      width: 45px;
+      border-bottom: 7px solid ${sqRed};
+      margin: 0 auto;
+    }
   }
 
   img {
     margin: 0 auto;
-    width: 90%;
+    width: 70%;
     @media screen and (max-width: 768px) {
       width: 100%;
     }
@@ -93,22 +91,27 @@ export const SquareBlock = styled.div`
   width: 70%;
   margin: 0 auto;
   padding: 3rem 1rem 3rem 1rem;
-  box-shadow: ${sqWhiteBoxShadow};
   color: ${sqWhite};
-  border-radius: 30px;
   min-height: 20rem;
   animation: ${squareAppear} 2s ease-in 1;
-  border: 1px solid ${sqWhite};
 
   @media screen and (max-width: 768px) {
     min-height: 15rem;
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     text-align: center;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    &:before {
+      text-align: center;
+      content: '';
+      display: block;
+      width: 75px;
+      border-bottom: 7px solid ${sqRed};
+      margin: 0 auto;
+    }
   }
 
   .icons {
@@ -142,21 +145,78 @@ export const SquareBlock = styled.div`
   }
 
   .lab_content {
-    font-size: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
     color: ${sqWhite};
     margin-top: 2rem;
+    margin-left: 40px;
     line-height: 2rem;
+
+    .lab_content__left {
+      & > img {
+        margin-left: 50px;
+      }
+      .text {
+        font-size: 0.5rem;
+        position: absolute;
+        line-height: 18px;
+      }
+
+      .big-p {
+        font-size: 2rem;
+        z-index: 0.5;
+      }
+      .small-p {
+        font-size: 1rem;
+        z-index: 0.5;
+      }
+      .professor {
+        margin: -60px 0 40px 230px;
+      }
+    }
+    .lab_content__right {
+      margin-top: 50px;
+      margin-left: 70px;
+      font-size: 2.3rem;
+
+      & > ul {
+        margin-top: 50px;
+        font-size: 1.5rem;
+        & > li {
+          margin-bottom: 25px;
+        }
+      }
+    }
 
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
+      .text {
+        display: none;
+      }
     }
   }
-  .lab_href {
+  .lab-btn {
+    width: 100%;
+    margin-top: 80px;
     text-align: center;
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    color: ${sqRed};
+    .lab_href {
+      background-color: ${sqWhite};
+      padding: 5px 20px;
+      border-radius: 30px;
+      border: 4px outset ${sqRed};
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: ${sqBlack};
+      transition: color 0.2s ease-out;
+
+      &:hover {
+        color: ${sqRed};
+      }
+    }
   }
 `;
 
@@ -174,7 +234,7 @@ export const MapBlock = styled.div`
     font-size: 1.8rem;
     text-align: center;
     color: ${sqWhite};
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 1.5rem;
   }
   .map_content {
