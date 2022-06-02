@@ -23,14 +23,17 @@ export const IntroduceBlock = styled.div`
 export const TopBlock = styled.div`
   width: 100%;
   height: 14rem;
-  padding: 6rem;
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
   color: ${sqWhite};
-  margin-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
 
   @media screen and (max-width: 768px) {
+    height: 8rem;
     font-size: 2.1rem;
     margin-bottom: 2rem;
   }
@@ -66,12 +69,20 @@ export const CultureBlock = styled.div`
   border: 1px solid ${sqWhite};
   animation: ${squareAppear} 2s ease-in 1;
 
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    padding: 1rem;
+  }
+
   .culture_title {
     font-size: 1.9rem;
     text-align: center;
     color: ${sqWhite};
     font-weight: bold;
     margin-bottom: 1rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
 
   img {
@@ -87,6 +98,9 @@ export const ColorLine = styled.div`
   width: 75%;
   border-top: 1px solid ${sqLightGray};
   margin: 4rem auto 4rem;
+  @media screen and (max-width: 768px) {
+    margin: 2rem auto;
+  }
 `;
 
 export const SquareBlock = styled.div`
@@ -102,13 +116,18 @@ export const SquareBlock = styled.div`
 
   @media screen and (max-width: 768px) {
     min-height: 15rem;
+    width: 90%;
+    padding: 1rem;
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     text-align: center;
     font-weight: bold;
     margin-bottom: 1rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
 
   .icons {
@@ -147,6 +166,7 @@ export const SquareBlock = styled.div`
     color: ${sqWhite};
     margin-top: 2rem;
     line-height: 2rem;
+    padding: 0 2rem;
 
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
@@ -170,12 +190,20 @@ export const MapBlock = styled.div`
   animation: ${squareAppear} 2s ease-in 1;
   border: 1px solid ${sqWhite};
 
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    padding: 1rem 0;
+  }
+
   .map_title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     text-align: center;
     color: ${sqWhite};
     font-weight: bold;
     margin-bottom: 1.5rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
   .map_content {
     font-size: 1rem;

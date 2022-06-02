@@ -14,8 +14,10 @@ export const WriteBoard = () => {
   const [content, setContent] = useState(null);
   const [files, setFiles] = useState([]);
   const [fileName, onChangeFileName] = useState([]);
+
   const [TitleError, setTitleError] = useState(false);
   const [BodyError, setBodyError] = useState(false);
+  const [allError, setAllError] = useState(false);
 
   const onFileSubmit = useCallback(
     (e) => {
@@ -42,7 +44,7 @@ export const WriteBoard = () => {
         onChangeFileName([...fileName]);
       }
     },
-    [files, fileName],
+    [router, files, fileName],
   );
 
   const onRemoveFile = useCallback(
@@ -57,22 +59,26 @@ export const WriteBoard = () => {
     (e) => {
       e.preventDefault();
       if (title === '') {
+        setAllError(true);
         setTitleError(true);
         setTimeout(() => setTitleError(false), 2000);
       } else if (content === null) {
+        setAllError(true);
         setBodyError(true);
         setTimeout(() => setBodyError(false), 2000);
       } else {
         postWrite(category, { title, content, files }).then((response) => {
-          if (response.status === 403) alert('로그인을 해주세요');
-          else if (response.status === 200) {
+          if (response.status === 403) {
+            alert('로그인을 해주세요');
+            router.replace('/login');
+          } else if (response.status === 200) {
             Router.replace('/');
             alert('작성이 완료되었습니다.');
           } else alert('작성이 실패했습니다');
         });
       }
     },
-    [title, content, files],
+    [title, content, category, files, router],
   );
 
   const onCancel = useCallback(() => {
@@ -115,6 +121,7 @@ export const WriteBoard = () => {
             <WirteActionButton type="submit">작성하기</WirteActionButton>
             <WirteActionButton onClick={onCancel}>취소</WirteActionButton>
           </ButtonBlock>
+          {allError && <ErrorMessage>제목, 내용은 필수로 입력해주세요.</ErrorMessage>}
         </Editor>
       </Block>
     </>
