@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { getManagerMembers } from '../../../apis/user';
+import NoList from '../../../components/NoList';
 import ProfileModal from '../../../components/ProfileModal';
 import { queryKeys } from '../../../react-query/constants';
 import { ManagerBlock } from '../../../styles/manager';
@@ -8,7 +9,7 @@ import { ManagerBlock } from '../../../styles/manager';
 const Manager = () => {
   const [openmodal, setOpenModal] = useState(false);
 
-  const { data } = useQuery([queryKeys.manager], () => getManagerMembers(), {
+  const { data, isError } = useQuery([queryKeys.manager], () => getManagerMembers(), {
     refetchOnMount: true,
     refetchOnReconnect: true,
     refetchOnWindowFocus: true,
@@ -16,6 +17,8 @@ const Manager = () => {
   });
 
   if (!data) return <p>로딩중 입니다.</p>;
+
+  if (isError) return <NoList enTitle={'members'} krTitle={'정보를 가져올 수 없습니다'} />;
 
   const Data = data.data.data;
 

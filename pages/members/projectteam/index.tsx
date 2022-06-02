@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useQuery } from 'react-query';
 import { getProjectMembers } from '../../../apis/user';
+import NoList from '../../../components/NoList';
 import { queryKeys } from '../../../react-query/constants';
 import {
   BackendBlock,
@@ -13,7 +14,7 @@ import {
 } from '../../../styles/ProjectTeam';
 
 const ProjectTeam = () => {
-  const { data } = useQuery([queryKeys.projectTeam], () => getProjectMembers(), {
+  const { data, isError } = useQuery([queryKeys.projectTeam], () => getProjectMembers(), {
     refetchOnMount: true,
     refetchOnReconnect: true,
     refetchOnWindowFocus: true,
@@ -21,6 +22,8 @@ const ProjectTeam = () => {
   });
 
   if (!data) return <p>로딩중 입니다.</p>;
+
+  if (isError) return <NoList enTitle={'members'} krTitle={'정보를 가져올 수 없습니다'} />;
 
   const Data = data.data.data;
 

@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query';
 import { getTechCourseMembers } from '../../../apis/user';
+import NoList from '../../../components/NoList';
 import { queryKeys } from '../../../react-query/constants';
 import { TechcourseTeamBlock } from '../../../styles/TechcourseTeam';
 
 const TechcourseTeam = () => {
-  const { data } = useQuery([queryKeys.techcourseTeam], () => getTechCourseMembers(), {
+  const { data, isError } = useQuery([queryKeys.techcourseTeam], () => getTechCourseMembers(), {
     refetchOnMount: true,
     refetchOnReconnect: true,
     refetchOnWindowFocus: true,
@@ -12,6 +13,8 @@ const TechcourseTeam = () => {
   });
 
   if (!data) return <p>로딩중 입니다.</p>;
+
+  if (isError) return <NoList enTitle={'members'} krTitle={'정보를 가져올 수 없습니다'} />;
 
   const Data = data.data.data;
 
