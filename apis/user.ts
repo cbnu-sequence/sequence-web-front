@@ -41,3 +41,31 @@ export function tokenConfirmAPI(data: { token: string }) {
 export function logOutAPI() {
   return axios.get('auth/logout').then((response) => response.data);
 }
+
+
+export async function getProjectMembers(){
+  try{
+    const response = await axios.get('/member/project');
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}
+
+export async function getTechCourseMembers(){
+  try{
+    const response = await axios.get('/member/techCourse');
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}
+
+export async function getManagerMembers(){
+  try{
+    const response = await axios.get('/member');
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}
