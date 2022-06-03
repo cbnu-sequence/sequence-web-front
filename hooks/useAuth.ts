@@ -7,7 +7,7 @@ import { loadMyInfoAPI, logOutAPI } from '../apis/user';
 
 interface UseAuth {
   login: (data: LogInData) => Promise<void>;
-  signup: (data: SignUpData) => Promise<void>;
+  signup: (data: SignUpData, Router) => Promise<void | number>;
   signout: () => void;
 }
 
@@ -20,7 +20,7 @@ export function useAuth(): UseAuth {
   const toast = useCustomToast();
   const { user, updateUser, clearUser } = useUser();
 
-  async function authServerCall(urlEndpoint: string, inputData: LogInData | SignUpData): Promise<void> {
+  async function authLogInCall(urlEndpoint: string, inputData: LogInData | SignUpData): Promise<void | number> {
     try {
       const {
         data: { data, status },
@@ -36,6 +36,7 @@ export function useAuth(): UseAuth {
         toast({ title, status: 'warning' });
         return;
       }
+
       if ('userId' in data) {
         let user = await loadMyInfoAPI(data);
         updateUser(user.data);
@@ -56,12 +57,52 @@ export function useAuth(): UseAuth {
     }
   }
 
-  async function login(inputData): Promise<void> {
-    authServerCall('auth/login', inputData);
+  async function authSignUpCall(
+    urlEndpoint: string,
+    inputData: LogInData | SignUpData,
+    Router,
+  ): Promise<void | number> {
+    try {
+      const {
+        data: { data, status },
+      } = await axiosInstance({
+        url: urlEndpoint,
+        method: 'POST',
+        data: inputData,
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (status === 400) {
+        const title = 'message' in data ? data.message : '권한이 없습니다.';
+        toast({ title, status: 'warning' });
+        return;
+      }
+
+      if (status === 200) {
+        toast({
+          title: `시퀀스에 회원가입 하신 것을 환영합니다. 이메일 인증을 부탁드려요!`,
+          status: 'info',
+        });
+        Router.replace('/emailcheck');
+      }
+    } catch (errorResponse) {
+      const title =
+        axios.isAxiosError(errorResponse) && errorResponse?.response?.data?.message
+          ? errorResponse?.response?.data?.message
+          : SERVER_ERROR;
+      toast({
+        title,
+        status: 'error',
+      });
+    }
   }
 
-  async function signup(inputData): Promise<void> {
-    authServerCall('auth/register', inputData);
+  async function login(inputData): Promise<void> {
+    authLogInCall('auth/login', inputData);
+  }
+
+  async function signup(inputData, Router): Promise<void> {
+    authSignUpCall('auth/register', inputData, Router);
   }
 
   function signout(): void {

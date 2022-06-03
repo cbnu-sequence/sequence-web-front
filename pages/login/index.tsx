@@ -40,7 +40,7 @@ function LogIn() {
         </Header>
         <Form onSubmit={onSubmit}>
           <Label id="email-label">
-            <span>이메일 주소</span>
+            <span>이메일</span>
             <div>
               <Input type="email" required id="email" name="email" value={email} onChange={onChangeEmail} />
             </div>
