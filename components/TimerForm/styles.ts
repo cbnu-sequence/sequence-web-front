@@ -11,11 +11,20 @@ export const TimerFormDiv = styled.div`
     flex-direction: column;
     align-items: center;
     input {
-      width: 30rem;
-      height: 2rem;
+      outline: none;
+      border: 6px solid ${sqDarkGreen};
+      width: 25rem;
+      height: 3rem;
+      margin-top: 2rem;
+      ::placeholder {
+        padding-left: 0.4rem;
+        font-size: 18px;
+        font-weight: 700;
+      }
     }
     button {
       font-size: 24px;
+      height: 2.5rem;
       width: 8rem;
       color: ${sqDarkGreen};
       margin-bottom: 1rem;
