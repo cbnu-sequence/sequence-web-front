@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { TimerDiv } from './styles';
-import { secondPomodoroAPI } from '../../apis/pomodoro';
 
 const Timer = ({ isActive, onEndPomo }) => {
   const [min, setMin] = useState(25);
@@ -51,7 +50,7 @@ const Timer = ({ isActive, onEndPomo }) => {
 
   return (
     <TimerDiv>
-      {min} {sec < 10 ? `0${sec}` : sec} {mil < 10 ? `0${mil}` : mil}
+      <div>{min}</div> <div>{sec < 10 ? `0${sec}` : sec}</div> <div>{mil < 10 ? `0${mil}` : mil}</div>
     </TimerDiv>
   );
 };

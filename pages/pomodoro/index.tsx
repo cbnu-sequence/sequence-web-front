@@ -1,16 +1,16 @@
 import Head from 'next/head';
-import NoList from '../../components/NoList';
 import Timer from '../../components/Timer';
 import TimerForm from '../../components/TimerForm';
 import { useCallback, useState } from 'react';
-import useInput from '../../hooks/useInput';
-import Router from 'next/router';
 import { firstPomodoroAPI, secondPomodoroAPI } from '../../apis/pomodoro';
+import { PomodoroBlock, RankingBtn } from '../../styles/pomodoro';
+import Header from '../../components/Header';
+import Link from 'next/link';
 
 const Pomodoro = () => {
   const [isActive, setIsActive] = useState(false);
   const [pomoId, setPomoId] = useState('');
-
+  const [progress, setProgress] = useState('');
   const onAddPomo = useCallback((title) => {
     firstPomodoroAPI({ title, date: new Date() })
       .then((res) => {
@@ -19,6 +19,7 @@ const Pomodoro = () => {
           return;
         } else {
           setPomoId(res.data._id);
+          setProgress(res.data.title);
         }
       })
       .catch((error) => {
@@ -40,17 +41,32 @@ const Pomodoro = () => {
       .catch((err) => {
         alert(err);
       });
-  }, []);
+  }, [setIsActive]);
 
   return (
     <>
       <Head>
         <title>시퀀스 | 뽀모도로</title>
       </Head>
-      <Timer isActive={isActive} onEndPomo={onEndPomo} />
-      <TimerForm isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
+      <Header />
+      <PomodoroBlock>
+        <Timer isActive={isActive} onEndPomo={onEndPomo} />
+        {progress != '' ? <span>{progress}</span> : <span>현재 진행중인 뽀모도로가 없습니다..</span>}
+        <TimerForm isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
+        <Link href={'/ranking'}>
+          <RankingBtn>일간, 주간, 월간 랭킹보기</RankingBtn>
+        </Link>
+      </PomodoroBlock>
     </>
   );
 };
 
 export default Pomodoro;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'onlyBody',
+    },
+  };
+};
