@@ -10,7 +10,7 @@ import NoList from '../../../components/NoList';
 function Projects(): ReactElement {
   const { projects } = useProjects();
   if (!projects || projects.length == 0) {
-    return <NoList enTitle={'projects'} krTitle={'프로젝트'} />;
+    return <NoList enTitle={'projects'} krTitle={'등록된 프로젝트가 없습니다'} />;
   }
 
   return (

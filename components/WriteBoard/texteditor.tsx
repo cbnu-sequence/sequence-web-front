@@ -9,40 +9,36 @@ const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {
 const QuillWrapper = styled(QuillNoSSRWrapper)`
   height: 300px;
   padding-bottom: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 4.8rem;
+  }
 `;
 
 const modules = {
   toolbar: [
-    [
-      { header: '1' },
-      { header: '2' },
-      { size: [] },
-      'bold',
-      'italic',
-      'underline',
-      'strike',
-      'blockquote',
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' },
-    ],
+    [{ font: [] }, { size: [] }],
+    [{ header: '1' }, { header: '2' }, 'bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{ color: [] }, { background: [] }],
+    [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
+    ['link'],
   ],
 };
 
 const formats = [
-  'header',
-  'size',
+  'color',
+  'background',
   'font',
+  'size',
+  'header',
   'bold',
   'italic',
   'underline',
   'strike',
   'blockquote',
   'list',
-  'bullet',
   'indent',
+  'link',
 ];
 
 const TextEditor = ({ content, setContent }) => {

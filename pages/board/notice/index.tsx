@@ -33,7 +33,7 @@ const Notice = () => {
   );
 
   if (!noticeList.data || noticeList.data.length == 0) {
-    return <NoList enTitle={'notice'} krTitle={'공지사항'} />;
+    return <NoList enTitle={'notice'} krTitle={'등록된 공지사항이 없습니다'} />;
   }
 
   return (
@@ -45,7 +45,7 @@ const Notice = () => {
 
       {me && me.role === 'Admin' && (
         <>
-          <Link href={'.write?category=notice'}>
+          <Link href={'./write?category=notice'}>
             <WriteBtnBlock>
               <WriteBtn />
             </WriteBtnBlock>

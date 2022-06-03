@@ -15,6 +15,7 @@ const Introduce = () => {
       <IntroduceBlock>
         <TopBlock>
           <img src="/hellosequence.png" />
+
         </TopBlock>
         <CultureBlock>
           <p className="culture_title">문화</p>

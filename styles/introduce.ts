@@ -56,6 +56,11 @@ export const CultureBlock = styled.div`
   margin: 0 auto;
   animation: ${squareAppear} 2s ease-in 1;
 
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    padding: 1rem;
+  }
+
   .culture_title {
     font-size: 1.7rem;
     text-align: center;
@@ -85,6 +90,9 @@ export const ColorLine = styled.div`
   width: 75%;
   border-top: 1px solid ${sqLightGray};
   margin: 4rem auto 4rem;
+  @media screen and (max-width: 768px) {
+    margin: 2rem auto;
+  }
 `;
 
 export const SquareBlock = styled.div`
@@ -97,6 +105,8 @@ export const SquareBlock = styled.div`
 
   @media screen and (max-width: 768px) {
     min-height: 15rem;
+    width: 90%;
+    padding: 1rem;
   }
 
   .title {
@@ -153,6 +163,7 @@ export const SquareBlock = styled.div`
     margin-top: 2rem;
     margin-left: 40px;
     line-height: 2rem;
+    padding: 0 2rem;
 
     .lab_content__left {
       & > img {
@@ -230,12 +241,20 @@ export const MapBlock = styled.div`
   animation: ${squareAppear} 2s ease-in 1;
   border: 1px solid ${sqWhite};
 
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    padding: 1rem 0;
+  }
+
   .map_title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     text-align: center;
     color: ${sqWhite};
     font-weight: 500;
     margin-bottom: 1.5rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
   .map_content {
     font-size: 1rem;

@@ -1,22 +1,24 @@
 import axios from 'axios';
 import { backUrl } from '../config/config';
-import { queryKeys } from '../react-query/constants';
 import { clearStoredUser } from '../user-storage/user-storage';
 
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
-
 export function loadMyInfoAPI(data) {
   if (!data) {
     return null;
   }
   return axios
-    .get('auth/me')
+    .get('auth/me', { withCredentials: true })
     .then((res) => {
+      if (res.status === 400) {
+        clearStoredUser();
+        return;
+      }
       return res.data;
     })
     .catch((err) => {
-      clearStoredUser();
+      console.log(err);
     });
 }
 
@@ -38,4 +40,32 @@ export function tokenConfirmAPI(data: { token: string }) {
 
 export function logOutAPI() {
   return axios.get('auth/logout').then((response) => response.data);
+}
+
+
+export async function getProjectMembers(){
+  try{
+    const response = await axios.get('/member/project');
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}
+
+export async function getTechCourseMembers(){
+  try{
+    const response = await axios.get('/member/techCourse');
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}
+
+export async function getManagerMembers(){
+  try{
+    const response = await axios.get('/member');
+    return response;
+  } catch(error){
+    return error.response;
+  }
 }

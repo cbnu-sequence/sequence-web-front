@@ -1,23 +1,33 @@
-import React, { useCallback } from 'react';
-import { tokenConfirmAPI } from '../../apis/user';
+import React, { useCallback, useEffect } from 'react';
+import { loadMyInfoAPI, tokenConfirmAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
 import { Button, Form, EmailHeader, Input, Label } from '../../styles/signup';
-import Router from 'next/router';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useUser } from '../../hooks/useUser';
+import { useCustomToast } from '../../hooks/useCustomToast';
 
 function Emailcheck() {
   const [token, onChangeToken] = useInput('');
+  const Router = useRouter();
+  const toast = useCustomToast();
+  const { user } = useUser();
+  if (user) {
+    alert('이미 로그인 된 회원입니다.');
+    Router.replace('/');
+  }
 
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
       tokenConfirmAPI({ token })
         .then(() => {
-          alert('이메일 인증에 성공했습니다');
-          Router.replace('/');
+          alert('이메일 인증에 성공했습니다.');
+          toast({ title: '로그인 후 이용해 주세요!', status: 'info' });
+          Router.replace('./login');
         })
         .catch((error) => {
-          alert(error);
+          console.error(error);
         });
     },
     [token],

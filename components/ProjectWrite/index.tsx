@@ -6,6 +6,7 @@ import Header from '../Header';
 import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton } from '../WriteBoard/styles';
 import { AddButton, ImageBlock, ItemBlock, PreviewImageBlock, SecondInput } from './styles';
 import { MdRemoveCircleOutline } from 'react-icons/md';
+import router from 'next/router';
 
 const ProjectWrite = () => {
   const [title, onChangeTitle] = useInput('');
@@ -26,6 +27,8 @@ const ProjectWrite = () => {
   const [contentError, setContentError] = useState(false);
   const [participantError, setParticipantError] = useState(false);
   const [tagError, setTagError] = useState(false);
+  const [yearError, setYearError] = useState(false);
+  const [allError, setAllError] = useState(false);
 
   const onChangeParticipant = useCallback((e) => {
     setParticipant(e.target.value);
@@ -100,8 +103,11 @@ const ProjectWrite = () => {
           if (response.status === 200) {
             setImageSrc((imageSrc) => imageSrc.concat({ id: response.data.data._id, src: reader.result }));
             setImages((images) => images.concat(response.data.data._id));
+          } else if (response.status === 403) {
+            alert('로그인 해주세요!');
+            router.replace('/login');
           } else {
-            console.log('파일 전송 실패');
+            alert('이미지가 전송되지 않았습니다');
           }
         });
       };
@@ -112,18 +118,29 @@ const ProjectWrite = () => {
     (e) => {
       e.preventDefault();
       if (title === '') {
+        setAllError(true);
         setTitleError(true);
         setTimeout(() => setTitleError(false), 2000);
       } else if (content === '') {
+        setAllError(true);
         setContentError(true);
         setTimeout(() => setContentError(false), 2000);
+      } else if (year === '') {
+        setAllError(true);
+        setYearError(true);
+        setTimeout(() => setYearError(false), 2000);
       } else {
         postProjectWrite({ title, content, githubUrl, projectUrl, participants, tags, year, images }).then(
           (response) => {
             if (response.status === 200) {
               Router.replace('/');
               alert('작성이 완료되었습니다.');
-            } else alert('작성이 실패했습니다');
+            } else if (response.status === 400) {
+              alert('권한이 없습니다.');
+            } else if (response.status === 403) {
+              alert('로그인을 해주세요.');
+              router.replace('/login');
+            } else alert('작성이 실패했습니다.');
           },
         );
       }
@@ -154,6 +171,7 @@ const ProjectWrite = () => {
           <Input placeholder="https://example.com" onChange={onChangeProjectUrl} value={projectUrl} />
           <p className="subtitle">년도</p>
           <Input placeholder="2022" onChange={onChangeYear} value={year} />
+          {yearError && <ErrorMessage>년도을 입력해주세요</ErrorMessage>}
           <p className="subtitle">참여자 이메일</p>
           <SecondInput placeholder="example@naver.com" onChange={onChangeParticipant} value={participant} />
           <AddButton onClick={onAddParticipants}>추가</AddButton>
@@ -210,6 +228,7 @@ const ProjectWrite = () => {
             <WirteActionButton type="submit">작성하기</WirteActionButton>
             <WirteActionButton onClick={onCancel}>취소</WirteActionButton>
           </ButtonBlock>
+          {allError && <ErrorMessage>제목, 소개, 년도는 필수로 입력해주세요.</ErrorMessage>}
         </Editor>
       </Block>
     </>
