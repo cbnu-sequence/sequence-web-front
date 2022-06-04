@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqDarkGreen, sqRed, sqWhite } from '../styles/constants';
+import { sqDarkGreen, sqRed, sqWhite, sqBlack } from '../styles/constants';
 
 export const PomodoroBlock = styled.div`
   position: absolute;

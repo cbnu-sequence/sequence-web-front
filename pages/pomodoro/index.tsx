@@ -1,16 +1,63 @@
 import Head from 'next/head';
 import Timer from '../../components/Timer';
 import TimerForm from '../../components/TimerForm';
-import { useCallback, useState } from 'react';
-import { firstPomodoroAPI, secondPomodoroAPI } from '../../apis/pomodoro';
+import { useCallback, useEffect, useState } from 'react';
+import { firstPomodoroAPI, myPomosAPI, secondPomodoroAPI } from '../../apis/pomodoro';
 import { PomodoroBlock, RankingBtn } from '../../styles/pomodoro';
 import Header from '../../components/Header';
-import Link from 'next/link';
+import PomoProgress from '../../components/PomoProgress';
+import MyPomo from '../../components/MyPomo';
+import { useQuery } from 'react-query';
+import { queryKeys } from '../../react-query/constants';
+import { useUser } from '../../hooks/useUser';
 
 const Pomodoro = () => {
   const [isActive, setIsActive] = useState(false);
   const [pomoId, setPomoId] = useState('');
   const [progress, setProgress] = useState('');
+  const [min, setMin] = useState(25);
+  const [sec, setSec] = useState(0);
+  const [mil, setMil] = useState(0);
+  const { user } = useUser();
+
+  const { data, isLoading, isError } = useQuery([queryKeys.myPomos, user?._id], myPomosAPI, {
+    refetchOnMount: true,
+    refetchOnReconnect: true,
+    refetchOnWindowFocus: true,
+    refetchInterval: 60000,
+    enabled: !!user?._id,
+  });
+  let myPomos = data?.data;
+
+  useEffect(() => {
+    let timer;
+    clearInterval(timer);
+    if (isActive) {
+      timer = setInterval(() => {
+        if (mil > 0) {
+          setMil(mil - 1);
+        }
+        if (mil === 0) {
+          if (sec > 0 || min != 0) {
+            setSec(sec - 1);
+            setMil(10);
+          }
+          if (sec === 0) {
+            if (min === 0) {
+              clearInterval(timer);
+              onEndPomo();
+            } else {
+              setMin(min - 1);
+              setSec(59);
+              setMil(10);
+            }
+          }
+        }
+      }, 100);
+    }
+    return () => clearInterval(timer);
+  }, [min, sec, mil, isActive]);
+
   const onAddPomo = useCallback((title) => {
     firstPomodoroAPI({ title, date: new Date() })
       .then((res) => {
@@ -20,6 +67,7 @@ const Pomodoro = () => {
         } else {
           setPomoId(res.data._id);
           setProgress(res.data.title);
+          setIsActive(true);
         }
       })
       .catch((error) => {
@@ -50,12 +98,11 @@ const Pomodoro = () => {
       </Head>
       <Header />
       <PomodoroBlock>
-        <Timer isActive={isActive} onEndPomo={onEndPomo} />
-        {progress != '' ? <span>{progress}</span> : <span>현재 진행중인 뽀모도로가 없습니다..</span>}
+        <Timer min={min} sec={sec} mil={mil} />
+        <PomoProgress progress={progress} />
         <TimerForm isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
-        <Link href={'/ranking'}>
-          <RankingBtn>일간, 주간, 월간 랭킹보기</RankingBtn>
-        </Link>
+        {user && <MyPomo userName={user.name} records={myPomos} />}
+        <RankingBtn>일간, 주간, 월간 랭킹보기</RankingBtn>
       </PomodoroBlock>
     </>
   );

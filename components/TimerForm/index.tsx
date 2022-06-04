@@ -11,7 +11,6 @@ const TimerForm = ({ isActive, setIsActive, onAddPomo }) => {
         return alert('제목은 필수항목이에요!');
       }
       onAddPomo(title);
-      setIsActive(true);
       setTitle('');
     },
     [title, setTitle],
@@ -19,6 +18,7 @@ const TimerForm = ({ isActive, setIsActive, onAddPomo }) => {
   const onStop = useCallback(
     (e) => {
       e.preventDefault();
+
       setIsActive(false);
     },
     [setIsActive],
