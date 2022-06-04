@@ -25,6 +25,19 @@ export const ProjectCardBox = styled.div`
     -webkit-box-orient: vertical;
     margin-bottom: 3px;
   }
+
+  @media screen and (max-width: 768px) {
+    .project__year {
+      font-weight: 400;
+      font-size: 10px;
+    }
+    .project__title {
+      font-size: 12px;
+    }
+    .project__content {
+      display: none;
+    }
+  }
 `;
 
 export const ProjectTags = styled.span`
