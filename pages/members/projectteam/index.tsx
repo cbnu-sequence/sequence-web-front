@@ -15,8 +15,6 @@ const ProjectTeam = () => {
   const DevopsData = devopsdata.data.data;
   const IosData = iosdata.data.data;
 
-  console.log(FrontendData);
-
   return (
     <ProjectTeamBlock>
       <div className="toptitle">프로젝트 팀</div>
