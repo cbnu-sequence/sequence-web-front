@@ -70,7 +70,7 @@ function Header() {
           </Link>
           <li>
             부원 소개
-            <ul>
+            <ul className="members_ul">
               <li>
                 <Link href="/members/projectteam">프로젝트 팀</Link>
               </li>
@@ -84,7 +84,7 @@ function Header() {
           </li>
           <li>
             게시판
-            <ul>
+            <ul className="board_ul">
               <li>
                 <Link href="/board/notice">공지사항</Link>
               </li>

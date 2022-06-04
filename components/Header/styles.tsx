@@ -74,6 +74,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
           border-bottom: 5px solid ${sqWhite};
           transition: border-bottom 0.2s ease-in-out;
         }
+        .members_ul {
+          margin-left: calc(-50vw + 20% - 70px);
+        }
+        .board_ul {
+          margin-left: calc(-50vw + 50% - 70px);
+        }
       }
     }
 
@@ -83,7 +89,6 @@ export const HeaderDiv = styled.div<HeaderProps>`
       width: 110vw;
       height: 35px;
       top: 30px;
-      margin-left: calc(-50vw + 50% - 70px);
       margin-top: 25px;
     }
 
@@ -238,6 +243,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
           border-bottom: 5px solid ${sqRed};
           transition: border-bottom 0.2s ease-in-out;
         }
+        .members_ul {
+          margin-left: calc(-50vw + 20% - 70px);
+        }
+        .board_ul {
+          margin-left: calc(-50vw + 50% - 70px);
+        }
       }
     }
 
@@ -247,7 +258,6 @@ export const HeaderDiv = styled.div<HeaderProps>`
       width: 110vw;
       height: 35px;
       top: 30px;
-      margin-left: calc(-50vw + 50% - 70px);
       margin-top: 25px;
     }
 
