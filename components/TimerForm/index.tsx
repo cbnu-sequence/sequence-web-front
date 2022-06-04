@@ -27,7 +27,7 @@ const TimerForm = ({ isActive, setIsActive, onAddPomo }) => {
     <TimerFormDiv>
       <form onSubmit={isActive ? onStop : onSubmit}>
         <button>{isActive ? 'stop' : 'start'}</button>
-        <input value={title} onChange={onChangeTitle} placeholder={'25분간 할 일을 입력해주세요'} />
+        <input value={title} onChange={onChangeTitle} placeholder={'25분간 할 일을 입력해주세요'}></input>
       </form>
     </TimerFormDiv>
   );
