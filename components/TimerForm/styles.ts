@@ -25,7 +25,7 @@ export const TimerFormDiv = styled.div`
       }
     }
     button {
-      padding-bottom: 5px;
+      padding-bottom: 4px;
       font-size: 24px;
       font-weight: 500;
       height: 2.8rem;
@@ -41,6 +41,13 @@ export const TimerFormDiv = styled.div`
       }
       &:active {
         box-shadow: ${PpomoBoxShadow};
+      }
+
+      @media screen and (max-width: 768px) {
+        padding-bottom: 3px;
+        height: 2.5rem;
+        width: 7rem;
+        font-size: 20px;
       }
     }
   }

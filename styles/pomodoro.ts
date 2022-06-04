@@ -22,8 +22,10 @@ export const PomodoroBlock = styled.div`
     opacity: 0.03;
   }
   @media screen and (max-width: 768px) {
+    padding: 0 25px 0 25px;
+
     & > p {
-      top: 150px;
+      top: 90px;
       font-size: 20vw;
     }
   }
