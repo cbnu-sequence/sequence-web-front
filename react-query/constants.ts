@@ -6,5 +6,6 @@ export const queryKeys = {
   sharingInfo: 'sharingInfo',
   projectTeam: 'projectTeam',
   techcourseTeam: 'techcourseTeam',
-  manager: 'manager'
+  manager: 'manager',
+  myPomos: 'myPomos',
 };
