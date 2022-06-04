@@ -33,11 +33,6 @@ const Manager = () => {
             (item) => (
               <div key={item._id} className="card" onClick={() => setOpenModal(true)}>
                 <div>곧 완성될 예정입니다.</div>
-                <div>{item.user.name}</div>
-                <div>{item.part}</div>
-                <div>{item.user.email}</div>
-                <div>{item.githubUrl}</div>
-                <div></div>
               </div>
             ),
           )}

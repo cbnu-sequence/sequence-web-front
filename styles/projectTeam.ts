@@ -8,7 +8,7 @@ export const ProjectTeamBlock = styled.div`
 
   .toptitle {
     text-align:center;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     @media screen and (max-width: 768px){
       font-size: 1.5rem;
@@ -16,10 +16,10 @@ export const ProjectTeamBlock = styled.div`
   }
 
   .secondtitle{
-    width: 90%;
     font-size: 2rem;
     color: ${sqWhite};
     margin-left: 5rem;
+    font-weight: bold;
     @media screen and (max-width: 768px){
       font-size: 1rem;
       margin-left: 3rem;
@@ -33,7 +33,7 @@ export const TopSquareBlock = styled.div`
   margin-top: 4rem;
 
   .top_square{
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     font-weight: 700;
     &:hover{
@@ -47,40 +47,52 @@ export const TopSquareBlock = styled.div`
   }
 `;
 
+export const MembersBlock = styled.div`
+  padding-top: 7rem;
+
+  @media screen and (max-width: 768px){
+    padding-top: 5rem;
+  }
+`;
+
+export const ContentBlock = styled.div`
+  margin: 1rem 0 0 5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  @media screen and (max-width: 768px){
+    font-size: 0.6rem;
+    margin: 1rem 0 0 3rem;
+  }
+
+  .item_top {
+    display: flex;
+    margin-top: 1rem;
+
+    .name {
+      margin-right: 0.8rem;
+    } 
+    img {
+      width: 3%;
+      cursor: pointer;
+      @media screen and (max-width: 768px){
+        width: 5%;
+      }
+    }
+    .email {
+      margin-left: 0.8rem;
+    }
+  }
+
+  .item_bottom {
+
+  }
+`;
+
 export const ColorLine = styled.div`
-  border-top: 1px solid gray;
-  width: 93%;
-  margin: 0 auto;
+  border-top: 6px solid gray;
+  margin: 0 3rem;
   @media screen and (max-width: 768px){
-    width: 80%;
+    margin: 0 2.5rem;
   }
 `;
-
-export const FrontEndBlock = styled.div`
-  margin-top: 7rem;
-
-  @media screen and (max-width: 768px){
-    margin-top: 4rem;
-    }
-
-  .content{
-    margin: 2rem 0 0 5rem;
-    @media screen and (max-width: 768px){
-      font-size: 0.8rem;
-      margin: 1rem 0 0 3rem;
-    }
-  }
-`;
-
-export const BackendBlock = styled.div`
-  margin-top: 3rem;
-`;
-
-export const DevOpsBlock = styled.div`
-  margin-top: 3rem;
-`;
-
-export const IosBlock = styled.div`
-  margin-top: 3rem;
-`;
-

@@ -43,9 +43,9 @@ export function logOutAPI() {
 }
 
 
-export async function getProjectMembers(){
+export async function getProjectMembers(part: string){
   try{
-    const response = await axios.get('/member/project');
+    const response = await axios.get(`/member/project?part=${part}`);
     return response;
   } catch(error){
     return error.response;
