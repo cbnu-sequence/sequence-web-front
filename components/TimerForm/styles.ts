@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqDarkGreen } from '../../styles/constants';
+import { PpomoBoxShadow, sqDarkGreen, sqGreen, sqLightBeige } from '../../styles/constants';
 
 export const TimerFormDiv = styled.div`
   width: 100%;
@@ -11,8 +11,9 @@ export const TimerFormDiv = styled.div`
     flex-direction: column;
     align-items: center;
     input {
+      padding: 15px;
       outline: none;
-      border: 6px solid ${sqDarkGreen};
+      border: 6px solid ${sqGreen};
       width: 25rem;
       height: 3rem;
       margin-top: 2rem;
@@ -23,13 +24,21 @@ export const TimerFormDiv = styled.div`
       }
     }
     button {
+      padding-bottom: 4px;
       font-size: 24px;
-      height: 2.5rem;
-      width: 8rem;
+      font-weight: 500;
+      height: 2.8rem;
+      width: 8.5rem;
       color: ${sqDarkGreen};
       margin-bottom: 1rem;
-      border-radius: 14px;
-      background-color: antiquewhite;
+      border-radius: 20px;
+      background-color: ${sqLightBeige};
+      &:hover {
+        background-color: antiquewhite;
+      }
+      &:active {
+        box-shadow: ${PpomoBoxShadow};
+      }
     }
   }
 `;

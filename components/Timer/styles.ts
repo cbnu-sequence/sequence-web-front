@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { sqDarkGreen } from '../../styles/constants';
+import { PpomoBoxShadow, sqDarkGreen, sqDeepDarkGreen } from '../../styles/constants';
 export const TimerDiv = styled.div`
   display: flex;
   height: 15rem;
-  font-size: 10rem;
+  font-size: 8rem;
   justify-content: center;
   align-items: flex-end;
   & > div {
@@ -12,8 +12,9 @@ export const TimerDiv = styled.div`
     width: 13rem;
     height: 15rem;
     color: white;
-    background-color: ${sqDarkGreen};
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: ${sqDeepDarkGreen};
+    box-shadow: ${PpomoBoxShadow}
+    border-radius: 25px;
     margin-right: 30px;
     margin-bottom: 2rem;
   }
