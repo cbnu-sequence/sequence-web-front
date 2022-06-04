@@ -6,8 +6,8 @@ export const ProgressDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 290px;
+  position: relative;
+  top: 100px;
   font-size: 20px;
   & > p {
     padding-right: 10px;

@@ -98,6 +98,7 @@ const Pomodoro = () => {
       </Head>
       <Header />
       <PomodoroBlock>
+        <p>pomodoro</p>
         <Timer min={min} sec={sec} mil={mil} />
         <PomoProgress progress={progress} />
         <TimerForm isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />

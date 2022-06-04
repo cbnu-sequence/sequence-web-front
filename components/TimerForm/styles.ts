@@ -14,9 +14,10 @@ export const TimerFormDiv = styled.div`
       padding: 15px;
       outline: none;
       border: 6px solid ${sqGreen};
-      width: 25rem;
+      width: 18rem;
       height: 3rem;
       margin-top: 2rem;
+      margin-bottom: 1rem;
       ::placeholder {
         padding-left: 0.4rem;
         font-size: 18px;
@@ -24,15 +25,17 @@ export const TimerFormDiv = styled.div`
       }
     }
     button {
-      padding-bottom: 4px;
+      padding-bottom: 5px;
       font-size: 24px;
       font-weight: 500;
       height: 2.8rem;
       width: 8.5rem;
       color: ${sqDarkGreen};
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
       border-radius: 20px;
       background-color: ${sqLightBeige};
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
       &:hover {
         background-color: antiquewhite;
       }
