@@ -18,7 +18,7 @@ function CenterMode() {
         {dp &&
           dp.map((item, index) => {
             return (
-              <div className={`project_${index + 1} project`}>
+              <div className={`project_${index + 1} project`} key={item._id}>
                 <ProjectCard project={item} />
               </div>
             );

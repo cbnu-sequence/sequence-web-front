@@ -52,8 +52,7 @@ export const ProjectTags = styled.span`
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     :hover {
-      background-color: rgba(0,0,0,0.1)
-      }
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 `;
