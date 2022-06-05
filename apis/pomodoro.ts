@@ -15,3 +15,7 @@ export function secondPomodoroAPI(id, data: { date: Date }) {
 export function myPomosAPI() {
   return axios.get('/pomodoro/user/me').then((response) => response.data);
 }
+
+export function getPomoRanking(range) {
+  return axios.get(`/pomodoro/ranking/${range}`).then((response) => response.data);
+}

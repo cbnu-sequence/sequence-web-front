@@ -10,6 +10,8 @@ import MyPomo from '../../components/MyPomo';
 import { useQuery } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import { useUser } from '../../hooks/useUser';
+import PomoRanking from '../../components/PomoRanking';
+import { useRanking } from '../../hooks/useRanking';
 
 const Pomodoro = () => {
   const [isActive, setIsActive] = useState(false);
@@ -18,8 +20,9 @@ const Pomodoro = () => {
   const [min, setMin] = useState(25);
   const [sec, setSec] = useState(0);
   const [mil, setMil] = useState(0);
+  const [isRankingOpen, setIsRankingOpen] = useState(false);
   const { user } = useUser();
-
+  const { dailyRanking, weeklyRanking, monthlyRanking } = useRanking();
   const { data, isLoading, isError } = useQuery([queryKeys.myPomos, user?._id], myPomosAPI, {
     refetchOnMount: true,
     refetchOnReconnect: true,
@@ -77,6 +80,7 @@ const Pomodoro = () => {
 
   const onEndPomo = useCallback(() => {
     setIsActive(false);
+    onReset();
     secondPomodoroAPI(pomoId, { date: new Date() })
       .then((res) => {
         if (res.status === 400) {
@@ -91,6 +95,12 @@ const Pomodoro = () => {
       });
   }, [setIsActive]);
 
+  const onReset = useCallback(() => {
+    setMin(25);
+    setSec(0);
+    setMil(0);
+  }, [setMin, setSec, setMil]);
+
   return (
     <>
       <Head>
@@ -101,9 +111,10 @@ const Pomodoro = () => {
         <p>pomodoro</p>
         <Timer min={min} sec={sec} mil={mil} />
         <PomoProgress progress={progress} />
-        <TimerForm isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
+        <TimerForm onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
         {user && <MyPomo userName={user.name} records={myPomos} />}
-        <RankingBtn>일간, 주간, 월간 랭킹보기</RankingBtn>
+        <RankingBtn onClick={() => setIsRankingOpen(!isRankingOpen)}>일간, 주간, 월간 랭킹보기</RankingBtn>
+        {isRankingOpen && <PomoRanking />}
       </PomodoroBlock>
     </>
   );

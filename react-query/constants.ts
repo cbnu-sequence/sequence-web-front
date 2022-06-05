@@ -7,4 +7,5 @@ export const queryKeys = {
   projectTeam: 'projectTeam',
   techcourseTeam: 'techcourseTeam',
   myPomos: 'myPomos',
+  ranking: 'pomodoroRanking',
 };
