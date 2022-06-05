@@ -179,16 +179,14 @@ function Profile() {
           {me.posts &&
             me.posts.map((item, index) => {
               return (
-                <>
-                  <Link href={`../../posts/${item._id}`} key={item._id}>
-                    <Tr>
-                      <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{me.name}</CommonTd>
-                      <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
-                      <CommonTd>{item.title}</CommonTd>
-                    </Tr>
-                  </Link>
-                </>
+                <Link href={`../../posts/${item._id}`} key={item._id}>
+                  <Tr>
+                    <CommonTd>{index + 1}.</CommonTd>
+                    <CommonTd>{me.name}</CommonTd>
+                    <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
+                    <CommonTd>{item.title}</CommonTd>
+                  </Tr>
+                </Link>
               );
             })}
         </CommonTable>
