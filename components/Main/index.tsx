@@ -58,7 +58,7 @@ function Main() {
           </div>
         </div>
         <div>
-          <Link href="https://github.com/cbnu-sequence">
+          <Link href="/introduce">
             <button>
               시퀀스<span>더보기</span>
             </button>

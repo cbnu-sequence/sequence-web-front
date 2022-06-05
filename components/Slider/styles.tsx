@@ -6,6 +6,7 @@ import Link from 'next/link';
 export const ProjectDiv = styled.div`
   height: 300px;
   width: 70%;
+  margin-left: 10px;
 
   .center {
     transition: all 0.3s ease;
