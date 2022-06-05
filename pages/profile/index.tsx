@@ -49,7 +49,7 @@ function Profile() {
     if (me.member) {
       setComment(me.member.comment);
       setGithubUrl(me.member.githubUrl);
-      setOtherUrls(me.member.otherUrls.join(','));
+      setOtherUrls(me.member.otherUrls);
     }
     setClick(true);
   };
