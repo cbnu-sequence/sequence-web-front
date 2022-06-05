@@ -47,7 +47,7 @@ function Profile() {
   const onChangeProfile = () => {
     setComment(me.member.comment);
     setGithubUrl(me.member.githubUrl);
-    setOtherUrls(me.member.otherUrls.join(''));
+    setOtherUrls(me.member.otherUrls.join(','));
     setClick(true);
   };
 
