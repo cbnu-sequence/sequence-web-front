@@ -139,10 +139,10 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 2rem 1rem 1rem;
+      padding: 1rem 1rem 1rem 1rem;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 820px) {
       flex-wrap: wrap;
       height: 100%;
       .header__right {
@@ -183,6 +183,18 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
       .user {
         display: block;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .logo {
+        margin-top: 13px;
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        .logotype {
+          display: none;
+        }
       }
     }
   }
@@ -308,10 +320,10 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 2rem 1rem 1rem;
+      padding: 1rem 1rem 1rem 1rem;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 820px) {
       flex-wrap: wrap;
       height: 100%;
       .header__right {
@@ -353,6 +365,17 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
       .user {
         display: block;
+      }
+    }
+    @media screen and (max-width: 320px) {
+      .logo {
+        margin-top: 13px;
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        .logotype {
+          display: none;
+        }
       }
     }
   }
