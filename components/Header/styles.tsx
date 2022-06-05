@@ -8,7 +8,7 @@ type HeaderProps = {
 
 export const HeaderDiv = styled.div<HeaderProps>`
   position: fixed;
-  z-index: 2;
+  z-index: 101;
   top: 0;
   .black-header {
     width: 100vw;
