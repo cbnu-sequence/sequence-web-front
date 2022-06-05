@@ -8,4 +8,5 @@ export const queryKeys = {
   techcourseTeam: 'techcourseTeam',
   manager: 'manager',
   myPomos: 'myPomos',
+  ranking: 'pomodoroRanking',
 };
