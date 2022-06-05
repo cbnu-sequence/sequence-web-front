@@ -58,7 +58,8 @@ function Profile() {
     setClick(false);
     ChangeUserProfile({ githubUrl, otherUrls, comment }).then((response) => {
       if (response.status === 200) {
-        alert('완료되었습니다. 잠시 후 업데이트 됩니다.');
+        router.replace('/');
+        alert('수정이 완료되었습니다.');
       } else if (response.status === 403) {
         alert('로그인 해주세요!');
         router.replace('/login');

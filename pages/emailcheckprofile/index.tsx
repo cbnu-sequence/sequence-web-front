@@ -14,8 +14,8 @@ const EmailCheckProfile = () => {
       e.preventDefault();
       tokenConfirmAPI({ token })
         .then(() => {
-          alert('이메일 인증에 성공했습니다. 잠시 후 업데이트 됩니다.');
-          Router.replace('/profile');
+          alert('이메일 인증에 성공했습니다.');
+          Router.replace('/');
         })
         .catch((error) => {
           console.error(error);
