@@ -69,3 +69,12 @@ export async function ChangeUserProfile(data: { githubUrl: string; otherUrls: Ar
     return error.response;
   }
 }
+
+export async function postEmail(){
+  try{
+    const response = await axios.post('/auth/mail');
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}

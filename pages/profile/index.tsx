@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Input, Tr } from '@chakra-ui/react';
 import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
-import { ChangeUserProfile } from '../../apis/user';
+import { ChangeUserProfile, postEmail } from '../../apis/user';
 import router from 'next/router';
 
 function Profile() {
@@ -19,6 +19,7 @@ function Profile() {
   const [otherUrls, setOtherUrls] = useState([]);
 
   const { user: me } = useUser();
+
   useEffect(() => {
     if (!(me && me._id)) {
       Router.push('/');
@@ -45,9 +46,11 @@ function Profile() {
   };
 
   const onChangeProfile = () => {
-    setComment(me.member.comment);
-    setGithubUrl(me.member.githubUrl);
-    setOtherUrls(me.member.otherUrls.join(','));
+    if (me.member) {
+      setComment(me.member.comment);
+      setGithubUrl(me.member.githubUrl);
+      setOtherUrls(me.member.otherUrls.join(','));
+    }
     setClick(true);
   };
 
@@ -55,12 +58,23 @@ function Profile() {
     setClick(false);
     ChangeUserProfile({ githubUrl, otherUrls, comment }).then((response) => {
       if (response.status === 200) {
-        alert('완료되었습니다. 잠시 후 업데이트 됩니다');
+        alert('완료되었습니다. 잠시 후 업데이트 됩니다.');
       } else if (response.status === 403) {
         alert('로그인 해주세요!');
         router.replace('/login');
       } else {
         alert('실패했습니다.');
+      }
+    });
+  };
+
+  const onEmailCheck = () => {
+    postEmail().then((response) => {
+      if (response.status === 200) {
+        router.replace('/emailcheckprofile');
+        alert('이메일로 인증번호가 전송되었습니다.');
+      } else {
+        alert('오류가 발생했습니다.');
       }
     });
   };
@@ -82,7 +96,7 @@ function Profile() {
           <img className="flowerlogo" src="/flowerLogo_b.png" />
           회원 등급: {me.role == 'User' ? '일반등급' : '관리자'}
         </div>
-        {click && (
+        {click && me.member && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -102,7 +116,7 @@ function Profile() {
           </>
         )}
 
-        {!click && me.member.comment && (
+        {!click && me.member && me.member.comment && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -111,7 +125,7 @@ function Profile() {
             </div>
           </>
         )}
-        {!click && me.member.githubUrl && (
+        {!click && me.member && me.member.githubUrl && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -124,7 +138,7 @@ function Profile() {
             </div>
           </>
         )}
-        {!click && me.member.otherUrls.length > 0 && (
+        {!click && me.member && me.member.otherUrls.length > 0 && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -141,16 +155,21 @@ function Profile() {
         )}
 
         <div style={{ display: 'flex' }}>
-          {!click ? (
-            <AddButton onClick={onChangeProfile}>프로필 수정하기</AddButton>
-          ) : (
-            <AddButton onClick={onSubmitProfile}>수정하기</AddButton>
+          {me.member && (
+            <>
+              {!click ? (
+                <AddButton onClick={onChangeProfile}>프로필 수정하기</AddButton>
+              ) : (
+                <AddButton onClick={onSubmitProfile}>수정하기</AddButton>
+              )}
+            </>
           )}
           {me.role === 'Admin' && (
             <Link href="/board/projects/write">
               <AddButton>프로젝트 추가하기</AddButton>
             </Link>
           )}
+          {!me.valid && <AddButton onClick={onEmailCheck}>이메일 인증하기</AddButton>}
         </div>
       </ProfileDiv>
       <CTDiv>
