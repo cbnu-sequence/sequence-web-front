@@ -49,7 +49,7 @@ function Profile() {
     if (me.member) {
       setComment(me.member.comment);
       setGithubUrl(me.member.githubUrl);
-      setOtherUrls(me.member.otherUrls.join(','));
+      setOtherUrls(me.member.otherUrls);
     }
     setClick(true);
   };
@@ -58,7 +58,8 @@ function Profile() {
     setClick(false);
     ChangeUserProfile({ githubUrl, otherUrls, comment }).then((response) => {
       if (response.status === 200) {
-        alert('완료되었습니다. 잠시 후 업데이트 됩니다.');
+        router.replace('/');
+        alert('수정이 완료되었습니다.');
       } else if (response.status === 403) {
         alert('로그인 해주세요!');
         router.replace('/login');
@@ -178,16 +179,14 @@ function Profile() {
           {me.posts &&
             me.posts.map((item, index) => {
               return (
-                <>
-                  <Link href={`../../posts/${item._id}`} key={item._id}>
-                    <Tr>
-                      <CommonTd>{index + 1}.</CommonTd>
-                      <CommonTd>{me.name}</CommonTd>
-                      <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
-                      <CommonTd>{item.title}</CommonTd>
-                    </Tr>
-                  </Link>
-                </>
+                <Link href={`../../posts/${item._id}`} key={item._id}>
+                  <Tr>
+                    <CommonTd>{index + 1}.</CommonTd>
+                    <CommonTd>{me.name}</CommonTd>
+                    <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
+                    <CommonTd>{item.title}</CommonTd>
+                  </Tr>
+                </Link>
               );
             })}
         </CommonTable>
