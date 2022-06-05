@@ -1,6 +1,7 @@
 import { Post } from './post';
 
 export interface User {
+  member: any;
   _id: string;
   email: string;
   name: string;

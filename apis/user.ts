@@ -61,9 +61,9 @@ export async function getTechCourseMembers(){
   }
 }
 
-export async function getManagerMembers(){
+export async function ChangeUserProfile(data: { githubUrl: string; otherUrls: Array<string>; comment: string; }){
   try{
-    const response = await axios.get('/member');
+    const response = await axios.post('/member/user', data);
     return response;
   } catch(error){
     return error.response;

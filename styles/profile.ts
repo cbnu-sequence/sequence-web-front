@@ -62,3 +62,10 @@ export const CTDiv = styled.div`
     color: ${sqGray};
   }
 `;
+
+export const EditInput = styled.input`
+  border: 1px solid black;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+`;
