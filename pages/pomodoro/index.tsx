@@ -77,6 +77,7 @@ const Pomodoro = () => {
 
   const onEndPomo = useCallback(() => {
     setIsActive(false);
+    onReset();
     secondPomodoroAPI(pomoId, { date: new Date() })
       .then((res) => {
         if (res.status === 400) {
@@ -91,6 +92,12 @@ const Pomodoro = () => {
       });
   }, [setIsActive]);
 
+  const onReset = useCallback(() => {
+    setMin(25);
+    setSec(0);
+    setMil(0);
+  }, [setMin, setSec, setMil]);
+
   return (
     <>
       <Head>
@@ -101,7 +108,7 @@ const Pomodoro = () => {
         <p>pomodoro</p>
         <Timer min={min} sec={sec} mil={mil} />
         <PomoProgress progress={progress} />
-        <TimerForm isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
+        <TimerForm onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
         {user && <MyPomo userName={user.name} records={myPomos} />}
         <RankingBtn>일간, 주간, 월간 랭킹보기</RankingBtn>
       </PomodoroBlock>
