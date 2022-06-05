@@ -9,6 +9,12 @@ export const PomodoroBlock = styled.div`
   display: flex;
   flex-direction: column;
   & > p {
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0);

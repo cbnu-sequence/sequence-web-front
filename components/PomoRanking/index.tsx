@@ -7,7 +7,7 @@ const PomoRanking = () => {
   const [currentTab, setCurrentTab] = useState(Range.daily);
 
   return (
-    <RankingDiv>
+    <RankingDiv id="RK">
       <h2>pomodoro rank</h2>
       <RangeTabBar current={currentTab}>
         <ul className="tabs">

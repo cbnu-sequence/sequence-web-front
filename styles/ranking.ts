@@ -5,6 +5,7 @@ type TabBarProps = {
 };
 
 export const RankingDiv = styled.div`
+  padding-bottom: 6rem;
   display: flex;
   width: 100%;
   height: auto;
@@ -14,11 +15,12 @@ export const RankingDiv = styled.div`
   color: white;
   position: relative;
   font-size: 20px;
-  top: 200px;
+  top: 90px;
   & > h2 {
     font-family: 'Noto Serif KR', serif;
-    font-size: 5rem;
+    font-size: max(5vw,32px);
     font-weight: 800;
+    margin
   }
 `;
 
@@ -27,14 +29,14 @@ export const RangeTabBar = styled.div<TabBarProps>`
   & > ul {
     margin-top: 10px;
     display: flex;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 200;
     justify-content: space-between;
     list-style: none;
     & > li {
       cursor: pointer;
       padding: 0px 10px 0px 10px;
-      margin: 0px 10px;
+      margin: 0px 10px 20px 10px;
       transition: all 100ms ease-in-out;
       :nth-of-type(1) {
         border-bottom: ${(props) => (props.current === 'daily' ? `2px solid ${sqWhite}` : 'none')};
@@ -56,19 +58,45 @@ export const RankingTable = styled.table`
     font-size: 16px;
     & > tr {
       align: center;
+      & > td {
+        border: 20px solid ${sqDarkGreen};
+      }
+
       & > th {
-        border-radius: 4px;
+        border-radius: 30px;
+        border: 13px solid ${sqDarkGreen};
         padding: 10px;
-        margin: 10px;
-        border-spacing: 30px;
         background-color: ${sqDeepDarkGreen};
-        box-shadow: ${sqWhiteBoxShadow};
       }
     }
   }
   & > tbody {
     & > tr {
       justify-content: space-between;
+
+      & > td {
+        text-align: center;
+      }
+      & > .blank {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 85vw;
+    & > thead {
+      font-size: 11px;
+    }
+    & > tbody {
+      & > tr {
+        & > th {
+          font-size: 13px;
+        }
+        & > td {
+          font-size: 13px;
+        }
+      }
     }
   }
 `;

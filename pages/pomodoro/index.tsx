@@ -12,6 +12,7 @@ import { queryKeys } from '../../react-query/constants';
 import { useUser } from '../../hooks/useUser';
 import PomoRanking from '../../components/PomoRanking';
 import { useRanking } from '../../hooks/useRanking';
+import Link from 'next/link';
 
 const Pomodoro = () => {
   const [isActive, setIsActive] = useState(false);
@@ -113,7 +114,10 @@ const Pomodoro = () => {
         <PomoProgress progress={progress} />
         <TimerForm onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
         {user && <MyPomo userName={user.name} records={myPomos} />}
-        <RankingBtn onClick={() => setIsRankingOpen(!isRankingOpen)}>일간, 주간, 월간 랭킹보기</RankingBtn>
+        <Link href="#RK">
+          <RankingBtn onClick={() => setIsRankingOpen(!isRankingOpen)}>일간, 주간, 월간 랭킹보기</RankingBtn>
+        </Link>
+
         {isRankingOpen && <PomoRanking />}
       </PomodoroBlock>
     </>
