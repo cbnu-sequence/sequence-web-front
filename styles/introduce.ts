@@ -45,8 +45,12 @@ export const TopBlock = styled.div`
   }
 
   & > img {
-    width: 45vw;
+    width: 50vw;
     min-width: 350px;
+
+    @media screen and (max-width: 415px) {
+      min-width: 260px;
+    }
   }
 `;
 
@@ -202,9 +206,11 @@ export const SquareBlock = styled.div`
     }
 
     @media screen and (max-width: 1088px) {
-      .lab_content {
-        margin-left: 20px;
-      }
+      flex-direction: column;
+
+      margin-left: 0px;
+      padding: 0;
+
       .lab_content__left {
         & > img {
           margin-left: 0px;
@@ -216,6 +222,22 @@ export const SquareBlock = styled.div`
 
       .text {
         display: none;
+      }
+
+      .lab_content__right {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 0px;
+        font-size: 25px;
+
+        & > ul {
+          text-align: start;
+          margin-top: 30px;
+          font-size: 15px;
+          & > li {
+            margin-bottom: 15px;
+          }
+        }
       }
     }
   }

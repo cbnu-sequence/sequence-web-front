@@ -35,7 +35,7 @@ function Main() {
             개발자로서 &apos;집중과 효율의 극대화&apos;를 위해 뽀모도로를 선택했습니다.
           </p>
         </div>
-        <PomoLink href="/ppomodoro">
+        <PomoLink href="/pomodoro">
           <img src="/tomato.png" className="tomato_btn" />
         </PomoLink>
       </Pomodoro>

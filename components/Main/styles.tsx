@@ -264,7 +264,7 @@ export const Github = styled.div`
     margin-bottom: 80px;
     height: min(150px, 25vw);
     &:hover {
-      height: 155px;
+      height: min(155px, 26vw);
     }
   }
 
