@@ -23,7 +23,7 @@ const ManagerCard = styled.div`
       margin-bottom: 10px;
     }
   }
-  @media screen and (max-width: 786px) {
+  @media screen and (max-width: 900px) {
     width: 100%;
   }
 `;

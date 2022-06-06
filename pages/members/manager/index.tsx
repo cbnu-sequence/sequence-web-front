@@ -47,7 +47,7 @@ const Manager = () => {
             { _id: 'kimjiwon', user: { name: '김지원' }, img: '/naamu.JPG' },
             { _id: 'songhaeun', user: { name: '송하은' }, img: '/haeun.jpeg' },
           ].map((item) => (
-            <ManagerCard key={item._id} className="card" onClick={() => () => onClickCard(item)}>
+            <ManagerCard key={item._id} className="card" onClick={() => onClickCard(item)}>
               <div>
                 <img className="logotype" src={item.img} />
                 {item.user.name}
