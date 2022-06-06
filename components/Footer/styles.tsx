@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqWhite, sqRed, sqLightGray } from '../../styles/constants';
+import { sqBlack, sqWhite, sqRed, sqLightGray, sqDarkGray } from '../../styles/constants';
 
 export const FooterDiv = styled.footer`
+  padding: 2rem;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -14,7 +15,7 @@ export const FooterDiv = styled.footer`
   justify-content: space-around;
   & > img {
     object-fit: contain;
-    width: 14%;
+    width: 10%;
     min-width: 150px;
   }
   & > div {
@@ -23,5 +24,12 @@ export const FooterDiv = styled.footer`
     align-items: center;
     font-size: 1vw;
     min-font-size: 15px;
+
+    .smallest {
+      text-align: center;
+      padding-top: 0.5rem;
+      font-size: 10px;
+      color: ${sqDarkGray};
+    }
   }
 `;
