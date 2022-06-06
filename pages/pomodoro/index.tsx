@@ -129,7 +129,7 @@ export default Pomodoro;
 export const getStaticProps = async () => {
   return {
     props: {
-      layout: 'onlyBody',
+      layout: 'pomodoro',
     },
   };
 };

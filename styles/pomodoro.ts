@@ -14,7 +14,6 @@ export const PomodoroBlock = styled.div`
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0);

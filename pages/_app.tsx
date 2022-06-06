@@ -16,6 +16,7 @@ import Header from '../components/Header';
 
 import BodyWrapper from '../styles/BodyWrapper';
 import BodyContent from '../styles/BodyContent';
+import PomoBody from '../styles/PomoDoroBody';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const queryClientRef = useRef<QueryClient>();
@@ -35,6 +36,27 @@ const App = ({ Component, pageProps }: AppProps) => {
                   <title>시퀀스</title>
                 </Head>
                 <Component {...pageProps} />
+                <ReactQueryDevtools initialIsOpen={false} />
+              </Hydrate>
+            </QueryClientProvider>
+          </ChakraProvider>
+        </>
+      );
+    }
+    case 'pomodoro': {
+      return (
+        <>
+          <ChakraProvider theme={theme}>
+            <QueryClientProvider client={queryClient}>
+              <Hydrate state={pageProps.dehydratedState}>
+                <Head>
+                  <meta charSet="utf-8" />
+                  <link rel="shortcut icon" href="/favicon.png" />
+                  <title>시퀀스</title>
+                </Head>
+                <PomoBody>
+                  <Component {...pageProps} />
+                </PomoBody>
                 <ReactQueryDevtools initialIsOpen={false} />
               </Hydrate>
             </QueryClientProvider>
