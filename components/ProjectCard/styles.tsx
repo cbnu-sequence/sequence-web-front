@@ -44,9 +44,8 @@ export const ProjectTags = styled.span`
   display: flex;
   span {
     font-size: 11px;
-    padding: 1px 5px;
-    color: ${sqLavender};
-    font-weight: 300;
+    padding: 0px 5px 2px 5px;
+    font-weight: 600;
     font-family: 'Noto Serif KR', serif;
     margin: 12px 2px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
