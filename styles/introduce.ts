@@ -207,7 +207,6 @@ export const SquareBlock = styled.div`
 
     @media screen and (max-width: 1088px) {
       flex-direction: column;
-
       margin-left: 0px;
       padding: 0;
 
