@@ -9,7 +9,7 @@ function Footer() {
         <p>우편번호: 362804</p>
 
         <div className="smallest">
-          <p>© Sequence. All rights reserved.</p>
+          <p>&copy; Sequence. All rights reserved.</p>
           <p>시퀀스는 세상에 좋은 영향력을 미치기 위해 항상 노력하겠습니다.</p>
         </div>
       </div>
