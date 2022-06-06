@@ -93,7 +93,7 @@ export const SQProject = styled.div`
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
   }
-  span {
+  h2 {
     color: ${sqLavender};
     margin-top: -15px;
     font-size: 45px;
@@ -175,7 +175,7 @@ export const Pomodoro = styled.div`
       width: min(50vw, 200px);
 
       &: hover {
-        width: 55vw;
+        width: min(52vw, 220px);
       }
     }
   }
