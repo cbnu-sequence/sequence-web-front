@@ -11,3 +11,11 @@ export function firstPomodoroAPI(data: { title: string; date: Date }) {
 export function secondPomodoroAPI(id, data: { date: Date }) {
   return axios.post(`/pomodoro/${id}`, data).then((response) => response.data);
 }
+
+export function myPomosAPI() {
+  return axios.get('/pomodoro/user/me').then((response) => response.data);
+}
+
+export function getPomoRanking(range) {
+  return axios.get(`/pomodoro/ranking/${range}`).then((response) => response.data);
+}

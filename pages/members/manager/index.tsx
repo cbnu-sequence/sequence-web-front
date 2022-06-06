@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import { useQuery } from 'react-query';
-import { getManagerMembers } from '../../../apis/user';
-import NoList from '../../../components/NoList';
 import ProfileModal from '../../../components/ProfileModal';
-import { queryKeys } from '../../../react-query/constants';
 import { ManagerBlock } from '../../../styles/manager';
 
 const Manager = () => {
@@ -39,16 +35,7 @@ const Manager = () => {
 { _id: 'kimjiwon', user: { name: '김지원'}},{ _id: 'songhaeun', user: { name: '송하은'}}].map(
             (item) => (
               <div key={item._id} className="card" onClick={() => setOpenModal(true)}>
-<<<<<<< Updated upstream
-                <div>곧 완성될 예정입니다.</div>
-                <div>{item.user.name}</div>
-                <div>{item.part}</div>
-                <div>{item.user.email}</div>
-                <div>{item.githubUrl}</div>
-                <div></div>
-=======
               <div>{item.user.name}</div>
->>>>>>> Stashed changes
               </div>
             ),
           )}

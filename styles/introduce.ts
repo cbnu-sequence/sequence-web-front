@@ -45,8 +45,12 @@ export const TopBlock = styled.div`
   }
 
   & > img {
-    width: 45vw;
+    width: 50vw;
     min-width: 350px;
+
+    @media screen and (max-width: 415px) {
+      min-width: 260px;
+    }
   }
 `;
 
@@ -161,50 +165,79 @@ export const SquareBlock = styled.div`
     width: 100%;
     color: ${sqWhite};
     margin-top: 2rem;
-    margin-left: 40px;
+    margin-left: 20px;
     line-height: 2rem;
     padding: 0 2rem;
 
     .lab_content__left {
       & > img {
-        margin-left: 50px;
+        margin-left: 40px;
       }
       .text {
-        font-size: 0.5rem;
+        font-size: 0.5vw;
         position: absolute;
         line-height: 18px;
       }
 
       .big-p {
-        font-size: 2rem;
+        font-size: max(2vw, 20px);
         z-index: 0.5;
       }
       .small-p {
-        font-size: 1rem;
+        font-size: max(1vw, 14px);
         z-index: 0.5;
       }
       .professor {
-        margin: -60px 0 40px 230px;
+        margin: -60px 0 25px 210px;
       }
     }
     .lab_content__right {
-      margin-top: 50px;
-      margin-left: 70px;
-      font-size: 2.3rem;
+      margin-top: 90px;
+      margin-left: 80px;
+      font-size: min(3.5vw, 2.7rem);
 
       & > ul {
         margin-top: 50px;
-        font-size: 1.5rem;
+        font-size: 1.7vw;
         & > li {
           margin-bottom: 25px;
         }
       }
     }
 
-    @media screen and (max-width: 768px) {
-      font-size: 0.8rem;
+    @media screen and (max-width: 1088px) {
+      flex-direction: column;
+
+      margin-left: 0px;
+      padding: 0;
+
+      .lab_content__left {
+        & > img {
+          margin-left: 0px;
+        }
+        .professor {
+          margin: 5px 0 0 100px;
+        }
+      }
+
       .text {
         display: none;
+      }
+
+      .lab_content__right {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 0px;
+        font-size: 25px;
+
+        & > ul {
+          text-align: start;
+          margin-top: 30px;
+          font-size: 15px;
+          & > li {
+            margin-bottom: 15px;
+          }
+        }
       }
     }
   }
@@ -216,7 +249,7 @@ export const SquareBlock = styled.div`
       background-color: ${sqWhite};
       padding: 5px 20px;
       border-radius: 30px;
-      border: 4px outset ${sqRed};
+      border: 5px outset ${sqRed};
       text-align: center;
       margin-top: 2rem;
       font-size: 1.5rem;

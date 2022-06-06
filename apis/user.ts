@@ -43,9 +43,9 @@ export function logOutAPI() {
 }
 
 
-export async function getProjectMembers(){
+export async function getProjectMembers(part: string){
   try{
-    const response = await axios.get('/member/project');
+    const response = await axios.get(`/member/project?part=${part}`);
     return response;
   } catch(error){
     return error.response;
@@ -61,9 +61,18 @@ export async function getTechCourseMembers(){
   }
 }
 
-export async function getManagerMembers(){
+export async function ChangeUserProfile(data: { githubUrl: string; otherUrls: Array<string>; comment: string; }){
   try{
-    const response = await axios.get('/member');
+    const response = await axios.post('/member/user', data);
+    return response;
+  } catch(error){
+    return error.response;
+  }
+}
+
+export async function postEmail(){
+  try{
+    const response = await axios.post('/auth/mail');
     return response;
   } catch(error){
     return error.response;

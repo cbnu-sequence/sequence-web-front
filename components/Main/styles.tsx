@@ -160,6 +160,7 @@ export const Pomodoro = styled.div`
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
+      width: 100%;
 
       & > h1 {
         font-size: 9vw;
@@ -171,10 +172,10 @@ export const Pomodoro = styled.div`
     }
     .tomato_btn {
       padding: 20px;
-      width: 250px;
+      width: min(50vw, 200px);
 
       &: hover {
-        width: 255px;
+        width: 55vw;
       }
     }
   }
@@ -203,6 +204,11 @@ export const HomePhoto = styled.div`
         font-size: 12px;
         margin-left: 5px;
       }
+
+      @media screen and (max-width: 898px) {
+        width: 160px;
+        height: 50px;
+      }
     }
   }
 `;
@@ -217,10 +223,11 @@ export const BigBox = styled.div`
     border-radius: 20px;
   }
   @media screen and (max-width: 898px) {
-    width: 200px;
-  height: 200px;
-  & > img {
+    width: max(140px, 30vw);
     height: 200px;
+    & > img {
+      height: 200px;
+    }
   }
 `;
 export const SmallBox = styled.div`
@@ -255,9 +262,9 @@ export const Github = styled.div`
     transition: height 0.2s ease-in-out;
     margin-top: 50px;
     margin-bottom: 80px;
-    height: 150px;
+    height: min(150px, 25vw);
     &:hover {
-      height: 155px;
+      height: min(155px, 26vw);
     }
   }
 
