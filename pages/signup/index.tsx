@@ -7,8 +7,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
-import { signUpAPI } from '../../apis/user';
-import { useCustomToast } from '../../hooks/useCustomToast';
 
 const SignUp = () => {
   const [signUpError, setSignUpError] = useState(false);

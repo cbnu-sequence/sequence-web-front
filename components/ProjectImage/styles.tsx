@@ -7,6 +7,7 @@ export const ProjectImg = styled.img`
 `;
 
 export const ProjectImgDiv = styled.div`
-  width: 21vw;
-  height: 21vw;
+  width: 25vw;
+  height: 18vw;
+  padding-top: 3vw;
 `;

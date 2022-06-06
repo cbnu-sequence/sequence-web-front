@@ -63,7 +63,7 @@ function SharingInfoMobile(props) {
           infoList.data.map((item, index) => {
             return (
               <Link key={item._id} href={`../../posts/${item._id}?category=sharingInfo`}>
-                <Tr key={item._id}>
+                <Tr>
                   <CommonTd>{limit * (page - 1) + (index + 1)}.</CommonTd>
                   <CommonTd>{item.writer.name}</CommonTd>
                   <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>

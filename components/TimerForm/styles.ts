@@ -6,6 +6,7 @@ export const TimerFormDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
   & > form {
     display: flex;
     flex-direction: column;
@@ -35,6 +36,7 @@ export const TimerFormDiv = styled.div`
       border-radius: 20px;
       background-color: ${sqLightBeige};
       cursor: pointer;
+
       transition: all 0.1s ease-in-out;
       &:hover {
         background-color: antiquewhite;

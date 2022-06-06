@@ -1,4 +1,13 @@
+import PomoRanking from '../../../components/PomoRanking';
+import { useRanking } from '../../../hooks/useRanking';
+
 const Ranking = () => {
-  return <div>뽀모도로 랭킹</div>;
+  const { Range, dailyRanking, weeklyRanking, monthlyRanking } = useRanking();
+
+  return (
+    <div>
+      <PomoRanking Range={Range} daily={dailyRanking} weekly={weeklyRanking} monthly={monthlyRanking} />
+    </div>
+  );
 };
 export default Ranking;

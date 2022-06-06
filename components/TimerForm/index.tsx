@@ -1,14 +1,21 @@
 import { useCallback, useEffect } from 'react';
 import { TimerFormDiv } from './styles';
 import useInput from '../../hooks/useInput';
+import { useRouter } from 'next/router';
 
-const TimerForm = ({ onReset, isActive, setIsActive, onAddPomo }) => {
+const TimerForm = ({ user, onReset, isActive, setIsActive, onAddPomo }) => {
   const [title, onChangeTitle, setTitle] = useInput('');
+  const Router = useRouter();
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
       if (!title || !title.trim()) {
         return alert('제목은 필수항목이에요!');
+      }
+      if (!user) {
+        alert('회원가입 후에 이용해주세요!');
+        Router.replace('../login');
+        return;
       }
       onAddPomo(title);
       setTitle('');

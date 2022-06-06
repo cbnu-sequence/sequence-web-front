@@ -41,6 +41,9 @@ export const PostHeaderDiv = styled.div`
         :after {
           content: '|';
           padding-left: 5px;
+          @media screen and (max-width: 500px) {
+            display: none;
+          }
         }
       }
       :last-of-type {
