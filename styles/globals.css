@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
   height: 100%;
+  min-height: 100%;
 }
 
 body {

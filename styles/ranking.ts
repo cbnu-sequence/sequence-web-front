@@ -18,9 +18,8 @@ export const RankingDiv = styled.div`
   top: 90px;
   & > h2 {
     font-family: 'Noto Serif KR', serif;
-    font-size: max(5vw,32px);
+    font-size: max(5vw, 32px);
     font-weight: 800;
-    margin
   }
 `;
 
@@ -61,7 +60,6 @@ export const RankingTable = styled.table`
       & > td {
         border: 20px solid ${sqDarkGreen};
       }
-
       & > th {
         border-radius: 30px;
         border: 13px solid ${sqDarkGreen};
