@@ -9,35 +9,46 @@ import { ManagerBlock } from '../../../styles/manager';
 const Manager = () => {
   const [openmodal, setOpenModal] = useState(false);
 
-  const { data, isError } = useQuery([queryKeys.manager], () => getManagerMembers(), {
-    refetchOnMount: true,
-    refetchOnReconnect: true,
-    refetchOnWindowFocus: true,
-    refetchInterval: 60000,
-  });
-
-  if (!data) return <p>로딩중 입니다.</p>;
-
-  if (isError) return <NoList enTitle={'members'} krTitle={'정보를 가져올 수 없습니다'} />;
-
-  const Data = data.data.data;
-
-  console.log(Data);
-
   return (
     <>
       <ManagerBlock>
-        <p className="sub_title">운영진</p>
+        <p className="title_top1">2022년도</p>
+        <p className="title_top2">시퀀스 운영진</p>
         <div className="cardblock">
-          {[{ _id: '123123', user: { name: 'ㅁㄴㅇ', email: 'asdasdasd' }, part: 'asd', githubUrl: 'asdasdads' }].map(
+          {[{ _id: 'hasonghee', user: { name: '하송희'}},
+{ _id: 'chadonghyun', user: { name: '차동현'}}].map(
             (item) => (
               <div key={item._id} className="card" onClick={() => setOpenModal(true)}>
+              <div>{item.user.name}</div>
+              </div>
+            ),
+          )}
+        </div>
+        <div className="cardblock">
+          {[{ _id: 'leechanhyuk', user: { name: '이찬혁'}},
+{ _id: 'yoonsohee', user: { name: '윤소희'}},{ _id: 'yangkyungjin', user: { name: '양경진'}}].map(
+            (item) => (
+              <div key={item._id} className="card" onClick={() => setOpenModal(true)}>
+              <div>{item.user.name}</div>
+              </div>
+            ),
+          )}
+        </div>
+        <div className="cardblock">
+          {[{ _id: 'kimminkyu', user: { name: '김민규'}},
+{ _id: 'kimjiwon', user: { name: '김지원'}},{ _id: 'songhaeun', user: { name: '송하은'}}].map(
+            (item) => (
+              <div key={item._id} className="card" onClick={() => setOpenModal(true)}>
+<<<<<<< Updated upstream
                 <div>곧 완성될 예정입니다.</div>
                 <div>{item.user.name}</div>
                 <div>{item.part}</div>
                 <div>{item.user.email}</div>
                 <div>{item.githubUrl}</div>
                 <div></div>
+=======
+              <div>{item.user.name}</div>
+>>>>>>> Stashed changes
               </div>
             ),
           )}
