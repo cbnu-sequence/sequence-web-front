@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqWhite, sqGray } from '../../styles/constants';
+import { sqBlack, sqWhite, sqGray, sqRed } from '../../styles/constants';
 
 export const Block = styled.div`
   background-color: rgba(249, 237, 237, 0.042);
@@ -35,12 +35,12 @@ export const Editor = styled.form`
   }
   .filetitle {
     font-size: 1.1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     font-weight: bold;
     color: ${sqBlack};
     @media screen and (max-width: 768px) {
-      margin-top: 3.5rem;
+      margin-top: 1rem;
     }
   }
 
@@ -63,10 +63,10 @@ export const Input = styled.input`
 `;
 
 export const FileBlock = styled.div`
-  width: 20%;
+  width: 300px;
   font-size: 0.8rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 
   .file {
     border: 1px solid #beb6b6;
@@ -152,12 +152,12 @@ export const WirteActionButton = styled.button`
 
 export const ErrorMessage = styled.div`
   font-weight: bold;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
-  color: red;
+  color: ${sqRed};
   text-align: center;
   font-size: 1.1rem;
   @media screen and (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;

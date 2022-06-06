@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Button, Error, Form, Header, Input, Label, LinkContainer, Success } from '../../styles/signup';
 import useInput from '../../hooks/useInput';
 import KakaoBtn from '../../components/KakaoBtn';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useUser } from '../../hooks/useUser';
@@ -18,7 +18,7 @@ const SignUp = () => {
   const [passwordCheck, , setPasswordCheck] = useInput('');
   const { signup } = useAuth();
   const { user } = useUser();
-
+  const Router = useRouter();
   if (user) {
     Router.replace('/');
   }
@@ -42,13 +42,9 @@ const SignUp = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      signup({ email, password, name, phoneNumber })
-        .then(() => {
-          Router.replace('/emailcheck');
-        })
-        .catch((error) => {
-          setSignUpError(true);
-        });
+      signup({ email, password, name, phoneNumber }, Router).catch((error) => {
+        setSignUpError(true);
+      });
     },
     [email, name, password, phoneNumber],
   );

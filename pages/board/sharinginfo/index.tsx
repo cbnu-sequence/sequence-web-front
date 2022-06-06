@@ -42,7 +42,7 @@ function SharingInfo() {
             </WriteBtnBlock>
           </Link>
         )}
-        <NoList enTitle={'sharing information'} krTitle={'정보공유'} />;
+        <NoList enTitle={'sharing information'} krTitle={'등록된 정보공유가 없습니다'} />;
       </>
     );
   }
@@ -54,7 +54,7 @@ function SharingInfo() {
       </Head>
       <CommonHeader title={'정보 공유'} />
       {me && me?.role === 'Admin' && (
-        <Link href={'./sharingInfo'}>
+        <Link href={'./write?category=sharingInfo'}>
           <WriteBtnBlock>
             <WriteBtn />
           </WriteBtnBlock>

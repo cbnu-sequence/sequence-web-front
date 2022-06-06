@@ -11,7 +11,7 @@ export const SecondInput = styled.input`
   width: 30%;
   @media screen and (max-width: 768px) {
     font-size: 0.9rem;
-    width: 80%;
+    width: 70%;
   }
 `;
 
@@ -63,6 +63,9 @@ export const ImageBlock = styled.div`
     background-color: ${sqBlack};
     border-radius: 5px;
     cursor: pointer;
+    @media screen and (max-width: 768px) {
+      margin: 0.6rem 0 0 1rem;
+    }
   }
 
   input[type='file'] {

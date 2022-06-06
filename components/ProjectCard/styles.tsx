@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqRed } from '../../styles/constants';
+import { sqRed, sqLavender } from '../../styles/constants';
 
 export const ProjectCardBox = styled.div`
   border-radius: 3px;
@@ -25,18 +25,33 @@ export const ProjectCardBox = styled.div`
     -webkit-box-orient: vertical;
     margin-bottom: 3px;
   }
+
+  @media screen and (max-width: 768px) {
+    .project__year {
+      font-weight: 400;
+      font-size: 10px;
+    }
+    .project__title {
+      font-size: 12px;
+    }
+    .project__content {
+      display: none;
+    }
+  }
 `;
 
 export const ProjectTags = styled.span`
   display: flex;
   span {
-    font-size: 12px;
-    margin: 2px;
+    font-size: 11px;
+    padding: 0px 5px 2px 5px;
+    font-weight: 600;
+    font-family: 'Noto Serif KR', serif;
+    margin: 12px 2px 0 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     :hover {
-      background-color: rgba(0,0,0,0.1)
-      }
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 `;

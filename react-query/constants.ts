@@ -4,4 +4,8 @@ export const queryKeys = {
   notice: 'notice',
   projects: 'projects',
   sharingInfo: 'sharingInfo',
+  projectTeam: 'projectTeam',
+  techcourseTeam: 'techcourseTeam',
+  myPomos: 'myPomos',
+  ranking: 'pomodoroRanking',
 };

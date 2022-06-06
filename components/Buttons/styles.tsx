@@ -19,11 +19,11 @@ export const WriteButton = styled.button`
   background-color: ${sqBlack};
   &:hover {
     color: ${sqWhite};
-    background-color: ${sqDeepDarkGray};  
-    cursor: pointer
+    background-color: ${sqDeepDarkGray};
+    cursor: pointer;
   }
-  `;
-  
+`;
+
 export const DeleteButton = styled.button`
   margin: 0 auto;
   padding: 0 auto;
@@ -37,8 +37,8 @@ export const DeleteButton = styled.button`
   background-color: ${sqDeepDarkGray};
   &:hover {
     color: ${sqWhite};
-    background-color: ${sqDarkGray};  
-    cursor: pointer
+    background-color: ${sqDarkGray};
+    cursor: pointer;
   }
 `;
 
@@ -55,7 +55,17 @@ export const ModifyButton = styled.button`
   background-color: ${sqDeepDarkGray};
   &:hover {
     color: ${sqWhite};
-    background-color: ${sqDarkGray};  
-    cursor: pointer
+    background-color: ${sqDarkGray};
+    cursor: pointer;
   }
+`;
+
+export const AddPostBtn = styled.div`
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  margin-top: 30px;
 `;

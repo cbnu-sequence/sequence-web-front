@@ -8,7 +8,7 @@ type HeaderProps = {
 
 export const HeaderDiv = styled.div<HeaderProps>`
   position: fixed;
-  z-index: 1;
+  z-index: 101;
   top: 0;
   .black-header {
     width: 100vw;
@@ -63,6 +63,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       height: 100%;
       text-align: center;
       align-items: center;
+
       & > li {
         margin: 0 20px;
         display: flex;
@@ -70,41 +71,46 @@ export const HeaderDiv = styled.div<HeaderProps>`
         cursor: pointer;
         position: relative;
         height: 100%;
-        :hover {
+        &:hover {
           border-bottom: 5px solid ${sqWhite};
           transition: border-bottom 0.2s ease-in-out;
+        }
+        .members_ul {
+          width: 130vw;
+          margin-left: calc(-60vw + 20% - 70px);
+        }
+        .board_ul {
+          width: 110vw;
+          margin-left: calc(-50vw + 40% - 70px);
+        }
+
+        & > ul {
+          list-style: none;
+          display: none;
+          height: 35px;
+          position: absolute;
+          top: 55px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: ${sqWhite};
+          color: ${sqBlack};
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
+          & > li {
+            text-align: center;
+            padding: 0 10px;
+            font-size: 14px;
+          }
+          & > li:hover {
+            color: ${sqRed};
+            transition: width 2s, height 2s, color 200ms, transform 4s;
+          }
         }
       }
     }
 
-    .header__menulist li ul {
-      list-style: none;
-      display: none;
-      width: 110vw;
-      height: 35px;
-      top: 30px;
-      margin-left: calc(-50vw + 50% - 70px);
-      margin-top: 25px;
-    }
-
     .header__menulist li:hover ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      text-align: center;
-      background-color: ${sqWhite};
-      color: ${sqBlack};
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
-      & > li {
-        text-align: center;
-        padding: 0 10px;
-        font-size: 14px;
-      }
-      & > li:hover {
-        color: ${sqRed};
-        transition: width 2s, height 2s, color 200ms, transform 4s;
-      }
     }
 
     .header__left {
@@ -134,10 +140,10 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 2rem 1rem 1rem;
+      padding: 1rem 1rem 1rem 1rem;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 820px) {
       flex-wrap: wrap;
       height: 100%;
       .header__right {
@@ -151,18 +157,27 @@ export const HeaderDiv = styled.div<HeaderProps>`
         flex-direction: column;
         width: 100%;
         background-color: ${sqBlack};
+
+        li {
+          margin: 1rem 0;
+          padding: 0;
+          color: ${sqWhite};
+        }
       }
 
-      .header__menulist li {
-        margin: 1rem 0;
-        padding: 0;
-        color: ${sqWhite};
-      }
-
-      .header__menulist li:hover ul {
-        width: 100%;
-        margin: 0 auto;
-        background-color: ${sqBlack};
+      .header__menulist li:hover {
+        ul {
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+          background-color: ${sqBlack};
+          top: 30px;
+          width: 500%;
+        }
+        .members_ul {
+          margin-left: -220%;
+        }
+        .board_ul {
+          margin-left: -200%;
+        }
       }
 
       .header__right li {
@@ -178,6 +193,18 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
       .user {
         display: block;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .logo {
+        margin-top: 13px;
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        .logotype {
+          display: none;
+        }
       }
     }
   }
@@ -227,6 +254,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       height: 100%;
       text-align: center;
       align-items: center;
+
       & > li {
         margin: 0 20px;
         display: flex;
@@ -234,43 +262,47 @@ export const HeaderDiv = styled.div<HeaderProps>`
         cursor: pointer;
         position: relative;
         height: 100%;
-        :hover {
+        &:hover {
           border-bottom: 5px solid ${sqRed};
           transition: border-bottom 0.2s ease-in-out;
+        }
+        .members_ul {
+          width: 130vw;
+          margin-left: calc(-60vw + 20% - 70px);
+        }
+        .board_ul {
+          width: 110vw;
+          margin-left: calc(-50vw + 40% - 70px);
+        }
+
+        & > ul {
+          list-style: none;
+          display: none;
+          height: 35px;
+          position: absolute;
+          top: 55px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: ${sqWhite};
+          color: ${sqBlack};
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
+          & > li {
+            text-align: center;
+            padding: 0 10px;
+            font-size: 14px;
+          }
+          & > li:hover {
+            color: ${sqRed};
+            transition: width 2s, height 2s, color 200ms, transform 4s;
+          }
         }
       }
     }
 
-    .header__menulist li ul {
-      list-style: none;
-      display: none;
-      width: 110vw;
-      height: 35px;
-      top: 30px;
-      margin-left: calc(-50vw + 50% - 70px);
-      margin-top: 25px;
-    }
-
     .header__menulist li:hover ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      text-align: center;
-      background-color: ${sqWhite};
-      color: ${sqBlack};
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
-      & > li {
-        text-align: center;
-        padding: 0 10px;
-        font-size: 14px;
-      }
-      & > li:hover {
-        color: ${sqRed};
-        transition: width 2s, height 2s, color 200ms, transform 4s;
-      }
     }
-
     .header__left {
       display: flex;
     }
@@ -298,10 +330,10 @@ export const HeaderDiv = styled.div<HeaderProps>`
     .user {
       display: none;
       font-size: 1.5rem;
-      padding: 1rem 2rem 1rem 1rem;
+      padding: 1rem 1rem 1rem 1rem;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 820px) {
       flex-wrap: wrap;
       height: 100%;
       .header__right {
@@ -315,19 +347,27 @@ export const HeaderDiv = styled.div<HeaderProps>`
         flex-direction: column;
         width: 100%;
         background-color: ${sqWhite};
+
+        li {
+          margin: 1rem 0;
+          padding: 0;
+          color: ${sqBlack};
+        }
       }
 
-      .header__menulist li {
-        margin: 1rem 0;
-        padding: 0;
-        color: ${sqBlack};
-      }
-
-      .header__menulist li:hover ul {
-        box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
-        width: 100%;
-        margin: 0 auto;
-        background-color: ${sqWhite};
+      .header__menulist li:hover {
+        ul {
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+          background-color: ${sqWhite};
+          top: 30px;
+          width: 500%;
+        }
+        .members_ul {
+          margin-left: -220%;
+        }
+        .board_ul {
+          margin-left: -200%;
+        }
       }
 
       .header__right li {
@@ -343,6 +383,17 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
       .user {
         display: block;
+      }
+    }
+    @media screen and (max-width: 320px) {
+      .logo {
+        margin-top: 13px;
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        .logotype {
+          display: none;
+        }
       }
     }
   }

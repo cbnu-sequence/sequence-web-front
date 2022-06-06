@@ -81,7 +81,8 @@ export const MainDiv = styled.div`
   }
 `;
 export const SQProject = styled.div`
-  height: 150vh;
+  height: 100vh;
+  margin-top: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,9 +93,9 @@ export const SQProject = styled.div`
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
   }
-  span {
+  h2 {
     color: ${sqLavender};
-    margin: -15px 0 70px 0;
+    margin-top: -15px;
     font-size: 45px;
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
@@ -159,6 +160,7 @@ export const Pomodoro = styled.div`
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
+      width: 100%;
 
       & > h1 {
         font-size: 9vw;
@@ -170,10 +172,10 @@ export const Pomodoro = styled.div`
     }
     .tomato_btn {
       padding: 20px;
-      width: 250px;
+      width: min(50vw, 200px);
 
       &: hover {
-        width: 255px;
+        width: min(52vw, 220px);
       }
     }
   }
@@ -202,6 +204,11 @@ export const HomePhoto = styled.div`
         font-size: 12px;
         margin-left: 5px;
       }
+
+      @media screen and (max-width: 898px) {
+        width: 160px;
+        height: 50px;
+      }
     }
   }
 `;
@@ -216,10 +223,11 @@ export const BigBox = styled.div`
     border-radius: 20px;
   }
   @media screen and (max-width: 898px) {
-    width: 200px;
-  height: 200px;
-  & > img {
+    width: max(140px, 30vw);
     height: 200px;
+    & > img {
+      height: 200px;
+    }
   }
 `;
 export const SmallBox = styled.div`
@@ -254,19 +262,21 @@ export const Github = styled.div`
     transition: height 0.2s ease-in-out;
     margin-top: 50px;
     margin-bottom: 80px;
-    height: 150px;
+    height: min(150px, 25vw);
     &:hover {
-      height: 155px;
+      height: min(155px, 26vw);
     }
   }
 
   & > h2 {
+    color: ${sqBlack};
     font-size: 70px;
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
   }
 
   & > h3 {
+    color: ${sqBlack};
     margin-top: -15px;
     font-size: 45px;
     font-weight: 900;

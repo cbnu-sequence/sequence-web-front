@@ -68,14 +68,23 @@ function Header() {
               <a>시퀀스 소개</a>
             </li>
           </Link>
-          <Link href="/members">
-            <li>
-              <a>부원 소개</a>
-            </li>
-          </Link>
+          <li>
+            부원 소개
+            <ul className="members_ul">
+              <li>
+                <Link href="/members/projectteam">프로젝트 팀</Link>
+              </li>
+              <li>
+                <Link href="/members/techcourseteam">테크코스 팀</Link>
+              </li>
+              <li>
+                <Link href="/members/manager">운영진</Link>
+              </li>
+            </ul>
+          </li>
           <li>
             게시판
-            <ul>
+            <ul className="board_ul">
               <li>
                 <Link href="/board/notice">공지사항</Link>
               </li>
