@@ -80,6 +80,7 @@ export const TitleDiv = styled.div`
   display: flex;
   width: 100vw;
   padding-top: -10px;
+  margin-top: 20px;
   justify-content: center;
   align-items: center;
   font-weight: 700;

@@ -64,6 +64,25 @@ const App = ({ Component, pageProps }: AppProps) => {
         </>
       );
     }
+    case 'mobilePomo': {
+      return (
+        <>
+          <QueryClientProvider client={queryClient}>
+            <Hydrate state={pageProps.dehydratedState}>
+              <Head>
+                <meta charSet="utf-8" />
+                <link rel="shortcut icon" href="/favicon.png" />
+                <title>시퀀스</title>
+              </Head>
+              <PomoBody>
+                <Component {...pageProps} />
+              </PomoBody>
+              <ReactQueryDevtools initialIsOpen={false} />
+            </Hydrate>
+          </QueryClientProvider>
+        </>
+      );
+    }
     default: {
       return (
         <>
@@ -90,30 +109,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       );
     }
   }
-  return (
-    <>
-      <ChakraProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps.dehydratedState}>
-            <Head>
-              <meta charSet="utf-8" />
-              <link rel="shortcut icon" href="/favicon.png" />
-              <title>시퀀스</title>
-            </Head>
-            <Header />
-            <BodyWrapper>
-              <BodyContent>
-                <Component {...pageProps} />
-              </BodyContent>
-              <Footer />
-            </BodyWrapper>
-
-            <ReactQueryDevtools initialIsOpen={false} />
-          </Hydrate>
-        </QueryClientProvider>
-      </ChakraProvider>
-    </>
-  );
 };
 
 export default App;

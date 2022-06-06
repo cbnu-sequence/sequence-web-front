@@ -175,7 +175,7 @@ function Profile() {
       </ProfileDiv>
       <CTDiv>
         <span>내 게시글</span>
-        {me.posts.length > 0 ? (
+        {me.posts && me.posts.length > 0 ? (
           <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
             {me.posts.map((item, index) => (
               <Link href={`../../posts/${item._id}`} key={item._id}>

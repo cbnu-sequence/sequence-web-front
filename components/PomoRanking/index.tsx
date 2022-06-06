@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { useRanking } from '../../hooks/useRanking';
 import { RankingDiv, RangeTabBar } from '../../styles/ranking';
 import RankingTabContent from '../RankingTabContent';
-const PomoRanking = () => {
-  const { Range, dailyRanking, weeklyRanking, monthlyRanking } = useRanking();
+const PomoRanking = ({ Range, daily, weekly, monthly }) => {
   const [currentTab, setCurrentTab] = useState(Range.daily);
-
   return (
     <RankingDiv id="RK">
       <h2>pomodoro rank</h2>
@@ -18,12 +16,7 @@ const PomoRanking = () => {
           ))}
         </ul>
       </RangeTabBar>
-      <RankingTabContent
-        range={currentTab}
-        daily={dailyRanking.data}
-        weekly={weeklyRanking.data}
-        monthly={monthlyRanking.data}
-      />
+      <RankingTabContent range={currentTab} daily={daily.data} weekly={weekly.data} monthly={monthly.data} />
     </RankingDiv>
   );
 };

@@ -23,7 +23,7 @@ const Pomodoro = () => {
   const [mil, setMil] = useState(0);
   const [isRankingOpen, setIsRankingOpen] = useState(false);
   const { user } = useUser();
-  const { dailyRanking, weeklyRanking, monthlyRanking } = useRanking();
+  const { Range, dailyRanking, weeklyRanking, monthlyRanking } = useRanking();
   const { data, isLoading, isError } = useQuery([queryKeys.myPomos, user?._id], myPomosAPI, {
     refetchOnMount: true,
     refetchOnReconnect: true,
@@ -112,13 +112,15 @@ const Pomodoro = () => {
         <p>pomodoro</p>
         <Timer min={min} sec={sec} mil={mil} />
         <PomoProgress progress={progress} />
-        <TimerForm onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
+        <TimerForm user={user} onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
         {user && <MyPomo userName={user.name} records={myPomos} />}
         <Link href="#RK">
           <RankingBtn onClick={() => setIsRankingOpen(!isRankingOpen)}>일간, 주간, 월간 랭킹보기</RankingBtn>
         </Link>
 
-        {isRankingOpen && <PomoRanking />}
+        {isRankingOpen && (
+          <PomoRanking Range={Range} daily={dailyRanking} weekly={weeklyRanking} monthly={monthlyRanking} />
+        )}
       </PomodoroBlock>
     </>
   );

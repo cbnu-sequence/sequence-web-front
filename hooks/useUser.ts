@@ -18,6 +18,8 @@ export function useUser(): UseUser {
 
   const { data: user } = useQuery(queryKeys.user, () => loadMyInfoAPI(user), {
     initialData: getStoredUser,
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
     onSuccess: (received) => {
       if (!received) {
         clearStoredUser();

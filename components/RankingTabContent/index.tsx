@@ -11,7 +11,10 @@ const RankingTabContent = ({ range, daily, weekly, monthly }) => {
     data = monthly;
   }
   console.log(data);
-  if (data.length === 0 || !data) return <div>아직 등록된 뽀모도로가 없습니다!</div>;
+  if (data) {
+    if (data.length === 0 || !data) return <div>아직 등록된 뽀모도로가 없습니다!</div>;
+  }
+
   return (
     <div>
       <RankingTable>
@@ -24,14 +27,15 @@ const RankingTabContent = ({ range, daily, weekly, monthly }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
-            <tr key={item._id}>
-              <th>{index + 1}</th>
-              <td>{item.user.name}</td>
-              <td>{item.count * 25}</td>
-              <td>{item.pomodoro.title}</td>
-            </tr>
-          ))}
+          {data &&
+            data.map((item, index) => (
+              <tr key={item._id}>
+                <th>{index + 1}</th>
+                <td>{item.user.name}</td>
+                <td>{item.count * 25}</td>
+                <td>{item.pomodoro.title}</td>
+              </tr>
+            ))}
         </tbody>
       </RankingTable>
     </div>
