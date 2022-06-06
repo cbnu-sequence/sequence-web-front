@@ -1,7 +1,7 @@
 import { Block, ColorLine, ModalContainer, TopBlock } from './styles';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
-const ProfileModal = ({ setOpenModal }) => {
+const ProfileModal = ({ setOpenModal, item }) => {
   return (
     <>
       <Block>
@@ -13,6 +13,10 @@ const ProfileModal = ({ setOpenModal }) => {
             </div>
           </TopBlock>
           <ColorLine />
+          <div className="desc">
+            <img src={item.img} />
+            {item.description && <p>{item.description}</p>}
+          </div>
         </ModalContainer>
       </Block>
     </>
