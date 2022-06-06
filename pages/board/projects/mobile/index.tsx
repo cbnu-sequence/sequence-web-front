@@ -26,3 +26,11 @@ function Projects(): ReactElement {
 }
 
 export default Projects;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'onlyBody',
+    },
+  };
+};

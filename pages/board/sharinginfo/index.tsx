@@ -54,7 +54,7 @@ function SharingInfo() {
       </Head>
       <CommonHeader title={'정보 공유'} />
       {me && me?.role === 'Admin' && (
-        <Link href={'./sharingInfo'}>
+        <Link href={'./write?category=sharingInfo'}>
           <WriteBtnBlock>
             <WriteBtn />
           </WriteBtnBlock>

@@ -10,11 +10,9 @@ export const PomodoroBlock = styled.div`
   flex-direction: column;
   & > p {
     -ms-user-select: none;
-    -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0);
@@ -25,6 +23,7 @@ export const PomodoroBlock = styled.div`
     font-weight: 900;
     font-family: 'Noto Serif KR', serif;
     opacity: 0.03;
+    z-index: 0;
   }
   @media screen and (max-width: 768px) {
     padding: 0 3rem 10rem 3rem;
@@ -46,4 +45,9 @@ export const RankingBtn = styled.button`
   margin: 5rem 0 0 -5rem;
   color: ${sqDarkGreen};
   background-color: ${sqWhite};
+`;
+
+export const MobilePomoDiv = styled.div`
+  height: 100%;
+  background-color: ${sqDarkGreen};
 `;
