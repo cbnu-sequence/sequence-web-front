@@ -22,7 +22,7 @@ function Main() {
       </div>
       <SQProject>
         <h1>Sequence</h1>
-        <span>Projects</span>
+        <h2>Projects</h2>
         <CenterMode />
       </SQProject>
       <Pomodoro>
