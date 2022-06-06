@@ -63,6 +63,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       height: 100%;
       text-align: center;
       align-items: center;
+
       & > li {
         margin: 0 20px;
         display: flex;
@@ -70,46 +71,46 @@ export const HeaderDiv = styled.div<HeaderProps>`
         cursor: pointer;
         position: relative;
         height: 100%;
-        :hover {
+        &:hover {
           border-bottom: 5px solid ${sqWhite};
           transition: border-bottom 0.2s ease-in-out;
         }
         .members_ul {
-          margin-left: calc(-50vw + 20% - 70px);
+          width: 130vw;
+          margin-left: calc(-60vw + 20% - 70px);
         }
         .board_ul {
-          margin-left: calc(-50vw + 50% - 70px);
+          width: 110vw;
+          margin-left: calc(-50vw + 40% - 70px);
+        }
+
+        & > ul {
+          list-style: none;
+          display: none;
+          height: 35px;
+          position: absolute;
+          top: 55px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: ${sqWhite};
+          color: ${sqBlack};
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
+          & > li {
+            text-align: center;
+            padding: 0 10px;
+            font-size: 14px;
+          }
+          & > li:hover {
+            color: ${sqRed};
+            transition: width 2s, height 2s, color 200ms, transform 4s;
+          }
         }
       }
-    }
-
-    .header__menulist li ul {
-      list-style: none;
-      display: none;
-      width: 110vw;
-      height: 35px;
-      top: 30px;
-      margin-top: 25px;
     }
 
     .header__menulist li:hover ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      text-align: center;
-      background-color: ${sqWhite};
-      color: ${sqBlack};
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
-      & > li {
-        text-align: center;
-        padding: 0 10px;
-        font-size: 14px;
-      }
-      & > li:hover {
-        color: ${sqRed};
-        transition: width 2s, height 2s, color 200ms, transform 4s;
-      }
     }
 
     .header__left {
@@ -156,18 +157,27 @@ export const HeaderDiv = styled.div<HeaderProps>`
         flex-direction: column;
         width: 100%;
         background-color: ${sqBlack};
+
+        li {
+          margin: 1rem 0;
+          padding: 0;
+          color: ${sqWhite};
+        }
       }
 
-      .header__menulist li {
-        margin: 1rem 0;
-        padding: 0;
-        color: ${sqWhite};
-      }
-
-      .header__menulist li:hover ul {
-        width: 100%;
-        margin: 0 auto;
-        background-color: ${sqBlack};
+      .header__menulist li:hover {
+        ul {
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+          background-color: ${sqBlack};
+          top: 30px;
+          width: 500%;
+        }
+        .members_ul {
+          margin-left: -220%;
+        }
+        .board_ul {
+          margin-left: -200%;
+        }
       }
 
       .header__right li {
@@ -244,6 +254,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       height: 100%;
       text-align: center;
       align-items: center;
+
       & > li {
         margin: 0 20px;
         display: flex;
@@ -251,48 +262,47 @@ export const HeaderDiv = styled.div<HeaderProps>`
         cursor: pointer;
         position: relative;
         height: 100%;
-        :hover {
+        &:hover {
           border-bottom: 5px solid ${sqRed};
           transition: border-bottom 0.2s ease-in-out;
         }
         .members_ul {
-          margin-left: calc(-50vw + 20% - 70px);
+          width: 130vw;
+          margin-left: calc(-60vw + 20% - 70px);
         }
         .board_ul {
-          margin-left: calc(-50vw + 50% - 70px);
+          width: 110vw;
+          margin-left: calc(-50vw + 40% - 70px);
+        }
+
+        & > ul {
+          list-style: none;
+          display: none;
+          height: 35px;
+          position: absolute;
+          top: 55px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: ${sqWhite};
+          color: ${sqBlack};
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
+          & > li {
+            text-align: center;
+            padding: 0 10px;
+            font-size: 14px;
+          }
+          & > li:hover {
+            color: ${sqRed};
+            transition: width 2s, height 2s, color 200ms, transform 4s;
+          }
         }
       }
-    }
-
-    .header__menulist li ul {
-      list-style: none;
-      display: none;
-      width: 110vw;
-      height: 35px;
-      top: 30px;
-      margin-top: 25px;
     }
 
     .header__menulist li:hover ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      text-align: center;
-      background-color: ${sqWhite};
-      color: ${sqBlack};
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px;
-      & > li {
-        text-align: center;
-        padding: 0 10px;
-        font-size: 14px;
-      }
-      & > li:hover {
-        color: ${sqRed};
-        transition: width 2s, height 2s, color 200ms, transform 4s;
-      }
     }
-
     .header__left {
       display: flex;
     }
@@ -337,19 +347,27 @@ export const HeaderDiv = styled.div<HeaderProps>`
         flex-direction: column;
         width: 100%;
         background-color: ${sqWhite};
+
+        li {
+          margin: 1rem 0;
+          padding: 0;
+          color: ${sqBlack};
+        }
       }
 
-      .header__menulist li {
-        margin: 1rem 0;
-        padding: 0;
-        color: ${sqBlack};
-      }
-
-      .header__menulist li:hover ul {
-        box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
-        width: 100%;
-        margin: 0 auto;
-        background-color: ${sqWhite};
+      .header__menulist li:hover {
+        ul {
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+          background-color: ${sqWhite};
+          top: 30px;
+          width: 500%;
+        }
+        .members_ul {
+          margin-left: -220%;
+        }
+        .board_ul {
+          margin-left: -200%;
+        }
       }
 
       .header__right li {
