@@ -10,6 +10,7 @@ import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
 import { ChangeUserProfile, postEmail } from '../../apis/user';
 import router from 'next/router';
+import NoList from '../../components/NoList';
 
 function Profile() {
   const [click, setClick] = useState(false);
@@ -88,7 +89,6 @@ function Profile() {
           {me.name}님의 프로필
           <h2>sequence makes difference</h2>
         </div>
-
         <div className="profile-contents">
           <img className="flowerlogo" src="/flowerLogo_b.png" />
           이메일 주소: {me.email}
@@ -175,21 +175,22 @@ function Profile() {
       </ProfileDiv>
       <CTDiv>
         <span>내 게시글</span>
-        <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
-          {me.posts &&
-            me.posts.map((item, index) => {
-              return (
-                <Link href={`../../posts/${item._id}`} key={item._id}>
-                  <Tr>
-                    <CommonTd>{index + 1}.</CommonTd>
-                    <CommonTd>{me.name}</CommonTd>
-                    <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
-                    <CommonTd>{item.title}</CommonTd>
-                  </Tr>
-                </Link>
-              );
-            })}
-        </CommonTable>
+        {me.posts.length > 0 ? (
+          <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
+            {me.posts.map((item, index) => (
+              <Link href={`../../posts/${item._id}`} key={item._id}>
+                <Tr>
+                  <CommonTd>{index + 1}.</CommonTd>
+                  <CommonTd>{me.name}</CommonTd>
+                  <CommonTd>{dayjs(item.createdAt).format('YY/MM/DD')}</CommonTd>
+                  <CommonTd>{item.title}</CommonTd>
+                </Tr>
+              </Link>
+            ))}
+          </CommonTable>
+        ) : (
+          <NoList krTitle={'작성한 게시글이 없습니다.'} enTitle={'posts'} />
+        )}
       </CTDiv>
     </div>
   );
