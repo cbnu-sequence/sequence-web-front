@@ -11,6 +11,8 @@ import dayjs from 'dayjs';
 import { ChangeUserProfile, postEmail } from '../../apis/user';
 import router from 'next/router';
 import NoList from '../../components/NoList';
+import EmailCheckProfile from '../../components/EmailCheckProfile';
+
 
 function Profile() {
   const [click, setClick] = useState(false);
@@ -18,6 +20,8 @@ function Profile() {
   const [comment, setComment] = useState('');
   const [githubUrl, setGithubUrl] = useState('');
   const [otherUrls, setOtherUrls] = useState([]);
+
+  const [emailcheck, setEmailCheck] = useState(false);
 
   const { user: me } = useUser();
 
@@ -73,7 +77,7 @@ function Profile() {
   const onEmailCheck = () => {
     postEmail().then((response) => {
       if (response.status === 200) {
-        router.replace('/emailcheckprofile');
+        setEmailCheck(true);
         alert('이메일로 인증번호가 전송되었습니다.');
       } else {
         alert('오류가 발생했습니다.');
@@ -172,6 +176,7 @@ function Profile() {
           )}
           {!me.valid && <AddButton onClick={onEmailCheck}>이메일 인증하기</AddButton>}
         </div>
+        {emailcheck && <EmailCheckProfile setEmailCheck={setEmailCheck} />}
       </ProfileDiv>
       <CTDiv>
         <span>내 게시글</span>
