@@ -36,12 +36,12 @@ const Notice = () => {
     if (me && me.role === 'Admin') {
       return (
         <>
+          <NoList enTitle={'notice'} krTitle={'등록된 공지사항이 없습니다'} />;
           <Link href={'./write?category=notice'}>
-            <WriteBtnBlock>
+            <WriteBtnBlock style={{ width: '75%' }}>
               <WriteBtn />
             </WriteBtnBlock>
           </Link>
-          <NoList enTitle={'notice'} krTitle={'등록된 공지사항이 없습니다'} />;
         </>
       );
     } else {
