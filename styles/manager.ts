@@ -34,19 +34,6 @@ export const ManagerBlock = styled.div`
     justify-content: center;
     flex-flow: row wrap;
   }
-
-  .card {
-    box-shadow: ${sqWhiteBoxShadow};
-    margin: 3.5rem 3rem;
-    padding: 6.2% 2.5%;
-    width: 15%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: ${sqBlack};
-    text-align: center;
-    cursor: pointer;
-    @media screen and (max-width: 786px) {
-      width: 100%;
-    }
+  
   }
 `;

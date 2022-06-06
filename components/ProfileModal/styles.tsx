@@ -24,6 +24,22 @@ export const ModalContainer = styled.div`
   background: ${sqWhite};
   border-radius: 10px;
   text-align: center;
+  .desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > img {
+      width: 80%;
+      height: 16rem;
+      object-fit: cover;
+      box-shadow: ${sqWhiteBoxShadow};
+      border-radius: 5px;
+    }
+    & > p {
+      width: 80%;
+      margin-top: 2rem;
+    }
+  }
 `;
 
 export const TopBlock = styled.div`
