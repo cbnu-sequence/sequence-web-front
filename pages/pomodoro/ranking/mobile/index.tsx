@@ -7,7 +7,13 @@ const Ranking = () => {
 
   return (
     <MobilePomoDiv>
-      <PomoRanking Range={Range} daily={dailyRanking} weekly={weeklyRanking} monthly={monthlyRanking} />
+      <PomoRanking
+        Range={Range}
+        daily={dailyRanking}
+        weekly={weeklyRanking}
+        monthly={monthlyRanking}
+        isMobileApp={true}
+      />
     </MobilePomoDiv>
   );
 };

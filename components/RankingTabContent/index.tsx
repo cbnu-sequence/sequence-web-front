@@ -1,7 +1,7 @@
 import React from 'react';
 import { RankingTable } from '../../styles/ranking';
 
-const RankingTabContent = ({ range, daily, weekly, monthly }) => {
+const RankingTabContent = ({ range, daily, weekly, monthly, isMobileApp }) => {
   let data = [];
   if (range === 'daily') {
     data = daily;
@@ -17,7 +17,7 @@ const RankingTabContent = ({ range, daily, weekly, monthly }) => {
 
   return (
     <div>
-      <RankingTable>
+      <RankingTable isMobileApp={isMobileApp}>
         <thead>
           <tr>
             <td></td>
