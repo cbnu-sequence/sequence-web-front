@@ -61,11 +61,3 @@ export async function getServerSideProps(context) {
     },
   };
 }
-
-export const getStaticProps = async () => {
-  return {
-    props: {
-      layout: 'onlyBody',
-    },
-  };
-};

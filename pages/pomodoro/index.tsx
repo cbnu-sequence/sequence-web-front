@@ -119,7 +119,13 @@ const Pomodoro = () => {
         </Link>
 
         {isRankingOpen && (
-          <PomoRanking Range={Range} daily={dailyRanking} weekly={weeklyRanking} monthly={monthlyRanking} />
+          <PomoRanking
+            Range={Range}
+            daily={dailyRanking}
+            weekly={weeklyRanking}
+            monthly={monthlyRanking}
+            isMobileApp={false}
+          />
         )}
       </PomodoroBlock>
     </>

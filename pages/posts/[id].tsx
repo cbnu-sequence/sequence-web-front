@@ -3,12 +3,13 @@ import { useRouter } from 'next/router';
 import PostDetail from '../../components/PostDetail';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { getPost } from '../../apis/post';
+import { GetServerSideProps } from 'next';
 
 function Post() {
   const router = useRouter();
   // @ts-ignore
   const { id, category }: { id: string; category: string } = router.query;
-  const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id));
+  const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id), { keepPreviousData: true });
   if (isLoading) return <div>Loading</div>;
   return (
     <>
@@ -28,15 +29,18 @@ function Post() {
 
 export default Post;
 
-export async function getServerSideProps(context) {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([context.query.category, context.query.id], () =>
-    getPost(context.query.category, context.query.id),
-  );
-
-  return {
-    props: {
-      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
-    },
-  };
-}
+export const getServerSideProps = async (context) => {
+  try {
+    const queryClient = new QueryClient();
+    await queryClient.prefetchQuery([context.query.category, context.query.id], () =>
+      getPost(context.query.category, context.query.id),
+    );
+    return {
+      props: {
+        dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+      },
+    };
+  } catch (err) {
+    console.error(err);
+  }
+};
