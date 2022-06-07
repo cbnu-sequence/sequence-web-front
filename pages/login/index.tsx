@@ -9,7 +9,7 @@ import Router from 'next/router';
 import { useAuth } from '../../hooks/useAuth';
 import img from 'next/image';
 
-function LogIn() {
+function LogIn(props) {
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
   const { login } = useAuth();

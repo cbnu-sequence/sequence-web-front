@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import PostDetail from '../../components/PostDetail';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { getPost } from '../../apis/post';
-import Header from '../../components/Header';
 
 function Post() {
   const router = useRouter();
@@ -13,7 +12,6 @@ function Post() {
   if (isLoading) return <div>Loading</div>;
   return (
     <>
-      <Header />
       <PostDetail
         title={data.data.title}
         createdAt={data.data.createdAt}
