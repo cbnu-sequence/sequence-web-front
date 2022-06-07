@@ -49,5 +49,5 @@ export const RankingBtn = styled.button`
 
 export const MobilePomoDiv = styled.div`
   height: 100%;
-  background-color: ${sqDarkGreen};
+  background-color: ${sqWhite};
 `;

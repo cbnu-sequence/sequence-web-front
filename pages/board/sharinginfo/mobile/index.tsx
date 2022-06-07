@@ -51,7 +51,7 @@ function SharingInfoMobile(props) {
         <title>시퀀스 | 정보공유</title>
       </Head>
       <CommonHeader title={'정보 공유'} />
-      {me && me?.role === 'Admin' && (
+      {me && (
         <Link href={'../write?category=sharingInfo'}>
           <WriteBtnBlock>
             <WriteBtn />
@@ -62,7 +62,7 @@ function SharingInfoMobile(props) {
         {infoList &&
           infoList.data.map((item, index) => {
             return (
-              <Link key={item._id} href={`../../posts/${item._id}?category=sharingInfo`}>
+              <Link key={item._id} href={`./mobile/posts/${item._id}?category=sharingInfo`}>
                 <Tr>
                   <CommonTd>{limit * (page - 1) + (index + 1)}.</CommonTd>
                   <CommonTd>{item.writer.name}</CommonTd>
