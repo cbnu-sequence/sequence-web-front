@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import NoList from '../../../components/NoList';
 import { useProjectMembers } from '../../../hooks/useProjectMembers';
-import { ColorLine, ContentBlock, MembersBlock, ProjectTeamBlock, TopSquareBlock } from '../../../styles/ProjectTeam';
+import { ColorLine, ContentBlock, MembersBlock, ProjectTeamBlock, TopSquareBlock } from '../../../styles/projectTeam';
 
 const ProjectTeam = () => {
   const { frontenddata, backenddata, devopsdata, iosdata, frontendError, backendError, devopsError, iosError } =

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { getProjectMembers, getTechCourseMembers } from '../../../apis/user';
 import NoList from '../../../components/NoList';
 import { queryKeys } from '../../../react-query/constants';
-import { MembersBlock, TCIntroductionDiv, TCMemberDiv, TechcourseteamDiv } from '../../../styles/TechcourseTeam';
+import { MembersBlock, TCIntroductionDiv, TCMemberDiv, TechcourseteamDiv } from '../../../styles/techcourseTeam';
 
 const TechcourseTeam = () => {
   const { data, isError } = useQuery([queryKeys.techcourseTeam], () => getTechCourseMembers(), {
