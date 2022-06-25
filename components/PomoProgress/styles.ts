@@ -7,9 +7,12 @@ export const ProgressDiv = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  top: 100px;
+  top: 60px;
   font-size: 20px;
   & > p {
     padding-right: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    top:20px;''
   }
 `;
