@@ -1,8 +1,8 @@
 import { TimerDiv } from './styles';
 
-const Timer = ({ min, sec }) => {
+const Timer = ({ min, sec, isActive }) => {
   return (
-    <TimerDiv>
+    <TimerDiv isActive={isActive}>
       <div className="wrapper">
         <div>
           {min}

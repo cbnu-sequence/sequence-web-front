@@ -1,6 +1,11 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { PpomoBoxShadow, sqDarkGreen, sqDeepDarkGreen, sqWhite } from '../../styles/constants';
+
+type TimerProps = {
+  isActive: boolean;
+};
+
 const blink = keyframes`
   20% {
     border-color: #306862;
@@ -18,7 +23,7 @@ const blink = keyframes`
     border-color: #527176;
   }
 `;
-export const TimerDiv = styled.div`
+export const TimerDiv = styled.div<TimerProps>`
   display: flex;
   height: 23rem;
   font-size: 7rem;
@@ -31,7 +36,7 @@ export const TimerDiv = styled.div`
     padding: 2rem;
     height: 100%;
     border: 18px solid #527176;
-    animation: ${blink} 4s ease-in-out infinite;
+    animation: ${({ isActive }) => (isActive ? `${blink} 4s ease-in-out infinite` : 'none')};
     & > div {
       z-index: 1;
       display: flex;
@@ -59,15 +64,17 @@ export const TimerDiv = styled.div`
     margin-top: 3rem;
     display: flex;
     justify-content: center;
+    width: 100%;
     .wrapper {
       margin-top: 30px;
       height: 80%;
-      width: 15rem;
+      width: 18rem;
       & > div {
-        width: 6rem;
+        width: 100%;
         height: 7.5rem;
-        margin-right: 8px;
-        margin-left: 8px;
+        padding: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
         .units {
           font-size: 11px;
           margin-bottom: 15px;

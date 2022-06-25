@@ -97,7 +97,7 @@ const Pomodoro = () => {
       <Header />
       <PomodoroBlock>
         <p>pomodoro</p>
-        <Timer min={min} sec={sec} />
+        <Timer min={min} sec={sec} isActive={isActive} />
         <PomoProgress progress={progress} />
         <TimerForm user={user} onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
         {user && <MyPomo userName={user.name} records={myPomos} />}

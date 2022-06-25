@@ -11,6 +11,13 @@ export const TimerFormDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      position: relative;
+      & > input {
+        position: relative;
+        top: -20px;
+      }
+    }
     input {
       padding: 15px;
       outline: none;
@@ -50,13 +57,15 @@ export const TimerFormDiv = styled.div`
         &:active {
           box-shadow: ${PpomoBoxShadow};
         }
-
-        @media screen and (max-width: 768px) {
-          padding-bottom: 3px;
-          height: 2.5rem;
-          width: 7rem;
-          font-size: 20px;
-        }
+      }
+      @media screen and (max-width: 768px) {
+        padding-bottom: 3px;
+        height: 4rem;
+        top: -108px;
+        width: 10rem;
+        position: relative;
+        bottom: 100px;
+        font-size: 20px;
       }
     }
   }

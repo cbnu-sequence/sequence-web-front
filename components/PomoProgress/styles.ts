@@ -12,4 +12,7 @@ export const ProgressDiv = styled.div`
   & > p {
     padding-right: 10px;
   }
+  @media screen and (max-width: 768px) {
+    top:20px;''
+  }
 `;
