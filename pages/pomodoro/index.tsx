@@ -20,7 +20,6 @@ const Pomodoro = () => {
   const [progress, setProgress] = useState('');
   const [min, setMin] = useState(25);
   const [sec, setSec] = useState(0);
-  const [mil, setMil] = useState(0);
   const [isRankingOpen, setIsRankingOpen] = useState(false);
   const { user } = useUser();
   const { Range, dailyRanking, weeklyRanking, monthlyRanking } = useRanking();
@@ -34,33 +33,23 @@ const Pomodoro = () => {
   let myPomos = data?.data;
 
   useEffect(() => {
-    let timer;
-    clearInterval(timer);
     if (isActive) {
-      timer = setInterval(() => {
-        if (mil > 0) {
-          setMil(mil - 1);
+      const countdown = setInterval(() => {
+        if (sec > 0) {
+          setSec(sec - 1);
         }
-        if (mil === 0) {
-          if (sec > 0 || min != 0) {
-            setSec(sec - 1);
-            setMil(10);
-          }
-          if (sec === 0) {
-            if (min === 0) {
-              clearInterval(timer);
-              onEndPomo();
-            } else {
-              setMin(min - 1);
-              setSec(59);
-              setMil(10);
-            }
+        if (sec === 0) {
+          if (min === 0) {
+            clearInterval(countdown);
+          } else {
+            setMin(min - 1);
+            setSec(59);
           }
         }
-      }, 100);
+      }, 1000);
+      return () => clearInterval(countdown);
     }
-    return () => clearInterval(timer);
-  }, [min, sec, mil, isActive]);
+  }, [min, sec, isActive]);
 
   const onAddPomo = useCallback((title) => {
     firstPomodoroAPI({ title, date: new Date() })
@@ -79,6 +68,10 @@ const Pomodoro = () => {
       });
   }, []);
 
+  const onReset = useCallback(() => {
+    setMin(25);
+    setSec(0);
+  }, [setMin, setSec]);
   const onEndPomo = useCallback(() => {
     setIsActive(false);
     onReset();
@@ -94,13 +87,7 @@ const Pomodoro = () => {
       .catch((err) => {
         alert(err);
       });
-  }, [setIsActive]);
-
-  const onReset = useCallback(() => {
-    setMin(25);
-    setSec(0);
-    setMil(0);
-  }, [setMin, setSec, setMil]);
+  }, [setIsActive, onReset, pomoId]);
 
   return (
     <>
@@ -110,11 +97,11 @@ const Pomodoro = () => {
       <Header />
       <PomodoroBlock>
         <p>pomodoro</p>
-        <Timer min={min} sec={sec} mil={mil} />
+        <Timer min={min} sec={sec} />
         <PomoProgress progress={progress} />
         <TimerForm user={user} onReset={onReset} isActive={isActive} setIsActive={setIsActive} onAddPomo={onAddPomo} />
         {user && <MyPomo userName={user.name} records={myPomos} />}
-        <Link href="#RK">
+        <Link href="#RK" passHref>
           <RankingBtn onClick={() => setIsRankingOpen(!isRankingOpen)}>일간, 주간, 월간 랭킹보기</RankingBtn>
         </Link>
 

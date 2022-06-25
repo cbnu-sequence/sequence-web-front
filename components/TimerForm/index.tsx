@@ -20,7 +20,7 @@ const TimerForm = ({ user, onReset, isActive, setIsActive, onAddPomo }) => {
       onAddPomo(title);
       setTitle('');
     },
-    [title, setTitle],
+    [title, setTitle, onAddPomo, user, Router],
   );
   const onStop = useCallback(
     (e) => {
@@ -36,7 +36,9 @@ const TimerForm = ({ user, onReset, isActive, setIsActive, onAddPomo }) => {
   return (
     <TimerFormDiv>
       <form onSubmit={isActive ? onStop : onSubmit}>
-        <button>{isActive ? 'stop' : 'start'}</button>
+        <div className="timer_btn">
+          <button>{isActive ? 'stop' : 'start'}</button>
+        </div>
         <input value={title} onChange={onChangeTitle} placeholder={'25분간 할 일을 입력해주세요'}></input>
       </form>
     </TimerFormDiv>
