@@ -11,10 +11,6 @@ export function loadMyInfoAPI(data) {
   return axios
     .get('auth/me', { withCredentials: true })
     .then((res) => {
-      if (res.status === 400) {
-        clearStoredUser();
-        return;
-      }
       return res.data;
     })
     .catch((err) => {
@@ -42,39 +38,38 @@ export function logOutAPI() {
   return axios.get('auth/logout').then((response) => response.data);
 }
 
-
-export async function getProjectMembers(part: string){
-  try{
+export async function getProjectMembers(part: string) {
+  try {
     const response = await axios.get(`/member/project?part=${part}`);
     return response;
-  } catch(error){
+  } catch (error) {
     return error.response;
   }
 }
 
-export async function getTechCourseMembers(){
-  try{
+export async function getTechCourseMembers() {
+  try {
     const response = await axios.get('/member/techCourse');
     return response;
-  } catch(error){
+  } catch (error) {
     return error.response;
   }
 }
 
-export async function ChangeUserProfile(data: { githubUrl: string; otherUrls: Array<string>; comment: string; }){
-  try{
+export async function ChangeUserProfile(data: { githubUrl: string; otherUrls: Array<string>; comment: string }) {
+  try {
     const response = await axios.post('/member/user', data);
     return response;
-  } catch(error){
+  } catch (error) {
     return error.response;
   }
 }
 
-export async function postEmail(){
-  try{
+export async function postEmail() {
+  try {
     const response = await axios.post('/auth/mail');
     return response;
-  } catch(error){
+  } catch (error) {
     return error.response;
   }
 }

@@ -145,10 +145,8 @@ export const Pomodoro = styled.div`
   .tomato_btn {
     cursor: pointer;
     width: 300px;
-
     transition: width 0.25s ease-in-out;
-
-    &: hover {
+    :hover  {
       width: 305px;
     }
   }
@@ -247,8 +245,7 @@ export const SmallBox = styled.div`
 
 export const PomoLink = styled(Link)`
   width: 30%;
-  height: 30%:
-  
+  height: 30%;
 `;
 
 export const Github = styled.div`
