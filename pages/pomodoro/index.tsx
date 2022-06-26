@@ -32,42 +32,6 @@ const Pomodoro = () => {
   });
   let myPomos = data?.data;
 
-  useEffect(() => {
-    if (isActive) {
-      const countdown = setInterval(() => {
-        if (sec > 0) {
-          setSec(sec - 1);
-        }
-        if (sec === 0) {
-          if (min === 0) {
-            clearInterval(countdown);
-          } else {
-            setMin(min - 1);
-            setSec(59);
-          }
-        }
-      }, 1000);
-      return () => clearInterval(countdown);
-    }
-  }, [min, sec, isActive]);
-
-  const onAddPomo = useCallback((title) => {
-    firstPomodoroAPI({ title, date: new Date() })
-      .then((res) => {
-        if (res.status === 400) {
-          alert('title을 입력해주세요');
-          return;
-        } else {
-          setPomoId(res.data._id);
-          setProgress(res.data.title);
-          setIsActive(true);
-        }
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  }, []);
-
   const onReset = useCallback(() => {
     setMin(25);
     setSec(0);
@@ -88,6 +52,43 @@ const Pomodoro = () => {
         alert(err);
       });
   }, [setIsActive, onReset, pomoId]);
+
+  useEffect(() => {
+    if (isActive) {
+      const countdown = setInterval(() => {
+        if (sec > 0) {
+          setSec(sec - 1);
+        }
+        if (sec === 0) {
+          if (min === 0) {
+            clearInterval(countdown);
+            onEndPomo();
+          } else {
+            setMin(min - 1);
+            setSec(59);
+          }
+        }
+      }, 1000);
+      return () => clearInterval(countdown);
+    }
+  }, [min, sec, isActive, onEndPomo]);
+
+  const onAddPomo = useCallback((title) => {
+    firstPomodoroAPI({ title, date: new Date() })
+      .then((res) => {
+        if (res.status === 400) {
+          alert('title을 입력해주세요');
+          return;
+        } else {
+          setPomoId(res.data._id);
+          setProgress(res.data.title);
+          setIsActive(true);
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
 
   return (
     <>
