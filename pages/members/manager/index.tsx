@@ -17,7 +17,7 @@ const Manager = () => {
         <div className="cardblock">
           {[
             { _id: 'hasonghee', user: { name: '하송희' }, img: '/songhee.jpeg', , description: '안녕하세요〰 시퀀스 회장과 웹 프론트 개발을 맡고있는 하송희입니다❣'},
-            { _id: 'chadonghyun', user: { name: '차동현' }, img: '/dong.jpeg', description: '안녕하세요. 시퀀스 부회장과 백엔드 개발자를 담당하는 차동현입니다.' },
+            { _id: 'chadonghyun', user: { name: '차동현' }, img: '/dong.jpeg', description: '안녕하세요! 시퀀스 부회장과 백엔드 개발자를 담당하는 차동현입니다.' },
           ].map((item) => (
             <ManagerCard key={item._id} className="card" onClick={() => onClickCard(item)}>
               <div>
