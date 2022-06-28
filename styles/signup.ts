@@ -1,5 +1,10 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { sqBlack, sqRed, sqWhite } from './constants';
+
+interface ButtonType {
+  disabled?: boolean;
+}
 
 export const Header = styled.header`
   justify-content: center;
@@ -74,7 +79,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonType>`
   margin-bottom: 12px;
   width: 100%;
   max-width: 100%;
@@ -102,6 +107,15 @@ export const Button = styled.button`
     --saf-0: rgba(var(--sk_highlight, 18, 100, 163), 1);
     box-shadow: 0 0 0 1px var(--saf-0), 0 0 0 5px rgba(29, 155, 209, 0.3);
   }
+
+  ${(props) => props.disabled && css`
+    background-color: gray;
+    &:hover{
+      background-color: gray;
+      transition: 0;
+      cursor: default;
+    }
+  `}
 `;
 
 export const Error = styled.div`

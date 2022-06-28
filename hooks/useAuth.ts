@@ -7,7 +7,7 @@ import { loadMyInfoAPI, logOutAPI } from '../apis/user';
 
 interface UseAuth {
   login: (data: LogInData) => Promise<void>;
-  signup: (data: SignUpData, Router) => Promise<void | number>;
+  signup: (data: SignUpData, Router) => Promise<void | number | boolean>;
   signout: () => void;
 }
 
@@ -101,8 +101,9 @@ export function useAuth(): UseAuth {
     authLogInCall('auth/login', inputData);
   }
 
-  async function signup(inputData, Router): Promise<void> {
-    authSignUpCall('auth/register', inputData, Router);
+  async function signup(inputData, Router): Promise<boolean> {
+    const loading = false;
+    return authSignUpCall('auth/register', inputData, Router).then(() => { return loading; });
   }
 
   function signout(): void {
