@@ -1,5 +1,6 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { PpomoBoxShadow, sqDarkGreen, sqDeepDarkGreen, sqWhite } from '../../styles/constants';
 
 type TimerProps = {
@@ -36,7 +37,12 @@ export const TimerDiv = styled.div<TimerProps>`
     padding: 2rem;
     height: 100%;
     border: 18px solid #527176;
-    animation: ${({ isActive }) => (isActive ? `${blink} 4s ease-in-out infinite` : 'none')};
+    animation: ${({ isActive }) =>
+      isActive
+        ? css`
+            ${blink} 4s ease-in-out infinite
+          `
+        : 'none'};
     & > div {
       z-index: 1;
       display: flex;
