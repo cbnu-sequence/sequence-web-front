@@ -9,6 +9,7 @@ import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
 
 const SignUp = () => {
+  const [signUpIsLoading, setSignUpIsLoading] = useState(false);
   const [signUpError, setSignUpError] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);
   const [email, onChangeEmail] = useInput('');
@@ -42,11 +43,12 @@ const SignUp = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      signup({ email, password, name, phoneNumber }, Router).catch((error) => {
+      setSignUpIsLoading(true);
+      signup({ email, password, name, phoneNumber }, Router, setSignUpIsLoading).catch((error) => {
         setSignUpError(true);
       });
     },
-    [email, name, password, phoneNumber],
+    [Router, email, name, password, phoneNumber, signup],
   );
 
   return (
@@ -106,7 +108,14 @@ const SignUp = () => {
             {signUpError && <Error>이미 가입된 이메일입니다.</Error>}
           </Label>
           <div id="sign-up-btns">
-            <Button type="submit">회원가입</Button>
+            {signUpIsLoading ? (
+              <Button disabled>
+                <div>회원가입 중...</div>
+                <div className="spinner" />
+              </Button>
+            ) : (
+              <Button type="submit">회원가입</Button>
+            )}
             <KakaoBtn />
           </div>
         </Form>
