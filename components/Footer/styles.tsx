@@ -3,7 +3,8 @@ import { sqBlack, sqWhite, sqRed, sqLightGray, sqDarkGray } from '../../styles/c
 
 export const FooterDiv = styled.footer`
   padding: 2rem;
-  position: absolute;
+  position: relative;
+  transform: translateY(150%);
   bottom: 0;
   left: 0;
   background-color: ${sqLightGray};

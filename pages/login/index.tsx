@@ -10,6 +10,7 @@ import { useAuth } from '../../hooks/useAuth';
 import img from 'next/image';
 
 function LogIn(props) {
+  const [loginIsLoading, setLoginIsLoading] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
   const { login } = useAuth();
@@ -22,7 +23,8 @@ function LogIn(props) {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      login({ email, password });
+      setLoginIsLoading(true);
+      login({ email, password }, setLoginIsLoading);
     },
     [email, password, login],
   );
@@ -51,7 +53,14 @@ function LogIn(props) {
               <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
             </div>
           </Label>
-          <Button type="submit">로그인</Button>
+          {loginIsLoading ? (
+            <Button disabled>
+              <div>로그인 중...</div>
+              <div className="spinner" />
+            </Button>
+          ) : (
+            <Button type="submit">로그인</Button>
+          )}
           <KakaoBtn />
           <LinkContainer>
             회원이 아니신가요?&nbsp;
