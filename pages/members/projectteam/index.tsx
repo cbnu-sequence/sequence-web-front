@@ -19,7 +19,7 @@ const ProjectTeam = () => {
     <ProjectTeamBlock>
       <div className="toptitle">프로젝트 팀</div>
       <TopSquareBlock>
-        <Link href="#front">
+        <Link href="#front" passHref>
           <div className="top_square">
             <div style={{ textAlign: 'center' }}>
               WEB
