@@ -5,7 +5,6 @@ export const PostDetailDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 50vw;
-  height: 100vh;
   margin-top: 20px;
   // .header {
   //   width: 100%;
