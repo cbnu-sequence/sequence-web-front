@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { sqBlack, sqRed, sqWhite } from './constants';
 
-interface ButtonType {
+type ButtonType = {
   disabled?: boolean;
 }
 
@@ -109,11 +109,34 @@ export const Button = styled.button<ButtonType>`
   }
 
   ${(props) => props.disabled && css`
-    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${sqWhite};
+
     &:hover{
-      background-color: gray;
+      background-color: ${sqBlack};
       transition: 0;
       cursor: default;
+    }
+
+    @keyframes spin {
+	    0% {
+	      transform: rotate(0);
+      }
+      100% {
+	      transform: rotate(360deg);
+      }
+    }
+
+    .spinner{
+      border-top: 2px solid ${sqWhite};
+      border-bottom: 2px solid ${sqWhite};
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+      width: 27px;
+      height: 27px;
+      margin-left: 10px;
     }
   `}
 `;

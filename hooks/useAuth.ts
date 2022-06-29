@@ -7,7 +7,7 @@ import { loadMyInfoAPI, logOutAPI } from '../apis/user';
 
 interface UseAuth {
   login: (data: LogInData) => Promise<void>;
-  signup: (data: SignUpData, Router) => Promise<void | number | boolean>;
+  signup: (data: SignUpData, Router, setIsLoading) => Promise<void | number>;
   signout: () => void;
 }
 
@@ -61,6 +61,7 @@ export function useAuth(): UseAuth {
     urlEndpoint: string,
     inputData: LogInData | SignUpData,
     Router,
+    setIsLoading
   ): Promise<void | number> {
     try {
       const {
@@ -75,6 +76,7 @@ export function useAuth(): UseAuth {
       if (status === 400) {
         const title = 'message' in data ? data.message : '권한이 없습니다.';
         toast({ title, status: 'warning' });
+        setIsLoading(false);
         return;
       }
 
@@ -94,6 +96,7 @@ export function useAuth(): UseAuth {
         title,
         status: 'error',
       });
+      setIsLoading(false);
     }
   }
 
@@ -101,9 +104,8 @@ export function useAuth(): UseAuth {
     authLogInCall('auth/login', inputData);
   }
 
-  async function signup(inputData, Router): Promise<boolean> {
-    const loading = false;
-    return authSignUpCall('auth/register', inputData, Router).then(() => { return loading; });
+  async function signup(inputData, Router, setIsLoading): Promise<void> {
+    authSignUpCall('auth/register', inputData, Router, setIsLoading);
   }
 
   function signout(): void {
