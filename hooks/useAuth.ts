@@ -6,8 +6,8 @@ import { axiosInstance } from '../axiosInstance';
 import { loadMyInfoAPI, logOutAPI } from '../apis/user';
 
 interface UseAuth {
-  login: (data: LogInData) => Promise<void>;
-  signup: (data: SignUpData, Router, setIsLoading) => Promise<void | number>;
+  login: (data: LogInData, setLoginIsLoading) => Promise<void>;
+  signup: (data: SignUpData, Router, setSignUpIsLoading) => Promise<void | number>;
   signout: () => void;
 }
 
@@ -20,7 +20,7 @@ export function useAuth(): UseAuth {
   const toast = useCustomToast();
   const { user, updateUser, clearUser } = useUser();
 
-  async function authLogInCall(urlEndpoint: string, inputData: LogInData | SignUpData): Promise<void | number> {
+  async function authLogInCall(urlEndpoint: string, inputData: LogInData | SignUpData, setLoginIsLoading): Promise<void | number> {
     try {
       const {
         data: { data, status },
@@ -34,6 +34,7 @@ export function useAuth(): UseAuth {
       if (status === 400) {
         const title = 'message' in data ? data.message : '권한이 없습니다.';
         toast({ title, status: 'warning' });
+        setLoginIsLoading(false);
         return;
       }
 
@@ -54,6 +55,7 @@ export function useAuth(): UseAuth {
         title,
         status: 'error',
       });
+      setLoginIsLoading(false);
     }
   }
 
@@ -61,7 +63,7 @@ export function useAuth(): UseAuth {
     urlEndpoint: string,
     inputData: LogInData | SignUpData,
     Router,
-    setIsLoading
+    setSignUpIsLoading
   ): Promise<void | number> {
     try {
       const {
@@ -76,7 +78,7 @@ export function useAuth(): UseAuth {
       if (status === 400) {
         const title = 'message' in data ? data.message : '권한이 없습니다.';
         toast({ title, status: 'warning' });
-        setIsLoading(false);
+        setSignUpIsLoading(false);
         return;
       }
 
@@ -96,16 +98,16 @@ export function useAuth(): UseAuth {
         title,
         status: 'error',
       });
-      setIsLoading(false);
+      setSignUpIsLoading(false);
     }
   }
 
-  async function login(inputData): Promise<void> {
-    authLogInCall('auth/login', inputData);
+  async function login(inputData, setLoginIsLoading): Promise<void> {
+    authLogInCall('auth/login', inputData, setLoginIsLoading);
   }
 
-  async function signup(inputData, Router, setIsLoading): Promise<void> {
-    authSignUpCall('auth/register', inputData, Router, setIsLoading);
+  async function signup(inputData, Router, setSignUpIsLoading): Promise<void> {
+    authSignUpCall('auth/register', inputData, Router, setSignUpIsLoading);
   }
 
   function signout(): void {
