@@ -6,13 +6,18 @@ export const ProjectDetailBlock = styled.div`
   margin: 0 auto;
 
   .projectdetail-bodycontainer {
-    font-size: 1.2rem;
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 
   .projectdetail-bodycontainer-image {
     display: flex;
     justify-content: space-around;
     margin: 2rem 0;
+    @media screen and (max-width: 768px) {
+      flex-flow: row wrap;
+    }
     .projectdetail-bodycontainer-img {
       cursor: pointer;
     }
@@ -29,6 +34,9 @@ export const ProjectDetailBlock = styled.div`
     margin: 0.4rem 0;
     font-size: 1.5rem;
     font-weight: bold;
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 
   .projectdetail-bodycontainer-participants {
