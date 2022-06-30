@@ -1,9 +1,18 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import PostHeader from '../PostHeader';
+import PostImages from '../PostImages';
+import ZoomImage from '../ZoomImage';
 import { ProjectDetailBlock } from './styles';
 
 const ProjectDetail = ({ data }) => {
-  console.log(data);
+  const [zoomImage, setZoomImage] = useState(false);
+  const [img, setImg] = useState(null);
+
+  const onZoomImage = (image) => {
+    setZoomImage(true);
+    setImg(image);
+  };
 
   return (
     <ProjectDetailBlock>
@@ -18,12 +27,13 @@ const ProjectDetail = ({ data }) => {
         {data.images.length > 0 && (
           <div className="projectdetail-bodycontainer-image">
             {data.images.map((image) => (
-              <div key={image._id}>
+              <div key={image._id} className="projectdetail-bodycontainer-img" onClick={() => onZoomImage(image)}>
                 <img src={image.url} />
               </div>
             ))}
           </div>
         )}
+        {zoomImage && <ZoomImage setZoomImage={setZoomImage} img={img} />}
         <div className="projectdetail-bodycontainer-content">{data.content}</div>
         {data.participants.length > 0 && (
           <div className="projectdetail-bodycontainer-participants">

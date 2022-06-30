@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqGray } from '../../styles/constants';
+import { sqGray, sqWhite, sqWhiteBoxShadow } from '../../styles/constants';
 
 export const ProjectDetailBlock = styled.div`
   width: 60%;
@@ -13,6 +13,9 @@ export const ProjectDetailBlock = styled.div`
     display: flex;
     justify-content: space-around;
     margin: 2rem 0;
+    .projectdetail-bodycontainer-img {
+      cursor: pointer;
+    }
     img {
       width: 300px;
       height: 300px;
