@@ -37,6 +37,13 @@ export function getPost(category: string, _id: string) {
     .catch((err) => console.error(err));
 }
 
+export function getProjectPost(_id: string){
+  return axios
+    .get(`project/${_id}`)
+    .then(res => res.data)
+    .catch(err => console.error(err));
+}
+
 export async function postProjectWrite(data: {
   title: string;
   content: string;
