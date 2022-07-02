@@ -13,7 +13,7 @@ const ZoomImage = ({ setZoomImage, img }) => {
         </div>
         {img && (
           <div className="zoomImage-image">
-            <img src={img.url} />
+            <img src={img.url} alt={img.name} />
           </div>
         )}
       </ModalContainer>
