@@ -50,7 +50,7 @@ export const ProjectDetailBlock = styled.div`
     top: -10px;
     left: 2%;
     font-weight: 700;
-    color: #0c0c0c;
+    color: ${sqBlack};
 
     @media screen and (max-width: 1350px) {
       left: 3%;
@@ -83,9 +83,10 @@ export const ProjectDetailBlock = styled.div`
     display: flex;
     margin: 1.3rem auto;
     font-weight: bold;
+    font-size: 1.2rem;
     width: 92%;
     .projectdetail-subbodycontainer-participant {
-      margin-left: 0.4rem;
+      margin-right: 0.4rem;
     }
   }
 

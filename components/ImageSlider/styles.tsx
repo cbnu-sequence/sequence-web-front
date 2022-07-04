@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { sqGray } from '../../styles/constants';
 
 export const Block = styled.div`
   .projectdetail-bodycontainer-image {
@@ -9,19 +10,19 @@ export const Block = styled.div`
       width: 100%;
     }
     .projectdetail-bodycontainer-leftIcon {
-      font-size: 5rem;
+      font-size: 4rem;
       display: flex;
       align-items: center;
-      color: #71757782;
+      color: ${sqGray};
       @media screen and (max-width: 768px) {
         font-size: 2rem;
       }
     }
     .projectdetail-bodycontainer-rightIcon {
-      font-size: 5rem;
+      font-size: 4rem;
       display: flex;
       align-items: center;
-      color: #71757782;
+      color: ${sqGray};
       @media screen and (max-width: 768px) {
         font-size: 2rem;
       }

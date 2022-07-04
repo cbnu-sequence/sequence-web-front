@@ -26,7 +26,6 @@ const ProjectDetail = ({ data }) => {
           <div className="projectdetail-subbodycontainer-content">{data.content}</div>
           {data.participants.length > 0 && (
             <div className="projectdetail-subbodycontainer-participants">
-              제작:
               {data.participants.map((participant) => (
                 <div key={participant._id} className="projectdetail-subbodycontainer-participant">
                   {participant.name}
