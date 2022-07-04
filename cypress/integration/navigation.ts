@@ -47,4 +47,27 @@ describe('Navigation', () => {
     cy.get('.members_ul >:nth-child(3) >a').click({ force: true });
     cy.url().should('include', '/manager');
   });
+  it('should navigate to the notice page', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.board_ul').invoke('show');
+    cy.get('.board_ul >:nth-child(1) >a').click({ force: true });
+    cy.url().should('include', '/notice');
+  });
+  it('should navigate to the project page', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.board_ul').invoke('show');
+    cy.get('.board_ul >:nth-child(2) >a').click({ force: true });
+    cy.url().should('include', '/project');
+  });
+  it('should navigate to the sharingInfo page', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.board_ul').invoke('show');
+    cy.get('.board_ul >:nth-child(3) >a').click({ force: true });
+    cy.url().should('include', '/sharinginfo');
+  });
+  it('should navigate to the pomodoro page', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.header__menulist > :nth-child(4) >a').click();
+    cy.url().should('include', '/pomodoro');
+  });
 });
