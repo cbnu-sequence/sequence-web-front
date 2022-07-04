@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { sqRed, sqLavender } from '../../styles/constants';
 
 export const ProjectCardBox = styled.div`
+  cursor: pointer;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
