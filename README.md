@@ -1,4 +1,4 @@
-# 충북대학교 정보통신공학부 과동아리 **'SEQUENCE'**<img src="./public/flowerLogo_b.png" width="5%" alt="SEQUENCE-LOGO" />
+# 충북 SW 프로젝트 동아리 **'SEQUENCE'**<img src="./public/flowerLogo_b.png" width="5%" alt="SEQUENCE-LOGO" />
 
 <br>
 
