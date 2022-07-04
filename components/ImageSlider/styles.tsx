@@ -9,17 +9,19 @@ export const Block = styled.div`
       width: 100%;
     }
     .projectdetail-bodycontainer-leftIcon {
-      font-size: 4rem;
+      font-size: 5rem;
       display: flex;
       align-items: center;
+      color: #71757782;
       @media screen and (max-width: 768px) {
         font-size: 2rem;
       }
     }
     .projectdetail-bodycontainer-rightIcon {
-      font-size: 4rem;
+      font-size: 5rem;
       display: flex;
       align-items: center;
+      color: #71757782;
       @media screen and (max-width: 768px) {
         font-size: 2rem;
       }
@@ -38,5 +40,9 @@ export const Block = styled.div`
         height: 200px;
       }
     }
+  }
+  .projectdetail-bodycontainer-image-page {
+    text-align: center;
+    font-size: 0.8rem;
   }
 `;
