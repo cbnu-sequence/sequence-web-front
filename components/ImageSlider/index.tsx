@@ -5,7 +5,6 @@ import { Block } from './styles';
 
 const ImageSlider = ({ data }) => {
   const [zoomImage, setZoomImage] = useState(false);
-  const [img, setImg] = useState(null);
   const [imgIndex, setImgIndex] = useState(0);
 
   const onPreviousImage = useCallback(() => {
@@ -24,11 +23,6 @@ const ImageSlider = ({ data }) => {
     }
   }, [data.images.length, imgIndex]);
 
-  const onZoomImage = useCallback((image) => {
-    setZoomImage(true);
-    setImg(image);
-  }, []);
-
   return (
     <Block>
       {data.images.length > 0 && (
@@ -37,7 +31,7 @@ const ImageSlider = ({ data }) => {
             <button className="projectdetail-bodycontainer-leftIcon" onClick={onPreviousImage}>
               <BiChevronLeft />
             </button>
-            <div className="projectdetail-bodycontainer-img" onClick={() => onZoomImage(data.images[imgIndex])}>
+            <div className="projectdetail-bodycontainer-img" onClick={() => setZoomImage(true)}>
               <img src={data.images[imgIndex].url} alt={data.images[imgIndex].name} />
             </div>
             <button className="projectdetail-bodycontainer-rightIcon" onClick={onNextImage}>
@@ -49,7 +43,16 @@ const ImageSlider = ({ data }) => {
           </div>
         </>
       )}
-      {zoomImage && <ZoomImage setZoomImage={setZoomImage} img={img} />}
+      {zoomImage && (
+        <ZoomImage
+          setZoomImage={setZoomImage}
+          img={data.images[imgIndex]}
+          onPreviousImage={onPreviousImage}
+          onNextImage={onNextImage}
+          imgIndex={imgIndex}
+          imgLength={data.images.length}
+        />
+      )}
     </Block>
   );
 };

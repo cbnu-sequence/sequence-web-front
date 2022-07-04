@@ -1,7 +1,7 @@
-import { AiFillCloseCircle } from 'react-icons/ai';
+import { AiFillCloseCircle, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { Block, ModalContainer } from './styles';
 
-const ZoomImage = ({ setZoomImage, img }) => {
+const ZoomImage = ({ setZoomImage, img, onPreviousImage, onNextImage, imgIndex, imgLength }) => {
   return (
     <Block>
       <ModalContainer>
@@ -16,6 +16,17 @@ const ZoomImage = ({ setZoomImage, img }) => {
             <img src={img.url} alt={img.name} />
           </div>
         )}
+        <div className="zoomImage-bottom">
+          <button className="zoomImage-bottom-leftIcon" onClick={onPreviousImage}>
+            <AiOutlineArrowLeft />
+          </button>
+          <div>
+            {imgIndex + 1} / {imgLength}
+          </div>
+          <button className="zoomImage-bottom-rightIcon" onClick={onNextImage}>
+            <AiOutlineArrowRight />
+          </button>
+        </div>
       </ModalContainer>
     </Block>
   );

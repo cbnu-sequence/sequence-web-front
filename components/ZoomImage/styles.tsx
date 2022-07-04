@@ -8,7 +8,7 @@ export const Block = styled.div`
   bottom: 0;
   right: 0;
   background-color: white;
-  z-index: 0;
+  z-index: 1;
 `;
 
 export const ModalContainer = styled.div`
@@ -23,6 +23,10 @@ export const ModalContainer = styled.div`
   box-shadow: ${sqWhiteBoxShadow};
   background: white;
   border-radius: 10px;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: 65%;
+  }
 
   .zoomImage-top {
     display: flex;
@@ -42,6 +46,17 @@ export const ModalContainer = styled.div`
     img {
       width: 100%;
       height: 100%;
+    }
+  }
+
+  .zoomImage-bottom {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    .zoomImage-bottom-leftIcon,
+    .zoomImage-bottom-rightIcon {
+      font-size: 1.2rem;
+      font-weight: bold;
     }
   }
 `;

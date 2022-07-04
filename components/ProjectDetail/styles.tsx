@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqGray } from '../../styles/constants';
+import { sqBlack, sqGray, sqPink, sqWhite } from '../../styles/constants';
 
 export const ProjectDetailBlock = styled.div`
   width: 60%;
@@ -12,56 +12,132 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-bodycontainer-image-page {
-    text-align: center;
+  .projectdetail-subbodycontainer {
+    border: 1px solid ${sqPink};
+    border-top: 0;
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    .projectdetail-subbodycontainer-top {
+      display: flex;
+      justify-content: end;
+      position: relative;
+      margin-bottom: 2rem;
+      width: 100%;
+      .projectdetail-subbodycontainer-topborder {
+        width: 94%;
+        border-top: 1px solid ${sqPink};
+        @media screen and (max-width: 1350px) {
+          width: 92%;
+        }
+        @media screen and (max-width: 1100px) {
+          width: 90%;
+        }
+        @media screen and (max-width: 896px) {
+          width: 86%;
+        }
+        @media screen and (max-width: 468px) {
+          width: 78%;
+        }
+      }
+    }
   }
 
-  .projectdetail-bodycontainer-content {
-    margin: 0.4rem 0;
-    font-size: 1.3rem;
-    font-weight: bold;
+  .projectdetail-subbodycontainer-year {
+    position: absolute;
+    top: -10px;
+    left: 2%;
+    font-weight: 700;
+    color: ${sqBlack};
+
+    @media screen and (max-width: 1350px) {
+      left: 3%;
+    }
+    @media screen and (max-width: 1100px) {
+      left: 4%;
+    }
+
+    @media screen and (max-width: 896px) {
+      left: 5%;
+    }
+    @media screen and (max-width: 468px) {
+      left: 7%;
+    }
+  }
+
+  .projectdetail-subbodycontainer-content {
+    margin: 1.3rem auto;
+    width: 92%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    //color: #8a7ac4;
+    color: black;
     @media screen and (max-width: 768px) {
-      font-size: 1.2rem;
+      font-size: 0.9rem;
     }
   }
 
-  .projectdetail-bodycontainer-participants {
+  .projectdetail-subbodycontainer-participants {
     display: flex;
-    margin: 0.4rem 0;
-    .projectdetail-bodycontainer-participant {
-      margin-left: 0.4rem;
+    margin: 1.3rem auto;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 92%;
+    .projectdetail-subbodycontainer-participant {
+      margin-right: 0.4rem;
     }
   }
 
-  .projectdetail-bodycontainer-link {
+  .projectdetail-subbodycontainer-tags {
     display: flex;
-    font-size: 1.5rem;
-    margin: 0.4rem 0;
-    .projectdetail-bodycontainer-link-githuburl {
+    flex-flow: row wrap;
+    width: 92%;
+    margin: 1.3rem auto 1.5rem auto;
+
+    .projectdetail-subbodycontainer-tag {
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+      background-color: Black;
+      color: ${sqWhite};
+      @media screen and (max-width: 768px) {
+        margin-right: 0.3rem;
+        padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  .projectdetail-subbodycontainer-link {
+    display: flex;
+    justify-content: end;
+    font-size: 2.8rem;
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    color: ${sqPink};
+    z-index: 2;
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+      right: 10px;
+    }
+    .projectdetail-subbodycontainer-link-githuburl {
       cursor: pointer;
       &:hover {
         font-weight: bold;
       }
     }
 
-    .projectdetail-bodycontainer-link-projecturl {
+    .projectdetail-subbodycontainer-link-projecturl {
       margin-left: 0.8rem;
       cursor: pointer;
       &:hover {
         font-weight: bold;
       }
-    }
-  }
-
-  .projectdetail-bodycontainer-year {
-    margin: 0.4rem 0;
-  }
-
-  .projectdetail-bodycontainer-tags {
-    display: flex;
-    .projectdetail-bodycontainer-tag {
-      margin-right: 1rem;
-      color: ${sqGray};
     }
   }
 `;

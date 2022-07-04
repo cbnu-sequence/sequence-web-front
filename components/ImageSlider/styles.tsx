@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { sqGray } from '../../styles/constants';
 
 export const Block = styled.div`
   .projectdetail-bodycontainer-image {
@@ -12,6 +13,7 @@ export const Block = styled.div`
       font-size: 4rem;
       display: flex;
       align-items: center;
+      color: ${sqGray};
       @media screen and (max-width: 768px) {
         font-size: 2rem;
       }
@@ -20,6 +22,7 @@ export const Block = styled.div`
       font-size: 4rem;
       display: flex;
       align-items: center;
+      color: ${sqGray};
       @media screen and (max-width: 768px) {
         font-size: 2rem;
       }
@@ -38,5 +41,9 @@ export const Block = styled.div`
         height: 200px;
       }
     }
+  }
+  .projectdetail-bodycontainer-image-page {
+    text-align: center;
+    font-size: 0.8rem;
   }
 `;
