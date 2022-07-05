@@ -65,7 +65,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       align-items: center;
 
       & > li {
-        margin: 0 20px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -256,7 +256,7 @@ export const HeaderDiv = styled.div<HeaderProps>`
       align-items: center;
 
       & > li {
-        margin: 0 20px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
         cursor: pointer;
