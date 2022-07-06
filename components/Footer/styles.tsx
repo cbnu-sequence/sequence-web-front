@@ -23,13 +23,12 @@ export const FooterDiv = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1vw;
-    min-font-size: 15px;
+    font-size: 12px;
 
-    .smallest {
+    .copyright {
       text-align: center;
       padding-top: 0.5rem;
-      font-size: 10px;
+      font-size: min(1vw, 10px);
       color: ${sqDarkGray};
     }
   }
