@@ -1,4 +1,4 @@
-![sequence_b](https://user-images.githubusercontent.com/73439375/177458424-ba8902ec-5beb-4da4-a4a9-06307e446402.png)
+<img width= 100% src="https://user-images.githubusercontent.com/73439375/177489543-d2267cd0-9166-4144-b5d4-e298fcb6441c.png">
 
 <div align="center">
 
@@ -50,3 +50,8 @@
 |                                                          TypeScript                                                          |                                                            React                                                             |                                                         REACT-QUERY                                                         |                                                           EMOTION                                                           |
 
 </div>
+<br>
+
+## 🎯 Web Architecture
+
+<img width= 100% src="https://user-images.githubusercontent.com/73439375/177484605-2a478b63-1e55-4de2-94bc-beeae9e772ce.png">
