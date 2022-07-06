@@ -64,20 +64,36 @@ function Header() {
         </div>
         <ul className="header__menulist">
           <Link href="/introduce">
-            <li>
+            <li
+              onClick={() => {
+                setIsToggled(!isToggled);
+              }}
+            >
               <a>시퀀스 소개</a>
             </li>
           </Link>
           <li>
             부원 소개
             <ul className="members_ul">
-              <li>
+              <li
+                onClick={() => {
+                  setIsToggled(!isToggled);
+                }}
+              >
                 <Link href="/members/projectteam">프로젝트 팀</Link>
               </li>
-              <li>
+              <li
+                onClick={() => {
+                  setIsToggled(!isToggled);
+                }}
+              >
                 <Link href="/members/techcourseteam">테크코스 팀</Link>
               </li>
-              <li>
+              <li
+                onClick={() => {
+                  setIsToggled(!isToggled);
+                }}
+              >
                 <Link href="/members/manager">운영진</Link>
               </li>
             </ul>
@@ -85,19 +101,35 @@ function Header() {
           <li>
             게시판
             <ul className="board_ul">
-              <li>
+              <li
+                onClick={() => {
+                  setIsToggled(!isToggled);
+                }}
+              >
                 <Link href="/board/notice">공지사항</Link>
               </li>
-              <li>
+              <li
+                onClick={() => {
+                  setIsToggled(!isToggled);
+                }}
+              >
                 <Link href="/board/projects">프로젝트</Link>
               </li>
-              <li>
+              <li
+                onClick={() => {
+                  setIsToggled(!isToggled);
+                }}
+              >
                 <Link href="/board/sharinginfo/">정보 공유</Link>
               </li>
             </ul>
           </li>
           <Link href="/pomodoro">
-            <li>
+            <li
+              onClick={() => {
+                setIsToggled(!isToggled);
+              }}
+            >
               <a>뽀모도로</a>
             </li>
           </Link>
