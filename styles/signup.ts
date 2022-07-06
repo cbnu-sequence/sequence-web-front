@@ -4,17 +4,17 @@ import { sqBlack, sqRed, sqWhite } from './constants';
 
 type ButtonType = {
   disabled?: boolean;
-}
+};
 
 export const Header = styled.header`
   justify-content: center;
   display: flex;
-  margin-top: 50px;
+  margin-top: 3%;
   margin-bottom: 40px;
 
   & > img {
-    width: 320px;
-    height: 80px;
+    width: 70%;
+    max-width: 300px;
     cursor: pointer;
   }
 `;
@@ -29,7 +29,7 @@ export const EmailHeader = styled.header`
 
 export const Form = styled.form`
   margin: 0 auto;
-  width: 400px;
+  width: 75%;
   max-width: 400px;
 `;
 
@@ -108,37 +108,39 @@ export const Button = styled.button<ButtonType>`
     box-shadow: 0 0 0 1px var(--saf-0), 0 0 0 5px rgba(29, 155, 209, 0.3);
   }
 
-  ${(props) => props.disabled && css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: ${sqWhite};
+  ${(props) =>
+    props.disabled &&
+    css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: ${sqWhite};
 
-    &:hover{
-      background-color: ${sqBlack};
-      transition: 0;
-      cursor: default;
-    }
-
-    @keyframes spin {
-	    0% {
-	      transform: rotate(0);
+      &:hover {
+        background-color: ${sqBlack};
+        transition: 0;
+        cursor: default;
       }
-      100% {
-	      transform: rotate(360deg);
-      }
-    }
 
-    .spinner{
-      border-top: 2px solid ${sqWhite};
-      border-bottom: 2px solid ${sqWhite};
-      border-radius: 50%;
-      animation: spin 2s linear infinite;
-      width: 27px;
-      height: 27px;
-      margin-left: 10px;
-    }
-  `}
+      @keyframes spin {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .spinner {
+        border-top: 2px solid ${sqWhite};
+        border-bottom: 2px solid ${sqWhite};
+        border-radius: 50%;
+        animation: spin 2s linear infinite;
+        width: 27px;
+        height: 27px;
+        margin-left: 10px;
+      }
+    `}
 `;
 
 export const Error = styled.div`
@@ -155,9 +157,7 @@ export const Success = styled.div`
 export const LinkContainer = styled.p`
   font-size: 13px;
   color: #616061;
-  margin: 0 auto 8px;
-  width: 400px;
-  max-width: 400px;
+  width: 100%;
 
   & a {
     color: #1264a3;
