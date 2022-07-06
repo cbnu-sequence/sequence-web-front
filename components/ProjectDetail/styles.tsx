@@ -85,6 +85,8 @@ export const ProjectDetailBlock = styled.div`
     font-weight: bold;
     font-size: 1.2rem;
     width: 92%;
+    font-family: 'Noto Serif KR', serif;
+    color: black;
     .projectdetail-subbodycontainer-participant {
       margin-right: 0.4rem;
     }
@@ -95,18 +97,18 @@ export const ProjectDetailBlock = styled.div`
     flex-flow: row wrap;
     width: 92%;
     margin: 1.3rem auto 1.5rem auto;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
 
     .projectdetail-subbodycontainer-tag {
       margin-right: 1rem;
       margin-top: 0.5rem;
-      border: none;
-      border-radius: 20px;
-      padding: 0.4rem 0.6rem 0.4rem 0.6rem;
-      background-color: Black;
-      color: ${sqWhite};
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding: 0px 5px 2px 5px;
+      color: ${sqBlack};
       @media screen and (max-width: 768px) {
         margin-right: 0.3rem;
-        padding: 0.3rem 0.4rem 0.3rem 0.4rem;
         font-size: 0.5rem;
       }
     }
