@@ -18,6 +18,11 @@ function Header() {
       console.log(err);
     }
   }, [signout]);
+
+  const onClose = useCallback(() => {
+    setIsToggled(!isToggled);
+  }, [isToggled]);
+
   const [scrollPosition, setScrollPosition] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -34,12 +39,7 @@ function Header() {
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
       <div className={scrollPosition < 50 ? 'black-header' : 'white-header'}>
-        <div
-          className="toggle"
-          onClick={() => {
-            setIsToggled(!isToggled);
-          }}
-        >
+        <div className="toggle" onClick={onClose}>
           <FontAwesomeIcon aria-hidden={false} icon={!isToggled ? faBars : faTimes} />
         </div>
         <Link href="/">
@@ -64,36 +64,20 @@ function Header() {
         </div>
         <ul className="header__menulist">
           <Link href="/introduce">
-            <li
-              onClick={() => {
-                setIsToggled(!isToggled);
-              }}
-            >
+            <li onClick={onClose}>
               <a>시퀀스 소개</a>
             </li>
           </Link>
           <li>
             부원 소개
             <ul className="members_ul">
-              <li
-                onClick={() => {
-                  setIsToggled(!isToggled);
-                }}
-              >
+              <li onClick={onClose}>
                 <Link href="/members/projectteam">프로젝트 팀</Link>
               </li>
-              <li
-                onClick={() => {
-                  setIsToggled(!isToggled);
-                }}
-              >
+              <li onClick={onClose}>
                 <Link href="/members/techcourseteam">테크코스 팀</Link>
               </li>
-              <li
-                onClick={() => {
-                  setIsToggled(!isToggled);
-                }}
-              >
+              <li onClick={onClose}>
                 <Link href="/members/manager">운영진</Link>
               </li>
             </ul>
@@ -101,35 +85,19 @@ function Header() {
           <li>
             게시판
             <ul className="board_ul">
-              <li
-                onClick={() => {
-                  setIsToggled(!isToggled);
-                }}
-              >
+              <li onClick={onClose}>
                 <Link href="/board/notice">공지사항</Link>
               </li>
-              <li
-                onClick={() => {
-                  setIsToggled(!isToggled);
-                }}
-              >
+              <li onClick={onClose}>
                 <Link href="/board/projects">프로젝트</Link>
               </li>
-              <li
-                onClick={() => {
-                  setIsToggled(!isToggled);
-                }}
-              >
+              <li onClick={onClose}>
                 <Link href="/board/sharinginfo/">정보 공유</Link>
               </li>
             </ul>
           </li>
           <Link href="/pomodoro">
-            <li
-              onClick={() => {
-                setIsToggled(!isToggled);
-              }}
-            >
+            <li onClick={onClose}>
               <a>뽀모도로</a>
             </li>
           </Link>
