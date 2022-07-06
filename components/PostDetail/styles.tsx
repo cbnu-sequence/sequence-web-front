@@ -33,6 +33,17 @@ export const PostDetailDiv = styled.div`
   //     }
   //   }
   // }
+
+  .editpost {
+    margin-top: 2rem;
+    button {
+      font-size: 0.9rem;
+      background-color: black;
+      color: white;
+      padding: 0.3rem;
+      border-radius: 10px;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`

@@ -61,3 +61,17 @@ export async function postProjectWrite(data: {
     return error.response;
   }
 }
+
+export async function postModify(
+  category: string | string[],
+  id: string,
+  data: { title: string; content: string; files: Array<string> },
+) {
+  try {
+    const response = await axios.post(`post/${category}/${id}`, data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+}
+
