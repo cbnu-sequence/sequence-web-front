@@ -7,6 +7,7 @@ import { useUser } from '../../hooks/useUser';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
+import { getStoredUser } from '../../user-storage/user-storage';
 
 function PostDetail({
   title,
@@ -21,8 +22,7 @@ function PostDetail({
   id,
   category,
 }) {
-  const myStorage = localStorage.getItem('sequence_user');
-  const me = JSON.parse(myStorage || '[]');
+  const me = getStoredUser();
 
   return (
     <Wrapper>
@@ -39,7 +39,7 @@ function PostDetail({
           <div dangerouslySetInnerHTML={{ __html: content }}></div>
           {files.length > 0 && <PostFiles files={files} />}
         </PostBodyDiv>
-        {me && me.data._id === writerId && (
+        {me && me._id === writerId && (
           <div className="editpost">
             <Link href={`/posts/edit/${id}?category=${category}`}>
               <button>수정하기</button>

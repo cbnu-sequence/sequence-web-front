@@ -16,17 +16,19 @@ export const EditBoard = () => {
 
   const filesData: Array<string> = [];
   const fileNameData: Array<object> = [];
-  if (data.data.files.length > 0) {
-    data.data.files.forEach((file) => {
-      filesData.push(file._id);
-      fileNameData.push({ name: file.filename, id: file._id });
+
+  const onFile = (Datas) => {
+    Datas.forEach((Data) => {
+      filesData.push(Data._id);
+      fileNameData.push({ name: Data.filename, id: Data._id });
     });
+  };
+
+  if (data.data.files.length > 0) {
+    onFile(data.data.files);
   }
   if (data.data.images.length > 0) {
-    data.data.images.forEach((image) => {
-      filesData.push(image._id);
-      fileNameData.push({ name: image.filename, id: image._id });
-    });
+    onFile(data.data.images);
   }
 
   const [title, setTitle] = useState(data.data.title);
@@ -83,7 +85,7 @@ export const EditBoard = () => {
         setAllError(true);
         setTitleError(true);
         setTimeout(() => setTitleError(false), 2000);
-      } else if (content === null) {
+      } else if (content === null || content === '') {
         setAllError(true);
         setBodyError(true);
         setTimeout(() => setBodyError(false), 2000);
