@@ -6,13 +6,9 @@ import { MdRemoveCircleOutline } from 'react-icons/md';
 import { Block, ButtonBlock, Editor, ErrorMessage, FileBlock, Input, WirteActionButton } from '../WriteBoard/styles';
 import TextEditor from '../WriteBoard/texteditor';
 import React from 'react';
-import { useQuery } from 'react-query';
 
-export const EditBoard = () => {
+export const EditBoard = ({ data, id, category }) => {
   const router = useRouter();
-  // @ts-ignore
-  const { id, category }: { id: string; category: string } = router.query;
-  const { error, data } = useQuery([category, id], { keepPreviousData: true });
 
   const filesData: Array<string> = [];
   const fileNameData: Array<object> = [];
