@@ -9,8 +9,12 @@ function Post() {
   const router = useRouter();
   // @ts-ignore
   const { id, category }: { id: string; category: string } = router.query;
-  const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id), { keepPreviousData: true });
+  const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id), {
+    keepPreviousData: true,
+  });
+
   if (isLoading) return <div>Loading</div>;
+
   return (
     <>
       <PostDetail
@@ -22,6 +26,9 @@ function Post() {
         content={data.data.content}
         files={data.data.files}
         images={data.data.images}
+        writerId={data.data.writer._id}
+        id={id}
+        category={category}
       />
     </>
   );
