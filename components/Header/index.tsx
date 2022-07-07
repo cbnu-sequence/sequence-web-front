@@ -20,7 +20,8 @@ function Header() {
   }, [signout]);
 
   const onClose = useCallback(() => {
-    setIsToggled(!isToggled);
+    setIsToggled(false);
+    console.log(isToggled);
   }, [isToggled]);
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -39,7 +40,12 @@ function Header() {
   return (
     <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
       <div className={scrollPosition < 50 ? 'black-header' : 'white-header'}>
-        <div className="toggle" onClick={onClose}>
+        <div
+          className="toggle"
+          onClick={() => {
+            setIsToggled(!isToggled);
+          }}
+        >
           <FontAwesomeIcon aria-hidden={false} icon={!isToggled ? faBars : faTimes} />
         </div>
         <Link href="/">
