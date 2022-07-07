@@ -8,19 +8,25 @@ import Link from 'next/link';
 import { Input, Tr } from '@chakra-ui/react';
 import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
-import { ChangeUserProfile, postEmail } from '../../apis/user';
+import { ChangeMember, ChangeUserProfile, postEmail } from '../../apis/user';
 import router from 'next/router';
 import NoList from '../../components/NoList';
 import EmailCheckProfile from '../../components/EmailCheckProfile';
+import useInput from '../../hooks/useInput';
 
 function Profile() {
-  const [click, setClick] = useState(false);
+  const [FirstBtnclick, setFirstBtnClick] = useState(false);
+  const [SecondBtnClick, setSecondBtnClick] = useState(false);
 
   const [comment, setComment] = useState('');
   const [githubUrl, setGithubUrl] = useState('');
   const [otherUrls, setOtherUrls] = useState([]);
 
   const [emailcheck, setEmailCheck] = useState(false);
+
+  const [email, setEmailSelected] = useInput('');
+  const [team, setTeamSelected] = useState('');
+  const [part, setPartSelected] = useState('');
 
   const { user: me } = useUser();
 
@@ -55,11 +61,19 @@ function Profile() {
       setGithubUrl(me.member.githubUrl);
       setOtherUrls(me.member.otherUrls);
     }
-    setClick(true);
+    setFirstBtnClick(true);
+  };
+
+  const onChangeTeam = (e) => {
+    setTeamSelected(e.target.value);
+  };
+
+  const onChangePart = (e) => {
+    setPartSelected(e.target.value);
   };
 
   const onSubmitProfile = () => {
-    setClick(false);
+    setFirstBtnClick(false);
     ChangeUserProfile({ githubUrl, otherUrls, comment }).then((response) => {
       if (response.status === 200) {
         router.replace('/');
@@ -71,6 +85,25 @@ function Profile() {
         alert('실패했습니다.');
       }
     });
+  };
+
+  const onSubmitMember = () => {
+    if (!email) {
+      alert('이메일을 입력해주세요');
+    } else {
+      setSecondBtnClick(false);
+      ChangeMember({ email, part, team }).then((response) => {
+        if (response.status === 200) {
+          router.replace('/');
+          alert('수정이 완료되었습니다.');
+        } else if (response.status === 403) {
+          alert('로그인 해주세요!');
+          router.replace('/login');
+        } else {
+          alert('실패했습니다.');
+        }
+      });
+    }
   };
 
   const onEmailCheck = () => {
@@ -100,7 +133,7 @@ function Profile() {
           <img className="flowerlogo" src="/flowerLogo_b.png" />
           회원 등급: {me.role == 'User' ? '일반등급' : '관리자'}
         </div>
-        {click && me.member && (
+        {FirstBtnclick && me.member && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -120,7 +153,7 @@ function Profile() {
           </>
         )}
 
-        {!click && me.member && me.member.comment !== '' && (
+        {!FirstBtnclick && me.member && me.member.comment && me.member.comment !== '' && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -129,7 +162,7 @@ function Profile() {
             </div>
           </>
         )}
-        {!click && me.member && me.member.githubUrl !== '' && (
+        {!FirstBtnclick && me.member && me.member.githubUrl && me.member.githubUrl !== '' && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -142,7 +175,7 @@ function Profile() {
             </div>
           </>
         )}
-        {!click && me.member && me.member.otherUrls.length > 0 && me.member.otherUrls[0] !== '' && (
+        {!FirstBtnclick && me.member && me.member.otherUrls.length > 0 && me.member.otherUrls[0] !== '' && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -158,20 +191,60 @@ function Profile() {
           </>
         )}
 
+        {SecondBtnClick && (
+          <>
+            <div className="profile-contents">
+              <img className="flowerlogo" src="/flowerLogo_b.png" />
+              <EditInput placeholder="이메일" onChange={setEmailSelected} value={email} />
+              <div>
+                <select onChange={onChangeTeam}>
+                  <option value="project" selected>
+                    project
+                  </option>
+                  <option value="techcourse">techCourse</option>
+                  <option value="">없음</option>
+                </select>
+                <select onChange={onChangePart}>
+                  <option value="frontend" selected>
+                    frontend
+                  </option>
+                  <option value="backend">backend</option>
+                  <option value="ios">ios</option>
+                  <option value="dev">devops</option>
+                  <option value="">없음</option>
+                </select>
+              </div>
+            </div>
+          </>
+        )}
+
         <div style={{ display: 'flex' }}>
-          {me.member && (
+          {me.member && !SecondBtnClick && (
             <>
-              {!click ? (
+              {!FirstBtnclick ? (
                 <AddButton onClick={onChangeProfile}>프로필 수정하기</AddButton>
               ) : (
                 <>
                   <AddButton onClick={onSubmitProfile}>수정하기</AddButton>
-                  <AddButton onClick={() => setClick(false)}>취소하기</AddButton>
+                  <AddButton onClick={() => setFirstBtnClick(false)}>취소하기</AddButton>
                 </>
               )}
             </>
           )}
-          {!click && me.role === 'Admin' && (
+          {!FirstBtnclick && me.role === 'Admin' && (
+            <>
+              {!SecondBtnClick ? (
+                <AddButton onClick={() => setSecondBtnClick(true)}>시퀀스 멤버 등록 및 변경하기</AddButton>
+              ) : (
+                <>
+                  <AddButton onClick={onSubmitMember}>변경하기</AddButton>
+                  <AddButton onClick={() => setSecondBtnClick(false)}>취소하기</AddButton>
+                </>
+              )}
+            </>
+          )}
+
+          {!FirstBtnclick && !SecondBtnClick && me.role === 'Admin' && (
             <Link href="/board/projects/write">
               <AddButton>프로젝트 추가하기</AddButton>
             </Link>
