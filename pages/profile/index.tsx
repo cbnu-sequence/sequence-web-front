@@ -13,7 +13,6 @@ import router from 'next/router';
 import NoList from '../../components/NoList';
 import EmailCheckProfile from '../../components/EmailCheckProfile';
 
-
 function Profile() {
   const [click, setClick] = useState(false);
 
@@ -121,7 +120,7 @@ function Profile() {
           </>
         )}
 
-        {!click && me.member && me.member.comment && (
+        {!click && me.member && me.member.comment !== '' && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -130,7 +129,7 @@ function Profile() {
             </div>
           </>
         )}
-        {!click && me.member && me.member.githubUrl && (
+        {!click && me.member && me.member.githubUrl !== '' && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -143,7 +142,7 @@ function Profile() {
             </div>
           </>
         )}
-        {!click && me.member && me.member.otherUrls.length > 0 && (
+        {!click && me.member && me.member.otherUrls.length > 0 && me.member.otherUrls[0] !== '' && (
           <>
             <div className="profile-contents">
               <img className="flowerlogo" src="/flowerLogo_b.png" />
@@ -165,11 +164,14 @@ function Profile() {
               {!click ? (
                 <AddButton onClick={onChangeProfile}>프로필 수정하기</AddButton>
               ) : (
-                <AddButton onClick={onSubmitProfile}>수정하기</AddButton>
+                <>
+                  <AddButton onClick={onSubmitProfile}>수정하기</AddButton>
+                  <AddButton onClick={() => setClick(false)}>취소하기</AddButton>
+                </>
               )}
             </>
           )}
-          {me.role === 'Admin' && (
+          {!click && me.role === 'Admin' && (
             <Link href="/board/projects/write">
               <AddButton>프로젝트 추가하기</AddButton>
             </Link>
