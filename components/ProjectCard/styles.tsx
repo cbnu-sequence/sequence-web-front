@@ -33,7 +33,7 @@ export const ProjectCardBox = styled.div`
       font-size: 10px;
     }
     .project__title {
-      font-size: 12px;
+      font-size: 20px;
     }
     .project__content {
       display: none;

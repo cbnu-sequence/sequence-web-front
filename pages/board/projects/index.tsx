@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import Header from '../../../components/Header';
 import CommonHeader from '../../../components/Table/CommonHeader';
 import Head from 'next/head';
 import { useProjects } from '../../../hooks/useProjects';
