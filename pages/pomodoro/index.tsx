@@ -7,12 +7,14 @@ import { PomodoroBlock, RankingBtn } from '../../styles/pomodoro';
 import Header from '../../components/Header';
 import PomoProgress from '../../components/PomoProgress';
 import MyPomo from '../../components/MyPomo';
-import { useQuery } from 'react-query';
+import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
 import { useUser } from '../../hooks/useUser';
 import PomoRanking from '../../components/PomoRanking';
 import { useRanking } from '../../hooks/useRanking';
 import Link from 'next/link';
+import axios from 'axios';
+import { loadMyInfoAPI } from '../../apis/user';
 
 const Pomodoro = () => {
   const [isActive, setIsActive] = useState(false);
@@ -122,10 +124,24 @@ const Pomodoro = () => {
 
 export default Pomodoro;
 
-export const getStaticProps = async () => {
+export async function getServerSideProps(context) {
+  const cookie = context.req ? context.req.headers.cookie : '';
+  axios.defaults.headers.Cookie = '';
+  if (context.req && cookie) {
+    axios.defaults.headers.Cookie = cookie;
+  }
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.user, () => loadMyInfoAPI(cookie));
+
+  let cleanInfo = JSON.parse(JSON.stringify(dehydrate(queryClient)));
+  if (cleanInfo.queries[0].state.data && typeof cleanInfo.queries[0].state.data != 'undefined') {
+    cleanInfo.queries[0].state.data = cleanInfo.queries[0].state.data.data;
+  }
   return {
     props: {
+      dehydratedState: cleanInfo,
       layout: 'pomodoro',
     },
   };
-};
+}
