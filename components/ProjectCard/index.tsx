@@ -5,8 +5,9 @@ import { ProjectCardBox, ProjectTags } from './styles';
 import Link from 'next/link';
 
 function ProjectCard({ project }: { project: Project }) {
+  console.log(project.tags);
   return (
-    <Link key={project._id} href={`../../project/${project._id}`}>
+    <Link key={project._id} href={`../../project/${project._id}`} passHref>
       <ProjectCardBox>
         <ProjectImage image={project.images[0]} />
         <p className="project__year">{project.year}</p>
@@ -15,7 +16,7 @@ function ProjectCard({ project }: { project: Project }) {
         <ProjectTags>
           {project.tags &&
             project.tags.map((item, index) => {
-              return <span key={index}>{item}</span>;
+              return <span key={index.toString()}>{item}</span>;
             })}
         </ProjectTags>
       </ProjectCardBox>

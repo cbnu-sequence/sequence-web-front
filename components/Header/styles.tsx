@@ -189,10 +189,12 @@ export const HeaderDiv = styled.div<HeaderProps>`
 
       .toggle {
         display: block;
+        color: ${sqWhite};
       }
 
       .user {
         display: block;
+        color: ${sqWhite};
       }
     }
 
