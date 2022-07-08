@@ -31,14 +31,20 @@ export const ProfileDiv = styled.div`
     margin-bottom: 10px;
     display: flex;
     font-size: max(1vw, 15px);
+    justify-content: center;
+    flex-flow: row wrap;
     & > .flowerlogo {
       width: 30px;
     }
-    &: hover {
+    &:hover {
       .flowerlogo {
         animation: shakeFlowerHead 0.6s ease-in-out infinite alternate;
       }
     }
+    select{
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+    } 
   }
 `;
 
