@@ -16,10 +16,10 @@ export const ProjectDetailBlock = styled.div`
     border: 1px solid ${sqPink};
     border-top: 0;
     padding: 0 0.5rem;
-    margin-top: 1rem;
     border-radius: 10px;
     position: relative;
-    width: 100%;
+    width: 90%;
+    margin: 1rem auto 0;
     .projectdetail-subbodycontainer-top {
       display: flex;
       justify-content: end;
@@ -49,7 +49,7 @@ export const ProjectDetailBlock = styled.div`
     position: absolute;
     top: -10px;
     left: 2%;
-    font-weight: 700;
+    font-weight: 500;
     color: ${sqBlack};
 
     @media screen and (max-width: 1350px) {
@@ -70,12 +70,12 @@ export const ProjectDetailBlock = styled.div`
   .projectdetail-subbodycontainer-content {
     margin: 1.3rem auto;
     width: 92%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     //color: #8a7ac4;
     color: black;
     @media screen and (max-width: 768px) {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -83,10 +83,13 @@ export const ProjectDetailBlock = styled.div`
     display: flex;
     margin: 1.3rem auto;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 92%;
     font-family: 'Noto Serif KR', serif;
     color: black;
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
     .projectdetail-subbodycontainer-participant {
       margin-right: 0.4rem;
     }
@@ -99,6 +102,7 @@ export const ProjectDetailBlock = styled.div`
     margin: 1.3rem auto 1.5rem auto;
     font-family: 'Noto Serif KR', serif;
     font-weight: 600;
+    font-size: 0.9rem;
 
     .projectdetail-subbodycontainer-tag {
       margin-right: 1rem;
@@ -109,7 +113,7 @@ export const ProjectDetailBlock = styled.div`
       color: ${sqBlack};
       @media screen and (max-width: 768px) {
         margin-right: 0.3rem;
-        font-size: 0.5rem;
+        font-size: 0.6rem;
       }
     }
   }
@@ -117,7 +121,7 @@ export const ProjectDetailBlock = styled.div`
   .projectdetail-subbodycontainer-link {
     display: flex;
     justify-content: end;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     position: absolute;
     right: 20px;
     bottom: -20px;

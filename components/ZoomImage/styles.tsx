@@ -19,13 +19,13 @@ export const ModalContainer = styled.div`
   width: 75%;
   height: 80%;
   max-height: 80%;
-  padding: 16px;
+  padding: 16px 16px 26px 16px;
   box-shadow: ${sqWhiteBoxShadow};
   background: white;
   border-radius: 10px;
   @media screen and (max-width: 768px) {
     width: 80%;
-    height: 65%;
+    height: 60%;
   }
 
   .zoomImage-top {
@@ -44,7 +44,9 @@ export const ModalContainer = styled.div`
     width: 100%;
     height: 90%;
     img {
-      width: 100%;
+      object-fit: contain;
+      margin: 0 auto;
+      width: 700px;
       height: 100%;
     }
   }
@@ -57,6 +59,9 @@ export const ModalContainer = styled.div`
     .zoomImage-bottom-rightIcon {
       font-size: 1.2rem;
       font-weight: bold;
+    }
+    @media screen and (max-width: 768px) {
+      margin: 0.5rem 0;
     }
   }
 `;

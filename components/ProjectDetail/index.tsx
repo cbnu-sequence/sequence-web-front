@@ -4,6 +4,7 @@ import { ProjectDetailBlock } from './styles';
 import ImageSlider from '../ImageSlider';
 import { FaGithubSquare } from 'react-icons/fa';
 import { GiSpiderWeb } from 'react-icons/gi';
+import React from 'react';
 
 const ProjectDetail = ({ data }) => {
   return (

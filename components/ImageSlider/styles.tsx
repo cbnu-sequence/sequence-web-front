@@ -4,6 +4,7 @@ import { sqGray } from '../../styles/constants';
 export const Block = styled.div`
   .projectdetail-bodycontainer-image {
     display: flex;
+    justify-content: space-between;
     width: 80%;
     margin: 2rem auto 0;
     @media screen and (max-width: 768px) {
@@ -28,11 +29,11 @@ export const Block = styled.div`
       }
     }
     .projectdetail-bodycontainer-img {
-      width: 100%;
-      margin: 1rem 1rem;
+      width: 70%;
+      margin: 1rem 0;
     }
     img {
-      width: 60%;
+      width: 100%;
       height: 320px;
       margin: 0 auto;
       cursor: pointer;
