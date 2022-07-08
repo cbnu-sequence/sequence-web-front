@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { sqGray } from '../../styles/constants';
 
 export const Block = styled.div`
-  .projectdetail-bodycontainer-image {
+  .image {
     display: flex;
     justify-content: space-between;
     width: 80%;
@@ -10,7 +10,7 @@ export const Block = styled.div`
     @media screen and (max-width: 768px) {
       width: 100%;
     }
-    .projectdetail-bodycontainer-leftIcon {
+    .image__leftIcon {
       font-size: 4rem;
       display: flex;
       align-items: center;
@@ -19,7 +19,7 @@ export const Block = styled.div`
         font-size: 2rem;
       }
     }
-    .projectdetail-bodycontainer-rightIcon {
+    .image__rightIcon {
       font-size: 4rem;
       display: flex;
       align-items: center;
@@ -28,7 +28,7 @@ export const Block = styled.div`
         font-size: 2rem;
       }
     }
-    .projectdetail-bodycontainer-img {
+    .image__img {
       width: 70%;
       margin: 1rem 0;
     }
@@ -43,7 +43,7 @@ export const Block = styled.div`
       }
     }
   }
-  .projectdetail-bodycontainer-image-page {
+  .image__page {
     text-align: center;
     font-size: 0.8rem;
   }

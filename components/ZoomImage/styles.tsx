@@ -28,19 +28,19 @@ export const ModalContainer = styled.div`
     height: 60%;
   }
 
-  .zoomImage-top {
+  .zoomImage {
     display: flex;
     margin-bottom: 0.5rem;
-    .zoomImage-top-null {
+    .zoomImage__null {
       flex: 1;
     }
-    .zoomImage-top-icon {
+    .zoomImage__icon {
       cursor: pointer;
       font-size: 1.2rem;
     }
   }
 
-  .zoomImage-image {
+  .zoomImage__img {
     width: 100%;
     height: 90%;
     img {
@@ -51,12 +51,12 @@ export const ModalContainer = styled.div`
     }
   }
 
-  .zoomImage-bottom {
+  .bottom {
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
-    .zoomImage-bottom-leftIcon,
-    .zoomImage-bottom-rightIcon {
+    .bottom__leftIcon,
+    .bottom__rightIcon {
       font-size: 1.2rem;
       font-weight: bold;
     }

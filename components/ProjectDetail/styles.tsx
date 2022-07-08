@@ -5,14 +5,14 @@ export const ProjectDetailBlock = styled.div`
   width: 60%;
   margin: 0 auto;
 
-  .projectdetail-bodycontainer {
+  .body {
     font-size: 1rem;
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
     }
   }
 
-  .projectdetail-subbodycontainer {
+  .explain {
     border: 1px solid ${sqPink};
     border-top: 0;
     padding: 0 0.5rem;
@@ -20,13 +20,13 @@ export const ProjectDetailBlock = styled.div`
     position: relative;
     width: 90%;
     margin: 1rem auto 0;
-    .projectdetail-subbodycontainer-top {
+    .explain__top {
       display: flex;
       justify-content: end;
       position: relative;
       margin-bottom: 2rem;
       width: 100%;
-      .projectdetail-subbodycontainer-topborder {
+      .explain__top--topborder {
         width: 94%;
         border-top: 1px solid ${sqPink};
         @media screen and (max-width: 1350px) {
@@ -45,7 +45,7 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-subbodycontainer-year {
+  .explain__year {
     position: absolute;
     top: -10px;
     left: 2%;
@@ -67,7 +67,7 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-subbodycontainer-content {
+  .explain__content {
     margin: 1.3rem auto;
     width: 92%;
     font-size: 1rem;
@@ -79,7 +79,7 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-subbodycontainer-participants {
+  .explain__participants {
     display: flex;
     margin: 1.3rem auto;
     font-weight: bold;
@@ -90,12 +90,12 @@ export const ProjectDetailBlock = styled.div`
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
     }
-    .projectdetail-subbodycontainer-participant {
+    .explain__participant {
       margin-right: 0.4rem;
     }
   }
 
-  .projectdetail-subbodycontainer-tags {
+  .explain__tags {
     display: flex;
     flex-flow: row wrap;
     width: 92%;
@@ -104,7 +104,7 @@ export const ProjectDetailBlock = styled.div`
     font-weight: 600;
     font-size: 0.9rem;
 
-    .projectdetail-subbodycontainer-tag {
+    .explain__tag {
       margin-right: 1rem;
       margin-top: 0.5rem;
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -118,7 +118,7 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-subbodycontainer-link {
+  .explain__link {
     display: flex;
     justify-content: end;
     font-size: 2.4rem;
@@ -126,19 +126,19 @@ export const ProjectDetailBlock = styled.div`
     right: 20px;
     bottom: -20px;
     color: ${sqPink};
-    z-index: 2;
+    z-index: 0;
     @media screen and (max-width: 768px) {
       font-size: 2rem;
       right: 10px;
     }
-    .projectdetail-subbodycontainer-link-githuburl {
+    .explain__link--githuburl {
       cursor: pointer;
       &:hover {
         font-weight: bold;
       }
     }
 
-    .projectdetail-subbodycontainer-link-projecturl {
+    .explain__link--projecturl {
       margin-left: 0.8rem;
       cursor: pointer;
       &:hover {
