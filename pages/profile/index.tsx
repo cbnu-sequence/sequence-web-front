@@ -119,7 +119,6 @@ function Profile() {
 
   return (
     <div>
-      <Header />
       <ProfileDiv>
         <div className="profile-title">
           {me.name}님의 프로필

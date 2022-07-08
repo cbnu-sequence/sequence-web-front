@@ -21,8 +21,7 @@ function Header() {
 
   const onClose = useCallback(() => {
     setIsToggled(false);
-    console.log(isToggled);
-  }, [isToggled]);
+  }, []);
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -48,7 +47,7 @@ function Header() {
         >
           <FontAwesomeIcon aria-hidden={false} icon={!isToggled ? faBars : faTimes} />
         </div>
-        <Link href="/">
+        <Link href="/" passHref>
           <div className="logo">
             <div className="logo_b">
               <img className="logotype" src="/sequence_b.png" />
@@ -69,7 +68,7 @@ function Header() {
           <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
         </div>
         <ul className="header__menulist">
-          <Link href="/introduce">
+          <Link href="/introduce" passHref>
             <li onClick={onClose}>
               <a>시퀀스 소개</a>
             </li>
@@ -102,7 +101,7 @@ function Header() {
               </li>
             </ul>
           </li>
-          <Link href="/pomodoro">
+          <Link href="/pomodoro" passHref>
             <li onClick={onClose}>
               <a>뽀모도로</a>
             </li>
@@ -111,7 +110,7 @@ function Header() {
         <ul className="header__right">
           {me ? (
             <>
-              <Link href="/profile">
+              <Link href="/profile" passHref>
                 <li>
                   <a>프로필</a>
                 </li>
@@ -122,12 +121,12 @@ function Header() {
             </>
           ) : (
             <>
-              <Link href="/login">
+              <Link href="/login" passHref>
                 <li>
                   <a>로그인</a>
                 </li>
               </Link>
-              <Link href="/signup">
+              <Link href="/signup" passHref>
                 <li>
                   <a>회원가입</a>
                 </li>
