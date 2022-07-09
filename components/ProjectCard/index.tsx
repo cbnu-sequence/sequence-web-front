@@ -5,7 +5,6 @@ import { ProjectCardBox, ProjectTags } from './styles';
 import Link from 'next/link';
 
 function ProjectCard({ project }: { project: Project }) {
-  console.log(project.tags);
   return (
     <Link key={project._id} href={`../../project/${project._id}`} passHref>
       <ProjectCardBox>

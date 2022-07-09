@@ -4,9 +4,12 @@ import PostDetail from '../../components/PostDetail';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { getPost } from '../../apis/post';
 import { GetServerSideProps } from 'next';
+import HeadMeta from '../../components/HeadMeta';
+import Head from 'next/head';
 
 function Post() {
   const router = useRouter();
+  console.log(router);
   // @ts-ignore
   const { id, category }: { id: string; category: string } = router.query;
   const { isLoading, error, data } = useQuery([category, id], () => getPost(category, id), {
@@ -17,6 +20,14 @@ function Post() {
 
   return (
     <>
+      <Head>
+        <HeadMeta
+          title={'시퀀스'}
+          description={'성장지향 프로젝트 동아리 시퀀스'}
+          image={data.data.images[0]}
+          url={''}
+        />
+      </Head>
       <PostDetail
         title={data.data.title}
         createdAt={data.data.createdAt}
