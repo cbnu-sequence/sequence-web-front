@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useCallback, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { HeaderDiv } from './styles';
+import { HeaderColor, HeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -37,8 +37,12 @@ function Header() {
   }, [loading]);
 
   return (
-    <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
-      <div className={scrollPosition < 50 ? 'black-header' : 'white-header'}>
+    <HeaderDiv>
+      <HeaderColor
+        className={scrollPosition < 50 ? 'black-header' : 'white-header'}
+        isToggled={isToggled}
+        userToggled={userToggled}
+      >
         <div
           className="toggle"
           onClick={() => {
@@ -134,7 +138,7 @@ function Header() {
             </>
           )}
         </ul>
-      </div>
+      </HeaderColor>
     </HeaderDiv>
   );
 }
