@@ -31,13 +31,7 @@ const EmailCheckProfile = ({ setEmailCheckBtnClick }) => {
   return (
     <>
       <EmailCheckProfileBlock onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={token}
-          name="token"
-          placeholder="이메일로 전송된 인증번호 6글자를 입력하세요"
-          onChange={onChangeToken}
-        />
+        <input type="text" value={token} name="token" placeholder="인증번호 6글자" onChange={onChangeToken} />
         <button type="submit">확인</button>
       </EmailCheckProfileBlock>
     </>
