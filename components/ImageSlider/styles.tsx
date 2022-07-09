@@ -36,6 +36,7 @@ export const Block = styled.div`
       height: 320px;
       margin: 0 auto;
       cursor: pointer;
+      object-fit: contain;
       @media screen and (max-width: 768px) {
         width: 100%;
         height: 200px;
