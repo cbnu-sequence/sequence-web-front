@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router';
+import React from 'react';
 import { useCallback } from 'react';
 import { tokenConfirmAPI } from '../../apis/user';
 import useInput from '../../hooks/useInput';
 import { EmailCheckProfileBlock } from './styles';
 
-const EmailCheckProfile = ({ setEmailCheck }) => {
+const EmailCheckProfile = ({ setEmailCheckBtnClick }) => {
   const [token, onChangeToken] = useInput('');
   const Router = useRouter();
 
@@ -13,18 +14,18 @@ const EmailCheckProfile = ({ setEmailCheck }) => {
       e.preventDefault();
       tokenConfirmAPI({ token })
         .then(() => {
-          setEmailCheck(false);
+          setEmailCheckBtnClick(false);
           alert('이메일 인증에 성공했습니다.');
           Router.replace('/');
         })
         .catch((error) => {
-          setEmailCheck(false);
+          setEmailCheckBtnClick(false);
           alert('이메일 인증에 실패했습니다.');
           Router.replace('/');
           console.error(error);
         });
     },
-    [Router, setEmailCheck, token],
+    [Router, setEmailCheckBtnClick, token],
   );
 
   return (

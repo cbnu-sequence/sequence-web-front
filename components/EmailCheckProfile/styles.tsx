@@ -2,17 +2,18 @@ import styled from '@emotion/styled';
 import { sqBlack, sqWhite } from '../../styles/constants';
 
 export const EmailCheckProfileBlock = styled.form`
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 2.5rem;
   display: flex;
+  justify-content: center;
 
   input {
-    height: 3rem;
-    flex: 1;
+    font-size: 0.5rem;
     border: 1px solid black;
-    padding: 0.5rem;
-    width: 100%;
+    padding: 0.2rem;
+    width: 35%;
     &::placeholder {
       font-size: 0.7rem;
+      text-align: center;
     }
   }
 
