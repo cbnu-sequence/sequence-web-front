@@ -30,8 +30,6 @@ function Profile() {
   const [team, setTeamSelected] = useState('');
   const [part, setPartSelected] = useState('');
 
-  console.log(email, team, part);
-
   const [emailcheckBtnClick, setEmailCheckBtnClick] = useState(false);
 
   const { user: me } = useUser();
@@ -147,18 +145,28 @@ function Profile() {
           <div className={guestBtnClick ? 'left__button--click' : 'left__button'} onClick={() => onBtnClick('guest')}>
             회원
           </div>
+          {guestBtnClick && <div className="left__line--color" />}
           {me.member && (
-            <div
-              className={memberBtnClick ? 'left__button--click' : 'left__button'}
-              onClick={() => onBtnClick('member')}
-            >
-              멤버
-            </div>
+            <>
+              <div
+                className={memberBtnClick ? 'left__button--click' : 'left__button'}
+                onClick={() => onBtnClick('member')}
+              >
+                멤버
+              </div>
+              {memberBtnClick && <div className="left__line--color" />}
+            </>
           )}
           {me.role === 'Admin' && (
-            <div className={adminBtnClick ? 'left__button--click' : 'left__button'} onClick={() => onBtnClick('admin')}>
-              관리자
-            </div>
+            <>
+              <div
+                className={adminBtnClick ? 'left__button--click' : 'left__button'}
+                onClick={() => onBtnClick('admin')}
+              >
+                관리자
+              </div>
+              {adminBtnClick && <div className="left__line--color" />}
+            </>
           )}
         </div>
         <div className="middle" />
@@ -258,9 +266,12 @@ function Profile() {
               {!changeAdminMemberBtnClick ? (
                 <button onClick={() => setChangeAdminMemberBtnClick(true)}>시퀀스 멤버 등록 및 변경하기</button>
               ) : (
-                <>
-                  <>
-                    <EditInput placeholder="이메일" onChange={setEmailSelected} value={email} />
+                <div className="admin__memberbtn--click">
+                  <button onClick={() => setChangeAdminMemberBtnClick(false)}>시퀀스 멤버 등록 및 변경하기</button>
+                  <div className="admin__memberemail">
+                    <EditInput placeholder="이메일을 입력해주세요" onChange={setEmailSelected} value={email} />
+                  </div>
+                  <div className="admin__memberselect">
                     <select onChange={onChangeTeam}>
                       <option value="">없음</option>
                       <option value="project">project</option>
@@ -273,10 +284,12 @@ function Profile() {
                       <option value="ios">ios</option>
                       <option value="devops">devops</option>
                     </select>
-                  </>
-                  <AddButton onClick={onSubmitAdminMember}>변경</AddButton>
-                  <AddButton onClick={() => setChangeAdminMemberBtnClick(false)}>취소</AddButton>
-                </>
+                  </div>
+                  <div className="admin__memberchangebtn">
+                    <AddButton onClick={onSubmitAdminMember}>변경</AddButton>
+                    <AddButton onClick={() => setChangeAdminMemberBtnClick(false)}>취소</AddButton>
+                  </div>
+                </div>
               )}
               <hr />
               <Link href="/board/projects/write">
