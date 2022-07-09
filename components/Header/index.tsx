@@ -39,7 +39,7 @@ function Header() {
   return (
     <HeaderDiv>
       <HeaderColor
-        className={scrollPosition < 50 ? 'black-header' : 'white-header'}
+        baseColor={scrollPosition < 50 ? 'black-header' : 'white-header'}
         isToggled={isToggled}
         userToggled={userToggled}
       >

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { sqBlack, sqWhite, sqRed } from '../../styles/constants';
 
 type HeaderProps = {
-  className: string;
+  baseColor: string;
   isToggled: boolean;
   userToggled: boolean;
 };
@@ -193,7 +193,7 @@ export const HeaderColor = styled.div<HeaderProps>`
   }
 
   ${(props) =>
-    props.className === 'black-header' &&
+    props.baseColor === 'black-header' &&
     css`
       color: ${sqWhite};
       background-color: ${sqBlack};
@@ -232,7 +232,7 @@ export const HeaderColor = styled.div<HeaderProps>`
     `}
 
   ${(props) =>
-    props.className === 'white-header' &&
+    props.baseColor === 'white-header' &&
     css`
       color: ${sqBlack};
       background-color: ${sqWhite};
