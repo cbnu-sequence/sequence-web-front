@@ -168,6 +168,10 @@ export const Example = styled.div`
           color: ${sqWhite};
           font-size: 0.8rem;
           outline: none;
+          @media screen and (max-width: 768px){
+            font-size: 0.5rem;
+            padding: 0.1rem 0.3rem;
+          }
         }
 
       }
