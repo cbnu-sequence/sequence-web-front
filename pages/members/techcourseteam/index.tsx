@@ -28,7 +28,7 @@ const TechcourseTeam = () => {
           <p className="pullname">정보통신 테크 코스</p>
           <p className="shortname">정 테 코</p>
           <div className="introduceBox">
-            <p className="introduce_top">프로그래밍 입문부터 함께하는 시퀀스의 테크코스</p>
+            <p className="introduce_top">프로그래밍 입문부터 함께하는 시퀀스의 <strong>테크코스</strong></p>
             <div className="introduceBox2">
               <div className="introduce_1semester">
                 1학기
