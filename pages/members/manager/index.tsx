@@ -44,7 +44,7 @@ const Manager = () => {
         <div className="cardblock">
           {[
             { _id: 'kimminkyu', user: { name: '김민규' }, img: '/mk.png' , description: '안녕하세요! 백엔드 공부중인 김민규입니다✌' },
-            { _id: 'kimjiwon', user: { name: '김지원' }, img: '/naamu.JPG', description: '안녕하세요👋 저는 파란 하늘을 좋아하는 웹 프론트엔드 개발잡니다!' },
+            { _id: 'kimjiwon', user: { name: '김지원' }, img: '/naamu.JPG', description: '안녕하세요👋 프론트엔드 하고 있는 김지원입니다.\n도자기와 헬스 무협지를 좋아하며 ci, cd, js에 관심이 많습니다!' },
             { _id: 'songhaeun', user: { name: '송하은' }, img: '/haeun.jpeg', description: '안녕하세요🤗 저는 시퀀스 웹 프론트엔드 개발자 송하은입니다🌸'},
           ].map((item) => (
             <ManagerCard key={item._id} className="card" onClick={() => onClickCard(item)}>

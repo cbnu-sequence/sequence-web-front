@@ -46,7 +46,7 @@ export const TCIntroductionDiv = styled.div`
 
   .introduce_top {
     font-size: 1.76rem;
-    padding-bottom: 1.25rem;
+    padding-top: 0.8rem;
     color: ${sqWhite};
     @media screen and (max-width: 768px){
       font-size: 1.2rem;
@@ -68,6 +68,7 @@ export const TCIntroductionDiv = styled.div`
   .introduce_1semester {
     font-size: 1.5rem;
     color: ${sqWhite};
+    margin-top: 1.4rem;
     .introduce_content_1 {
       background-color: ${sqWhite};
       font-size: 1.4rem;
@@ -86,7 +87,9 @@ export const TCIntroductionDiv = styled.div`
       }
     }
     @media screen and (max-width: 768px){
-      font-size: 1rem;
+      font-size: 1.1rem;
+    }
+
     @media screen and (min-width:768px) and (max-width:1100px) {
       font-size:1.3rem;
     }
@@ -95,6 +98,7 @@ export const TCIntroductionDiv = styled.div`
   .introduce_2semester {
     font-size: 1.5rem;
     color: ${sqWhite};
+    margin-top: 1.4rem;
     .introduce_content_2 {
       background-color: ${sqWhite};
       font-size: 1.4rem;
@@ -113,7 +117,7 @@ export const TCIntroductionDiv = styled.div`
       }
     }
     @media screen and (max-width: 768px){
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     @media screen and (min-width:768px) and (max-width:1100px) {
       font-size:1.3rem;
