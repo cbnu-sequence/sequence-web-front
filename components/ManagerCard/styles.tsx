@@ -21,7 +21,7 @@ const ManagerCard = styled.div`
       border-radius: 5px;
       object-fit: cover;
       margin-bottom: 18px;
-      @media screen and (max-width: 900px) {
+ @media screen and (max-width: 1000px) {
         margin: 0 auto;
         margin-bottom: 1.2rem;
         width: 80%;
@@ -29,7 +29,7 @@ const ManagerCard = styled.div`
       }
     }
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     width: 100%;
     padding: 10% 2.2%;
   }

@@ -20,6 +20,7 @@ export const ModalContainer = styled.div`
   height: 70%;
   max-height: 80%;
   padding: 16px;
+  padding-bottom: 40rem;
   box-shadow: ${sqWhiteBoxShadow};
   background: ${sqWhite};
   border-radius: 10px;
@@ -29,13 +30,13 @@ export const ModalContainer = styled.div`
     flex-direction: column;
     align-items: center;
     & > img {
-      width: 70%;
-      height: 30rem;
+      width: 60%;
+      height: 25rem;
       object-fit: cover;
       box-shadow: ${sqWhiteBoxShadow};
       border-radius: 5px;
-      @media screen and (max-width: 786px) {
-        height: 23rem;
+      @media screen and (max-width: 1500px) {
+        height: 15rem;
       }
     }
     & > p {
@@ -45,6 +46,10 @@ export const ModalContainer = styled.div`
       @media screen and (max-width: 786px) {
         font-size: 1rem;
       }
+    }
+    font-size: 1.08rem;
+    @media screen and (max-width: 786px) {
+      font-size: 1rem;
     }
   }
   @media screen and (max-width: 786px) {

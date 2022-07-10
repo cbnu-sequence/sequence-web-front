@@ -34,6 +34,6 @@ export const ManagerBlock = styled.div`
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-  }  
+  }
 }
 `;

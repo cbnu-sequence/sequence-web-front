@@ -25,7 +25,11 @@ export const TCIntroductionDiv = styled.div`
     @media screen and (max-width: 768px){
       font-size: 2.55rem;
     }   
+    @media screen and (min-width:768px) and (max-width:1700px) {
+      font-size: 3.5rem;
+    }
   }
+
   .introduceBox {
     background-color: ${sqBlack};
     border-radius: 0.8rem;
@@ -33,12 +37,13 @@ export const TCIntroductionDiv = styled.div`
     color: ${sqWhite};
     padding: 1.5rem;
     margin: 2rem 19rem;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1660px){
       font-size: 1.4rem;
       margin: 0 auto;
       margin-top: 0.8rem;
-    }   
+    }  
   }
+
   .introduce_top {
     font-size: 1.76rem;
     padding-bottom: 1.25rem;
@@ -46,6 +51,9 @@ export const TCIntroductionDiv = styled.div`
     @media screen and (max-width: 768px){
       font-size: 1.2rem;
     }   
+    @media screen and (min-width:768px) and (max-width:1700px) {
+      font-size: 1.5rem;
+    }
   }
 
   .introduceBox2{
@@ -70,11 +78,20 @@ export const TCIntroductionDiv = styled.div`
       @media screen and (max-width: 768px){
         font-size: 1rem;
       }
+      @media screen and (min-width:768px) and (max-width:1100px) {
+        font-size:1.2rem;
+      }
+      @media screen and (min-width:1100px) and (max-width:1700px) {
+        font-size: 1.3rem;
+      }
     }
     @media screen and (max-width: 768px){
       font-size: 1rem;
+    @media screen and (min-width:768px) and (max-width:1100px) {
+      font-size:1.3rem;
     }
   }
+
   .introduce_2semester {
     font-size: 1.5rem;
     color: ${sqWhite};
@@ -88,9 +105,18 @@ export const TCIntroductionDiv = styled.div`
       @media screen and (max-width: 768px){
         font-size: 1rem;
       }
+      @media screen and (min-width:768px) and (max-width:1100px) {
+        font-size:1.2rem;
+      }
+      @media screen and (min-width:1100px) and (max-width:1700px) {
+        font-size: 1.3rem;
+      }
     }
     @media screen and (max-width: 768px){
       font-size: 1rem;
+    }
+    @media screen and (min-width:768px) and (max-width:1100px) {
+      font-size:1.3rem;
     }
   }
 `;
