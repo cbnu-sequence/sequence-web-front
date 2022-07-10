@@ -17,8 +17,7 @@ export const ModalContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 40%;
-  height: 70%;
-  max-height: 80%;
+  height: auto;
   padding: 16px;
   box-shadow: ${sqWhiteBoxShadow};
   background: ${sqWhite};
@@ -29,26 +28,36 @@ export const ModalContainer = styled.div`
     flex-direction: column;
     align-items: center;
     & > img {
-      width: 70%;
-      height: 30rem;
+      width: 60%;
+      height: 50%;
       object-fit: cover;
       box-shadow: ${sqWhiteBoxShadow};
       border-radius: 5px;
-      @media screen and (max-width: 786px) {
-        height: 23rem;
+      @media screen and (max-width: 768px) {
+        width: 83%;
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        width: 70%;
       }
     }
     & > p {
-      width: 70%;
+      width: 62%;
       margin-top: 2rem;
-      font-size: 1.08rem;
-      @media screen and (max-width: 786px) {
-        font-size: 1rem;
-      }
+      margin-bottom: 1rem;
+    }
+    font-size: 1.08rem;
+    @media screen and (max-width: 768px) {
+      font-size: 0.75rem;
+    }
+    @media (min-width: 768px) and (max-width: 1024px) {
+      font-size: 1rem;
     }
   }
-  @media screen and (max-width: 786px) {
+  @media screen and (max-width: 768px) {
     width: 80%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 50%;
   }
 `;
 

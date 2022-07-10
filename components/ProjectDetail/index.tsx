@@ -48,14 +48,15 @@ const ProjectDetail = ({ data }) => {
           )}
           <div className="explain__link">
             {data.githubUrl && (
-              <Link href={data.githubUrl}>
+
+              <Link href={data.githubUrl} passHref>
                 <div className="explain__link--githuburl">
                   <FaGithubSquare />
                 </div>
               </Link>
             )}
             {data.projectUrl && (
-              <Link href={data.projectUrl}>
+              <Link href={data.projectUrl} passHref>
                 <div className="explain__link--projecturl">
                   <GiSpiderWeb />
                 </div>
