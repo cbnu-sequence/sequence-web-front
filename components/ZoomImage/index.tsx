@@ -1,3 +1,4 @@
+import React from 'react';
 import { AiFillCloseCircle, AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { Block, ModalContainer } from './styles';
 
@@ -5,25 +6,25 @@ const ZoomImage = ({ setZoomImage, img, onPreviousImage, onNextImage, imgIndex, 
   return (
     <Block>
       <ModalContainer>
-        <div className="zoomImage-top">
-          <div className="zoomImage-top-null" />
-          <div className="zoomImage-top-icon" onClick={() => setZoomImage(false)}>
+        <div className="zoomImage">
+          <div className="zoomImage__null" />
+          <div className="zoomImage__icon" onClick={() => setZoomImage(false)}>
             <AiFillCloseCircle />
           </div>
         </div>
         {img && (
-          <div className="zoomImage-image">
+          <div className="zoomImage__img">
             <img src={img.url} alt={img.name} />
           </div>
         )}
-        <div className="zoomImage-bottom">
-          <button className="zoomImage-bottom-leftIcon" onClick={onPreviousImage}>
+        <div className="bottom">
+          <button className="bottom__leftIcon" onClick={onPreviousImage}>
             <AiOutlineArrowLeft />
           </button>
           <div>
             {imgIndex + 1} / {imgLength}
           </div>
-          <button className="zoomImage-bottom-rightIcon" onClick={onNextImage}>
+          <button className="bottom__rightIcon" onClick={onNextImage}>
             <AiOutlineArrowRight />
           </button>
         </div>

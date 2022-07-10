@@ -10,4 +10,8 @@ export const ProjectImgDiv = styled.div`
   width: 25vw;
   height: 18vw;
   padding-top: 3vw;
+  @media screen and (max-width: 768px) {
+    height: 12rem;
+    width: 100%;
+  }
 `;

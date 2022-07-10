@@ -3,6 +3,7 @@ import { sqWhiteBoxShadow, sqBlack, sqGray } from './constants';
 
 export const ManagerBlock = styled.div`
   margin: 5rem 3rem;
+  margin-bottom: -16rem;
 
   .title_top1 {
     margin : 0 auto;
@@ -18,7 +19,7 @@ export const ManagerBlock = styled.div`
 
   .title_top2 {
     margin : 0 auto;
-    margin-bottom : 5rem;
+    margin-bottom : 3.5rem;
     text-align: center;
     font-size: 4.3rem;
     font-weight: bold;
@@ -34,6 +35,5 @@ export const ManagerBlock = styled.div`
     justify-content: center;
     flex-flow: row wrap;
   }
-  
-  }
+}
 `;
