@@ -87,7 +87,6 @@ export const TCIntroductionDiv = styled.div`
     }
     @media screen and (max-width: 768px){
       font-size: 1rem;
-    }
     @media screen and (min-width:768px) and (max-width:1100px) {
       font-size:1.3rem;
     }

@@ -42,6 +42,10 @@ export const ModalContainer = styled.div`
     & > p {
       width: 70%;
       margin-top: 2rem;
+      font-size: 1.08rem;
+      @media screen and (max-width: 786px) {
+        font-size: 1rem;
+      }
     }
     font-size: 1.08rem;
     @media screen and (max-width: 786px) {

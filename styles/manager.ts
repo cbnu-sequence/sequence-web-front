@@ -4,7 +4,7 @@ import { sqWhiteBoxShadow, sqBlack, sqGray } from './constants';
 export const ManagerBlock = styled.div`
   margin: 5rem 3rem;
   margin-bottom: -16rem;
-  
+
   .title_top1 {
     margin : 0 auto;
     text-align: center;
