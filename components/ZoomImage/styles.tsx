@@ -16,47 +16,52 @@ export const ModalContainer = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 75%;
   height: 80%;
   max-height: 80%;
-  padding: 16px;
+  padding: 16px 16px 26px 16px;
   box-shadow: ${sqWhiteBoxShadow};
   background: white;
   border-radius: 10px;
   @media screen and (max-width: 768px) {
     width: 80%;
-    height: 65%;
+    height: 60%;
   }
 
-  .zoomImage-top {
+  .zoomImage {
     display: flex;
     margin-bottom: 0.5rem;
-    .zoomImage-top-null {
+    .zoomImage__null {
       flex: 1;
     }
-    .zoomImage-top-icon {
+    .zoomImage__icon {
       cursor: pointer;
       font-size: 1.2rem;
     }
   }
 
-  .zoomImage-image {
+  .zoomImage__img {
     width: 100%;
     height: 90%;
     img {
-      width: 100%;
+      object-fit: contain;
+      margin: 0 auto;
+      width: 700px;
       height: 100%;
     }
   }
 
-  .zoomImage-bottom {
+  .bottom {
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
-    .zoomImage-bottom-leftIcon,
-    .zoomImage-bottom-rightIcon {
+    .bottom__leftIcon,
+    .bottom__rightIcon {
       font-size: 1.2rem;
       font-weight: bold;
+    }
+    @media screen and (max-width: 768px) {
+      margin: 0.5rem 0;
     }
   }
 `;

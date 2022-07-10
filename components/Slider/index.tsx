@@ -40,4 +40,13 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 500,
+  responsive: [
+    {
+      breakpoint: 850,
+      settings: {
+        slidesToShow: 1,
+        centerPadding: '0',
+      },
+    },
+  ],
 };

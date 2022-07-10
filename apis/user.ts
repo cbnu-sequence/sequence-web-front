@@ -73,3 +73,12 @@ export async function postEmail() {
     return error.response;
   }
 }
+
+export async function ChangeMember(data: { email: string; part: string; team: string }) {
+  try {
+    const response = await axios.post('/member/admin', data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+}

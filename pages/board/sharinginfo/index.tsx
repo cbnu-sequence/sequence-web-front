@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Header from '../../../components/Header';
 import CommonHeader from '../../../components/Table/CommonHeader';
 import WriteBtn from '../../../components/Buttons/WriteBtn';
 import CommonTable from '../../../components/Table/CommonTable';
@@ -36,7 +35,7 @@ function SharingInfo() {
     return (
       <>
         {me && me?.role === 'Admin' && (
-          <Link href={'./write?category=sharingInfo'}>
+          <Link href={'./write?category=sharingInfo'} passHref>
             <WriteBtnBlock>
               <WriteBtn />
             </WriteBtnBlock>
@@ -54,7 +53,7 @@ function SharingInfo() {
       </Head>
       <CommonHeader title={'정보 공유'} />
       {me && me?.role === 'Admin' && (
-        <Link href={'./write?category=sharingInfo'}>
+        <Link href={'./write?category=sharingInfo'} passHref>
           <WriteBtnBlock>
             <WriteBtn />
           </WriteBtnBlock>
@@ -64,7 +63,7 @@ function SharingInfo() {
         {infoList &&
           infoList.data.map((item, index) => {
             return (
-              <Link key={item._id} href={`../../posts/${item._id}?category=sharingInfo`}>
+              <Link key={item._id} href={`../../posts/${item._id}?category=sharingInfo`} passHref>
                 <Tr key={item._id}>
                   <CommonTd>{limit * (page - 1) + (index + 1)}.</CommonTd>
                   <CommonTd>{item.writer.name}</CommonTd>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useCallback, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { HeaderDiv } from './styles';
+import { HeaderWithColor, HeaderDiv } from './styles';
 import { useUser } from '../../hooks/useUser';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -20,8 +20,8 @@ function Header() {
   }, [signout]);
 
   const onClose = useCallback(() => {
-    setIsToggled(!isToggled);
-  }, [isToggled]);
+    setIsToggled(false);
+  }, []);
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -37,12 +37,21 @@ function Header() {
   }, [loading]);
 
   return (
-    <HeaderDiv isToggled={isToggled} userToggled={userToggled}>
-      <div className={scrollPosition < 50 ? 'black-header' : 'white-header'}>
-        <div className="toggle" onClick={onClose}>
+    <HeaderDiv>
+      <HeaderWithColor
+        baseColor={scrollPosition < 50 ? 'black-header' : 'white-header'}
+        isToggled={isToggled}
+        userToggled={userToggled}
+      >
+        <div
+          className="toggle"
+          onClick={() => {
+            setIsToggled(!isToggled);
+          }}
+        >
           <FontAwesomeIcon aria-hidden={false} icon={!isToggled ? faBars : faTimes} />
         </div>
-        <Link href="/">
+        <Link href="/" passHref>
           <div className="logo">
             <div className="logo_b">
               <img className="logotype" src="/sequence_b.png" />
@@ -63,7 +72,7 @@ function Header() {
           <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
         </div>
         <ul className="header__menulist">
-          <Link href="/introduce">
+          <Link href="/introduce" passHref>
             <li onClick={onClose}>
               <a>시퀀스 소개</a>
             </li>
@@ -96,7 +105,7 @@ function Header() {
               </li>
             </ul>
           </li>
-          <Link href="/pomodoro">
+          <Link href="/pomodoro" passHref>
             <li onClick={onClose}>
               <a>뽀모도로</a>
             </li>
@@ -105,7 +114,7 @@ function Header() {
         <ul className="header__right">
           {me ? (
             <>
-              <Link href="/profile">
+              <Link href="/profile" passHref>
                 <li>
                   <a>프로필</a>
                 </li>
@@ -116,12 +125,12 @@ function Header() {
             </>
           ) : (
             <>
-              <Link href="/login">
+              <Link href="/login" passHref>
                 <li>
                   <a>로그인</a>
                 </li>
               </Link>
-              <Link href="/signup">
+              <Link href="/signup" passHref>
                 <li>
                   <a>회원가입</a>
                 </li>
@@ -129,7 +138,7 @@ function Header() {
             </>
           )}
         </ul>
-      </div>
+      </HeaderWithColor>
     </HeaderDiv>
   );
 }

@@ -2,7 +2,7 @@ import { User } from '../interfaces/user';
 
 const USER_LOCALSTORAGE_KEY = 'sequence_user';
 
-export function getStoredUser(): String {
+export function getStoredUser(): String | Object | void | null {
   if (typeof window !== 'undefined') {
     const storedUser = localStorage.getItem(USER_LOCALSTORAGE_KEY);
     return storedUser ? JSON.parse(storedUser) : null;
