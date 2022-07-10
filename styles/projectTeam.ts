@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqPink, sqWhite, sqWhiteBoxShadow } from './constants';
+import { sqPink, sqWhite, sqWhiteBoxShadow, sqDarkGray } from './constants';
 
 export const ProjectTeamBlock = styled.div`
   padding: 2rem 0;
@@ -8,7 +8,7 @@ export const ProjectTeamBlock = styled.div`
 
   .toptitle {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.1rem;
     font-weight: bold;
     @media screen and (max-width: 768px) {
       font-size: 1.5rem;
@@ -31,15 +31,18 @@ export const TopSquareBlock = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 5.2rem;
+  margin-bottom: 0.9rem;
+  padding: 0rem 1.8rem;
 
   .top_square {
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
     font-weight: 700;
     &:hover {
       transform: translateY(-5px);
       transition: ease-in-out 0.2s;
+      text-shadow: 0rem 0.218rem ${sqDarkGray};
     }
 
     @media screen and (max-width: 768px) {
@@ -91,7 +94,7 @@ export const ContentBlock = styled.div`
 
 export const ColorLine = styled.div`
   border-top: 6px solid gray;
-  margin: 0 3rem;
+  margin: 0.5rem 4.3rem;
   @media screen and (max-width: 768px) {
     margin: 0 2.5rem;
   }

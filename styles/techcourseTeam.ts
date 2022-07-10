@@ -14,80 +14,119 @@ export const TCIntroductionDiv = styled.div`
 
   .pullname {
     margin-top: 3rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: ${sqGray};
   }
   .shortname {
-    font-size: 3.5rem;
+    font-size: 4.15rem;
     font-weight: bold;
     color: ${sqBlack};
+    margin-top: -1rem;
     @media screen and (max-width: 768px){
-      font-size: 2.2rem;
+      font-size: 2.55rem;
     }   
+    @media screen and (min-width:768px) and (max-width:1700px) {
+      font-size: 3.5rem;
+    }
   }
+
   .introduceBox {
     background-color: ${sqBlack};
+    border-radius: 0.8rem;
     font-size: 2rem;
     color: ${sqWhite};
-    padding: 2rem;
-    @media screen and (max-width: 768px){
+    padding: 1.5rem;
+    margin: 2rem 19rem;
+    @media screen and (max-width: 1660px){
       font-size: 1.4rem;
-    }   
+      margin: 0 auto;
+      margin-top: 0.8rem;
+    }  
   }
+
   .introduce_top {
-    font-size: 2rem;
+    font-size: 1.76rem;
+    padding-bottom: 1.25rem;
     color: ${sqWhite};
     @media screen and (max-width: 768px){
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }   
+    @media screen and (min-width:768px) and (max-width:1700px) {
+      font-size: 1.5rem;
+    }
   }
 
   .introduceBox2{
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
+    @media screen and (max-width: 768px){
+      flex-direction: column;
+    }
   }
 
   .introduce_1semester {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: ${sqWhite};
     .introduce_content_1 {
       background-color: ${sqWhite};
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       color: ${sqBlack};
-      padding: 1rem;
+      padding: 1.7rem 2.1rem;
+      font-weight: bold;
+      border-radius: 0.4rem;
       @media screen and (max-width: 768px){
         font-size: 1rem;
+      }
+      @media screen and (min-width:768px) and (max-width:1100px) {
+        font-size:1.2rem;
+      }
+      @media screen and (min-width:1100px) and (max-width:1700px) {
+        font-size: 1.3rem;
       }
     }
     @media screen and (max-width: 768px){
       font-size: 1rem;
-      margin-right: 1rem;
+    }
+    @media screen and (min-width:768px) and (max-width:1100px) {
+      font-size:1.3rem;
     }
   }
+
   .introduce_2semester {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: ${sqWhite};
     .introduce_content_2 {
       background-color: ${sqWhite};
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       color: ${sqBlack};
-      padding: 1rem;
+      padding: 1.7rem 2.1rem;
+      font-weight: bold;
+      border-radius: 0.4rem;
       @media screen and (max-width: 768px){
         font-size: 1rem;
+      }
+      @media screen and (min-width:768px) and (max-width:1100px) {
+        font-size:1.2rem;
+      }
+      @media screen and (min-width:1100px) and (max-width:1700px) {
+        font-size: 1.3rem;
       }
     }
     @media screen and (max-width: 768px){
       font-size: 1rem;
+    }
+    @media screen and (min-width:768px) and (max-width:1100px) {
+      font-size:1.3rem;
     }
   }
 `;
 
 export const TCMemberDiv = styled.div`
   width: 90%;
-  margin : 5rem auto 0;
+  margin : 8rem auto 0;
   text-align: center;
-  font-size: 3rem;
+  font-size: 3.1rem;
   font-weight: bold;
   color: ${sqDarkGray};
 
@@ -96,7 +135,8 @@ export const TCMemberDiv = styled.div`
   }
 
   .tcMemberBox {
-    border-top: solid 1.5rem ${sqGray};
+    margin:0.5rem 4.3rem;
+    border-top: solid 0.6rem ${sqGray};
   }
 `;
 
