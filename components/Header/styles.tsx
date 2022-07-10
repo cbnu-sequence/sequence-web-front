@@ -14,7 +14,7 @@ export const HeaderDiv = styled.div`
   top: 0;
 `;
 
-export const HeaderColor = styled.div<HeaderProps>`
+export const HeaderWithColor = styled.div<HeaderProps>`
   width: 100vw;
   margin: 0 auto;
   height: 60px;
