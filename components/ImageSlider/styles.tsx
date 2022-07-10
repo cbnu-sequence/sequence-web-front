@@ -2,14 +2,15 @@ import styled from '@emotion/styled';
 import { sqGray } from '../../styles/constants';
 
 export const Block = styled.div`
-  .projectdetail-bodycontainer-image {
+  .image {
     display: flex;
+    justify-content: space-between;
     width: 80%;
     margin: 2rem auto 0;
     @media screen and (max-width: 768px) {
       width: 100%;
     }
-    .projectdetail-bodycontainer-leftIcon {
+    .image__leftIcon {
       font-size: 4rem;
       display: flex;
       align-items: center;
@@ -18,7 +19,7 @@ export const Block = styled.div`
         font-size: 2rem;
       }
     }
-    .projectdetail-bodycontainer-rightIcon {
+    .image__rightIcon {
       font-size: 4rem;
       display: flex;
       align-items: center;
@@ -27,12 +28,12 @@ export const Block = styled.div`
         font-size: 2rem;
       }
     }
-    .projectdetail-bodycontainer-img {
-      width: 100%;
-      margin: 1rem 1rem;
+    .image__img {
+      width: 70%;
+      margin: 1rem 0;
     }
     img {
-      width: 60%;
+      width: 100%;
       height: 320px;
       margin: 0 auto;
       cursor: pointer;
@@ -43,7 +44,7 @@ export const Block = styled.div`
       }
     }
   }
-  .projectdetail-bodycontainer-image-page {
+  .image__page {
     text-align: center;
     font-size: 0.8rem;
   }

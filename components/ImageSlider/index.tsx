@@ -1,3 +1,4 @@
+import React from 'react';
 import { useCallback, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import ZoomImage from '../ZoomImage';
@@ -27,18 +28,18 @@ const ImageSlider = ({ data }) => {
     <Block>
       {data.images.length > 0 && (
         <>
-          <div className="projectdetail-bodycontainer-image">
-            <button className="projectdetail-bodycontainer-leftIcon" onClick={onPreviousImage}>
+          <div className="image">
+            <button className="image__leftIcon" onClick={onPreviousImage}>
               <BiChevronLeft />
             </button>
-            <div className="projectdetail-bodycontainer-img" onClick={() => setZoomImage(true)}>
+            <div className="image__img" onClick={() => setZoomImage(true)}>
               <img src={data.images[imgIndex].url} alt={data.images[imgIndex].name} />
             </div>
-            <button className="projectdetail-bodycontainer-rightIcon" onClick={onNextImage}>
+            <button className="image__rightIcon" onClick={onNextImage}>
               <BiChevronRight />
             </button>
           </div>
-          <div className="projectdetail-bodycontainer-image-page">
+          <div className="image__page">
             {imgIndex + 1} / {data.images.length}
           </div>
         </>

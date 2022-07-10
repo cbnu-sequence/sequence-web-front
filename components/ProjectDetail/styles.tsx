@@ -5,28 +5,28 @@ export const ProjectDetailBlock = styled.div`
   width: 60%;
   margin: 0 auto;
 
-  .projectdetail-bodycontainer {
+  .body {
     font-size: 1rem;
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
     }
   }
 
-  .projectdetail-subbodycontainer {
+  .explain {
     border: 1px solid ${sqPink};
     border-top: 0;
     padding: 0 0.5rem;
-    margin-top: 1rem;
     border-radius: 10px;
     position: relative;
-    width: 100%;
-    .projectdetail-subbodycontainer-top {
+    width: 90%;
+    margin: 1rem auto 0;
+    .explain__top {
       display: flex;
       justify-content: end;
       position: relative;
       margin-bottom: 2rem;
       width: 100%;
-      .projectdetail-subbodycontainer-topborder {
+      .explain__top--topborder {
         width: 94%;
         border-top: 1px solid ${sqPink};
         @media screen and (max-width: 1350px) {
@@ -45,11 +45,11 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-subbodycontainer-year {
+  .explain__year {
     position: absolute;
     top: -10px;
     left: 2%;
-    font-weight: 700;
+    font-weight: 500;
     color: ${sqBlack};
 
     @media screen and (max-width: 1350px) {
@@ -67,40 +67,44 @@ export const ProjectDetailBlock = styled.div`
     }
   }
 
-  .projectdetail-subbodycontainer-content {
+  .explain__content {
     margin: 1.3rem auto;
     width: 92%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     //color: #8a7ac4;
     color: black;
     @media screen and (max-width: 768px) {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 
-  .projectdetail-subbodycontainer-participants {
+  .explain__participants {
     display: flex;
     margin: 1.3rem auto;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 92%;
     font-family: 'Noto Serif KR', serif;
     color: black;
-    .projectdetail-subbodycontainer-participant {
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
+    .explain__participant {
       margin-right: 0.4rem;
     }
   }
 
-  .projectdetail-subbodycontainer-tags {
+  .explain__tags {
     display: flex;
     flex-flow: row wrap;
     width: 92%;
     margin: 1.3rem auto 1.5rem auto;
     font-family: 'Noto Serif KR', serif;
     font-weight: 600;
+    font-size: 0.9rem;
 
-    .projectdetail-subbodycontainer-tag {
+    .explain__tag {
       margin-right: 1rem;
       margin-top: 0.5rem;
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -109,32 +113,32 @@ export const ProjectDetailBlock = styled.div`
       color: ${sqBlack};
       @media screen and (max-width: 768px) {
         margin-right: 0.3rem;
-        font-size: 0.5rem;
+        font-size: 0.6rem;
       }
     }
   }
 
-  .projectdetail-subbodycontainer-link {
+  .explain__link {
     display: flex;
     justify-content: end;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     position: absolute;
     right: 20px;
     bottom: -20px;
     color: ${sqPink};
-    z-index: 2;
+    z-index: 0;
     @media screen and (max-width: 768px) {
       font-size: 2rem;
       right: 10px;
     }
-    .projectdetail-subbodycontainer-link-githuburl {
+    .explain__link--githuburl {
       cursor: pointer;
       &:hover {
         font-weight: bold;
       }
     }
 
-    .projectdetail-subbodycontainer-link-projecturl {
+    .explain__link--projecturl {
       margin-left: 0.8rem;
       cursor: pointer;
       &:hover {
