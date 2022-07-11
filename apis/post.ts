@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { backUrl } from '../config/config';
-import { noticeList } from '../interfaces/post';
+import { noticeList, Project, ProjectResponse } from '../interfaces/post';
 
 axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
@@ -37,10 +37,13 @@ export function getPost(category: string, _id: string) {
     .catch((err) => console.error(err));
 }
 
-export function getProjectPost(_id: string) {
+export function getProjectPost(_id: string): Promise<ProjectResponse> {
   return axios
     .get(`project/${_id}`)
-    .then((res) => res.data)
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    })
     .catch((err) => console.error(err));
 }
 

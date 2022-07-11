@@ -19,7 +19,7 @@ export interface noticeList {
 export interface Writer {
   _id: string;
   name: string;
-  role: 'User' | 'Admin' | 'Member';
+  role: 'User' | 'Admin' | 'Member' | 'Operator';
 }
 
 export interface Project {
@@ -39,6 +39,12 @@ export interface Project {
   __v: string;
 }
 
+export interface ProjectResponse {
+  success: boolean;
+  status: number;
+  message: string;
+  data: Project;
+}
 export interface Img {
   _id: string;
   url: string;

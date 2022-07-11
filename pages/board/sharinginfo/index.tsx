@@ -85,9 +85,9 @@ export default SharingInfo;
 
 export async function getServerSideProps(context) {
   const cookie = context.req ? context.req.headers.cookie : '';
-  axios.defaults.headers.Cookie = '';
+  axios.defaults.headers.common.Cookie = '';
   if (context.req && cookie) {
-    axios.defaults.headers.Cookie = cookie;
+    axios.defaults.headers.common.Cookie = cookie;
   }
   const queryClient = new QueryClient();
 
