@@ -29,6 +29,8 @@ export const AddButton = styled.button`
 export const ItemBlock = styled.div`
   display: flex;
   font-weight: bold;
+  flex-flow: row wrap;
+  justify-content: start;
   .per_item {
     color: ${sqBlack};
   }
@@ -39,6 +41,7 @@ export const ItemBlock = styled.div`
   .per_item,
   .tag_item {
     margin: 0 0.5rem;
+    width: 100%;
     cursor: pointer;
     &:hover {
       color: ${sqRed};

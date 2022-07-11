@@ -21,7 +21,7 @@ export const ProjectDetailBlock = styled.div`
     padding: 0 0.5rem;
     border-radius: 10px;
     position: relative;
-    width: 90%;
+    width: 100%;
     margin: 1rem auto 0;
     .explain__top {
       display: flex;
