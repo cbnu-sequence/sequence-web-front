@@ -4,6 +4,9 @@ import { sqBlack, sqGray, sqPink, sqWhite } from '../../styles/constants';
 export const ProjectDetailBlock = styled.div`
   width: 60%;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    width: 83%;
+  }
 
   .body {
     font-size: 1rem;
