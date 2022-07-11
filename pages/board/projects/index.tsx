@@ -5,6 +5,7 @@ import { useProjects } from '../../../hooks/useProjects';
 import ProjectCard from '../../../components/ProjectCard';
 import { ProjectsDiv } from '../../../styles/projects';
 import NoList from '../../../components/NoList';
+import { Project } from '../../../interfaces/post';
 
 function Projects(): ReactElement {
   const { projects } = useProjects();

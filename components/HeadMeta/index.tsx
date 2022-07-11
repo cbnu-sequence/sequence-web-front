@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import { HeadProps } from '../../interfaces/headmeta';
 
-const HeadMeta = ({ title, description, image, url }) => {
+const HeadMeta = ({ title, description, image, url }: HeadProps) => {
   return (
     <Head>
       <meta name="description" content="성장 지향 프로젝트 동아리 시퀀스입니다." />
