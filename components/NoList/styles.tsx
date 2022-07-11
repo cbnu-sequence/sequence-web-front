@@ -17,7 +17,10 @@ export const NoListDiv = styled.div`
     height: 20%;
     border: 0.35rem solid ${sqDarkGray};
     margin: 0 auto;
-    margin-top: 8rem;
+    margin-top: 2rem;
+    @media screen and (max-width: 768px) {
+      width: 80%;
+    }
   }
 
   .flowerLogo_dg {
@@ -31,6 +34,9 @@ export const NoListDiv = styled.div`
     font-size: 2rem;
     text-align: center;
     color: ${sqDarkGray};
+    @media screen and (max-width: 768px) {
+      font-size: 1.1rem;
+    }
   }
 
   .hangul {
@@ -38,5 +44,8 @@ export const NoListDiv = styled.div`
     text-align: center;
     color: ${sqDarkGray};
     font-weight: 450;
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 `;

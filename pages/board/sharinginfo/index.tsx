@@ -13,7 +13,7 @@ import { useQuery } from 'react-query';
 import { queryKeys } from '../../../react-query/constants';
 import { getTable } from '../../../apis/post';
 import NoList from '../../../components/NoList';
-import { WriteBtnBlock } from '../../../components/Buttons/styles';
+import { NoListBtnBlock, WriteBtnBlock } from '../../../components/Buttons/styles';
 
 function SharingInfo() {
   const fallback = {};
@@ -34,14 +34,14 @@ function SharingInfo() {
   if (!infoList.data || infoList.data.length == 0) {
     return (
       <>
+        <NoList enTitle={'sharing information'} krTitle={'등록된 정보공유가 없습니다'} />;
         {me && me?.role === 'Admin' && (
           <Link href={'./write?category=sharingInfo'} passHref>
-            <WriteBtnBlock>
+            <NoListBtnBlock>
               <WriteBtn />
-            </WriteBtnBlock>
+            </NoListBtnBlock>
           </Link>
         )}
-        <NoList enTitle={'sharing information'} krTitle={'등록된 정보공유가 없습니다'} />;
       </>
     );
   }

@@ -187,7 +187,7 @@ function Profile() {
                   <div className="guest__email--valid">인증 완료</div>
                 ) : (
                   <div className="guest__email--novalid">
-                    <button onClick={onEmailCheck}>(미인증 상태) 이메일 인증하기</button>
+                    <button onClick={onEmailCheck}>(미인증) 이메일 인증하기</button>
                   </div>
                 )}
                 {emailcheckBtnClick && <EmailCheckProfile setEmailCheckBtnClick={setEmailCheckBtnClick} />}

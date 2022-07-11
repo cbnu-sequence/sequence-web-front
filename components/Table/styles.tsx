@@ -9,6 +9,9 @@ export const SQTh = styled(Thead)`
   word-spacing: 5px;
   color: ${sqWhite};
   font-size: 8px;
+  @media screen and (max-width: 768px) {
+    height: 20px;
+  }
 `;
 
 export const SQTableContainer = styled.div`
