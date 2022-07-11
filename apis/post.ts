@@ -27,7 +27,7 @@ export async function postFile(formData: FormData) {
 }
 
 export function getTable(category: string, page: number, limit: number) {
-  return axios.get(`/post/${category}?page=${page}&limit=${limit}`).then((response) => response.data);
+  return axios.get(`/post/${category}?page=${page}&limit=${limit}&sort=-createdAt`).then((response) => response.data);
 }
 
 export function getPost(category: string, _id: string) {
@@ -37,11 +37,11 @@ export function getPost(category: string, _id: string) {
     .catch((err) => console.error(err));
 }
 
-export function getProjectPost(_id: string){
+export function getProjectPost(_id: string) {
   return axios
     .get(`project/${_id}`)
-    .then(res => res.data)
-    .catch(err => console.error(err));
+    .then((res) => res.data)
+    .catch((err) => console.error(err));
 }
 
 export async function postProjectWrite(data: {
@@ -74,4 +74,3 @@ export async function postModify(
     return error.response;
   }
 }
-
