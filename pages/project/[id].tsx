@@ -22,7 +22,7 @@ function ProjectDetails() {
 
   return (
     <>
-      <HeadMeta title={project.title} description={project.content} />
+      <HeadMeta title={project.title} description={project.content} image={project.images ?? project.images[0]} />
       <ProjectDetail data={project} />
     </>
   );
