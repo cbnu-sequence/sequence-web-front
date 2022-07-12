@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 import { sqBlack, sqPink, sqLightGray, sqRed, sqWhite, sqGray } from './constants';
 
 export const ProfileDiv = styled.div`
-  height: 300px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
+  margin-bottom: 3rem;
 
   @media screen and (max-width: 768px){
     height: 150px;

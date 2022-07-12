@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostDetailDiv, Wrapper, PostBodyDiv } from './styles';
+import { PostDetailDiv, Wrapper, PostBodyDiv, ButtonDiv } from './styles';
 import PostHeader from '../PostHeader';
 import PostImages from '../PostImages';
 import PostFiles from '../PostFiles';
@@ -39,13 +39,18 @@ function PostDetail({
           <div dangerouslySetInnerHTML={{ __html: content }}></div>
           {files.length > 0 && <PostFiles files={files} />}
         </PostBodyDiv>
-        {me && me._id === writerId && (
-          <div className="editpost">
-            <Link href={`/posts/edit/${id}?category=${category}`}>
-              <button>수정하기</button>
-            </Link>
-          </div>
-        )}
+        <hr />
+        <ButtonDiv>
+          <>
+            {me && me._id === writerId && (
+              <div className="editpost">
+                <Link href={`/posts/edit/${id}?category=${category}`} passHref>
+                  <button>수정하기</button>
+                </Link>
+              </div>
+            )}
+          </>
+        </ButtonDiv>
       </PostDetailDiv>
     </Wrapper>
   );
