@@ -41,7 +41,6 @@ export function getProjectPost(_id: string): Promise<ProjectResponse> {
   return axios
     .get(`project/${_id}`)
     .then((res) => {
-      console.log(res.data);
       return res.data;
     })
     .catch((err) => console.error(err));
