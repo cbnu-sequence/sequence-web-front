@@ -13,7 +13,7 @@ const HeadMeta = ({ title, description, image, url }: HeadProps) => {
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title || '시퀀스'} />
       <meta property="og:description" content={description || '프로젝트 동아리 시퀀스'} />
-      <meta property="og:image" content={image || '/sqMakesD.png'} />
+      <meta property="og:image" content={image || '/sqMeta.png'} />
       <meta property="og:url" content={url || 'https://sequence.cbnu.ac.kr'} />
       <meta httpEquiv="Author" content={'naamukim,geunu97,songhaeunsong,songhee99'} />
       <meta name="Keywords" content="시퀀스, 프로젝트 동아리, 웹 개발" />
@@ -24,7 +24,7 @@ const HeadMeta = ({ title, description, image, url }: HeadProps) => {
       {/*<meta name="twitter:image" content={image} />*/}
       <meta name="twitter:site" content="sequence" />
       <meta name="twitter:creator" content="sequence" />
-      <meta name="google-site-verification" content="IsUbo0Ljch04OGt99wlyI39_F83dUWpy_D4pqgeNCrI" />
+      <meta name="google-site-verification" content="LUI6QdihQ1dQBS-fJNRcNqRx3ThHqjPKdArL6_1HrRA" />
       <html lang="ko" />
     </Head>
   );
