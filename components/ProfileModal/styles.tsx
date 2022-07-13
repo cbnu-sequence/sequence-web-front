@@ -44,13 +44,13 @@ export const ModalContainer = styled.div`
       width: 62%;
       margin-top: 2rem;
       margin-bottom: 1rem;
-    }
-    font-size: 1.08rem;
-    @media screen and (max-width: 768px) {
-      font-size: 0.75rem;
-    }
-    @media (min-width: 768px) and (max-width: 1024px) {
-      font-size: 1rem;
+      font-size: 1.08rem;
+      @media screen and (max-width: 768px) {
+        font-size: 0.75rem;
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        font-size: 1rem;
+      }
     }
   }
   @media screen and (max-width: 768px) {
