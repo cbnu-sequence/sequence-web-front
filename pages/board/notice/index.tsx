@@ -12,7 +12,7 @@ import { Tr } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useUser } from '../../../hooks/useUser';
 import WriteBtn from '../../../components/Buttons/WriteBtn';
-import { WriteBtnBlock } from '../../../components/Buttons/styles';
+import { NoListBtnBlock, WriteBtnBlock } from '../../../components/Buttons/styles';
 import NoList from '../../../components/NoList';
 import axios from 'axios';
 import { loadMyInfoAPI } from '../../../apis/user';
@@ -39,9 +39,9 @@ const Notice = () => {
         <>
           <NoList enTitle={'notice'} krTitle={'등록된 공지사항이 없습니다'} />;
           <Link href={'./write?category=notice'} passHref>
-            <WriteBtnBlock style={{ width: '75%' }}>
+            <NoListBtnBlock>
               <WriteBtn />
-            </WriteBtnBlock>
+            </NoListBtnBlock>
           </Link>
         </>
       );

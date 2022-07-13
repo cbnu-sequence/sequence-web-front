@@ -146,7 +146,7 @@ function Profile() {
             회원
           </div>
           {guestBtnClick && <div className="left__line--color" />}
-          {me.member && (
+          {me.member && me.member.team && (
             <>
               <div
                 className={memberBtnClick ? 'left__button--click' : 'left__button'}
@@ -182,12 +182,12 @@ function Profile() {
               <div className="guest__content">
                 <div className="guest__line">{me.email}</div>
                 <div className="guest__line">{me.role == 'User' ? '일반등급' : '관리자'}</div>
-                <div className="guest__line">{me.member ? 'O' : 'X'}</div>
+                <div className="guest__line">{me.member && me.member.team ? 'O' : 'X'}</div>
                 {me.valid ? (
                   <div className="guest__email--valid">인증 완료</div>
                 ) : (
                   <div className="guest__email--novalid">
-                    <button onClick={onEmailCheck}>(미인증 상태) 이메일 인증하기</button>
+                    <button onClick={onEmailCheck}>(미인증) 이메일 인증하기</button>
                   </div>
                 )}
                 {emailcheckBtnClick && <EmailCheckProfile setEmailCheckBtnClick={setEmailCheckBtnClick} />}

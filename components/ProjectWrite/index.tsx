@@ -7,6 +7,7 @@ import { Block, ErrorMessage, Editor, Input, ButtonBlock, WirteActionButton } fr
 import { AddButton, ImageBlock, ItemBlock, PreviewImageBlock, SecondInput } from './styles';
 import { MdRemoveCircleOutline } from 'react-icons/md';
 import router from 'next/router';
+import React from 'react';
 
 const ProjectWrite = () => {
   const [title, onChangeTitle] = useInput('');
