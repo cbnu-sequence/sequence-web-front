@@ -8,7 +8,7 @@ export const Block = styled.div`
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+  z-index: 1;
 `;
 
 export const ModalContainer = styled.div`
@@ -44,13 +44,13 @@ export const ModalContainer = styled.div`
       width: 62%;
       margin-top: 2rem;
       margin-bottom: 1rem;
-    }
-    font-size: 1.08rem;
-    @media screen and (max-width: 768px) {
-      font-size: 0.75rem;
-    }
-    @media (min-width: 768px) and (max-width: 1024px) {
-      font-size: 1rem;
+      font-size: 1.08rem;
+      @media screen and (max-width: 768px) {
+        font-size: 0.75rem;
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        font-size: 1rem;
+      }
     }
   }
   @media screen and (max-width: 768px) {

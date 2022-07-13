@@ -6,6 +6,9 @@ export const PostHeaderDiv = styled.div`
     display: block;
     font-size: 30px;
     font-weight: 500;
+    @media screen and (max-width: 768px) {
+      font-size: 21px;
+    }
   }
   .header-info {
     display: flex;

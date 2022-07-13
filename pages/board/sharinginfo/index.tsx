@@ -9,11 +9,14 @@ import CommonTd from '../../../components/Table/CommonTd';
 import dayjs from 'dayjs';
 import Pagination from '../../../components/Pagination';
 import { useUser } from '../../../hooks/useUser';
-import { useQuery } from 'react-query';
+import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { queryKeys } from '../../../react-query/constants';
 import { getTable } from '../../../apis/post';
 import NoList from '../../../components/NoList';
-import { WriteBtnBlock } from '../../../components/Buttons/styles';
+import { NoListBtnBlock, WriteBtnBlock } from '../../../components/Buttons/styles';
+import axios from 'axios';
+import { loadMyInfoAPI } from '../../../apis/user';
+
 
 function SharingInfo() {
   const fallback = {};
@@ -34,14 +37,14 @@ function SharingInfo() {
   if (!infoList.data || infoList.data.length == 0) {
     return (
       <>
+        <NoList enTitle={'sharing information'} krTitle={'등록된 정보공유가 없습니다'} />;
         {me && me?.role === 'Admin' && (
           <Link href={'./write?category=sharingInfo'} passHref>
-            <WriteBtnBlock>
+            <NoListBtnBlock>
               <WriteBtn />
-            </WriteBtnBlock>
+            </NoListBtnBlock>
           </Link>
         )}
-        <NoList enTitle={'sharing information'} krTitle={'등록된 정보공유가 없습니다'} />;
       </>
     );
   }
@@ -80,3 +83,26 @@ function SharingInfo() {
 }
 
 export default SharingInfo;
+
+export async function getServerSideProps(context) {
+  const cookie = context.req ? context.req.headers.cookie : '';
+  axios.defaults.headers.common.Cookie = '';
+  if (context.req && cookie) {
+    axios.defaults.headers.common.Cookie = cookie;
+  }
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.user, () => loadMyInfoAPI(cookie));
+  await queryClient.prefetchQuery([queryKeys.notice, 1, 10], () => getTable(queryKeys.sharingInfo, 1, 10));
+
+  let cleanInfo = JSON.parse(JSON.stringify(dehydrate(queryClient)));
+  if (cleanInfo.queries[0].state.data && typeof cleanInfo.queries[0].state.data != 'undefined') {
+    cleanInfo.queries[0].state.data = cleanInfo.queries[0].state.data.data;
+  }
+
+  return {
+    props: {
+      dehydratedState: cleanInfo,
+    },
+  };
+}

@@ -6,6 +6,9 @@ export const PostDetailDiv = styled.div`
   flex-direction: column;
   width: 50vw;
   margin-top: 20px;
+  @media screen and (max-width: 768px) {
+    width: 82%;
+  }
   // .header {
   //   width: 100%;
   //   height: auto;
@@ -33,15 +36,19 @@ export const PostDetailDiv = styled.div`
   //     }
   //   }
   // }
+  hr {
+    margin: 10rem 0 0.5rem 0;
+  }
+`;
 
+export const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: end;
   .editpost {
-    margin-top: 2rem;
     button {
-      font-size: 0.9rem;
-      background-color: black;
-      color: white;
-      padding: 0.3rem;
-      border-radius: 10px;
+      font-size: 0.8rem;
+      color: black;
+      font-weight: 600;
     }
   }
 `;

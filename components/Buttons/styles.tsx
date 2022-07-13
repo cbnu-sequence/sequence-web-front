@@ -7,6 +7,15 @@ export const WriteBtnBlock = styled.div`
   justify-content: end;
 `;
 
+export const NoListBtnBlock = styled.div`
+  width: 75%;
+  display: flex;
+  justify-content: end;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+`;
+
 export const WriteButton = styled.button`
   padding: 0 auto;
   border: none;
@@ -17,6 +26,11 @@ export const WriteButton = styled.button`
   text-align: center;
   color: ${sqWhite};
   background-color: ${sqBlack};
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+    width: 3.75rem;
+    height: 1.75rem;
+  }
   &:hover {
     color: ${sqWhite};
     background-color: ${sqDeepDarkGray};

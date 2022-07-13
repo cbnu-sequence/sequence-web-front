@@ -14,6 +14,7 @@ export const FooterDiv = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  z-index: 0;
   & > img {
     object-fit: contain;
     width: 10%;

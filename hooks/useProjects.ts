@@ -13,7 +13,7 @@ const commonOptions = {
 };
 
 // for useQuery call
-export async function getProjects(year): Promise<Project> {
+export async function getProjects(year): Promise<Project[]> {
   const {
     data: { data },
   } = await axiosInstance.get(`/project?year=${year}`);
@@ -51,18 +51,14 @@ export function useProjects(): UseProjects {
 
   const fallback = [];
 
-  const { data: projects = fallback }: { data: Array<Project> } = useQuery(
-    [queryKeys.projects, year],
-    () => getProjects(year),
-    {
-      ...commonOptions,
-      // select: showAll ? undefined : selectFn,
-      refetchOnMount: true,
-      refetchOnReconnect: true,
-      refetchOnWindowFocus: true,
-      refetchInterval: 1000000,
-    },
-  );
+  const { data: projects = fallback } = useQuery([queryKeys.projects, year], () => getProjects(year), {
+    ...commonOptions,
+    // select: showAll ? undefined : selectFn,
+    refetchOnMount: true,
+    refetchOnReconnect: true,
+    refetchOnWindowFocus: true,
+    refetchInterval: 1000000,
+  });
 
   return { projects, year, updateYear };
 }

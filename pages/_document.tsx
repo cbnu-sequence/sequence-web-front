@@ -28,12 +28,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
             rel="stylesheet"
           />
-          <HeadMeta
-            title={'시퀀스'}
-            description={'성장지향 프로젝트 동아리 시퀀스'}
-            image={'/sqMakesD'}
-            url={'https://sequence.cbnu.ac.kr'}
-          />
         </Head>
         <body>
           <Main />

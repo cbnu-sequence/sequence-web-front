@@ -4,6 +4,9 @@ import { sqBlack, sqGray, sqPink, sqWhite } from '../../styles/constants';
 export const ProjectDetailBlock = styled.div`
   width: 60%;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    width: 83%;
+  }
 
   .body {
     font-size: 1rem;
@@ -18,7 +21,7 @@ export const ProjectDetailBlock = styled.div`
     padding: 0 0.5rem;
     border-radius: 10px;
     position: relative;
-    width: 90%;
+    width: 100%;
     margin: 1rem auto 0;
     .explain__top {
       display: flex;
