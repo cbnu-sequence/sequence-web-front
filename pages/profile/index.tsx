@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useUser } from '../../hooks/useUser';
 import { ProfileDiv, CTDiv, AddButton, EditInput, Example } from '../../styles/profile';
 import Router from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
 import Link from 'next/link';
-import { Input, Tr } from '@chakra-ui/react';
+import { Tr } from '@chakra-ui/react';
 import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
 import { ChangeMember, ChangeUserProfile, loadMyInfoAPI, postEmail } from '../../apis/user';
@@ -294,7 +294,7 @@ function Profile() {
                 </div>
               )}
               <hr />
-              <Link href="/board/projects/write">
+              <Link href="/board/projects/write" passHref>
                 <button>프로젝트 추가하기</button>
               </Link>
             </div>
@@ -306,7 +306,7 @@ function Profile() {
         {me.posts && me.posts.length > 0 ? (
           <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
             {me.posts.map((item, index) => (
-              <Link href={`../../posts/${item._id}`} key={item._id}>
+              <Link href={`../../posts/${item._id}`} key={item._id} passHref>
                 <Tr>
                   <CommonTd>{index + 1}.</CommonTd>
                   <CommonTd>{me.name}</CommonTd>
