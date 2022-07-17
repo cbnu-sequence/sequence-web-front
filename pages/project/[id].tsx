@@ -6,19 +6,24 @@ import ProjectDetail from '../../components/ProjectDetail';
 import axios from 'axios';
 import { loadMyInfoAPI } from '../../apis/user';
 import { queryKeys } from '../../react-query/constants';
-
+import HeadMeta from '../../components/HeadMeta';
 function ProjectDetails() {
   const router = useRouter();
   // @ts-ignore
   const { id }: { id: string } = router.query;
-  const { isLoading, error, data } = useQuery([queryKeys.project, id], () => getProjectPost(id), {
+  const {
+    isLoading,
+    data: { data: project },
+  } = useQuery([queryKeys.project, id], () => getProjectPost(id), {
     keepPreviousData: true,
   });
+
   if (isLoading) return <div>Loading</div>;
 
   return (
     <>
-      <ProjectDetail data={data.data} />
+      <HeadMeta title={project.title} description={project.content} image={project.images ?? project.images[0]} />
+      <ProjectDetail data={project} />
     </>
   );
 }
@@ -26,12 +31,11 @@ function ProjectDetails() {
 export default ProjectDetails;
 export async function getServerSideProps(context) {
   const cookie = context.req ? context.req.headers.cookie : '';
-  axios.defaults.headers.Cookie = '';
+  axios.defaults.headers.common.Cookie = '';
   if (context.req && cookie) {
-    axios.defaults.headers.Cookie = cookie;
+    axios.defaults.headers.common.Cookie = cookie;
   }
   const id = context.query.id;
-  console.log(id);
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.user, () => loadMyInfoAPI(cookie));
