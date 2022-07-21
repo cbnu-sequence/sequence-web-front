@@ -1,18 +1,20 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useUser } from '../../hooks/useUser';
 import { ProfileDiv, CTDiv, AddButton, EditInput, Example } from '../../styles/profile';
-import Header from '../../components/Header';
 import Router from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
 import Link from 'next/link';
-import { Input, Tr } from '@chakra-ui/react';
+import { Tr } from '@chakra-ui/react';
 import CommonTd from '../../components/Table/CommonTd';
 import dayjs from 'dayjs';
-import { ChangeMember, ChangeUserProfile, postEmail } from '../../apis/user';
+import { ChangeMember, ChangeUserProfile, loadMyInfoAPI, postEmail } from '../../apis/user';
 import router from 'next/router';
 import NoList from '../../components/NoList';
 import EmailCheckProfile from '../../components/EmailCheckProfile';
 import useInput from '../../hooks/useInput';
+import axios from 'axios';
+import { dehydrate, QueryClient } from 'react-query';
+import { queryKeys } from '../../react-query/constants';
 
 function Profile() {
   const [guestBtnClick, setGuestBtnClick] = useState(true);
@@ -292,7 +294,7 @@ function Profile() {
                 </div>
               )}
               <hr />
-              <Link href="/board/projects/write">
+              <Link href="/board/projects/write" passHref>
                 <button>프로젝트 추가하기</button>
               </Link>
             </div>
@@ -304,7 +306,7 @@ function Profile() {
         {me.posts && me.posts.length > 0 ? (
           <CommonTable headers={['번호', '작성자', '작성일', '제목']}>
             {me.posts.map((item, index) => (
-              <Link href={`../../posts/${item._id}`} key={item._id}>
+              <Link href={`../../posts/${item._id}`} key={item._id} passHref>
                 <Tr>
                   <CommonTd>{index + 1}.</CommonTd>
                   <CommonTd>{me.name}</CommonTd>
@@ -323,3 +325,24 @@ function Profile() {
 }
 
 export default Profile;
+
+export async function getServerSideProps(context) {
+  const cookie = context.req ? context.req.headers.cookie : '';
+  axios.defaults.headers.common.Cookie = '';
+  if (context.req && cookie) {
+    axios.defaults.headers.common.Cookie = cookie;
+  }
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.user, () => loadMyInfoAPI(cookie));
+
+  let cleanInfo = JSON.parse(JSON.stringify(dehydrate(queryClient)));
+  if (cleanInfo.queries[0].state.data && typeof cleanInfo.queries[0].state.data != 'undefined') {
+    cleanInfo.queries[0].state.data = cleanInfo.queries[0].state.data.data;
+  }
+  return {
+    props: {
+      dehydratedState: cleanInfo,
+    },
+  };
+}
