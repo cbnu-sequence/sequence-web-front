@@ -33,17 +33,13 @@ export const ProfileDiv = styled.div`
   }
 `;
 
-export const ProfileMain = styled.div`
+export const ProfileMainDiv = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(240, 152, 152, 0.2);
   border-radius: 8px;
   width: 80%;
   margin: 0 auto 5rem;
   padding: 1rem 1rem;
   display: flex;
-`;
-
-export const ProfileMainMiddle = styled.div`
-  border-right: 2px solid ${sqLightGray};
 `;
 
 export const CTDiv = styled.div`

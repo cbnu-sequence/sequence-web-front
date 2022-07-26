@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useUser } from '../../hooks/useUser';
-import { ProfileDiv, CTDiv, ProfileMain, ProfileMainMiddle } from '../../styles/profile';
+import { ProfileDiv, CTDiv, ProfileMainDiv } from '../../styles/profile';
 import Router from 'next/router';
 import CommonTable from '../../components/Table/CommonTable';
 import Link from 'next/link';
@@ -12,12 +12,10 @@ import NoList from '../../components/NoList';
 import axios from 'axios';
 import { dehydrate, QueryClient } from 'react-query';
 import { queryKeys } from '../../react-query/constants';
-import ProfileMainLeft from '../../components/ProfileMainLeft';
-import ProfileMainRight from '../../components/ProfileMainRight';
+import ProfileMain from '../../components/ProfileMain';
 
 function Profile() {
   const { user: me } = useUser();
-  const [BtnClick, setBtnClick] = useState({ guestBtnClick: true, memberBtnClick: false, adminBtnClick: false });
 
   useEffect(() => {
     if (!(me && me._id)) {
@@ -36,11 +34,9 @@ function Profile() {
           <h2>sequence makes difference</h2>
         </div>
       </ProfileDiv>
-      <ProfileMain>
-        <ProfileMainLeft BtnClick={BtnClick} setBtnClick={setBtnClick} me={me} />
-        <ProfileMainMiddle />
-        <ProfileMainRight BtnClick={BtnClick} me={me} />
-      </ProfileMain>
+      <ProfileMainDiv>
+        <ProfileMain me={me} />
+      </ProfileMainDiv>
       <CTDiv>
         <span>내 게시글</span>
         {me.posts && me.posts.length > 0 ? (

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqGray, sqPink, sqWhite } from '../../styles/constants';
+import { sqGray, sqPink, sqWhite } from '../../../styles/constants';
 
 export const ProfileMainRightBlock = styled.div`
   margin-left: 1rem;
