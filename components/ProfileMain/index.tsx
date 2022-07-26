@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProfileMainMiddle } from './styles';
-import ProfileMainButton from './ProfileMainLeft';
-import ProfileMainScreen from './ProfileMainRight';
+import ProfileMainButton from './ProfileMainButton';
+import ProfileMainScreen from './ProfileMainScreen';
 
 const ProfileMain = ({ me }) => {
   const [BtnClick, setBtnClick] = useState({ guestBtnClick: true, memberBtnClick: false, adminBtnClick: false });
