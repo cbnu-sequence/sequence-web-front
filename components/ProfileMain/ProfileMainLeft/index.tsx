@@ -1,12 +1,12 @@
 import React from 'react';
-import { ProfileMainLeftBlock } from './styles';
+import { ProfileMainButtonBlock } from './styles';
 
-const ProfileMainLeft = ({ me, BtnClick, setBtnClick }) => {
+const ProfileMainButton = ({ me, BtnClick, setBtnClick }) => {
   const { guestBtnClick, memberBtnClick, adminBtnClick } = BtnClick;
   const { member, role } = me;
 
   return (
-    <ProfileMainLeftBlock>
+    <ProfileMainButtonBlock>
       <div
         className={guestBtnClick ? 'click' : 'no-click'}
         onClick={() => setBtnClick({ guestBtnClick: true, memberBtnClick: false, adminBtnClick: false })}
@@ -36,8 +36,8 @@ const ProfileMainLeft = ({ me, BtnClick, setBtnClick }) => {
           {adminBtnClick && <div className="btnline" />}
         </>
       )}
-    </ProfileMainLeftBlock>
+    </ProfileMainButtonBlock>
   );
 };
 
-export default ProfileMainLeft;
+export default ProfileMainButton;

@@ -2,12 +2,12 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { AddButton, EditInput } from './styles';
 import EmailCheckProfile from '../../EmailCheckProfile';
-import { ProfileMainRightBlock } from './styles';
+import { ProfileMainScreenBlock } from './styles';
 import useInput from '../../../hooks/useInput';
 import { ChangeMember, ChangeUserProfile, postEmail } from '../../../apis/user';
 import router from 'next/router';
 
-const ProfileMainRight = ({ BtnClick, me }) => {
+const ProfileMainScreen = ({ BtnClick, me }) => {
   const { guestBtnClick, memberBtnClick, adminBtnClick } = BtnClick;
   const { member, role } = me;
 
@@ -100,7 +100,7 @@ const ProfileMainRight = ({ BtnClick, me }) => {
   };
 
   return (
-    <ProfileMainRightBlock>
+    <ProfileMainScreenBlock>
       {guestBtnClick && (
         <div className="guest">
           <div className="title">
@@ -223,8 +223,8 @@ const ProfileMainRight = ({ BtnClick, me }) => {
           </Link>
         </div>
       )}
-    </ProfileMainRightBlock>
+    </ProfileMainScreenBlock>
   );
 };
 
-export default ProfileMainRight;
+export default ProfileMainScreen;
