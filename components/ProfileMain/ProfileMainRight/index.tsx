@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { AddButton, EditInput } from './styles';
-import EmailCheckProfile from '../EmailCheckProfile';
+import EmailCheckProfile from '../../EmailCheckProfile';
 import { ProfileMainRightBlock } from './styles';
-import useInput from '../../hooks/useInput';
-import { ChangeMember, ChangeUserProfile, postEmail } from '../../apis/user';
+import useInput from '../../../hooks/useInput';
+import { ChangeMember, ChangeUserProfile, postEmail } from '../../../apis/user';
 import router from 'next/router';
 
 const ProfileMainRight = ({ BtnClick, me }) => {
