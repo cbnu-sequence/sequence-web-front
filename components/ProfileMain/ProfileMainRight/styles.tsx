@@ -136,6 +136,7 @@ export const ProfileMainRightBlock = styled.div`
         }
         input {
           width: 30%;
+          text-align: center;
           @media screen and (max-width: 768px) {
             width: 70%;
           }
