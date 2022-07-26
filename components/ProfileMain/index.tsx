@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { ProfileMainMiddle } from './styles';
-import ProfileMainLeft from './ProfileMainLeft';
-import ProfileMainRight from './ProfileMainRight';
+import ProfileMainButton from './ProfileMainLeft';
+import ProfileMainScreen from './ProfileMainRight';
 
 const ProfileMain = ({ me }) => {
   const [BtnClick, setBtnClick] = useState({ guestBtnClick: true, memberBtnClick: false, adminBtnClick: false });
   return (
     <>
-      <ProfileMainLeft BtnClick={BtnClick} setBtnClick={setBtnClick} me={me} />
+      <ProfileMainButton BtnClick={BtnClick} setBtnClick={setBtnClick} me={me} />
       <ProfileMainMiddle />
-      <ProfileMainRight BtnClick={BtnClick} me={me} />
+      <ProfileMainScreen BtnClick={BtnClick} me={me} />
     </>
   );
 };

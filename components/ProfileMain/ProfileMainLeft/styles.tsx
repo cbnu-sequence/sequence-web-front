@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { sqRed } from '../../../styles/constants';
 
-export const ProfileMainLeftBlock = styled.div`
+export const ProfileMainButtonBlock = styled.div`
   margin-right: 1rem;
   width: 15%;
   text-align: center;
