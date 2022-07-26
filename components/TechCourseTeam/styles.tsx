@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
-import { sqBlack, sqDarkGray, sqGray, sqWhite } from './constants';
+import { sqBlack, sqDarkGray, sqGray, sqWhite } from '../../styles/constants';
 
 export const TechcourseteamDiv = styled.div`
   width: 100%;
-  margin : 0 auto;
+  margin: 0 auto;
   text-align: center;
 `;
 
 export const TCIntroductionDiv = styled.div`
   width: 70%;
-  margin : 0 auto;
+  margin: 0 auto;
   text-align: center;
 
   .pullname {
@@ -22,10 +22,10 @@ export const TCIntroductionDiv = styled.div`
     font-weight: bold;
     color: ${sqBlack};
     margin-top: -1rem;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       font-size: 2.55rem;
-    }   
-    @media screen and (min-width:768px) and (max-width:1700px) {
+    }
+    @media screen and (min-width: 768px) and (max-width: 1700px) {
       font-size: 3.5rem;
     }
   }
@@ -37,30 +37,30 @@ export const TCIntroductionDiv = styled.div`
     color: ${sqWhite};
     padding: 1.5rem;
     margin: 2rem 19rem;
-    @media screen and (max-width: 1660px){
+    @media screen and (max-width: 1660px) {
       font-size: 1.4rem;
       margin: 0 auto;
       margin-top: 0.8rem;
-    }  
+    }
   }
 
   .introduce_top {
     font-size: 1.76rem;
     padding-top: 0.8rem;
     color: ${sqWhite};
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       font-size: 1.2rem;
-    }   
-    @media screen and (min-width:768px) and (max-width:1700px) {
+    }
+    @media screen and (min-width: 768px) and (max-width: 1700px) {
       font-size: 1.5rem;
     }
   }
 
-  .introduceBox2{
+  .introduceBox2 {
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       flex-direction: column;
     }
   }
@@ -76,22 +76,22 @@ export const TCIntroductionDiv = styled.div`
       padding: 1.7rem 2.1rem;
       font-weight: bold;
       border-radius: 0.4rem;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         font-size: 1rem;
       }
-      @media screen and (min-width:768px) and (max-width:1100px) {
-        font-size:1.2rem;
+      @media screen and (min-width: 768px) and (max-width: 1100px) {
+        font-size: 1.2rem;
       }
-      @media screen and (min-width:1100px) and (max-width:1700px) {
+      @media screen and (min-width: 1100px) and (max-width: 1700px) {
         font-size: 1.3rem;
       }
     }
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       font-size: 1.1rem;
     }
 
-    @media screen and (min-width:768px) and (max-width:1100px) {
-      font-size:1.3rem;
+    @media screen and (min-width: 768px) and (max-width: 1100px) {
+      font-size: 1.3rem;
     }
   }
 
@@ -106,39 +106,39 @@ export const TCIntroductionDiv = styled.div`
       padding: 1.7rem 2.1rem;
       font-weight: bold;
       border-radius: 0.4rem;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         font-size: 1rem;
       }
-      @media screen and (min-width:768px) and (max-width:1100px) {
-        font-size:1.2rem;
+      @media screen and (min-width: 768px) and (max-width: 1100px) {
+        font-size: 1.2rem;
       }
-      @media screen and (min-width:1100px) and (max-width:1700px) {
+      @media screen and (min-width: 1100px) and (max-width: 1700px) {
         font-size: 1.3rem;
       }
     }
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       font-size: 1.1rem;
     }
-    @media screen and (min-width:768px) and (max-width:1100px) {
-      font-size:1.3rem;
+    @media screen and (min-width: 768px) and (max-width: 1100px) {
+      font-size: 1.3rem;
     }
   }
 `;
 
 export const TCMemberDiv = styled.div`
   width: 90%;
-  margin : 8rem auto 0;
+  margin: 8rem auto 0;
   text-align: center;
   font-size: 3.1rem;
   font-weight: bold;
   color: ${sqDarkGray};
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     font-size: 2.2rem;
   }
 
   .tcMemberBox {
-    margin:0.5rem 4.3rem;
+    margin: 0.5rem 4.3rem;
     border-top: solid 0.6rem ${sqGray};
   }
 `;
@@ -156,21 +156,21 @@ export const MembersBlock = styled.div`
     width: 50%;
     margin-top: 1rem;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       font-size: 0.9rem;
       width: 100%;
-    }   
+    }
 
     .name {
       margin-right: 0.5rem;
-    } 
+    }
 
-    img{
+    img {
       width: 7%;
       cursor: pointer;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         width: 8%;
-      }      
+      }
     }
 
     .email {
