@@ -155,7 +155,6 @@ const ProjectWrite = () => {
 
   return (
     <>
-      <Header />
       <Block>
         <Editor onSubmit={onProjectSubmit}>
           <p className="title">프로젝트 추가하기</p>
