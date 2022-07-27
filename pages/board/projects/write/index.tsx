@@ -9,5 +9,12 @@ function Write() {
   );
 }
 
-
 export default Write;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'default',
+    },
+  };
+};
