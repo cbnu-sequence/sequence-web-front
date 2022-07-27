@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { sqPink, sqWhite, sqWhiteBoxShadow, sqDarkGray } from './constants';
+import { sqDarkGray, sqWhite } from '../../styles/constants';
 
 export const ProjectTeamBlock = styled.div`
   padding: 2rem 0;

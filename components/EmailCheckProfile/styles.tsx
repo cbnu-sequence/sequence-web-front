@@ -16,6 +16,7 @@ export const EmailCheckProfileBlock = styled.form`
     border: 1px solid black;
     padding: 0.2rem;
     width: 35%;
+    text-align: center;
     @media screen and (max-width: 768px) {
       flex: 1;
       font-size: 0.4rem;
