@@ -6,6 +6,7 @@ import Router, { useRouter } from 'next/router';
 import { postFile, postWrite } from '../../apis/post';
 import TextEditor from './texteditor';
 import { MdRemoveCircleOutline } from 'react-icons/md';
+import React from 'react';
 
 export const WriteBoard = () => {
   const router = useRouter();
@@ -87,7 +88,6 @@ export const WriteBoard = () => {
 
   return (
     <>
-      <Header />
       <Block>
         <Editor onSubmit={onWriteSubmit}>
           <p className="title">글 작성하기</p>
