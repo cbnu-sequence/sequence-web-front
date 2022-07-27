@@ -6,3 +6,11 @@ const Manager = () => {
 };
 
 export default Manager;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: 'default',
+    },
+  };
+};
