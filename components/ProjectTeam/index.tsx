@@ -30,44 +30,46 @@ const ProJectTeam = ({ FrontendData, BackendData, DevopsData, IosData }) => {
         <div className="secondtitle">프론트엔드</div>
         <ColorLine />
         <ContentBlock>
-          {FrontendData.map((item) => (
-            <div key={item._id}>
-              <div className="item_top">
-                <div className="name">{item.user.name}</div>
-                {item.githubUrl && (
-                  <Link href={item.githubUrl} passHref>
-                    <img src="/github.png" />
-                  </Link>
-                )}
-                <div className="email">
-                  [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+          {FrontendData &&
+            FrontendData.map((item) => (
+              <div key={item._id}>
+                <div className="item_top">
+                  <div className="name">{item.user.name}</div>
+                  {item.githubUrl && (
+                    <Link href={item.githubUrl} passHref>
+                      <img src="/github.png" />
+                    </Link>
+                  )}
+                  <div className="email">
+                    [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+                  </div>
                 </div>
+                <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
               </div>
-              <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
-            </div>
-          ))}
+            ))}
         </ContentBlock>
       </MembersBlock>
       <MembersBlock id="bak">
         <div className="secondtitle">백엔드</div>
         <ColorLine />
         <ContentBlock>
-          {BackendData.map((item) => (
-            <div key={item._id}>
-              <div className="item_top">
-                <div className="name">{item.user.name}</div>
-                {item.githubUrl && (
-                  <Link href={item.githubUrl} passHref>
-                    <img src="/github.png" />
-                  </Link>
-                )}
-                <div className="email">
-                  [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+          {BackendData &&
+            BackendData.map((item) => (
+              <div key={item._id}>
+                <div className="item_top">
+                  <div className="name">{item.user.name}</div>
+                  {item.githubUrl && (
+                    <Link href={item.githubUrl} passHref>
+                      <img src="/github.png" />
+                    </Link>
+                  )}
+                  <div className="email">
+                    [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+                  </div>
                 </div>
+                <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
               </div>
-              <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
-            </div>
-          ))}
+            ))}
         </ContentBlock>
       </MembersBlock>
 
@@ -75,22 +77,23 @@ const ProJectTeam = ({ FrontendData, BackendData, DevopsData, IosData }) => {
         <div className="secondtitle">ios</div>
         <ColorLine />
         <ContentBlock>
-          {IosData.map((item) => (
-            <div key={item._id}>
-              <div className="item_top">
-                <div className="name">{item.user.name}</div>
-                {item.githubUrl && (
-                  <Link href={item.githubUrl} passHref>
-                    <img src="/github.png" />
-                  </Link>
-                )}
-                <div className="email">
-                  [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+          {IosData &&
+            IosData.map((item) => (
+              <div key={item._id}>
+                <div className="item_top">
+                  <div className="name">{item.user.name}</div>
+                  {item.githubUrl && (
+                    <Link href={item.githubUrl} passHref>
+                      <img src="/github.png" />
+                    </Link>
+                  )}
+                  <div className="email">
+                    [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+                  </div>
                 </div>
+                <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
               </div>
-              <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
-            </div>
-          ))}
+            ))}
         </ContentBlock>
       </MembersBlock>
 
@@ -98,22 +101,23 @@ const ProJectTeam = ({ FrontendData, BackendData, DevopsData, IosData }) => {
         <div className="secondtitle">데브옵스</div>
         <ColorLine />
         <ContentBlock>
-          {DevopsData.map((item) => (
-            <div key={item._id}>
-              <div className="item_top">
-                <div className="name">{item.user.name}</div>
-                {item.githubUrl && (
-                  <Link href={item.githubUrl} passHref>
-                    <img src="/github.png" />
-                  </Link>
-                )}
-                <div className="email">
-                  [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+          {DevopsData &&
+            DevopsData.map((item) => (
+              <div key={item._id}>
+                <div className="item_top">
+                  <div className="name">{item.user.name}</div>
+                  {item.githubUrl && (
+                    <Link href={item.githubUrl} passHref>
+                      <img src="/github.png" />
+                    </Link>
+                  )}
+                  <div className="email">
+                    [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+                  </div>
                 </div>
+                <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
               </div>
-              <div className="item_bottom">{item.comment ? `: ${item.comment}` : ': 소개가 없습니다'}</div>
-            </div>
-          ))}
+            ))}
         </ContentBlock>
       </MembersBlock>
     </ProjectTeamBlock>

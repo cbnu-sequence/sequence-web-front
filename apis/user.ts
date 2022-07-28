@@ -43,12 +43,7 @@ export async function getProjectMembers(part: string) {
 }
 
 export async function getTechCourseMembers() {
-  try {
-    const response = await axios.get('/member/techCourse');
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  return axios.get('/member/techCourse').then(response => response.data ).catch(error => console.log(error));
 }
 
 export async function ChangeUserProfile(data: { githubUrl: string; otherUrls: Array<string>; comment: string }) {
