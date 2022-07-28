@@ -3,7 +3,6 @@ import React from 'react';
 import { MembersBlock, TCIntroductionDiv, TCMemberDiv, TechcourseteamDiv } from './styles';
 
 const TechCourseTeam = ({ data }) => {
-  const Data = data.data.data;
   return (
     <>
       <TechcourseteamDiv>
@@ -42,19 +41,21 @@ const TechCourseTeam = ({ data }) => {
       </TechcourseteamDiv>
 
       <MembersBlock>
-        {Data.map((item) => (
-          <div key={item._id} className="item">
-            <div className="name">{item.user.name}</div>
-            {item.githubUrl && (
-              <Link href={item.githubUrl} passHref>
-                <img src="/github.png" />
-              </Link>
-            )}
-            <div className="email">
-              [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+        {data &&
+          data.data &&
+          data.data.map((item) => (
+            <div key={item._id} className="item">
+              <div className="name">{item.user.name}</div>
+              {item.githubUrl && (
+                <Link href={item.githubUrl} passHref>
+                  <img src="/github.png" />
+                </Link>
+              )}
+              <div className="email">
+                [{item.user.email.slice(-6) === ':kakao' ? item.user.email.slice(0, -6) : item.user.email} ]
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </MembersBlock>
     </>
   );

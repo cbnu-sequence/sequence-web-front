@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useQuery } from 'react-query';
+import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { getTechCourseMembers } from '../../../apis/user';
 import NoList from '../../../components/NoList';
 import { queryKeys } from '../../../react-query/constants';
@@ -7,14 +7,9 @@ import React from 'react';
 import TechCourseTeam from '../../../components/TechCourseTeam';
 
 const TechcourseTeam = () => {
-  const { data, isError } = useQuery([queryKeys.techcourseTeam], () => getTechCourseMembers(), {
-    refetchOnMount: true,
-    refetchOnReconnect: true,
-    refetchOnWindowFocus: true,
-    refetchInterval: 60000,
-  });
+  const { data, isLoading, isError } = useQuery([queryKeys.techcourseTeam]);
 
-  if (!data) return <p>로딩중 입니다.</p>;
+  if (isLoading) return <p>로딩중 입니다.</p>;
   if (isError) return <NoList enTitle={'members'} krTitle={'정보를 가져올 수 없습니다'} />;
 
   return (
@@ -28,3 +23,14 @@ const TechcourseTeam = () => {
 };
 
 export default TechcourseTeam;
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery([queryKeys.techcourseTeam], () => getTechCourseMembers());
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
