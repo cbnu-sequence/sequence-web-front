@@ -39,12 +39,7 @@ export function logOutAPI() {
 }
 
 export async function getProjectMembers(part: string) {
-  try {
-    const response = await axios.get(`/member/project?part=${part}`);
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  return axios.get(`/member/project?part=${part}`).then(response => response.data ).catch(error => console.log(error));
 }
 
 export async function getTechCourseMembers() {
