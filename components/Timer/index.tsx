@@ -1,7 +1,7 @@
+import React from 'react';
 import { TimerDiv } from './styles';
 
 const Timer = ({ min, sec, isActive }) => {
-  console.log(isActive);
   return (
     <TimerDiv isActive={isActive}>
       <div className="wrapper">
