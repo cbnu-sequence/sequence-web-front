@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import React from 'react';
 import { HeadProps } from '../../interfaces/headmeta';
 
 const HeadMeta = ({ title, description, image, url }: HeadProps) => {
@@ -25,7 +26,6 @@ const HeadMeta = ({ title, description, image, url }: HeadProps) => {
       <meta name="twitter:site" content="sequence" />
       <meta name="twitter:creator" content="sequence" />
       <meta name="google-site-verification" content="LUI6QdihQ1dQBS-fJNRcNqRx3ThHqjPKdArL6_1HrRA" />
-      <html lang="ko" />
     </Head>
   );
 };
