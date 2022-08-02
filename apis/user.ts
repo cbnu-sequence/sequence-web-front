@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { backUrl } from '../config/config';
+import { InitResponse } from '../interfaces/common';
+import { LogInAPI, KakaoLogInAPI, SignUpAPI } from '../interfaces/user';
 import { clearStoredUser } from '../user-storage/user-storage';
 
 axios.defaults.baseURL = backUrl;
@@ -18,15 +20,15 @@ export function loadMyInfoAPI(data) {
     });
 }
 
-export function logInAPI(data: { email: string; password: string }) {
+export function logInAPI(data: { email: string; password: string }): Promise<LogInAPI> {
   return axios.post('auth/login', data).then((response) => response.data);
 }
 
-export function kakaoLogInAPI(code: string | string[]) {
+export function kakaoLogInAPI(code: string | string[]): Promise<KakaoLogInAPI> {
   return axios.get(`auth/kakao/login?code=${code}`).then((response) => response.data);
 }
 
-export function signUpAPI(data: { email: string; name: string; password: string; phoneNumber: string }) {
+export function signUpAPI(data: { email: string; name: string; password: string; phoneNumber: string }): Promise<SignUpAPI> {
   return axios.post('/auth/register', data).then((response) => response.data);
 }
 
@@ -34,7 +36,7 @@ export function tokenConfirmAPI(data: { token: string }) {
   return axios.post('auth/valid', data).then((response) => response.data);
 }
 
-export function logOutAPI() {
+export function logOutAPI(): Promise<InitResponse> {
   return axios.get('auth/logout').then((response) => response.data);
 }
 
